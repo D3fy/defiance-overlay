@@ -1,0 +1,22 @@
+Index: contrib/dlz/drivers/sdlz_helper.c
+===================================================================
+RCS file: /proj/cvs/prod/bind9/contrib/dlz/drivers/sdlz_helper.c,v
+retrieving revision 1.3
+diff -u -r1.3 sdlz_helper.c
+--- contrib/dlz/drivers/sdlz_helper.c	14 May 2010 06:29:37 -0000	1.3
++++ contrib/dlz/drivers/sdlz_helper.c	5 Sep 2011 17:31:30 -0000
+@@ -50,8 +50,6 @@
+  * WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+  */
+
+-#ifdef DLZ
+-
+ #include <config.h>
+
+ #include <dns/log.h>
+@@ -527,5 +525,3 @@
+
+ 	return isc_mem_strdup(mctx, value);
+ }
+-
+-#endif
