@@ -18,7 +18,8 @@ IUSE=""
 
 RDEPEND=">=net-dns/bind-9.8.1_p1[dyndb]
 	 >=app-crypt/mit-krb5-1.10.1
-	 >=net-nds/openldap-2.4.28-r1[kerberos]"
+	 >=net-nds/openldap-2.4.28-r1[kerberos]
+	 >=dev-libs/cyrus-sasl-2.1.23-r6[kerberos,openldap]"
 
 src_unpack() {
     unpack ${A}
