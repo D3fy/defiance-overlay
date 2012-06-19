@@ -34,6 +34,7 @@ src_install()
 	mkdir .libs
 	cp -R  modules/webauth/.libs/* .libs/
 	apache-module_src_install
+	emake DESTDIR="${D}" install || die "emake install failed"
 }
 
 pkg_postinst() {

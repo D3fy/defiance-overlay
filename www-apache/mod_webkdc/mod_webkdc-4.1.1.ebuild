@@ -15,7 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 DEPEND="virtual/krb5
-	net-nds/openldap"
+	net-nds/openldap
+	www-apache/mod_fastcgi"
 
 RDEPEND="${DEPEND}"
 
@@ -35,6 +36,8 @@ src_install()
 	mkdir .libs
 	cp -R  modules/webkdc/.libs/* .libs/
 	apache-module_src_install
+#	einstall || die "emake failed"
+	emake DESTDIR="${D}" install || die "emake install failed"
 }
 
 pkg_postinst() {
