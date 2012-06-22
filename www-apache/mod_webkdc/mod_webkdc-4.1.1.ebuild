@@ -9,6 +9,7 @@ HOMEPAGE="http://webauth.stanford.edu/"
 p='webauth'
 pd=${p}-${PV}
 SRC_URI="http://webauth.stanford.edu/dist/${pd}.tar.gz"
+
 S=${WORKDIR}/${pd}
 LICENSE="as-is"
 SLOT="0"
@@ -20,7 +21,7 @@ DEPEND="virtual/krb5
 
 RDEPEND="${DEPEND}"
 
-APACHE2_MOD_CONF="19_${PN}"
+APACHE2_MOD_CONF="14_${PN}"
 APACHE2_MOD_DEFINE="WEBKDC"
 DOCFILES="INSTALL README"
 
@@ -44,6 +45,7 @@ pkg_postinst() {
         apache-module_pkg_postinst
 	/usr/bin/install -c ${S}/modules/webkdc/.libs/mod_webkdc.so ${APACHE_MODULESDIR}/mod_webkdc.so
         /usr/bin/install -c ${S}/modules/webkdc/.libs/mod_webkdc.lai ${APACHE_MODULESDIR}/mod_webkdc.la
-
+	elog "for more information on configuration go here:"
+	elog "http://webauth.stanford.edu/manual/mod/mod_webkdc.html"
 }
 
