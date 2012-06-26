@@ -2,7 +2,7 @@
 The Phoenix Funtoo Overlay
 ==========================
 
-:keywords: webauth, sso, single sign on, kerberos, ldap, dns, openvswitch, drbd, ebuild
+:keywords: webauth, sso, single sign on, kerberos, ldap, dns, openvswitch, drbd, funtoo, gentoo, ebuild
 :description: 
    
          An overlay for a dynamic/symantic source based distro
