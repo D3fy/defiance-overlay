@@ -78,12 +78,12 @@ src_install() {
 	apache-module_src_install
 	
 	insinto ${APACHE_MODULES_CONFDIR}
-	doins ${FILESDIR}/55_mod_webauth.conf
+	doins ${FILESDIR}/14_mod_webauth.conf
 	if use ldap ; then
-		doins ${FILESDIR}/56_mod_webauthldap.conf
+		doins ${FILESDIR}/14_mod_webauthldap.conf
 	fi
 	if use webkdc ; then
-		doins ${FILESDIR}/54_mod_webkdc.conf
+		doins ${FILESDIR}/14_mod_webkdc.conf
 	fi
 
 	keepdir /etc/webauth
