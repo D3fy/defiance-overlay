@@ -16,15 +16,13 @@ Introduction
 ============
 
          Ebuilds for sematic web stacks 
-         DNS Caching (bind dynamic cache) 
          Single Sign On (SSO) (Webauth) webauth ebuild
          
 TODO
 ====
         
         1) Fuseki ebuild
-        2) Ganglia ebuild update
-        3) /etc/eix-sync.conf configuration package and ebuild
+        2) /etc/eix-sync.conf configuration package and ebuild
                 for the express purpose of automatically updating 
                 this repository through normal gentoo commands
 
