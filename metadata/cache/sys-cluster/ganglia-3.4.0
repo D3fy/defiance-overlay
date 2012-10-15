@@ -1,0 +1,22 @@
+dev-libs/confuse dev-libs/expat >=dev-libs/apr-1.0 !dev-db/firebird pcre? ( dev-libs/libpcre ) python? ( =dev-lang/python-2* )
+dev-libs/confuse dev-libs/expat >=dev-libs/apr-1.0 !dev-db/firebird pcre? ( dev-libs/libpcre ) !minimal? ( net-analyzer/rrdtool >=app-admin/webapp-config-1.50.15 dev-lang/php[gd,xml,ctype,cgi] || ( <dev-lang/php-5.3[pcre] >=dev-lang/php-5.3 ) media-fonts/dejavu ) python? ( =dev-lang/python-2* )
+0
+mirror://sourceforge/ganglia/ganglia-3.4.0.tar.gz
+
+http://ganglia.sourceforge.net/
+BSD
+A scalable distributed monitoring system for clusters and grids
+amd64 ppc x86
+eutils multilib python toolchain-funcs user webapp
+minimal vhosts pcre python examples
+
+
+
+3
+
+configure install postinst prepare prerm setup
+
+
+
+
+
