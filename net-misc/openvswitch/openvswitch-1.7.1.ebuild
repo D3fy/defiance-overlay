@@ -74,6 +74,8 @@ src_install() {
 
 	newconfd "${FILESDIR}/ovsdb-server_conf" ovsdb-server
 	newconfd "${FILESDIR}/ovs-vswitchd_conf" ovs-vswitchd
+	newconfd "${FILESDIR}/ovs-brcompatd_conf" ovs-brcompatd
 	doinitd "${FILESDIR}/ovsdb-server"
 	doinitd "${FILESDIR}/ovs-vswitchd"
+	doinitd "${FILESDIR}/ovs-brcompatd" 
 }
