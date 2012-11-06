@@ -62,7 +62,8 @@ src_install() {
 	default
 	
 	if use modules; then
-	MODULE_NAMES="openvswitch_mod(misc:${S}:datapath/linux/) brcompat_mod(misc:${S}:datapath/linux/)"
+	# MODULE_NAMES="openvswitch_mod(misc:${S}:datapath/linux/) brcompat_mod(misc:${S}:datapath/linux/)"
+	MODULE_NAMES="openvswitch(misc:${S}:datapath/linux/) brcompat(misc:${S}:datapath/linux/)"
 	linux-mod_src_install
 	fi
 
