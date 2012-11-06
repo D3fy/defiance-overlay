@@ -86,8 +86,8 @@ src_install() {
 		webapp_src_preinst
 		insinto "${MY_HTDOCSDIR}"
 		# doins -r web/*
-		webapp_configfile "${MY_HTDOCSDIR}"/conf.php
-		webapp_src_install
+		# webapp_configfile "${MY_HTDOCSDIR}"/conf.php
+		# webapp_src_install
 
 		# webapp_src_install stomps on permissions, so do that
 		# stuff first.
