@@ -15,7 +15,7 @@ SRC_URI="http://openvswitch.org/releases/${P}.tar.gz"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="debug modules monitor bridge +pyside +ssl"
+IUSE="debug modules monitor +bridge +pyside +ssl"
 
 RDEPEND="ssl? ( dev-libs/openssl )
 	monitor? ( dev-python/twisted
