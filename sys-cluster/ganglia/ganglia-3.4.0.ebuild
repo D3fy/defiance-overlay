@@ -85,7 +85,7 @@ src_install() {
 	if ! use minimal; then
 		webapp_src_preinst
 		insinto "${MY_HTDOCSDIR}"
-		doins -r web/*
+		# doins -r web/*
 		webapp_configfile "${MY_HTDOCSDIR}"/conf.php
 		webapp_src_install
 
