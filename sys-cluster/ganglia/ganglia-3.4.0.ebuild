@@ -64,7 +64,7 @@ src_install() {
 
 	newinitd "${FILESDIR}"/gmond.rc-2 gmond
 	doman {mans/*.1,gmond/*.5} || die "Failed to install manpages"
-	dodoc AUTHORS INSTALL NEWS STATUS || die
+	dodoc AUTHORS INSTALL NEWS || die
 
 	dodir /etc/ganglia/conf.d
 	use python && dodir /usr/$(get_libdir)/ganglia/python_modules
