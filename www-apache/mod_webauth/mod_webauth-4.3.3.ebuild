@@ -72,9 +72,9 @@ src_test() {
 
 src_install() {
 	emake DESTDIR=${D} install || die "emake install failed"
-	if use webkdc ; then
-		emake DESTDIR=${D} install-webkdc || die "emake install-webkdc failed"
-	fi
+	# if use webkdc ; then
+	# 	emake DESTDIR=${D} install-webkdc || die "emake install-webkdc failed"
+	# fi
 	apache-module_src_install
 	
 	insinto ${APACHE_MODULES_CONFDIR}
