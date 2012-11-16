@@ -50,7 +50,7 @@ need_apache2
 
 src_compile() {
 	econf \
-		$(use_enable webkdc mod_webkdc) \
+		$(use_enable webkdc) \
 		$(use_enable perl) \
 		$(use_enable ldap mod_webauthldap) \
 		--with-apache=${APACHE_BASEDIR} \
