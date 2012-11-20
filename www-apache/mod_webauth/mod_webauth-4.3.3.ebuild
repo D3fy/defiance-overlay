@@ -26,10 +26,12 @@ RDEPEND="${DEPEND}
 	webkdc? (
 		virtual/perl-CGI
 		www-apache/mod_fcgid
-		dev-perl/HTML-Template
 		dev-perl/FCGI
 		dev-perl/Crypt-SSLeay
-		dev-perl/CGI-Application
+                dev-perl/CGI-Application-Plugin-AutoRunmode
+                dev-perl/CGI-Application-Plugin-Forward
+                dev-perl/CGI-Application-Plugin-Redirect
+                dev-perl/CGI-Application-Plugin-TT
 	)"
 
 
