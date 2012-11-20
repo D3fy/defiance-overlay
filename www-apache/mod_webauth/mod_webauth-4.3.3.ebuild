@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 2012 Defiance Engineering
 # Distributed under the terms of the GNU General Public License v2
 # $Header:  $
 
@@ -97,5 +97,6 @@ src_install() {
 		doins ${FILESDIR}/webkdc.conf
 		doins ${S}/src/modules/webkdc/token.acl
 	fi
-
+	dosym ${FILESDIR} /etc/webkdc
+	dosym ${D} /usr/local/share/webauth
 }
