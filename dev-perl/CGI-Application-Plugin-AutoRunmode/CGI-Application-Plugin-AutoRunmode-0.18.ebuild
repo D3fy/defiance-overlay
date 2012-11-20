@@ -4,19 +4,16 @@
 
 EAPI=4
 
-MODULE_AUTHOR=MARKSTOS
-MODULE_VERSION=4.50
+MODULE_AUTHOR=THILO
+MODULE_VERSION=0.18
 inherit perl-module
 
-DESCRIPTION="Framework for building reusable web-application"
+DESCRIPTION="Plugin to automatically register runmodes"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-perl/HTML-Template
-	perl-core/Class-ISA
-	perl-core/CGI
-	perl-core/Module-Build"
+DEPEND="dev-perl/CGI-Application"
 RDEPEND="${DEPEND}"
 
