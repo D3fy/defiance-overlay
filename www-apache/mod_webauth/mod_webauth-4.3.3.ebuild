@@ -29,6 +29,7 @@ RDEPEND="${DEPEND}
 		dev-perl/HTML-Template
 		dev-perl/FCGI
 		dev-perl/Crypt-SSLeay
+		dev-perl/CGI-Application
 	)"
 
 
