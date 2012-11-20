@@ -28,10 +28,10 @@ RDEPEND="${DEPEND}
 		www-apache/mod_fcgid
 		dev-perl/FCGI
 		dev-perl/Crypt-SSLeay
-                dev-perl/CGI-Application-Plugin-AutoRunmode
-                dev-perl/CGI-Application-Plugin-Forward
-                dev-perl/CGI-Application-Plugin-Redirect
-                dev-perl/CGI-Application-Plugin-TT
+    dev-perl/CGI-Application-Plugin-AutoRunmode
+    dev-perl/CGI-Application-Plugin-Forward
+    dev-perl/CGI-Application-Plugin-Redirect
+    dev-perl/CGI-Application-Plugin-TT
 	)"
 
 
@@ -98,5 +98,5 @@ src_install() {
 		doins ${S}/src/modules/webkdc/token.acl
 	fi
 	dosym ${FILESDIR} /etc/webkdc
-	dosym ${D} /usr/local/share/webauth
+	dosym /usr/share/weblogin /usr/local/share/weblogin
 }
