@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+
+if RUBY_VERSION < '1.9'
+  $KCODE = 'u'
+else
+  Encoding.default_internal = Encoding::UTF_8
+  Encoding.default_external = Encoding::UTF_8
+end
+
+require 'rubygems' if RUBY_VERSION < '1.9'
+require 'daemons'
+require 'etc'
+
+action, user, group = ARGV
+
+APP_ROOT = File.expand_path(File.dirname(__FILE__) + '/..')
+script_file = File.join(File.expand_path(APP_ROOT),'script','git-daemon')
+tmp_dir = File.join(File.expand_path(APP_ROOT), 'tmp/pids')
+
+options = {
+  :app_name   => "git-daemon",
+  :dir_mode   => :normal,
+  :dir        => tmp_dir,
+  :multiple   => true,
+  :ontop      => false,
+  :mode       => :load,
+  :backtrace  => true,
+  :monitor    => false,
+  :log_output => true
+}
+uid = Etc.getpwnam(user).uid
+gid = Etc.getgrnam(group).gid
+
+Process::GID.change_privilege(gid)
+Process::UID.change_privilege(uid)
+Daemons.run(script_file,options)
