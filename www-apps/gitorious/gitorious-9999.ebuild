@@ -1,14 +1,15 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 2012 Defiance Engineering
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-servers/nginx/nginx-0.7.62.ebuild,v 1.3 2009/09/18 19:22:29 keytoaster Exp $
-EAPI=2
+# $Header:  $
+EAPI=4
 
 DESCRIPTION="Gitorious aims to provide a great way of doing distributed opensource code collaboration."
 
 HOMEPAGE="http://gitorious.org/gitorious"
-LICENSE="AGPLv3"
+LICENSE="GPLv2"
 SLOT="0"
 KEYWORDS="amd64"
+IUSE="postgres mysql"
 
 EGIT_REPO_URI="git://gitorious.org/gitorious/mainline.git"
 inherit git
@@ -17,15 +18,18 @@ DEST_DIR="/var/www/gitorious/site/"
 HOME_DIR="/var/www/gitorious"
 USER="git"
 
+
 DEPEND=">=dev-vcs/git-1.6.4.4
 	dev-ruby/stompserver
 	>=dev-lang/ruby-1.8.7[threads]
-	>=app-misc/sphinx-0.9.8[mysql]
+	>=app-misc/sphinx-0.9.8[postgres]
 	dev-ruby/bundler
-	>=www-servers/nginx-0.7.65-r1[nginx_modules_http_proxy,nginx_modules_http_rewrite,nginx_modules_http_gzip]
 	>=net-misc/memcached-1.4.1
-	>=dev-db/mysql-5.0"
-RDEPEND="${DEPEND}"
+	=dev-db/mysql-5.0"
+RDEPEND="
+	postgres? dev-db/postgresql-server:9.2
+	mysql? 
+	${DEPEND}"
 
 pkg_nofetch()
 {
