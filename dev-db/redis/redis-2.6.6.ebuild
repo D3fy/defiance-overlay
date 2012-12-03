@@ -23,7 +23,7 @@ DEPEND=">=sys-devel/autoconf-2.63
 
 S="${WORKDIR}/${PN}-${PV/_/-}"
 
-REDIS_PIDDIR=/var/run/redis/
+REDIS_PIDDIR=/var/run/redis
 REDIS_PIDFILE=${REDIS_PIDDIR}/redis.pid
 REDIS_DATAPATH=/var/lib/redis
 REDIS_LOGPATH=/var/log/redis
