@@ -43,9 +43,7 @@ src_prepare() {
 	# now we will rewrite present Makefiles
 	# local makefiles=""
   for MKF in $(find -name 'Makefile' | cut -b 3-); do
-    sed -i	-e 's:$(CC):@CC@:g' \
-      -e 's:$(CFLAGS):@AM_CFLAGS@:g' \
-      -e 's: $(DEBUG)::g' \
+    sed -i	-e 's: $(DEBUG)::g' \
       -e 's:$(OBJARCH)::g' \
       -e 's:ARCH:TARCH:g' \
       -e '/^CCOPT=/s:$: $(LDFLAGS):g' \
