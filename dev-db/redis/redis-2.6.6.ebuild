@@ -60,7 +60,7 @@ src_prepare() {
 	cp "${FILESDIR}"/configure.ac-2.2 configure.ac
 	# sed -i	-e "s:AC_CONFIG_FILES(\[Makefile\]):AC_CONFIG_FILES([${makefiles}]):g" \
 	# 	configure.ac || die "Sed failed for configure.ac"
-	econf
+	# econf
 }
 
 src_compile() {
