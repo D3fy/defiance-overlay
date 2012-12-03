@@ -12,16 +12,13 @@ SRC_URI="http://redis.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="BSD"
 KEYWORDS="~amd64 ~x86 ~x86-macos ~x86-solaris"
-IUSE="+jemalloc tcmalloc test"
+IUSE="test"
 SLOT="0"
 
-RDEPEND="tcmalloc? ( dev-util/google-perftools )
-	jemalloc? ( >=dev-libs/jemalloc-3.0 )"
+RDEPEND=">=dev-libs/jemalloc-3.0"
 DEPEND=">=sys-devel/autoconf-2.63
 	test? ( dev-lang/tcl )
 	${RDEPEND}"
-REQUIRED_USE="tcmalloc? ( !jemalloc )
-	jemalloc? ( !tcmalloc )"
 
 S="${WORKDIR}/${PN}-${PV/_/-}"
 
@@ -36,12 +33,12 @@ pkg_setup() {
 	enewuser redis 75 -1 ${REDIS_DATAPATH} redis
 }
 
-src_prepare() {
+#src_prepare() {
 	# epatch "${FILESDIR}/redis-2.4.3-shared.patch"
 	# epatch "${FILESDIR}/redis-2.4.4-tcmalloc.patch"
-	if use jemalloc ; then
-		sed -i -e "s/je_/j/" src/zmalloc.c src/zmalloc.h
-	fi
+	#if use jemalloc ; then
+	#	sed -i -e "s/je_/j/" src/zmalloc.c src/zmalloc.h
+	#fi
 	# now we will rewrite present Makefiles
 	# local makefiles=""
 	# for MKF in $(find -name 'Makefile' | cut -b 3-); do
@@ -57,25 +54,25 @@ src_prepare() {
 	# 	makefiles+=" ${MKF}"
 	# done
 	# autodetection of compiler and settings; generates the modified Makefiles
-	cp "${FILESDIR}"/configure.ac-2.2 configure.ac
+#	cp "${FILESDIR}"/configure.ac-2.2 configure.ac
 	# sed -i	-e "s:AC_CONFIG_FILES(\[Makefile\]):AC_CONFIG_FILES([${makefiles}]):g" \
 	# 	configure.ac || die "Sed failed for configure.ac"
 	# econf
-}
+#}
 
 src_compile() {
 	# local myconf=""
 
-	if use tcmalloc ; then
-		myconf="${myconf} USE_TCMALLOC=yes"
-	elif use jemalloc ; then
-		myconf="${myconf} JEMALLOC_SHARED=yes"
-	else
-		myconf="${myconf} FORCE_LIBC_MALLOC=yes"
-	fi
+	#if use tcmalloc ; then
+	#	myconf="${myconf} USE_TCMALLOC=yes"
+	#elif use jemalloc ; then
+	#	myconf="${myconf} JEMALLOC_SHARED=yes"
+	#else
+	#	myconf="${myconf} FORCE_LIBC_MALLOC=yes"
+	#fi
 
 	# emake ${myconf}
-	emake 
+	emake MALLOC=jemalloc
 }
 
 src_install() {
