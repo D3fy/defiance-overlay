@@ -42,18 +42,17 @@ pkg_setup() {
 	#fi
 	# now we will rewrite present Makefiles
 	# local makefiles=""
-	# for MKF in $(find -name 'Makefile' | cut -b 3-); do
-	# 	mv "${MKF}" "${MKF}.in"
-	# 	sed -i	-e 's:$(CC):@CC@:g' \
-	# 		-e 's:$(CFLAGS):@AM_CFLAGS@:g' \
-	# 		-e 's: $(DEBUG)::g' \
-	# 		-e 's:$(OBJARCH)::g' \
-	# 		-e 's:ARCH:TARCH:g' \
-	# 		-e '/^CCOPT=/s:$: $(LDFLAGS):g' \
-	# 		"${MKF}.in" \
-	# 	|| die "Sed failed for ${MKF}"
-	# 	makefiles+=" ${MKF}"
-	# done
+  for MKF in $(find -name 'Makefile' | cut -b 3-); do
+    sed -i	-e 's:$(CC):@CC@:g' \
+      -e 's:$(CFLAGS):@AM_CFLAGS@:g' \
+      -e 's: $(DEBUG)::g' \
+      -e 's:$(OBJARCH)::g' \
+      -e 's:ARCH:TARCH:g' \
+      -e '/^CCOPT=/s:$: $(LDFLAGS):g' \
+      "${MKF}" \
+	  || die "Sed failed for ${MKF}"
+#	  makefiles+=" ${MKF}"
+	done
 	# autodetection of compiler and settings; generates the modified Makefiles
 #	cp "${FILESDIR}"/configure.ac-2.2 configure.ac
 	# sed -i	-e "s:AC_CONFIG_FILES(\[Makefile\]):AC_CONFIG_FILES([${makefiles}]):g" \
@@ -73,7 +72,7 @@ src_compile() {
 	#fi
 
 	# emake ${myconf}
-	make MALLOC=jemalloc
+	emake MALLOC=jemalloc
 }
 
 src_install() {
