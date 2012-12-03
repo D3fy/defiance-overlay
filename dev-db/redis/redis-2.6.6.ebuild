@@ -72,7 +72,7 @@ src_compile() {
 	#fi
 
 	# emake ${myconf}
-	emake MALLOC=jemalloc
+	emake MALLOC=jemalloc V=1 EXTLDFLAGS="${LDFLAGS}"
 }
 
 src_install() {
