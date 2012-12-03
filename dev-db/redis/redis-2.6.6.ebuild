@@ -74,7 +74,8 @@ src_compile() {
 		myconf="${myconf} FORCE_LIBC_MALLOC=yes"
 	fi
 
-	emake ${myconf}
+	# emake ${myconf}
+	emake 
 }
 
 src_install() {
