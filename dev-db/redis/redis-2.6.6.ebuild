@@ -57,7 +57,7 @@ src_prepare() {
 	# 	makefiles+=" ${MKF}"
 	# done
 	# autodetection of compiler and settings; generates the modified Makefiles
-	# cp "${FILESDIR}"/configure.ac-2.2 configure.ac
+	cp "${FILESDIR}"/configure.ac-2.2 configure.ac
 	# sed -i	-e "s:AC_CONFIG_FILES(\[Makefile\]):AC_CONFIG_FILES([${makefiles}]):g" \
 	# 	configure.ac || die "Sed failed for configure.ac"
 	eautoconf
