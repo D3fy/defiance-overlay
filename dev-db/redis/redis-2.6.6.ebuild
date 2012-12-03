@@ -4,7 +4,8 @@
 
 EAPI="4"
 
-inherit autotools eutils flag-o-matic user
+# inherit autotools eutils flag-o-matic user
+inherit eutils user
 
 DESCRIPTION="A persistent caching system, key-value and data structures database."
 HOMEPAGE="http://redis.io/"
@@ -72,7 +73,7 @@ src_compile() {
 	#fi
 
 	# emake ${myconf}
-	emake MALLOC=jemalloc V=1 EXTLDFLAGS="${LDFLAGS}"
+	emake MALLOC=jemalloc
 }
 
 src_install() {
