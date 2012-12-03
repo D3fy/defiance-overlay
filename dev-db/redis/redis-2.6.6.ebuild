@@ -12,7 +12,7 @@ SRC_URI="http://redis.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="BSD"
 KEYWORDS="~amd64 ~x86 ~x86-macos ~x86-solaris"
-IUSE="+jemalloc tcmalloc test"
+IUSE="jemalloc tcmalloc test"
 SLOT="0"
 
 RDEPEND="tcmalloc? ( dev-util/google-perftools )
@@ -43,28 +43,28 @@ src_prepare() {
 		sed -i -e "s/je_/j/" src/zmalloc.c src/zmalloc.h
 	fi
 	# now we will rewrite present Makefiles
-	local makefiles=""
-	for MKF in $(find -name 'Makefile' | cut -b 3-); do
-		mv "${MKF}" "${MKF}.in"
-		sed -i	-e 's:$(CC):@CC@:g' \
-			-e 's:$(CFLAGS):@AM_CFLAGS@:g' \
-			-e 's: $(DEBUG)::g' \
-			-e 's:$(OBJARCH)::g' \
-			-e 's:ARCH:TARCH:g' \
-			-e '/^CCOPT=/s:$: $(LDFLAGS):g' \
-			"${MKF}.in" \
-		|| die "Sed failed for ${MKF}"
-		makefiles+=" ${MKF}"
-	done
+	# local makefiles=""
+	# for MKF in $(find -name 'Makefile' | cut -b 3-); do
+	# 	mv "${MKF}" "${MKF}.in"
+	# 	sed -i	-e 's:$(CC):@CC@:g' \
+	# 		-e 's:$(CFLAGS):@AM_CFLAGS@:g' \
+	# 		-e 's: $(DEBUG)::g' \
+	# 		-e 's:$(OBJARCH)::g' \
+	# 		-e 's:ARCH:TARCH:g' \
+	# 		-e '/^CCOPT=/s:$: $(LDFLAGS):g' \
+	# 		"${MKF}.in" \
+	# 	|| die "Sed failed for ${MKF}"
+	# 	makefiles+=" ${MKF}"
+	# done
 	# autodetection of compiler and settings; generates the modified Makefiles
 	cp "${FILESDIR}"/configure.ac-2.2 configure.ac
-	sed -i	-e "s:AC_CONFIG_FILES(\[Makefile\]):AC_CONFIG_FILES([${makefiles}]):g" \
-		configure.ac || die "Sed failed for configure.ac"
+	# sed -i	-e "s:AC_CONFIG_FILES(\[Makefile\]):AC_CONFIG_FILES([${makefiles}]):g" \
+	# 	configure.ac || die "Sed failed for configure.ac"
 	eautoconf
 }
 
 src_compile() {
-	local myconf=""
+	# local myconf=""
 
 	if use tcmalloc ; then
 		myconf="${myconf} USE_TCMALLOC=yes"
