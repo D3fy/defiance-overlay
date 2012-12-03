@@ -37,8 +37,8 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/redis-2.4.3-shared.patch"
-	epatch "${FILESDIR}/redis-2.4.4-tcmalloc.patch"
+	# epatch "${FILESDIR}/redis-2.4.3-shared.patch"
+	# epatch "${FILESDIR}/redis-2.4.4-tcmalloc.patch"
 	if use jemalloc ; then
 		sed -i -e "s/je_/j/" src/zmalloc.c src/zmalloc.h
 	fi
