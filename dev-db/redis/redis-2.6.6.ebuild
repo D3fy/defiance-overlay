@@ -73,7 +73,7 @@ src_compile() {
 	#fi
 
 	# emake ${myconf}
-	emake MALLOC=jemalloc
+	make MALLOC=jemalloc
 }
 
 src_install() {
