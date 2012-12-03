@@ -12,7 +12,7 @@ SRC_URI="http://redis.googlecode.com/files/${P}.tar.gz"
 
 LICENSE="BSD"
 KEYWORDS="~amd64 ~x86 ~x86-macos ~x86-solaris"
-IUSE="jemalloc tcmalloc test"
+IUSE="+jemalloc tcmalloc test"
 SLOT="0"
 
 RDEPEND="tcmalloc? ( dev-util/google-perftools )
