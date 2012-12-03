@@ -34,7 +34,7 @@ pkg_setup() {
 	enewuser redis 75 -1 ${REDIS_DATAPATH} redis
 }
 
-#src_prepare() {
+src_prepare() {
 	# epatch "${FILESDIR}/redis-2.4.3-shared.patch"
 	# epatch "${FILESDIR}/redis-2.4.4-tcmalloc.patch"
 	#if use jemalloc ; then
@@ -43,7 +43,7 @@ pkg_setup() {
 	# now we will rewrite present Makefiles
 	# local makefiles=""
   for MKF in $(find -name 'Makefile' | cut -b 3-); do
-    sed -i	-e 's:$(CC):@CC@:g' \
+    esed -i	-e 's:$(CC):@CC@:g' \
       -e 's:$(CFLAGS):@AM_CFLAGS@:g' \
       -e 's: $(DEBUG)::g' \
       -e 's:$(OBJARCH)::g' \
@@ -58,7 +58,7 @@ pkg_setup() {
 	# sed -i	-e "s:AC_CONFIG_FILES(\[Makefile\]):AC_CONFIG_FILES([${makefiles}]):g" \
 	# 	configure.ac || die "Sed failed for configure.ac"
 	# econf
-#}
+}
 
 src_compile() {
 	# local myconf=""
