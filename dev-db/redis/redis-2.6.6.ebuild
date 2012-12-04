@@ -35,6 +35,7 @@ pkg_setup() {
 }
 
 src_prepare() {
+  epatch "${FILESDIR}/redis-2.6.6-config.patch"
 	# epatch "${FILESDIR}/redis-2.4.3-shared.patch"
 	# epatch "${FILESDIR}/redis-2.4.4-tcmalloc.patch"
 	#if use jemalloc ; then
@@ -76,35 +77,24 @@ src_compile() {
 src_install() {
 	# configuration file rewrites
 	insinto /etc/
-	sed -r \
-		-e "/^pidfile\>/s,/var.*,${REDIS_PIDFILE}," \
-		-e '/^daemonize\>/s,no,yes,' \
-		-e '/^# bind/s,^# ,,' \
-		-e '/^# maxmemory\>/s,^# ,,' \
-		-e '/^maxmemory\>/s,<bytes>,67108864,' \
-		-e "/^dbfilename\>/s,dump.rdb,${REDIS_DATAPATH}/dump.rdb," \
-		-e "/^dir\>/s, .*, ${REDIS_DATAPATH}/," \
-		-e '/^loglevel\>/s:(verbose|debug):notice:' \
-		-e "/^logfile\>/s:stdout:${REDIS_LOGFILE}:" \
-		<redis.conf \
-		>redis.conf.gentoo
-	newins redis.conf.gentoo redis.conf
-	use prefix || fowners redis:redis /etc/redis.conf
-	fperms 0644 /etc/redis.conf
+	doins redis.conf sentinel.conf
+	use prefix || fowners redis:redis /etc/{redis,sentinel}.conf
+	fperms 0644 /etc/{redis,sentinel}.conf
 
 	newconfd "${FILESDIR}/redis.confd" redis
 	newinitd "${FILESDIR}/redis.initd" redis
 
-	nonfatal dodoc 00-RELEASENOTES BUGS CONTRIBUTING README
+	nonfatal dodoc 00-RELEASENOTES BUGS CONTRIBUTING MANIFESTO README
 
 	dobin src/redis-cli
 	dosbin src/redis-benchmark src/redis-server src/redis-check-aof src/redis-check-dump
 	fperms 0750 /usr/sbin/redis-benchmark
+	dosym /usr/sbin/redis-server /usr/sbin/redis-sentinel
 
 	if use prefix; then
 		diropts -m0750
 	else
 		diropts -m0750 -o redis -g redis
 	fi
-	keepdir ${REDIS_DATAPATH} ${REDIS_LOGPATH}
+	keepdir /var/{log,lib}/redis
 }
