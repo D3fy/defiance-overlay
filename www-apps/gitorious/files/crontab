@@ -1,1 +1,0 @@
-* * * * * cd /var/www/gitorious/site && bundle exec /usr/bin/rake ultrasphinx:index RAILS_ENV="production"
