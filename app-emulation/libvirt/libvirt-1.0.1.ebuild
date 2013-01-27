@@ -224,7 +224,7 @@ src_configure() {
 
 	## hypervisors on the local host
 	myconf="${myconf} $(use_with xen) $(use_with xen xen-inotify)"
-	myconf+=" $(use_with xen xenapi)"
+	# myconf+=" $(use_with xen xenapi)"
 	if use xen && has_version ">=app-emulation/xen-tools-4.2.0"; then
 		myconf+=" --with-libxl"
 	else
