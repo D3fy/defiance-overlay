@@ -5,14 +5,12 @@
 EAPI=4
 
 MODULE_AUTHOR=BOOK
-MODULE_VERSION=1.301
+MODULE_VERSION=1.09
 inherit perl-module
 
-DESCRIPTION="Perl interface to Git repositories"
+DESCRIPTION="Object for running system commands"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-perl/System-Command"
-RDEPEND="${DEPEND}"
