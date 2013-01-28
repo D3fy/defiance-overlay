@@ -21,7 +21,8 @@ Introduction
 Installation
 ============
 
-        :: 
+    :: 
+    
           cd /usr/local && git clone https://github.com/GrayTShirt/phoenix-overlay.git
           echo "PORTDIR_OVERLAY=\"/usr/local/phoenix-overlay\"" >> /etc/make.conf
           echo -e "@emerge --regen --quiet
