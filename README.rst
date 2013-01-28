@@ -5,7 +5,7 @@ The Phoenix Funtoo Overlay
 :keywords: webauth, sso, single sign on, kerberos, ldap, dns, openvswitch, drbd, funtoo, gentoo, ebuild
 :description: 
    
-         An overlay for a dynamic/symantic source based distro
+        An overlay for a dynamic/symantic source based distro
          
 :author: Daniel Molik
 :contact: dan@runedrive.com
@@ -15,17 +15,18 @@ The Phoenix Funtoo Overlay
 Introduction
 ============
 
-         Ebuilds for sematic web stacks 
-         Single Sign On (SSO) (Webauth) webauth ebuild
+        Ebuilds for sematic web stacks 
+        Single Sign On (SSO) (Webauth) webauth ebuild
          
 Installation
 ============
 
-         cd /usr/local && git clone https://github.com/GrayTShirt/phoenix-overlay.git\n
-         echo "PORTDIR_OVERLAY=\"/usr/local/phoenix-overlay\"" >> /etc/make.conf\n
-         echo -e "@emerge --regen --quiet\n
-         @egencache --repo=Phoenix --update\n
-         !cd /usr/local/portage && git pull" > /etc/eix-sync.conf
+        :: 
+          cd /usr/local && git clone https://github.com/GrayTShirt/phoenix-overlay.git
+          echo "PORTDIR_OVERLAY=\"/usr/local/phoenix-overlay\"" >> /etc/make.conf
+          echo -e "@emerge --regen --quiet
+          @egencache --repo=Phoenix --update
+          !cd /usr/local/portage && git pull" > /etc/eix-sync.conf
           
           
 TODO
