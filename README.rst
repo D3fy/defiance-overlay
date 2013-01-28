@@ -21,10 +21,10 @@ Introduction
 Installation
 ============
 
-         cd /usr/local && git clone https://github.com/GrayTShirt/phoenix-overlay.git
-         echo "PORTDIR_OVERLAY=\"/usr/local/phoenix-overlay\"" >> /etc/make.conf
-         echo -e "@emerge --regen --quiet
-         @egencache --repo=Phoenix --update
+         cd /usr/local && git clone https://github.com/GrayTShirt/phoenix-overlay.git\n
+         echo "PORTDIR_OVERLAY=\"/usr/local/phoenix-overlay\"" >> /etc/make.conf\n
+         echo -e "@emerge --regen --quiet\n
+         @egencache --repo=Phoenix --update\n
          !cd /usr/local/portage && git pull" > /etc/eix-sync.conf
           
           
