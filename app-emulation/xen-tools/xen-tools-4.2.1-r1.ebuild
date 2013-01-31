@@ -48,7 +48,6 @@ CDEPEND="<dev-libs/yajl-2
 	${PYTHON_DEPS}
 	api? ( dev-libs/libxml2
 		net-misc/curl )
-	${PYTHON_DEPS}
 	pygrub? ( ${PYTHON_DEPS//${PYTHON_REQ_USE}/ncurses} )"
 DEPEND="${CDEPEND}
 	dev-lang/perl

@@ -24,14 +24,14 @@ diff -ur xen-4.2.0.orig/tools/libxc/Makefile xen-4.2.0/tools/libxc/Makefile
 
  # Needed for posix_fadvise64() in xc_linux.c
 # Drop .config
-diff -ur xen-4.2.0.orig/Config.mk xen-4.2.0/Config.mk
---- Config.mk	2012-09-17 18:23:12.000000000 +0800
-+++ Config.mk	2012-12-05 14:01:10.641260261 +0800
-@@ -7,7 +7,6 @@
+#diff -ur xen-4.2.0.orig/Config.mk xen-4.2.0/Config.mk
+#--- Config.mk	2012-09-17 18:23:12.000000000 +0800
+#+++ Config.mk	2012-12-05 14:01:10.641260261 +0800
+#@@ -7,7 +7,6 @@
  # fallback for older make
- realpath = $(wildcard $(foreach file,$(1),$(shell cd -P $(dir $(file)) && echo "$$PWD/$(notdir $(file))")))
- 
---include $(XEN_ROOT)/.config
+# realpath = $(wildcard $(foreach file,$(1),$(shell cd -P $(dir $(file)) && echo "$$PWD/$(notdir $(file))")))
+# 
+#--include $(XEN_ROOT)/.config
  
  # A debug build of Xen and tools?
  debug ?= n
