@@ -38,7 +38,7 @@ IUSE="api custom-cflags debug doc flask hvm qemu ocaml pygrub screen static-libs
 REQUIRED_USE="hvm? ( qemu )"
 
 CDEPEND="<dev-libs/yajl-2
-	dev-python/lxml[${PYTHON_USEDEP}]
+	dev-python/lxml
 	dev-python/pypam[${PYTHON_USEDEP}]
 	dev-python/pyxml[${PYTHON_USEDEP}]
 	sys-libs/zlib
