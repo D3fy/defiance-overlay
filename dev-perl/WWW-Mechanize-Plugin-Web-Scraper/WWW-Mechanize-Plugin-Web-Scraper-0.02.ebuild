@@ -15,6 +15,7 @@ IUSE=""
 DEPEND="dev-perl/WWW-Mechanize-Pluggable
 	dev-perl/Web-Scraper
 	dev-perl/HTML-TreeBuilder-XPath
-	dev-perl/HTML-Selector-XPath"
+	dev-perl/HTML-Selector-XPath
+	dev-perl/UNIVERSAL-require"
 RDEPEND="${DEPEND}"
 
