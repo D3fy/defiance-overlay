@@ -12,6 +12,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-perl/WWW-Mechanize"
+DEPEND="dev-perl/WWW-Mechanize
+	dev-perl/Data-Dump-Streamer"
 RDEPEND="${DEPEND}"
 
