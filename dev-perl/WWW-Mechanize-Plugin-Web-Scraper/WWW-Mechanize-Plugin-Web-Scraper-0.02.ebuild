@@ -13,7 +13,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="dev-perl/WWW-Mechanize-Pluggable
-	dev-perl/WWW-Scraper"
+	dev-perl/Web-Scraper"
 
 RDEPEND="${DEPEND}"
 
