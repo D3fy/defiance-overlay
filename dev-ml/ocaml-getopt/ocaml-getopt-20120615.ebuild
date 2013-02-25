@@ -22,7 +22,7 @@ KEYWORDS="~amd64 ~ppc ~x86"
 
 src_compile()
 {
-	emake all || die "make failed"
+	emake || die "make failed"
 	if use ocamlopt; then
 		emake opt || die "make opt failed"
 	fi
