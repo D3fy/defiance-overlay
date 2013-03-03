@@ -40,7 +40,7 @@ RDEPEND="
 			x11-libs/libXcursor
 			x11-libs/libXfixes
 			x11-libs/libXxf86vm
-			x11-libs/qt-core:4
+			dev-qt/qtcore:4
 			dev-qt/qtgui:4[accessibility]
 	)
 "
