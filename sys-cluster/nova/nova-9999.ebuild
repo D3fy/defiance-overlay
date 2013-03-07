@@ -34,7 +34,7 @@ src_install() {
 	# documentation
 	# api-paste config and others:
 	docinto etc
-	dodoc ${S}/etc/nova/*
+	dodoc -r ${S}/etc/nova/*
 	# restructuredtext docs:
 	docinto rst
 	dodoc -r ${S}/doc/source/*
