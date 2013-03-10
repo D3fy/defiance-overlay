@@ -1,0 +1,26 @@
+diff --git a/src/native/Makefile.am b/src/native/Makefile.am
+index 39ebea8..10086df 100644
+--- a/src/native/Makefile.am
++++ b/src/native/Makefile.am
+@@ -47,7 +47,7 @@ libhadoop_la_SOURCES = src/org/apache/hadoop/io/compress/zlib/ZlibCompressor.c \
+                        src/org/apache/hadoop/io/nativeio/file_descriptor.c \
+                        src/org/apache/hadoop/io/nativeio/errno_enum.c \
+                        src/org/apache/hadoop/io/nativeio/NativeIO.c
+-libhadoop_la_LDFLAGS = -version-info 1:0:0
++libhadoop_la_LDFLAGS = @JNI_LDFLAGS@ -version-info 1:0:0
+ libhadoop_la_LIBADD = -ldl -ljvm
+ 
+ #
+diff --git a/src/native/configure.ac b/src/native/configure.ac
+index d826e56..58991c6 100644
+--- a/src/native/configure.ac
++++ b/src/native/configure.ac
+@@ -55,6 +55,8 @@ JNI_LDFLAGS=""
+ if test $JAVA_HOME != ""
+ then
+   JNI_LDFLAGS="-L$JAVA_HOME/jre/lib/$OS_ARCH/server"
++  JVMSOPATH=`find $JAVA_HOME/jre/ -name libjvm.so | head -n 1`
++  JNI_LDFLAGS="$JNI_LDFLAGS -L`dirname $JVMSOPATH`"
+ fi
+ ldflags_bak=$LDFLAGS
+ LDFLAGS="$LDFLAGS $JNI_LDFLAGS"
