@@ -17,6 +17,7 @@ Introduction
 
         Ebuilds for sematic web stacks 
         Single Sign On (SSO) (Webauth) webauth ebuild
+        Big Data
          
 Installation
 ============
@@ -29,12 +30,17 @@ Installation
           @egencache --repo=Phoenix --update
           !cd /usr/local/portage && git pull" > /etc/eix-sync.conf
           
-          
 TODO
 ====
         
-        1) Fuseki ebuild
-        2) /etc/eix-sync.conf configuration package and ebuild
-                for the express purpose of automatically updating 
-                this repository through normal gentoo commands
-
+   Big Data
+         1) Apache Activemq
+         2) Apache Hive
+         3) Apache Mesos
+         4) Spark
+         5) Apache Giraphe
+         6) Shark
+         7) Apache Mahout
+         8) Apache Pig
+   Virtualization
+         1) Fog
