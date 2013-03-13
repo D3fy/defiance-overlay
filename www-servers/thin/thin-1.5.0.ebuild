@@ -41,7 +41,7 @@ all_ruby_prepare() {
 
 	# Fix specs' dependencies so that the extension is not rebuilt
 	# when running tests
-	sed -i -e '/:spec =>/s:^:#:' tasks/spec.rake || die
+	# sed -i -e '/:spec =>/s:^:#:' tasks/spec.rake || die
 
 	# Fix rspec version to allow newer 1.x versions
 	# sed -i -e '/gem "rspec"/ s/1.2.9/1.0/' tasks/spec.rake spec/spec_helper.rb || die
