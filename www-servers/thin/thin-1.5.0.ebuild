@@ -28,7 +28,8 @@ RDEPEND="${RDEPEND}"
 mydeps=">=dev-ruby/daemons-1.0.9
 	>=dev-ruby/rack-1.0.0
 	>=dev-ruby/eventmachine-0.12.6
-	virtual/ruby-ssl"
+	virtual/ruby-ssl
+	dev-ruby/rspec"
 
 ruby_add_rdepend "${mydeps}"
 ruby_add_bdepend "${mydeps}
