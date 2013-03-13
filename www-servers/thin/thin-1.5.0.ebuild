@@ -48,9 +48,9 @@ all_ruby_prepare() {
 
 	# Disable a test that is known for freezing the testsuite,
 	# reported upstream.
-	sed -i \
-		-e '/should force kill process in pid file/,/^  end/ s:^:#:' \
-		spec/daemonizing_spec.rb || die
+	#sed -i \
+	#	-e '/should force kill process in pid file/,/^  end/ s:^:#:' \
+	#	spec/daemonizing_spec.rb || die
 
 	# Pipelining specs don't work. Avoid them for now since this is not
 	# a regression. https://github.com/macournoyer/thin/issues/40
