@@ -37,14 +37,14 @@ ruby_add_bdepend "${mydeps}
 all_ruby_prepare() {
 	# Fix Ragel-based parser generation (uses a *very* old syntax that
 	# is not supported in Gentoo)
-	sed -i -e 's: | rlgen-cd::' Rakefile || die
+	# sed -i -e 's: | rlgen-cd::' Rakefile || die
 
 	# Fix specs' dependencies so that the extension is not rebuilt
 	# when running tests
 	sed -i -e '/:spec =>/s:^:#:' tasks/spec.rake || die
 
 	# Fix rspec version to allow newer 1.x versions
-	sed -i -e '/gem "rspec"/ s/1.2.9/1.0/' tasks/spec.rake spec/spec_helper.rb || die
+	# sed -i -e '/gem "rspec"/ s/1.2.9/1.0/' tasks/spec.rake spec/spec_helper.rb || die
 
 	# Disable a test that is known for freezing the testsuite,
 	# reported upstream.
@@ -54,7 +54,7 @@ all_ruby_prepare() {
 
 	# Pipelining specs don't work. Avoid them for now since this is not
 	# a regression. https://github.com/macournoyer/thin/issues/40
-	rm spec/server/pipelining_spec.rb || die
+	# rm spec/server/pipelining_spec.rb || die
 
 	# nasty but too complex to fix up for now :(
 	use test || rm tasks/spec.rake
