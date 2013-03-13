@@ -39,7 +39,7 @@ ruby_add_bdepend "${mydeps}
 # src_unpack() {
 # 	unpack ${A}
 # }
-# all_ruby_prepare() {
+all_ruby_prepare() {
 	# Fix Ragel-based parser generation (uses a *very* old syntax that
 	# is not supported in Gentoo)
 	# sed -i -e 's: | rlgen-cd::' Rakefile || die
@@ -62,8 +62,8 @@ ruby_add_bdepend "${mydeps}
 	# rm spec/server/pipelining_spec.rb || die
 
 	# nasty but too complex to fix up for now :(
-	# use test || rm tasks/spec.rake
-# }
+	use test || rm tasks/spec.rake
+}
 
 each_ruby_compile() {
 	${RUBY} -S rake compile || die "rake compile failed"
