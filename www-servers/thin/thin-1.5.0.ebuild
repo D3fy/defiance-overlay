@@ -35,9 +35,9 @@ ruby_add_bdepend "${mydeps}
 	dev-ruby/rake-compiler
 	test? ( dev-ruby/rspec:0 )"
 
-src_unpack() {
-	unpack ${A}
-}
+# src_unpack() {
+# 	unpack ${A}
+# }
 # all_ruby_prepare() {
 	# Fix Ragel-based parser generation (uses a *very* old syntax that
 	# is not supported in Gentoo)
