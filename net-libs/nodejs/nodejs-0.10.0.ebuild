@@ -60,7 +60,7 @@ src_install() {
 	mkdir -p "${ED}"/lib/node_modules/npm
 	mkdir -p "${ED}"/lib/node
 	cp 'src/node.h' 'src/node_buffer.h' 'src/node_object_wrap.h' 'src/node_version.h' "${ED}"/usr/include/node || die "Failed to copy stuff"
-	cp 'deps/uv/include/ares.h' 'deps/uv/include/ares_version.h' "${ED}"/usr/include/node || die "Failed to copy stuff"
+	cp 'deps/cares/include/ares.h' 'deps/cares/include/ares_version.h' "${ED}"/usr/include/node || die "Failed to copy stuff"
 	cp 'out/Release/node' "${ED}"/usr/bin/node || die "Failed to copy stuff"
 	cp -R deps/npm/* "${ED}"/lib/node_modules/npm || die "Failed to copy stuff"
 	cp -R tools/wafadmin "${ED}"/lib/node/ || die "Failed to copy stuff"
