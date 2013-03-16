@@ -33,7 +33,7 @@ src_prepare() {
 	# http://code.google.com/p/gyp/issues/detail?id=260
 	sed -i -e "/append('-arch/d" tools/gyp/pylib/gyp/xcode_emulation.py || die
 	# Hardcoded braindamage extraction helper
-	sed -i -e 's:wafdir = join(prefix, "lib", "node"):wafdir = "/lib/node/":' tools/node-waf || die
+	# sed -i -e 's:wafdir = join(prefix, "lib", "node"):wafdir = "/lib/node/":' tools/node-waf || die
 
 	cd ${S}
 	for x in $(grep -r "/usr/bin/env python" * | cut -f1 -d":" ); do
