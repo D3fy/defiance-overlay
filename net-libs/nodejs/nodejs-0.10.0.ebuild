@@ -63,8 +63,8 @@ src_install() {
 	cp 'deps/cares/include/ares.h' 'deps/cares/include/ares_version.h' "${ED}"/usr/include/node || die "Failed to copy stuff"
 	cp 'out/Release/node' "${ED}"/usr/bin/node || die "Failed to copy stuff"
 	cp -R deps/npm/* "${ED}"/lib/node_modules/npm || die "Failed to copy stuff"
-	cp -R tools/wafadmin "${ED}"/lib/node/ || die "Failed to copy stuff"
-	cp 'tools/node-waf' "${ED}"/usr/bin/ || die "Failed to copy stuff"
+	cp -R tools/gyp" ${ED}"/lib/node/ || die "Failed to copy stuff"
+	cp 'tools/gyp_node' "${ED}"/usr/bin/ || die "Failed to copy stuff"
 
 	# Has to be symlink
 	dosym /lib/node_modules/npm/bin/npm-cli.js /bin/npm
