@@ -45,7 +45,8 @@ src_prepare() {
 
 src_configure() {
 	# this is an autotools lookalike confuserator
-	./configure --shared-v8 --prefix="${EPREFIX}"/usr --shared-v8-includes="${EPREFIX}"/usr/include --openssl-use-sys --shared-zlib || die
+	# ./configure --shared-v8 --prefix="${EPREFIX}"/usr --shared-v8-includes="${EPREFIX}"/usr/include --openssl-use-sys --shared-zlib || die
+	./configure --prefix="${EPREFIX}"/usr --openssl-use-sys --shared-zlib || die
 }
 
 src_compile() {
