@@ -15,7 +15,7 @@ SRC_URI="http://nodejs.org/dist/v${PV}/node-v${PV}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~*"
-IUSE=""
+IUSE="system-v8"
 
 DEPEND=">=dev-lang/v8-3.11.10
 	dev-libs/openssl"
@@ -46,7 +46,11 @@ src_prepare() {
 src_configure() {
 	# this is an autotools lookalike confuserator
 	# ./configure --shared-v8 --prefix="${EPREFIX}"/usr --shared-v8-includes="${EPREFIX}"/usr/include --openssl-use-sys --shared-zlib || die
-	./configure --prefix="${EPREFIX}"/usr --openssl-use-sys --shared-zlib || die
+	if use system-v8 ; then
+		./configure --shared-v8 --prefix="${EPREFIX}"/usr --openssl-use-sys --shared-zlib || die
+	else
+		./configure --prefix="${EPREFIX}"/usr --openssl-use-sys --shared-zlib || die
+	fi
 }
 
 src_compile() {
