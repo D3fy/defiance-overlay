@@ -17,9 +17,9 @@ SLOT="0"
 KEYWORDS="~*"
 IUSE="system-v8"
 
-DEPEND=">=dev-lang/v8-3.11.10
-	dev-libs/openssl"
-RDEPEND="${DEPEND}"
+DEPEND="dev-libs/openssl"
+RDEPEND="${DEPEND}
+		system-v8? ( <=dev-lang/v8-3.15.11.15 )"
 
 S=${WORKDIR}/node-v${PV}
 
