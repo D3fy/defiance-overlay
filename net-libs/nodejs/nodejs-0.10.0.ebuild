@@ -47,7 +47,8 @@ src_configure() {
 	# this is an autotools lookalike confuserator
 	# ./configure --shared-v8 --prefix="${EPREFIX}"/usr --shared-v8-includes="${EPREFIX}"/usr/include --openssl-use-sys --shared-zlib || die
 	if use system-v8 ; then
-		./configure --shared-v8 --prefix="${EPREFIX}"/usr --openssl-use-sys --shared-zlib || die
+		./configure --shared-v8 --shared-v8-libpath="${EPREFIX}"/usr/lib --shared-v8-includes="${EPREFIX}"/usr/include \
+		--prefix="${EPREFIX}"/usr --openssl-use-sys --shared-zlib || die
 	else
 		./configure --prefix="${EPREFIX}"/usr --openssl-use-sys --shared-zlib || die
 	fi
