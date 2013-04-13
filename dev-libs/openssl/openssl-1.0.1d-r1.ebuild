@@ -129,18 +129,18 @@ src_configure() {
 		|| die
 
 	# Clean out hardcoded flags that openssl uses
-	# local CFLAG=$(grep ^CFLAG= Makefile | LC_ALL=C sed \
-	#	-e 's:^CFLAG=::' \
-	#	-e 's:-fomit-frame-pointer ::g' \
-	#	-e 's:-O[0-9] ::g' \
-	#	-e 's:-march=[-a-z0-9]* ::g' \
-	#	-e 's:-mcpu=[-a-z0-9]* ::g' \
-	#	-e 's:-m[a-z0-9]* ::g' \
-	# )
-	 sed -i \
-		-e "/^CFLAG/s|=.*|=${CFLAG} ${CFLAGS}|" \
-		-e "/^SHARED_LDFLAGS=/s|$| ${LDFLAGS}|" \
-		Makefile || die
+	 local CFLAG=$(grep ^CFLAG= Makefile | LC_ALL=C sed \
+		-e 's:^CFLAG=::' \
+		-e 's:-fomit-frame-pointer ::g' \
+		-e 's:-O[0-9] ::g' \
+		-e 's:-march=[-a-z0-9]* ::g' \
+		-e 's:-mcpu=[-a-z0-9]* ::g' \
+		-e 's:-m[a-z0-9]* ::g' \
+	 )
+	# sed -i \
+	#	-e "/^CFLAG/s|=.*|=${CFLAG} ${CFLAGS}|" \
+	#	-e "/^SHARED_LDFLAGS=/s|$| ${LDFLAGS}|" \
+	#	Makefile || die
 }
 
 src_compile() {
