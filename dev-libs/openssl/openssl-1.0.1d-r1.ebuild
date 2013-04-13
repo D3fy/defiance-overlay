@@ -146,7 +146,8 @@ src_configure() {
 src_compile() {
 	# depend is needed to use $confopts; it also doesn't matter
 	# that it's -j1 as the code itself serializes subdirs
-	emake depend CC=$CC CXX=$CXX
+	# emake depend CC=$CC CXX=$CXX
+	emake -j1 depend
 	emake all
 	# rehash is needed to prep the certs/ dir; do this
 	# separately to avoid parallel build issues.
