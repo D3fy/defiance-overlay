@@ -137,10 +137,10 @@ src_configure() {
 	#	-e 's:-mcpu=[-a-z0-9]* ::g' \
 	#	-e 's:-m[a-z0-9]* ::g' \
 	# )
-	# sed -i \
-	#	-e "/^CFLAG/s|=.*|=${CFLAG} ${CFLAGS}|" \
-	#	-e "/^SHARED_LDFLAGS=/s|$| ${LDFLAGS}|" \
-	#	Makefile || die
+	 sed -i \
+		-e "/^CFLAG/s|=.*|=${CFLAG} ${CFLAGS}|" \
+		-e "/^SHARED_LDFLAGS=/s|$| ${LDFLAGS}|" \
+		Makefile || die
 }
 
 src_compile() {
