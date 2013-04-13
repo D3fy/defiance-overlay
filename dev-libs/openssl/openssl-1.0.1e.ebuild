@@ -55,6 +55,7 @@ src_prepare() {
 		epatch "${FILESDIR}"/${PN}-1.0.1-parallel-build.patch
 		epatch "${FILESDIR}"/${PN}-1.0.1-x32.patch
 		epatch "${FILESDIR}"/${PN}-1.0.1e-ipv6.patch
+		epatch "${FILESDIR}"/${PN}-clang-compat.patch
 		epatch_user #332661
 	fi
 
