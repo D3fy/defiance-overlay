@@ -15,11 +15,11 @@ SRC_URI="http://nodejs.org/dist/v${PV}/node-v${PV}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~*"
-IUSE="system-v8"
+IUSE="v8"
 
 DEPEND="dev-libs/openssl"
 RDEPEND="${DEPEND}
-		system-v8? ( <=dev-lang/v8-3.17.15.3 )"
+		v8? ( <=dev-lang/v8-3.17.16.2 )"
 
 S=${WORKDIR}/node-v${PV}
 
@@ -39,8 +39,8 @@ src_prepare() {
 	for x in $(grep -r "/usr/bin/env python" * | cut -f1 -d":" ); do
 		einfo "Tweaking $x for python2..."
 		sed -e "s:/usr/bin/env python:/usr/bin/env python2:g" -i $x || die
-        done
-        sed -e "s/python/python2/g" -i Makefile || die
+	done
+	sed -e "s/python/python2/g" -i Makefile || die
 }
 
 src_configure() {
