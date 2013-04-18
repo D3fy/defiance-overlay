@@ -1,0 +1,34 @@
+--- src/qt/preconfig.sh	2013-04-18 09:33:12.920653796 -0400
++++ src/qt/preconfig.sh	2013-04-18 09:51:06.047665803 -0400
+@@ -26,7 +26,7 @@
+ # Irrelevant Qt features
+ QT_CFG+=' -no-libmng'
+ QT_CFG+=' -no-libtiff'
+-QT_CFG+=' -no-icu'
++QT_CFG+=' -icu'
+ 
+ # Unnecessary Qt modules
+ QT_CFG+=' -no-declarative'
+@@ -78,9 +78,9 @@
+             shift
+             QT_CFG+=" $1"
+             shift;;
+-        "--jobs")
++        "--makeopts")
+             shift
+-            COMPILE_JOBS=$1
++            MAKEOPTS=$1
+             shift;;
+         "--help")
+             echo "Usage: $0 [--qt-config CONFIG] [--jobs NUM]"
+@@ -98,7 +98,7 @@
+ 
+ 
+ # For parallelizing the bootstrapping process, e.g. qmake and friends.
+-export MAKEFLAGS=-j$COMPILE_JOBS
++export MAKEFLAGS=$MAKEOPTS
+ 
+ ./configure -prefix $PWD $QT_CFG
+-make -j$COMPILE_JOBS
++make $MAKEOPTS
+

@@ -1,57 +1,67 @@
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
-EAPI="2"
+EAPI=5
 
-PYTHON_DEPEND="python? 2"
-SUPPORT_PYTHON_ABIS="1"
-RESTRICT_PYTHON_ABIS="3.*"
+inherit eutils pax-utils
 
-inherit distutils qt4-r2
-
-DESCRIPTION="headless WebKit with JavaScript API"
+DESCRIPTION="Headless WebKit with JavaScript API"
 HOMEPAGE="http://www.phantomjs.org/"
 SRC_URI="http://phantomjs.googlecode.com/files/${P}-source.zip"
 
-LICENSE="GPL-3"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="examples python"
+IUSE="examples doc -pack +text-rendering"
 
-RDEPEND="dev-qt/qtwebkit:4
-	python? ( dev-python/PyQt4 )"
-DEPEND="${RDEPEND}"
+DEPEND="
+	app-arch/unzip
+	pack? ( || ( app-arch/upx-bin app-arch/upx-ucl ) )
+	text-rendering? ( media-libs/freetype media-libs/fontconfig )
+"
+RDEPEND="
+	!www-client/phantomjs-bin
+	text-rendering? ( media-libs/freetype media-libs/fontconfig )
+"
+if use pack; then
+	RESTRICT="${RESTRICT} strip"
+fi
 
-# Call all the parent eclasses without having to worry
-# about what funcs they actually export.
-maybe() { set -- $(declare -F $1); $1; }
-multi_eclass() {
-	maybe qt4-r2_$1
-	if use python ; then
-		[[ -d python ]] && cd python
-		maybe distutils_$1
-	fi
+src_prepare() {
+	epatch "${FILESDIR}"/respect-makeopts-1.patch \
+	       "${FILESDIR}"/respect-makeopts-2.patch
 }
-pkg_setup()     { multi_eclass ${FUNCNAME} ; }
-pkg_preinst()   { multi_eclass ${FUNCNAME} ; }
-pkg_postinst()  { multi_eclass ${FUNCNAME} ; }
-pkg_prerm()     { multi_eclass ${FUNCNAME} ; }
-pkg_postrm()    { multi_eclass ${FUNCNAME} ; }
-src_prepare()   { multi_eclass ${FUNCNAME} ; }
-src_configure() { multi_eclass ${FUNCNAME} ; }
-src_compile()   { multi_eclass ${FUNCNAME} ; }
 
-src_test() {
-	./bin/phantomjs test/run-tests.js || die
+src_compile() {
+	./build.sh --makeopts "${MAKEOPTS}" || die
+
+	if use pack; then
+		if has nostrip ${FEATURES}; then
+			ewarn "Packing and not stripping is suboptimal."
+		else
+			# Strip before packing:
+			strip -s bin/phantomjs || die
+		fi
+
+		upx -qqq --best bin/phantomjs || die
+	fi
 }
 
 src_install() {
+	pax-mark m bin/phantomjs || die
 	dobin bin/phantomjs || die
-	dodoc ChangeLog README.md
 
-	if use examples ; then
+	if use doc; then
+		dodoc ChangeLog LICENSE.BSD README.md third-party.txt || die
+	fi
+
+	if use examples; then
 		docinto examples
 		dodoc examples/* || die
 	fi
+}
 
-	multi_eclass ${FUNCNAME}
+src_test() {
+	./bin/phantomjs test/run-tests.js || die
 }
