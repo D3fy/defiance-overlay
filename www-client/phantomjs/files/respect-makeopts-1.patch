@@ -40,8 +40,9 @@
 -fi
 -
 -cd src/qt && ./preconfig.sh --jobs $COMPILE_JOBS --qt-config "$QT_CFG" && cd ../..
-+cd src/qt && ./preconfig.sh --makeopts $MAKEOPTS --qt-config "$QT_CFG" && cd ../..
- src/qt/bin/qmake $QMAKE_ARGS
+-src/qt/bin/qmake $QMAKE_ARGS
 -make -j$COMPILE_JOBS
++cd src/qt && ./preconfig.sh --makeopts $MAKEOPTS
++cd ../.. && src/qt/bin/qmake
 +make $MAKEOPTS
  
