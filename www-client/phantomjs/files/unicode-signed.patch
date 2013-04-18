@@ -1,0 +1,13 @@
+--- src/qt/src/3rdparty/webkit/Source/JavaScriptCore/wtf/unicode/qt4/UnicodeQt4.h	2013-04-18 09:24:54.380376558 -0400
++++ src/qt/src/3rdparty/webkit/Source/JavaScriptCore/wtf/unicode/qt4/UnicodeQt4.h.1	2013-04-18 11:29:30.157894347 -0400
+@@ -68,7 +68,7 @@
+ #endif
+ 
+ #if !USE(QT_ICU_TEXT_BREAKING)
+-typedef uint32_t UChar32;
++typedef int32_t UChar32;
+ #endif
+ 
+ namespace WTF {
+
+

@@ -28,7 +28,8 @@ fi
 
 src_prepare() {
 	epatch "${FILESDIR}"/respect-makeopts-1.patch \
-	       "${FILESDIR}"/respect-makeopts-2.patch
+	       "${FILESDIR}"/respect-makeopts-2.patch \
+		   "${FILESDIR}"/unicode-signed.patch
 }
 
 src_compile() {
