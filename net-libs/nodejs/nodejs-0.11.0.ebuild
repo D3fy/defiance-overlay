@@ -46,9 +46,9 @@ src_configure() {
 
 src_compile() {
 	emake out/Makefile
-	emake -C out mksnapshot
-	pax-mark m out/Release/mksnapshot
-	emake
+	# emake -C out mksnapshot
+	# pax-mark m out/Release/mksnapshot
+	emake || die
 }
 
 src_install() {
