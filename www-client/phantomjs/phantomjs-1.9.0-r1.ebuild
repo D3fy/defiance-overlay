@@ -2,7 +2,7 @@
 
 EAPI=5
 
-inherit eutils pax-utils qt4-r2
+inherit eutils pax-utils
 
 DESCRIPTION="Headless WebKit with JavaScript API"
 HOMEPAGE="http://www.phantomjs.org/"
@@ -31,7 +31,21 @@ src_prepare() {
 }
 
 src_configure() {
-	eqmake4
+	QT_CFG='-opensource -confirm-license -v -static
+	-system-freetype -fontconfig -qpa -release
+	-fast -nomake demos -nomake docs -nomake examples
+	-nomake translations -nomake tools -no-exceptions
+	-no-stl -no-libmng -no-libtiff -icu -no-declarative
+	-no-multimedia -no-opengl -no-openvg -no-phonon
+	-no-qt3support -no-script -no-scripttools -no-svg
+	-no-xmlpatterns -D QT_NO_GRAPHICSVIEW -D QT_NO_GRAPHICSEFFECT
+	-graphicssystem raster -no-dbus -no-glib -no-gstreamer
+	-no-gtkstyle -no-cups -no-sm -no-xinerama -no-xkb
+	-qt-libjpeg -qt-libpng -qt-zlib -openssl -D QT_NO_STYLESHEET
+	-D QT_NO_STYLE_CDE -D QT_NO_STYLE_CLEANLOOKS -D QT_NO_STYLE_MOTIF
+	-D QT_NO_STYLE_PLASTIQUE'
+	./src/qt/configure --prefix ${S}/src/qt $QT_CFG
+	cd src/qt && make ${MAKEOPTS}
 }
 
 src_compile() {
