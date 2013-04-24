@@ -17,7 +17,7 @@ KEYWORDS="~*"
 IUSE="v8"
 
 RDEPEND="dev-libs/openssl
-		v8? ( <=dev-lang/v8-3.17.16.2 )"
+		v8? ( dev-lang/v8 )"
 DEPEND="${RDEPEND}
 	$(python_abi_depend virtual/python-json)"
 
