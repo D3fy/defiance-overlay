@@ -81,11 +81,6 @@ src_compile() {
 src_install() {
 	default
 
-	if use monitor ; then
-		python_domodule "${ED}"/usr/share/openvswitch/python/*
-		rm -r "${ED}/usr/share/openvswitch/python"
-		python_optimize "${ED}/usr/share/ovsdbmonitor"
-	fi
 	# not working without the brcompat_mod kernel module which did not get
 	# included in the kernel and we can't build it anymore
 	rm "${D}/usr/sbin/ovs-brcompatd" "${D}/usr/share/man/man8/ovs-brcompatd.8"
@@ -95,7 +90,7 @@ src_install() {
 	fperms 0750 /etc/ssl/openvswitch
 
 	rm -rf "${ED}/var/run"
-	use monitor || rmdir "${ED}/usr/share/ovsdbmonitor"
+	# use monitor || rmdir "${ED}/usr/share/ovsdbmonitor"
 	use debug || rm "${ED}/usr/bin/ovs-parse-leaks"
 
 	newconfd "${FILESDIR}/ovsdb-server_conf" ovsdb-server
@@ -112,6 +107,12 @@ src_install() {
 }
 
 pkg_postinst() {
+	if use monitor ; then
+		python_mod_optimize ${ROOT}usr/share/${PN}
+	#	rm -r "${EPREFIX}/usr/share/openvswitch/python"
+		python_optimize "${ROOT}/usr/share/ovsdbmonitor"
+	fi
+
 	use modules && linux-mod_pkg_postinst
 
 	for pv in ${REPLACING_VERSIONS}; do
