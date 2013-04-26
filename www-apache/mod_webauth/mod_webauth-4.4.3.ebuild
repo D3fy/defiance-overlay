@@ -12,11 +12,14 @@ S=${WORKDIR}/${p}
 LICENSE="as-is"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="ldap perl webkdc"
+IUSE="ldap memcache perl webkdc"
 DEPEND=">=dev-libs/openssl-0.9.7
-	>=www-servers/apache-2.0.43
+	>=www-servers/apache-2.4.4
 	net-misc/curl
 	virtual/krb5
+	dev-perl/DateTime-Format-DateParse
+	dev-perl/Time-Duration
+	memcache? ( dev-perl/Cache-Memcached )
 	ldap? ( 
 		>=net-nds/openldap-2.0
 		>=dev-libs/cyrus-sasl-2.0 
@@ -28,10 +31,10 @@ RDEPEND="${DEPEND}
 		www-apache/mod_fcgid
 		dev-perl/FCGI
 		dev-perl/Crypt-SSLeay
-    dev-perl/CGI-Application-Plugin-AutoRunmode
-    dev-perl/CGI-Application-Plugin-Forward
-    dev-perl/CGI-Application-Plugin-Redirect
-    dev-perl/CGI-Application-Plugin-TT
+		dev-perl/CGI-Application-Plugin-AutoRunmode
+		dev-perl/CGI-Application-Plugin-Forward
+		dev-perl/CGI-Application-Plugin-Redirect
+		dev-perl/CGI-Application-Plugin-TT
 	)"
 
 
@@ -81,7 +84,7 @@ src_install() {
 	# 	emake DESTDIR=${D} install-webkdc || die "emake install-webkdc failed"
 	# fi
 	apache-module_src_install
-	
+
 	insinto ${APACHE_MODULES_CONFDIR}
 	doins ${FILESDIR}/14_mod_webauth.conf
 	if use ldap ; then
