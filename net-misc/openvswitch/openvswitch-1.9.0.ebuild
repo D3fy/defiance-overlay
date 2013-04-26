@@ -90,7 +90,7 @@ src_install() {
 	fperms 0750 /etc/ssl/openvswitch
 
 	rm -rf "${ED}/var/run"
-	# use monitor || rmdir "${ED}/usr/share/ovsdbmonitor"
+	use monitor || rmdir "${ED}/usr/share/ovsdbmonitor"
 	use debug || rm "${ED}/usr/bin/ovs-parse-leaks"
 
 	newconfd "${FILESDIR}/ovsdb-server_conf" ovsdb-server
@@ -107,11 +107,12 @@ src_install() {
 }
 
 pkg_postinst() {
-	if use monitor ; then
-		python_mod_optimize ${ROOT}usr/share/${PN}
-	#	rm -r "${EPREFIX}/usr/share/openvswitch/python"
-		python_optimize "${ROOT}/usr/share/ovsdbmonitor"
-	fi
+	# if use monitor ; then
+	#	python_mod_optimize -f -x "/(site-packages|test|tests|${PN})/"
+	#	python_mod_optimize ${ROOT}usr/share/${PN}
+	#	rm -r "${ROOT}usr/share/openvswitch/python"
+	#	python_optimize "${ROOT}usr/share/ovsdbmonitor"
+	# fi
 
 	use modules && linux-mod_pkg_postinst
 
