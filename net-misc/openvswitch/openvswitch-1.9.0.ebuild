@@ -107,6 +107,7 @@ src_install() {
 }
 
 pkg_postinst() {
+
 	# if use monitor ; then
 	#	python_mod_optimize -f -x "/(site-packages|test|tests|${PN})/"
 	#	python_mod_optimize ${ROOT}usr/share/${PN}
