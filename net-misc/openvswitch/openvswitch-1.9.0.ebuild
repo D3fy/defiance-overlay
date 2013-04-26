@@ -3,7 +3,7 @@
 EAPI=5-progress
 
 PYTHON_MULTIPLE_ABIS="1"
-PYTHON_RESTRICTED_ABIS="2.*"
+PYTHON_RESTRICTED_ABIS="3.*"
 
 inherit eutils linux-info linux-mod python
 
