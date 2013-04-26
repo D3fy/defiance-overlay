@@ -3,7 +3,7 @@
 EAPI=5-progress
 
 PYTHON_MULTIPLE_ABIS="1"
-PYTHON_RESTRICTED_ABIS="3.*"
+PYTHON_RESTRICTED_ABIS="3.* *pypy* *jython*"
 
 inherit eutils linux-info linux-mod python
 
@@ -14,7 +14,7 @@ SRC_URI="http://openvswitch.org/releases/${P}.tar.gz"
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="debug modules monitor +pyside +ssl"
+IUSE="bridge debug modules monitor +pyside +ssl"
 
 RDEPEND=">=sys-apps/openrc-0.10.2
 	ssl? ( dev-libs/openssl )
