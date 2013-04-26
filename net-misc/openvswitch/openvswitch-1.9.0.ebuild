@@ -40,7 +40,7 @@ pkg_setup() {
 		CONFIG_CHECK+=" ~OPENVSWITCH"
 		linux-info_pkg_setup
 	fi
-	use monitor
+	use monitor && python_pkg_setup
 }
 
 src_prepare() {
