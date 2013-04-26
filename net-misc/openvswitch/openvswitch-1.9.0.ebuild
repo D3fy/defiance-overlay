@@ -69,7 +69,8 @@ src_configure() {
 src_compile() {
 	default
 
-	use monitor && python_fix_shebang \
+	# use monitor && python_fix_shebang \
+	use monitor && \
 		utilities/ovs-{pcap,tcpundump,test,vlan-test} \
 		utilities/bugtool/ovs-bugtool \
 		ovsdb/ovsdbmonitor/ovsdbmonitor
