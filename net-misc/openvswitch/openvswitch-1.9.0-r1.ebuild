@@ -1,10 +1,11 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=5-progress
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_MULTIPLE_ABIS="1"
+PYTHON_RESTRICTED_ABIS="2.*"
 
-inherit eutils linux-info linux-mod python-single-r1
+inherit eutils linux-info linux-mod python
 
 DESCRIPTION="Production quality, multilayer virtual switch."
 HOMEPAGE="http://openvswitch.org"
@@ -18,13 +19,11 @@ IUSE="debug modules monitor +pyside +ssl"
 RDEPEND=">=sys-apps/openrc-0.10.2
 	ssl? ( dev-libs/openssl )
 	monitor? (
-		${PYTHON_DEPS}
-		dev-python/twisted
-		dev-python/twisted-conch
-		dev-python/twisted-web
-		pyside? ( dev-python/pyside[${PYTHON_USEDEP}] )
-		!pyside? ( dev-python/PyQt4[${PYTHON_USEDEP}] )
-		net-zope/zope-interface[${PYTHON_USEDEP}] )
+		$(python_abi_depend dev-python/twisted-web)
+		pyside? ($(python_abi_depend dev-python/pyside))
+		!pyside? ($(python_abi_depend dev-python/PyQt4))
+		$(python_abi_depend net-zope/zope-interface)
+		)
 	debug? ( dev-lang/perl )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
@@ -41,7 +40,7 @@ pkg_setup() {
 		CONFIG_CHECK+=" ~OPENVSWITCH"
 		linux-info_pkg_setup
 	fi
-	use monitor && python-single-r1_pkg_setup
+	use monitor
 }
 
 src_prepare() {
