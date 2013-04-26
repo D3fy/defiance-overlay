@@ -5,7 +5,7 @@ EAPI=5-progress
 PYTHON_MULTIPLE_ABIS="1"
 PYTHON_RESTRICTED_ABIS="3.* *-pypy-* *-jython"
 
-inherit eutils distutils linux-info linux-mod python
+inherit eutils linux-info linux-mod python
 
 DESCRIPTION="Production quality, multilayer virtual switch."
 HOMEPAGE="http://openvswitch.org"
@@ -79,7 +79,6 @@ src_compile() {
 }
 
 src_install() {
-	use monitor && distutils_src_install
 	default
 	# not working without the brcompat_mod kernel module which did not get
 	# included in the kernel and we can't build it anymore
