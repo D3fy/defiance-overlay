@@ -3,7 +3,7 @@
 EAPI=5-progress
 
 PYTHON_MULTIPLE_ABIS="1"
-PYTHON_RESTRICTED_ABIS="3.* *pypy* *jython*"
+PYTHON_RESTRICTED_ABIS="3.* *-pypy-* *-jython"
 
 inherit eutils linux-info linux-mod python
 
