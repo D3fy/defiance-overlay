@@ -19,7 +19,7 @@ IUSE="bridge debug modules monitor +pyside +ssl"
 RDEPEND=">=sys-apps/openrc-0.10.2
 	ssl? ( dev-libs/openssl )
 	monitor? (
-		$(python_abi_depend dev-python/twisted-web)
+		$(python_abi_depend -e "2.5" dev-python/twisted-web)
 		pyside? ( $(python_abi_depend dev-python/pyside) )
 		!pyside? ( $(python_abi_depend dev-python/PyQt4) )
 		$(python_abi_depend net-zope/zope.interface)
