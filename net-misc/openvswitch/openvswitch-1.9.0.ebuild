@@ -22,7 +22,7 @@ RDEPEND=">=sys-apps/openrc-0.10.2
 		$(python_abi_depend dev-python/twisted-web)
 		pyside? ( $(python_abi_depend dev-python/pyside) )
 		!pyside? ( $(python_abi_depend dev-python/PyQt4) )
-		$(python_abi_depend net-zope/zope-interface)
+		$(python_abi_depend net-zope/zope.interface)
 		)
 	debug? ( dev-lang/perl )"
 DEPEND="${RDEPEND}
