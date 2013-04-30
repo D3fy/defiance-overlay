@@ -1,0 +1,61 @@
+#!/sbin/runscript
+# Copyright 1999-2012 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+extra_started_commands="upgrade reload"
+
+description="Small and efficient Rake HTTP Server"
+description_upgrade="Upgrade the unicorn binary without losing connections."
+description_reload="Reload the unicorn configuration without losing connections."
+
+unicorn_config="${APP_ROOT}/config/unicorn.rb"
+
+command="/usr/bin/unicorn"
+command_args="-D -c ${unicorn_config}"
+pidfile=${pidfile:-${APP_ROOT}/tmp/pids/unicorn.pid}
+
+depend() {
+  need net
+  use dns netmount
+}
+
+#stop_post() {
+#  rm -f ${pidfile}
+#}
+
+reload() {
+  ebegin "Refreshing unicorn configuration"
+  kill -HUP $(cat ${pidfile}) &>/dev/null
+  eend $? "Failed to reload unicorn"
+}
+
+upgrade() {
+  ebegin "Upgrading Unicorn"
+
+  einfo "Sending USR2 to old binary"
+  kill -USR2 $(cat ${pidfile}) &>/dev/null
+
+  einfo "Sleeping 3 seconds before checking pid-files"
+  sleep 3
+
+  if [ ! -f ${pidfile}.oldbin ]; then
+    eerror "File with old pid not found"
+    return 1
+  fi
+
+  if [ ! -f ${pidfile} ]; then
+    eerror "New binary failed to start"
+    return 1
+  fi
+
+  einfo "Sleeping 3 seconds before WINCH"
+  sleep 3 ; kill -WINCH $(cat ${pidfile}.oldbin)
+
+  einfo "Sending QUIT to old binary"
+  kill -QUIT $(cat ${pidfile}.oldbin)
+
+  einfo "Upgrade complete"
+  eend $? "Upgrade failed"
+}
+
