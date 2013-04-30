@@ -22,6 +22,7 @@ IUSE=""
 
 DEPEND="${DEPEND}
 	dev-ruby/wrongdoc
+	dev-ruby/nokogiri
 	dev-util/ragel"
 RDEPEND="${RDEPEND}"
 
