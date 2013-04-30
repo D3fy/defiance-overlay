@@ -21,6 +21,7 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 DEPEND="${DEPEND}
+	dev-ruby/wrongdoc
 	dev-util/ragel"
 RDEPEND="${RDEPEND}"
 
