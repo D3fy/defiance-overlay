@@ -209,7 +209,7 @@ pkg_setup() {
 
 src_unpack() {
 	unpack ${A}
-	local RUN="$(ls amd-driver*)"
+	local RUN="$(ls amd-catalyst*)"
 	sh ${RUN} --extract "${S}" || die
 }
 
