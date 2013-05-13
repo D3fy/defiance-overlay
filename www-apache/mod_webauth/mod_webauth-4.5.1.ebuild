@@ -37,6 +37,7 @@ RDEPEND="${DEPEND}
 		dev-perl/CGI-Application-Plugin-Forward
 		dev-perl/CGI-Application-Plugin-Redirect
 		dev-perl/CGI-Application-Plugin-TT
+		dev-perl/IO-Socket-SSL
 	)"
 
 
