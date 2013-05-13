@@ -1,7 +1,6 @@
-# Copyright 2012 Defiance Engineering
 # Distributed under the terms of the GNU General Public License v2
-# $Header:  $
 
+EAPI=5
 inherit apache-module eutils depend.apache
 
 DESCRIPTION="Stanford's authentication module for kerberos and apache"
@@ -19,8 +18,11 @@ DEPEND=">=dev-libs/openssl-0.9.7
 	virtual/krb5
 	dev-perl/DateTime-Format-DateParse
 	dev-perl/Time-Duration
-	memcache? ( dev-perl/Cache-Memcached )
-	ldap? ( 
+	memcache? (
+		dev-perl/Cache-Memcached
+		net-misc/memcached[sasl,perl]
+	)
+	ldap? (
 		>=net-nds/openldap-2.0
 		>=dev-libs/cyrus-sasl-2.0
 	)"
