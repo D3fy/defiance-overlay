@@ -22,7 +22,7 @@ DEPEND=">=dev-libs/openssl-0.9.7
 	memcache? ( dev-perl/Cache-Memcached )
 	ldap? ( 
 		>=net-nds/openldap-2.0
-		>=dev-libs/cyrus-sasl-2.0 
+		>=dev-libs/cyrus-sasl-2.0
 	)"
 
 RDEPEND="${DEPEND}
