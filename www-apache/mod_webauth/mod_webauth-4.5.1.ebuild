@@ -20,7 +20,7 @@ DEPEND=">=dev-libs/openssl-0.9.7
 	dev-perl/Time-Duration
 	memcache? (
 		dev-perl/Cache-Memcached
-		net-misc/memcached[sasl,perl]
+		net-misc/memcached[sasl]
 	)
 	ldap? (
 		>=net-nds/openldap-2.0
