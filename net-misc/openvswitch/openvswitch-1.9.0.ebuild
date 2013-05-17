@@ -1,11 +1,10 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5-progress
+EAPI=5
 
-PYTHON_MULTIPLE_ABIS="1"
-PYTHON_RESTRICTED_ABIS="3.* *-pypy-* *-jython"
+PYTHON_COMPAT=( python2_7 )
 
-inherit eutils linux-info linux-mod python
+inherit eutils linux-info linux-mod python-single-r1
 
 DESCRIPTION="Production quality, multilayer virtual switch."
 HOMEPAGE="http://openvswitch.org"
@@ -14,16 +13,18 @@ SRC_URI="http://openvswitch.org/releases/${P}.tar.gz"
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bridge debug modules monitor +pyside +ssl"
+IUSE="debug modules monitor +pyside +ssl"
 
 RDEPEND=">=sys-apps/openrc-0.10.2
 	ssl? ( dev-libs/openssl )
 	monitor? (
-		$(python_abi_depend -e "2.5" dev-python/twisted-web)
-		pyside? ( $(python_abi_depend -e "2.5" dev-python/pyside) )
-		!pyside? ( $(python_abi_depend dev-python/PyQt4) )
-		$(python_abi_depend net-zope/zope.interface)
-		)
+		${PYTHON_DEPS}
+		dev-python/twisted
+		dev-python/twisted-conch
+		dev-python/twisted-web
+		pyside? ( dev-python/pyside[${PYTHON_USEDEP}] )
+		!pyside? ( dev-python/PyQt4[${PYTHON_USEDEP}] )
+		net-zope/zope-interface[${PYTHON_USEDEP}] )
 	debug? ( dev-lang/perl )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
@@ -40,7 +41,7 @@ pkg_setup() {
 		CONFIG_CHECK+=" ~OPENVSWITCH"
 		linux-info_pkg_setup
 	fi
-	use monitor && python_pkg_setup
+	use monitor && python-single-r1_pkg_setup
 }
 
 src_prepare() {
@@ -69,8 +70,7 @@ src_configure() {
 src_compile() {
 	default
 
-	# use monitor && python_fix_shebang \
-	use monitor && \
+	use monitor && python_fix_shebang \
 		utilities/ovs-{pcap,tcpundump,test,vlan-test} \
 		utilities/bugtool/ovs-bugtool \
 		ovsdb/ovsdbmonitor/ovsdbmonitor
@@ -80,9 +80,15 @@ src_compile() {
 
 src_install() {
 	default
+
+	if use monitor ; then
+		python_domodule "${ED}"/usr/share/openvswitch/python/*
+		rm -r "${ED}/usr/share/openvswitch/python"
+		python_optimize "${ED}/usr/share/ovsdbmonitor"
+	fi
 	# not working without the brcompat_mod kernel module which did not get
 	# included in the kernel and we can't build it anymore
-	# rm "${D}/usr/sbin/ovs-brcompatd" "${D}/usr/share/man/man8/ovs-brcompatd.8"
+	rm "${D}/usr/sbin/ovs-brcompatd" "${D}/usr/share/man/man8/ovs-brcompatd.8"
 
 	keepdir /var/{lib,log}/openvswitch
 	keepdir /etc/ssl/openvswitch
@@ -106,14 +112,6 @@ src_install() {
 }
 
 pkg_postinst() {
-
-	# if use monitor ; then
-	#	python_mod_optimize -f -x "/(site-packages|test|tests|${PN})/"
-	#	python_mod_optimize ${ROOT}usr/share/${PN}
-	#	rm -r "${ROOT}usr/share/openvswitch/python"
-	#	python_optimize "${ROOT}usr/share/ovsdbmonitor"
-	# fi
-
 	use modules && linux-mod_pkg_postinst
 
 	for pv in ${REPLACING_VERSIONS}; do
