@@ -1,5 +1,5 @@
---- a/datapath/linux/datapath.c.old  2013-05-17 11:37:34.827853601 -0400
-+++ b/datapath/linux/datapath.c  2013-05-17 11:38:00.701852836 -0400
+--- a/datapath/datapath.c
++++ b/datapath/datapath.c
 @@ -60,9 +60,8 @@
  #include "tunnel.h"
  #include "vport-internal_dev.h"
@@ -12,4 +12,3 @@
  #endif
  
  #define REHASH_FLOW_INTERVAL (10 * 60 * HZ)
-
