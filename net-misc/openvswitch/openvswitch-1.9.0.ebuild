@@ -34,9 +34,12 @@ MODULE_NAMES="brcompat(net:${S}/datapath/linux) openvswitch(net:${S}/datapath/li
 BUILD_TARGETS="all"
 
 pkg_setup() {
-	if use modules ; then
-		CONFIG_CHECK+=" ~!OPENVSWITCH"
-		linux-mod_pkg_setup
+
+	if kernel_is -lt 3 9 ; then
+		if use modules ; then
+			CONFIG_CHECK+=" ~!OPENVSWITCH"
+			linux-mod_pkg_setup
+		fi
 	else
 		CONFIG_CHECK+=" ~OPENVSWITCH"
 		linux-info_pkg_setup
@@ -47,7 +50,6 @@ pkg_setup() {
 src_prepare() {
 	# Never build kernelmodules, doing this manually
 	epatch "${FILESDIR}"/"${PN}"-kernel32.patch
-	epatch "${FILESDIR}"/"${PN}"-kernel39.patch
 	sed -i \
 		-e '/^SUBDIRS/d' \
 		datapath/Makefile.in || die "sed failed"
@@ -58,7 +60,9 @@ src_configure() {
 	use pyside || export ovs_cv_pyuic4="no"
 
 	local linux_config
-	use modules && linux_config="--with-linux=${KERNEL_DIR}"
+	if kernel_is -lt 3 9 ; then
+		use modules && linux_config="--with-linux=${KERNEL_DIR}"
+	fi
 
 	econf ${linux_config} \
 		--with-rundir=/var/run/openvswitch \
@@ -77,7 +81,9 @@ src_compile() {
 		utilities/bugtool/ovs-bugtool \
 		ovsdb/ovsdbmonitor/ovsdbmonitor
 
-	use modules && linux-mod_src_compile
+	if kern_is -lt 3 9 ; then
+		use modules && linux-mod_src_compile
+	fi
 }
 
 src_install() {
