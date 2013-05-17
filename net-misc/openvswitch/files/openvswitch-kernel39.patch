@@ -1,0 +1,15 @@
+--- datapath/linux/datapath.c.old	2013-05-17 11:37:34.827853601 -0400
++++ datapath/linux/datapath.c	2013-05-17 11:38:00.701852836 -0400
+@@ -60,9 +60,8 @@
+ #include "tunnel.h"
+ #include "vport-internal_dev.h"
+ 
+-#if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,18) || \
+-    LINUX_VERSION_CODE >= KERNEL_VERSION(3,9,0)
+-#error Kernels before 2.6.18 or after 3.8 are not supported by this version of Open vSwitch.
++#if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,18) 
++#error Kernels before 2.6.18 are not supported by this version of Open vSwitch.
+ #endif
+ 
+ #define REHASH_FLOW_INTERVAL (10 * 60 * HZ)
+
