@@ -46,6 +46,8 @@ pkg_setup() {
 
 src_prepare() {
 	# Never build kernelmodules, doing this manually
+	epatch "${FILESDIR}"/"${PN}"-kernel32.patch
+	epatch "${FILESDIR}"/"${PN}"-kernel39.patch
 	sed -i \
 		-e '/^SUBDIRS/d' \
 		datapath/Makefile.in || die "sed failed"
