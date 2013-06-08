@@ -101,7 +101,7 @@ src_install() {
 	insinto /etc/webauth
 	if use webkdc ; then
 		doins ${FILESDIR}/webkdc.conf
-		doins ${S}/src/modules/webkdc/token.acl
+		doins ${S}/conf/token.acl
 	fi
 	dosym ${FILESDIR} /etc/webkdc
 	dosym /usr/share/weblogin /usr/local/share/weblogin
