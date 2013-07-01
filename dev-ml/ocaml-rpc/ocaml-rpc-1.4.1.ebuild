@@ -14,7 +14,8 @@ HOMEPAGE="https://github.com/samoht/ocaml-rpc"
 DEPEND=">=dev-lang/ocaml-3.10.2[ocamlopt?]
 	dev-ml/type-conv
 	dev-ml/xmlm
-	dev-ml/lwt"
+	dev-ml/lwt
+	dev-ml/js_of_ocaml"
 
 RDEPEND="$DEPEND"
 
