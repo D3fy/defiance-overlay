@@ -17,16 +17,18 @@ LICENSE="BSD"
 
 SLOT="0"
 KEYWORDS="amd64 ppc x86"
-IUSE="minimal vhosts pcre python examples"
+IUSE="minimal memcached vhosts pcre perl python examples"
 
 DEPEND="dev-libs/confuse
 	dev-libs/expat
 	>=dev-libs/apr-1.0
 	!dev-db/firebird
+	memcached? ( net-misc/memcached )
 	pcre? ( dev-libs/libpcre )"
 
 RDEPEND="
 	${DEPEND}
+	perl? ( dev-lang/perl )
 	!minimal? ( net-analyzer/rrdtool
 		${WEBAPP_DEPEND}
 		dev-lang/php[gd,xml,ctype,cgi]
@@ -50,11 +52,14 @@ src_prepare() {
 
 src_configure() {
 	econf \
+		--enable-status \
 		--enable-gexec \
 		--sysconfdir="${EPREFIX}"/etc/${PN} \
+		$(use_enable perl) \
 		$(use_enable python) \
 		$(use_with pcre libpcre) \
-		$(use_with !minimal gmetad)
+		$(use_with !minimal gmetad) \
+		$(use_with memcached)
 }
 
 src_install() {
