@@ -18,10 +18,12 @@ KEYWORDS="amd64"
 RESTRICT="binchecks"
 IUSE=""
 
-DEPEND=">=virtual/jdk-1.6"
+DEPEND=">=virtual/jdk-1.6
+	dev-java/ant-core"
 RDEPEND="${DEPEND}
 	net-misc/openssh
-	net-misc/rsync"
+	net-misc/rsync
+	dev-java/log4j"
 
 INSTALL_DIR=/opt/hadoop
 export CONFIG_PROTECT="${CONFIG_PROTECT} ${INSTALL_DIR}/conf"
