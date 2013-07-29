@@ -18,11 +18,7 @@ KEYWORDS="amd64"
 RESTRICT="binchecks"
 IUSE=""
 
-DEPEND=">=virtual/jdk-1.6
-	dev-libs/boost
-	dev-java/ant-core
-	dev-java/ant-junit4
-	dev-libs/protobuf[java]"
+DEPEND=">=virtual/jdk-1.6"
 RDEPEND="${DEPEND}
 	net-misc/openssh
 	net-misc/rsync"
