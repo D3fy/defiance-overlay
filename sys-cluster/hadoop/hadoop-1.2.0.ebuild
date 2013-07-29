@@ -52,7 +52,7 @@ src_prepare() {
 
 	#epatch "${FILESDIR}"/hadoop-java7.patch
 	#epatch "${FILESDIR}"/hadoop-jni-ldflags.patch
-	epatch "${FILESDIR}"/hadoop-noasneeded.patch
+	# epatch "${FILESDIR}"/hadoop-noasneeded.patch
 	cd "${S}"/src/native && eautoreconf
 }
 
