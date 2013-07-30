@@ -1,10 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI=4
 
 WANT_ANT_TASKS="ant-core"
+
 
 inherit eutils java-pkg-2 java-ant-2 autotools user
 SLOT="alpha"
@@ -13,7 +12,7 @@ HOMEPAGE="http://hadoop.apache.org/"
 SRC_URI="https://archive.apache.org/dist/hadoop/core/${P}-${SLOT}/${P}-${SLOT}.tar.gz"
 
 LICENSE="Apache-2.0"
-KEYWORDS="amd64"
+KEYWORDS="~*"
 RESTRICT="binchecks"
 IUSE=""
 

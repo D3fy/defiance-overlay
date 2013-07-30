@@ -1,6 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI=4
 
@@ -14,7 +12,7 @@ SRC_URI="https://archive.apache.org/dist/hadoop/core/${P}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="beta"
-KEYWORDS="amd64"
+KEYWORDS="~*"
 RESTRICT="binchecks"
 IUSE=""
 
