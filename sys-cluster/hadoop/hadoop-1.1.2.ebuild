@@ -13,7 +13,7 @@ HOMEPAGE="http://hadoop.apache.org/"
 SRC_URI="https://archive.apache.org/dist/hadoop/core/${P}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="beta"
+SLOT="stable"
 KEYWORDS="amd64"
 RESTRICT="binchecks"
 IUSE=""

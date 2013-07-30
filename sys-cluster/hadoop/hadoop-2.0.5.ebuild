@@ -7,13 +7,12 @@ EAPI=4
 WANT_ANT_TASKS="ant-core"
 
 inherit eutils java-pkg-2 java-ant-2 autotools user
-
+SLOT="alpha"
 DESCRIPTION="Software framework for data intensive distributed applications"
 HOMEPAGE="http://hadoop.apache.org/"
-SRC_URI="https://archive.apache.org/dist/hadoop/core/${P}/${P}.tar.gz"
+SRC_URI="https://archive.apache.org/dist/hadoop/core/${P}-${SLOT}/${P}-${SLOT}.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="beta"
 KEYWORDS="amd64"
 RESTRICT="binchecks"
 IUSE=""
