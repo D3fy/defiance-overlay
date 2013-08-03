@@ -23,7 +23,7 @@ DEPEND="dev-libs/confuse
 	dev-libs/expat
 	>=dev-libs/apr-1.0
 	!dev-db/firebird
-	memcached? ( net-misc/memcached )
+	memcached? ( net-misc/memcached dev-libs/libmemcached )
 	pcre? ( dev-libs/libpcre )"
 
 RDEPEND="
