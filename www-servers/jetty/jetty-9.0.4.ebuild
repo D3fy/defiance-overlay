@@ -13,7 +13,7 @@ HOMEPAGE="http://git.eclipse.org/c/jetty/org.eclipse.jetty.project.git"
 KEYWORDS="~amd64 ~x86"
 LICENSE="Apache-2.0"
 
-IUSE="+logrotate"
+IUSE="+logrotate doc"
 
 DEPEND="dev-java/maven-bin:3.1
 	virtual/jre:1.7"
