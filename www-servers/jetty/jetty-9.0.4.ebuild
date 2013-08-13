@@ -50,7 +50,7 @@ src_install() {
 	fowners jetty:jetty /var/log/${PN}
 	fperms 0755 /etc/${PN} /var/log/${PN}
 
-	dodoc LICENSE-* README* VERSION*
+	dodoc license-* README* VERSION*
 
 	use doc && dohtml javadoc
 
