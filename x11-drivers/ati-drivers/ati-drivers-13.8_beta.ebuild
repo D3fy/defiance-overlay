@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ati-drivers-13.6_beta.ebuild,v 1.4 2013/06/18 14:00:32 chithanh Exp $
+# $Header: $
 
 EAPI=5
 
@@ -8,19 +8,9 @@ inherit eutils multilib linux-info linux-mod toolchain-funcs versionator pax-uti
 
 DESCRIPTION="Ati precompiled drivers for Radeon Evergreen (HD5000 Series) and newer chipsets"
 HOMEPAGE="http://www.amd.com"
-MY_V=( $(get_version_components) )
 #RUN="${WORKDIR}/amd-driver-installer-9.00-x86.x86_64.run"
 SLOT="1"
-if [[ "${MY_V[2]}" =~  beta.* ]]; then
-	BETADIR="beta/"
-else
-	BETADIR="linux/"
-fi
-if [[ legacy != ${SLOT} ]]; then
-	DRIVERS_URI="http://www2.ati.com/drivers/${BETADIR}amd-catalyst-13.8-beta1-linux-x86.x86_64.zip"
-else
-	DRIVERS_URI="http://www2.ati.com/drivers/legacy/amd-driver-installer-catalyst-$(get_version_component_range 1-2)-$(get_version_component_range 3)-legacy-linux-x86.x86_64.zip"
-fi
+DRIVERS_URI="http://www2.ati.com/drivers/beta/amd-catalyst-13.8-beta1-linux-x86.x86_64.zip"
 XVBA_SDK_URI="http://developer.amd.com/wordpress/media/2012/10/xvba-sdk-0.74-404001.tar.gz"
 SRC_URI="${DRIVERS_URI} ${XVBA_SDK_URI}"
 FOLDER_PREFIX="common/"
@@ -32,7 +22,7 @@ KEYWORDS="-* ~amd64 ~x86"
 RESTRICT="bindist test"
 
 RDEPEND="
-	<x11-base/xorg-server-1.15[-minimal]
+	<=x11-base/xorg-server-1.14.49[-minimal]
 	>=app-admin/eselect-opengl-1.0.7
 	app-admin/eselect-opencl
 	sys-power/acpid
@@ -192,13 +182,6 @@ pkg_pretend() {
 		linux-info_pkg_setup
 		require_configured_kernel
 		_check_kernel_config
-
-		if ! [[ "${KV_EXTRA}" =~ -hardened.* ]] && use pax_kernel; then
-			eerror "USE pax_kernel enabled for a non-hardened kernel."
-			eerror "If you know this kernel supports pax_kernel, open a bug at"
-			eerror "https://bugs.gentoo.org"
-			die "USE pax_kernel enabled for a non-hardened kernel"
-		fi
 	fi
 
 	if ! has XT ${PAX_MARKINGS} && use pax_kernel; then
@@ -315,7 +298,10 @@ src_prepare() {
 	# Compile fix for kernel typesafe uid types #469160
 	epatch "${FILESDIR}/typesafe-kuid.diff"
 
-	epatch "${FILESDIR}/ati-drivers-13.6-linux-3.10-proc.diff"
+	epatch "${FILESDIR}/ati-drivers-13.8-beta-include-seq_file.patch"
+
+	epatch "${FILESDIR}/check-for-iommu-only-if-iommu-is-supported.patch"
+	epatch "${FILESDIR}/ati-drivers-13.8-proc-permissions.diff"
 
 	# Compile fix, https://bugs.gentoo.org/show_bug.cgi?id=454870
 	use pax_kernel && epatch "${FILESDIR}/const-notifier-block.patch"
