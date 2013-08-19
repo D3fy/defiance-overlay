@@ -1,25 +1,28 @@
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 EAPI=5
 
-inherit eutils multilib linux-info linux-mod toolchain-funcs versionator
+inherit eutils multilib linux-info linux-mod toolchain-funcs versionator pax-utils
 
 DESCRIPTION="Ati precompiled drivers for Radeon Evergreen (HD5000 Series) and newer chipsets"
 HOMEPAGE="http://www.amd.com"
-DRIVERS_URI="http://www2.ati.com/drivers/linux/amd-catalyst-${PV}-linux-x86.x86_64.zip"
+#RUN="${WORKDIR}/amd-driver-installer-9.00-x86.x86_64.run"
+SLOT="1"
+DRIVERS_URI="http://www2.ati.com/drivers/beta/amd-catalyst-13.8-beta1-linux-x86.x86_64.zip"
 XVBA_SDK_URI="http://developer.amd.com/wordpress/media/2012/10/xvba-sdk-0.74-404001.tar.gz"
 SRC_URI="${DRIVERS_URI} ${XVBA_SDK_URI}"
 FOLDER_PREFIX="common/"
-IUSE="+vaapi debug +modules multilib qt4 static-libs disable-watermark"
+IUSE="debug +modules multilib qt4 static-libs disable-watermark pax_kernel"
 
 LICENSE="AMD GPL-2 QPL-1.0"
-KEYWORDS="*"
-SLOT="1"
+KEYWORDS="-* ~amd64 ~x86"
 
 RESTRICT="bindist test"
 
 RDEPEND="
-	<=x11-base/xorg-server-1.13.49[-minimal]
+	<=x11-base/xorg-server-1.14.49[-minimal]
 	>=app-admin/eselect-opengl-1.0.7
 	app-admin/eselect-opencl
 	sys-power/acpid
@@ -32,7 +35,16 @@ RDEPEND="
 	virtual/glu
 	multilib? (
 			app-emulation/emul-linux-x86-opengl
-			app-emulation/emul-linux-x86-xlibs
+			|| (
+				(
+					x11-libs/libX11[abi_x86_32]
+					x11-libs/libXext[abi_x86_32]
+					x11-libs/libXinerama[abi_x86_32]
+					x11-libs/libXrandr[abi_x86_32]
+					x11-libs/libXrender[abi_x86_32]
+				)
+				app-emulation/emul-linux-x86-xlibs
+			)
 	)
 	qt4? (
 			x11-libs/libICE
@@ -44,6 +56,13 @@ RDEPEND="
 			dev-qt/qtgui:4[accessibility]
 	)
 "
+if [[ legacy != ${SLOT} ]]; then
+	RDEPEND="${RDEPEND}
+		!x11-drivers/ati-drivers:legacy"
+else
+	RDEPEND="${RDEPEND}
+		!x11-drivers/ati-drivers:1"
+fi
 
 DEPEND="${RDEPEND}
 	x11-proto/inputproto
@@ -54,10 +73,6 @@ DEPEND="${RDEPEND}
 	sys-apps/findutils
 	app-misc/pax-utils
 	app-arch/unzip
-"
-
-PDEPEND="
-	vaapi? ( x11-libs/xvba-video )
 "
 
 EMULTILIB_PKG="true"
@@ -132,29 +147,32 @@ QA_DT_HASH="
 	usr/lib\(32\|64\)\?/OpenCL/vendors/amd/libamdocl\(32\|64\)\?.so
 	usr/lib\(32\|64\)\?/OpenCL/vendors/amd/libOpenCL.so.1
 "
-CONFIG_CHECK="~MTRR ~!DRM ACPI PCI_MSI !LOCKDEP COMPAT"
+
+CONFIG_CHECK="~MTRR ~!DRM ACPI PCI_MSI !LOCKDEP !PAX_KERNEXEC_PLUGIN_METHOD_OR"
 ERROR_MTRR="CONFIG_MTRR required for direct rendering."
-ERROR_DRM="CONFIG_DRM must be disabled or compiled as a module for direct rendering."
-ERROR_LOCKDEP="CONFIG_LOCKDEP (lock tracking) exports the symbol lock_acquire\n
-as GPL-only. This prevents ${P} from compiling with an error like this:\n
-FATAL: modpost: GPL-incompatible module fglrx.ko uses GPL-only symbol 'lock_acquire'"
+ERROR_DRM="CONFIG_DRM must be disabled or compiled as a module and not loaded for direct
+	rendering to work."
+ERROR_LOCKDEP="CONFIG_LOCKDEP (lock tracking) exports the symbol lock_acquire
+	as GPL-only. This prevents ${P} from compiling with an error like this:
+	FATAL: modpost: GPL-incompatible module fglrx.ko uses GPL-only symbol 'lock_acquire'"
+ERROR_PAX_KERNEXEC_PLUGIN_METHOD_OR="This config option will cause
+	kernel to reject loading the fglrx module with
+	\"ERROR: could not insert 'fglrx': Exec format error.\"
+	You may want to try CONFIG_PAX_KERNEXEC_PLUGIN_METHOD_BTS instead."
 
 _check_kernel_config() {
-	local failed=0
-	local error=""
-	if ! kernel_is ge 2 6; then
-		eerror "Need Linux kernel 2.6+."
-		die
-	fi
-
-	if ! linux_chkconfig_present AGP && ! linux_chkconfig_present PCIEPORTBUS; then
-		ewarn "Either AGP (CONFIG_AGP) or PCIe (CONFIG_PCIEPORTBUS) support"
-		ewarn "must be enabled in the kernel for direct rendering."
+	if ! linux_chkconfig_present AGP && \
+		! linux_chkconfig_present PCIEPORTBUS; then
+		ewarn "You don't have AGP and/or PCIe support enabled in the kernel"
+		ewarn "Direct rendering will not work."
 	fi
 
 	kernel_is ge 2 6 37 && kernel_is le 2 6 38 && if ! linux_chkconfig_present BKL ; then
-		eerror "CONFIG_BKL must be enabled for kernels 2.6.37-2.6.38."
-		die
+		die "CONFIG_BKL must be enabled for kernels 2.6.37-2.6.38."
+	fi
+
+	if use amd64 && ! linux_chkconfig_present COMPAT; then
+		die "CONFIG_COMPAT must be enabled for amd64 kernels."
 	fi
 }
 
@@ -164,6 +182,12 @@ pkg_pretend() {
 		linux-info_pkg_setup
 		require_configured_kernel
 		_check_kernel_config
+	fi
+
+	if ! has XT ${PAX_MARKINGS} && use pax_kernel; then
+		ewarn "You have disabled xattr pax markings for portage."
+		ewarn "This will likely cause programs using ati-drivers provided"
+		ewarn "libraries to be killed kernel."
 	fi
 }
 
@@ -202,15 +226,32 @@ pkg_setup() {
 	elog "This includes the AMD Radeon HD 5400+ series at this moment."
 	elog
 	elog "If your card is older then use ${CATEGORY}/xf86-video-ati"
-	elog "For migration information, please refer to:"
+	elog "For migration informations please refer to:"
 	elog "http://www.gentoo.org/proj/en/desktop/x/x11/ati-migration-guide.xml"
 	einfo
 }
 
 src_unpack() {
-	unpack ${A}
-	local RUN="$(ls amd-catalyst*)"
-	sh ${RUN} --extract "${S}" || die
+	local DRIVERS_DISTFILE XVBA_SDK_DISTFILE
+	DRIVERS_DISTFILE=${DRIVERS_URI##*/}
+	XVBA_SDK_DISTFILE=${XVBA_SDK_URI##*/}
+
+	if [[ ${DRIVERS_DISTFILE} =~ .*\.tar\.gz ]]; then
+		unpack ${DRIVERS_DISTFILE}
+	else
+		#please note, RUN may be insanely assigned at top near SRC_URI
+		if [[ ${DRIVERS_DISTFILE} =~ .*\.zip ]]; then
+			unpack ${DRIVERS_DISTFILE}
+			[[ -z "$RUN" ]] && RUN="${S}/${DRIVERS_DISTFILE/%.zip/.run}"
+		else
+			RUN="${DISTDIR}/${DRIVERS_DISTFILE}"
+		fi
+		sh ${RUN} --extract "${S}" 2>&1 > /dev/null || die
+	fi
+
+	mkdir xvba_sdk
+	cd xvba_sdk
+	unpack ${XVBA_SDK_DISTFILE}
 }
 
 src_prepare() {
@@ -251,16 +292,19 @@ src_prepare() {
 	# first hunk applied upstream second (x32 related) was not
 	epatch "${FILESDIR}"/ati-drivers-x32_something_something.patch
 
-	# compile fix for linux-3.7
-	# https://bugs.gentoo.org/show_bug.cgi?id=438516
-	epatch "${FILESDIR}/ati-drivers-vm-reserverd.patch"
-
 	# compile fix for AGP-less kernel, bug #435322
 	epatch "${FILESDIR}"/ati-drivers-12.9-KCL_AGP_FindCapsRegisters-stub.patch
 
-	# Use ACPI_DEVICE_HANDLE wrapper to make driver build on linux-3.8
-	# see https://bugs.gentoo.org/show_bug.cgi?id=448216
-	# epatch "${FILESDIR}/ati-drivers-kernel-3.8-acpihandle.patch"
+	# Compile fix for kernel typesafe uid types #469160
+	epatch "${FILESDIR}/typesafe-kuid.diff"
+
+	epatch "${FILESDIR}/ati-drivers-13.8-beta-include-seq_file.patch"
+
+	epatch "${FILESDIR}/check-for-iommu-only-if-iommu-is-supported.patch"
+	epatch "${FILESDIR}/ati-drivers-13.8-proc-permissions.diff"
+
+	# Compile fix, https://bugs.gentoo.org/show_bug.cgi?id=454870
+	use pax_kernel && epatch "${FILESDIR}/const-notifier-block.patch"
 
 	cd "${MODULE_DIR}"
 
@@ -279,7 +323,7 @@ src_prepare() {
 		|| die "MODVERSIONS sed failed"
 	cd "${S}"
 
-	mkdir extra || die
+	mkdir extra || die "mkdir extra failed"
 	cd extra
 	unpack ./../${FOLDER_PREFIX}usr/src/ati/fglrx_sample_source.tgz
 
@@ -435,9 +479,6 @@ src_install() {
 	doexe "${FILESDIR}"/switchlibGL || die "doexe switchlibGL failed"
 	cp "${FILESDIR}"/switchlibGL "${T}"/switchlibglx
 	doexe "${T}"/switchlibglx || die "doexe switchlibglx failed"
-
-	insinto /usr/include
-	doins ${WORKDIR}/include/*.h
 }
 
 src_install-libs() {
@@ -523,6 +564,12 @@ src_install-libs() {
 	#remove static libs if not wanted
 	use static-libs || rm -rf "${D}"/usr/$(get_libdir)/libfglrx_dm.a
 
+	#install xvba sdk headers
+	doheader xvba_sdk/include/amdxvba.h
+
+	if use pax_kernel; then
+		pax-mark m "${D}"/usr/lib*/opengl/ati/lib/libGL.so.1.2 || die "pax-mark failed"
+	fi
 }
 
 pkg_postinst() {
@@ -545,11 +592,18 @@ pkg_postinst() {
 	"${ROOT}"/usr/bin/eselect opengl set --use-old ati
 	"${ROOT}"/usr/bin/eselect opencl set --use-old amd
 
-	if has_version ">=x11-drivers/xf86-video-intel-2.20.3"; then
-		ewarn "It is reported that xf86-video-intel-2.20.3 and later cause the X server"
+	if has_version "x11-drivers/xf86-video-intel[sna]"; then
+		ewarn "It is reported that xf86-video-intel built with USE=\"sna\" causes the X server"
 		ewarn "to crash on systems that use hybrid AMD/Intel graphics. If you experience"
-		ewarn "this crash, downgrade to xf86-video-intel-2.20.2 or earlier."
+		ewarn "this crash, downgrade to xf86-video-intel-2.20.2 or earlier or"
+		ewarn "try disabling sna for xf86-video-intel."
 		ewarn "For details, see https://bugs.gentoo.org/show_bug.cgi?id=430000"
+	fi
+
+	if use pax_kernel; then
+		ewarn "Please run \"revdep-pax -s libGL.so.1 -me\" after installation and"
+		ewarn "after you have run \"eselect opengl set ati\". Executacle"
+		ewarn "revdep-pax is part of package sys-apps/elfix."
 	fi
 }
 
