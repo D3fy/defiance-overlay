@@ -30,6 +30,7 @@ RDEPEND="
 	rrdtool?  ( net-analyzer/rrdtool )
 	selinux? ( sec-policy/selinux-apache )
 	ssl?    ( >=dev-libs/openssl-0.9.7[kerberos?] )
+	kerberos? ( virtual/krb5 )
 	webdav? (
 		dev-libs/libxml2
 		>=dev-db/sqlite-3
