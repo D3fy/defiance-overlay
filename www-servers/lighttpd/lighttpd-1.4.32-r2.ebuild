@@ -111,7 +111,7 @@ src_prepare() {
 	    epatch "${FILESDIR}"/${PN}-1.4.29-mod_uploadprogress.patch
 	fi
 	if use kerberos; then
-		epatch "${FILESDIR}"/${PN}-gssapi.patch
+		epatch "${FILESDIR}"/${PN}-1.4.32-gssapi.patch
 	fi
 	eautoreconf
 }

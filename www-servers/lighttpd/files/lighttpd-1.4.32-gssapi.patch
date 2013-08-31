@@ -144,7 +144,7 @@ diff -ur lighttpd-trunk/src/http_auth.h lighttpd-trunk/src/http_auth.h
 +
 +int http_auth_gssapi_check(server *srv, connection *con, mod_auth_plugin_data *p, array *req, buffer *url, const char *realm_str) {
 +	data_string *realm;
-+	realm = (data_string *)array_get_element(req, CONST_STR_LEN("realm"));
++	realm = (data_string *)array_get_element(req, "realm");
 +    int ret = 0;
 +
 +	buffer *t_in;
@@ -485,7 +485,7 @@ diff -ur lighttpd-trunk/src/http_auth.h lighttpd-trunk/src/http_auth.h
 +
 +    if (strchr(BUF_STR(username), '@') == NULL) {
 +        data_string *realm;
-+        realm = (data_string *)array_get_element(req, CONST_STR_LEN("realm"));
++        realm = (data_string *)array_get_element(req, "realm");
 +
 +        BUFFER_APPEND_STRING_CONST(username, "@");
 +        buffer_append_string_buffer(username, realm->value);
