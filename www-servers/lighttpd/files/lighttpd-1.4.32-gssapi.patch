@@ -1,5 +1,5 @@
---- configure.ac.orig	2013-08-31 20:38:25.720549216 -0400
-+++ configure.ac.new	2013-08-31 20:46:28.303115571 -0400
+--- configure.ac	2013-08-31 20:38:25.720549216 -0400
++++ configure.ac	2013-08-31 20:46:28.303115571 -0400
 @@ -273,13 +273,39 @@
      [ use_openssl=yes LDFLAGS="$LDFLAGS -L$withval" ]
  )
