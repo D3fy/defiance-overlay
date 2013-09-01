@@ -151,7 +151,7 @@
 +        }
 +    } while (!GSS_ERROR(maj_stat) && msg_ctx != 0);
 +
-+    return BUF_STR(msg);
++    return msg->ptr;
 +}
 +
 +static int create_krb5_ccache(server *srv, connection *con, mod_auth_plugin_data *p, krb5_context kcontext, krb5_principal princ, krb5_ccache *ccache) {
@@ -275,7 +275,7 @@
 +    buffer *ktname;
 +    ktname = buffer_init_string("KRB5_KTNAME=");
 +    buffer_append_string_buffer(ktname, p->conf.auth_gssapi_keytab);
-+    putenv(BUF_STR(ktname));
++    putenv(ktname->ptr);
 +    // ktname becomes part of the environment, do not free
 +    //buffer_free(ktname);
 +
@@ -298,7 +298,7 @@
 +    buffer *gss_err;
 +    gss_err = buffer_init();
 +
-+    token_s.value = BUF_STR(sprinc);
++    token_s.value = sprinc->ptr;
 +    token_s.length = CONST_STR_LEN(sprinc);
 +    st_major = gss_import_name(&st_minor, &token_s, (gss_OID) GSS_KRB5_NT_PRINCIPAL_NAME, &server_name);
 +    if (GSS_ERROR(st_major)) {
@@ -580,14 +580,14 @@
 +    krb5_ccache c_ccache = NULL;
 +    krb5_ccache ret_ccache = NULL;
 +
-+    ret = krb5_parse_name(kcontext, BUF_STR(sprinc), &s_princ);
++    ret = krb5_parse_name(kcontext, sprinc->ptr, &s_princ);
 +    if (ret) {
 +        log_error_write(srv, __FILE__, __LINE__, "sbss", "Error parsing server name (", sprinc, "):", krb5_get_err_text(kcontext, ret));
 +        ret = -1;
 +        goto end;
 +    }
 +
-+    if (strchr(BUF_STR(username), '@') == NULL) {
++    if (strchr(username->ptr, '@') == NULL) {
 +        data_string *realm;
 +        realm = (data_string *)array_get_element(req, "realm");
 +
@@ -595,7 +595,7 @@
 +        buffer_append_string_buffer(username, realm->value);
 +    }
 +
-+    ret = krb5_parse_name(kcontext, BUF_STR(username), &c_princ);
++    ret = krb5_parse_name(kcontext, username->ptr, &c_princ);
 +    if (ret) {
 +        log_error_write(srv, __FILE__, __LINE__, "sbss", "Error parsing client name (", username, "):", krb5_get_err_text(kcontext, ret));
 +        ret = -1;
@@ -612,7 +612,7 @@
 +    */
 +
 +    memset(&c_creds, 0, sizeof(c_creds));
-+    ret = krb5_get_init_creds_password(kcontext, &c_creds, c_princ, BUF_STR(password), NULL, NULL, 0, NULL, NULL);
++    ret = krb5_get_init_creds_password(kcontext, &c_creds, c_princ, password->ptr, NULL, NULL, 0, NULL, NULL);
 +    if (ret) {
 +        log_error_write(srv, __FILE__, __LINE__, "ss", "krb5_get_init_creds_password() failed:", krb5_get_err_text(kcontext, ret));
 +        goto end;
