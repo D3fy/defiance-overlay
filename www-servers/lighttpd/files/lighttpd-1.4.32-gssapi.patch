@@ -17,14 +17,13 @@
  else
      use_openssl=no
  fi
-@@ -273,13 +273,34 @@
+@@ -273,13 +273,44 @@
      [ use_openssl=yes LDFLAGS="$LDFLAGS -L$withval" ]
  )
  
 -AC_ARG_WITH(kerberos5,
 -    AC_HELP_STRING([--with-kerberos5],[use Kerberos5 support with OpenSSL]),
 -    [ use_kerberos=yes ], [use_kerberos=no]
--)
 +dnl Check for krb5
 +AC_MSG_CHECKING(for krb5)
 +AC_ARG_WITH(krb5,
@@ -41,6 +40,16 @@
 +fi
 +AC_MSG_RESULT([$use_krb5])
 +
++AC_ARG_WITH(krb5-includes,
++    AC_HELP_STRING([--with-krb5-includes=DIR],[Kerberos includes]),
++    [ use_krb5=yes CPPFLAGS="$CPPFLAGS -I$withval" ]
++)
++
++AC_ARG_WITH(krb5-libs,
++    AC_HELP_STRING([--with-krb5-libs=DIR],[Kerberos libraries]),
++    [ use_krb5=yes LDFLAGS="$LDFLAGS -L$withval" ]
+ )
+ 
 +if test "x$use_krb5" = "xyes"; then
 +	AC_CHECK_HEADER(krb5.h, : [AC_MSG_ERROR(Kerberos 5 headers not found)])
 +	AC_CHECK_HEADER(gssapi.h, : [AC_MSG_ERROR(gssapi headers not found)])
@@ -50,7 +59,7 @@
 +	AC_DEFINE(HAVE_KRB5, [1], [krb5])
 +fi
 +AC_SUBST(KRB5_LIB)
- 
++
  if test "x$use_openssl" = "xyes"; then
 -    if test "x$use_kerberos" != "xyes"; then
 +    if test "x$use_krb5" != "xyes"; then
@@ -59,22 +68,25 @@
  
 --- src/http_auth.c	2012-05-17 05:29:24.000000000 -0400
 +++ src/http_auth.c	2013-08-31 12:09:30.265879619 -0400
-@@ -15,6 +15,13 @@
+@@ -15,6 +15,16 @@
  # define HAVE_CRYPT
  #endif
-
+ 
 +#include <resolv.h>
 +#include <krb5.h>
 +#include <gssapi/gssapi.h>
 +#include <gssapi/gssapi_generic.h>
 +#include <gssapi/gssapi_krb5.h>
++#define GSS_C_NT_USER_NAME gss_nt_user_name
++#define GSS_C_NT_HOSTBASED_SERVICE gss_nt_service_name
++#define GSS_KRB5_NT_PRINCIPAL_NAME gss_nt_krb5_name
 +#define krb5_get_err_text(context,code) error_message(code)
 +
  #include <sys/types.h>
  #include <sys/stat.h>
-
-@@ -1200,3 +1207,569 @@
-
+ 
+@@ -1200,3 +1210,569 @@
+ 
  	return 0;
  }
 +
@@ -254,7 +266,7 @@
 +
 +    token_s.value = BUF_STR(sprinc);
 +    token_s.length = BUF_STR_LEN(sprinc);
-+    st_major = gss_import_name(&st_minor, &token_s, GSS_KRB5_NT_PRINCIPAL_NAME, &server_name);
++    st_major = gss_import_name(&st_minor, &token_s, (have_server_princ) ? (gss_OID) GSS_KRB5_NT_PRINCIPAL_NAME : (gss_OID) GSS_C_NT_HOSTBASED_SERVICE, &server_name);
 +    if (GSS_ERROR(st_major)) {
 +        log_error_write(srv, __FILE__, __LINE__, "ss", "gss_import_name:", get_gss_error(gss_err, st_major, st_minor));
 +        goto end;
