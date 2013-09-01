@@ -87,6 +87,17 @@
      LIBS="$OLDLIBS"
      AC_SUBST(SSL_LIB)
  fi
+--- src/Makefile.am	2012-11-17 12:32:01.000000000 -0500
++++ src/Makefile.am	2013-09-01 09:15:56.202867950 -0400
+@@ -243,7 +243,7 @@
+ lib_LTLIBRARIES += mod_auth.la
+ mod_auth_la_SOURCES = mod_auth.c http_auth.c
+ mod_auth_la_LDFLAGS = -module -export-dynamic -avoid-version -no-undefined
+-mod_auth_la_LIBADD = $(CRYPT_LIB) $(LDAP_LIB) $(LBER_LIB) $(common_libadd)
++mod_auth_la_LIBADD = $(CRYPT_LIB) $(LDAP_LIB) $(LBER_LIB) $(KRB5_LIB) $(common_libadd)
+ 
+ lib_LTLIBRARIES += mod_rewrite.la
+ mod_rewrite_la_SOURCES = mod_rewrite.c
 --- src/http_auth.c	2012-05-17 05:29:24.000000000 -0400
 +++ src/http_auth.c	2013-08-31 12:09:30.265879619 -0400
 @@ -15,6 +15,18 @@
