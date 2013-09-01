@@ -53,7 +53,7 @@
 +if test "x$use_krb5" = "xyes"; then
 +	AC_CHECK_LIB(gssapi_krb5, gss_mech_krb5, [
 +		AC_CHECK_HEADERS([gssapi/gssapi_krb5.h],[
-+			KRB5_LIB=-lgssapi_krb5
++			KRB5_LIB="-lresolv -lkrb5 -lgssapi -lgssapi_generic -lgssapi_krb5"
 +			AC_DEFINE(HAVE_KRB5, [1], [libgssapi_krb5])
 +		])
 +	])
