@@ -1,3 +1,4 @@
+diff -ur a/configure.ac b/configure.ac
 --- a/configure.ac	2012-11-19 05:05:29.000000000 -0500
 +++ b/configure.ac	2013-08-31 20:14:45.615252604 -0400
 @@ -273,13 +273,44 @@
