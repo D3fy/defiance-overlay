@@ -17,7 +17,7 @@
  else
      use_openssl=no
  fi
-@@ -273,13 +273,44 @@
+@@ -273,22 +273,61 @@
      [ use_openssl=yes LDFLAGS="$LDFLAGS -L$withval" ]
  )
  
@@ -51,12 +51,15 @@
  )
  
 +if test "x$use_krb5" = "xyes"; then
-+	AC_CHECK_HEADER(krb5.h, : [AC_MSG_ERROR(Kerberos 5 headers not found)])
-+	AC_CHECK_HEADER(gssapi.h, : [AC_MSG_ERROR(gssapi headers not found)])
-+	AC_CHECK_HEADER(gssapi/gssapi_krb5.h, : [AC_MSG_ERROR(gssapi_krb5 headers not found)])
-+	AC_CHECK_HEADER(resolv.h, : [AC_MSG_ERROR(resolv headers not found)])
-+	KRB5_LIB=-lgssapi_krb5
-+	AC_DEFINE(HAVE_KRB5, [1], [krb5])
++	AC_CHECK_LIB(gssapi_krb5, gss_mech_krb5, [
++		AC_CHECK_HEADERS([gssapi/gssapi_krb5.h],[
++			KRB5_LIB=-lgssapi_krb5
++			AC_DEFINE(HAVE_KRB5, [1], [libgssapi_krb5])
++		])
++	])
++	if test x$KRB5_LIB = x; then
++		AC_MSG_ERROR([gssapi_krb5 headers and/or libs where not found, install them or build with --without-krb5])
++	fi
 +fi
 +AC_SUBST(KRB5_LIB)
 +
@@ -66,31 +69,51 @@
          CPPFLAGS="$CPPFLAGS -DOPENSSL_NO_KRB5"
      fi
  
+     AC_CHECK_HEADERS([openssl/ssl.h])
+     OLDLIBS="$LIBS"
+-    AC_CHECK_LIB(crypto, BIO_f_base64, [
+-      AC_CHECK_LIB(ssl, SSL_new, [ SSL_LIB="-lssl -lcrypto"
+-				 AC_DEFINE(HAVE_LIBSSL, [], [Have libssl]) ], [], [ -lcrypto "$DL_LIB" ])
+-    ], [], [])
++	AC_CHECK_LIB(crypto, BIO_f_base64, [
++		AC_CHECK_LIB(ssl, SSL_new,
++			[ SSL_LIB="-lssl -lcrypto"
++				AC_DEFINE(HAVE_LIBSSL, [], [Have libssl])
++			],
++			[],
++			[ -lcrypto "$DL_LIB" ]
++		)
++	], [], [])
+     LIBS="$OLDLIBS"
+     AC_SUBST(SSL_LIB)
+ fi
 --- src/http_auth.c	2012-05-17 05:29:24.000000000 -0400
 +++ src/http_auth.c	2013-08-31 12:09:30.265879619 -0400
-@@ -15,6 +15,16 @@
+@@ -15,6 +15,18 @@
  # define HAVE_CRYPT
  #endif
  
-+#include <resolv.h>
-+#include <krb5.h>
-+#include <gssapi/gssapi.h>
-+#include <gssapi/gssapi_generic.h>
-+#include <gssapi/gssapi_krb5.h>
-+#define GSS_C_NT_USER_NAME gss_nt_user_name
-+#define GSS_C_NT_HOSTBASED_SERVICE gss_nt_service_name
-+#define GSS_KRB5_NT_PRINCIPAL_NAME gss_nt_krb5_name
-+#define krb5_get_err_text(context,code) error_message(code)
++#ifdef HAVE_KRB5
++# include <resolv.h>
++# include <krb5.h>
++# include <gssapi/gssapi.h>
++# include <gssapi/gssapi_generic.h>
++# include <gssapi/gssapi_krb5.h>
++# define GSS_C_NT_USER_NAME gss_nt_user_name
++# define GSS_C_NT_HOSTBASED_SERVICE gss_nt_service_name
++# define GSS_KRB5_NT_PRINCIPAL_NAME gss_nt_krb5_name
++# define krb5_get_err_text(context,code) error_message(code)
++#endif
 +
  #include <sys/types.h>
  #include <sys/stat.h>
  
-@@ -1200,3 +1210,569 @@
+@@ -1200,3 +1212,570 @@
  
  	return 0;
  }
 +
-+
++#ifdef HAVE_KRB5
 +const char *get_gss_error(buffer *msg, OM_uint32 err_maj, OM_uint32 err_min) {
 +    OM_uint32 maj_stat, min_stat;
 +    OM_uint32 msg_ctx = 0;
@@ -655,6 +678,7 @@
 +
 +	return 1;
 +}
++#endif
 --- src/http_auth.h	2009-01-15 03:39:05.000000000 -0500
 +++ src/http_auth.h	2009-04-22 11:34:56.000000000 -0400
 @@ -14,7 +14,8 @@
