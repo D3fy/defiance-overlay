@@ -124,7 +124,7 @@ src_configure() {
 		$(use_with bzip2) \
 		$(use_with fam) \
 		$(use_with gdbm) \
-		$(use_with kerberos kerberos5) \
+		$(use_with kerberos krb5) \
 		$(use_with ldap) \
 		$(use_with libev) \
 		$(use_with lua) \
