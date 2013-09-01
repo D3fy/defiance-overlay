@@ -1,7 +1,6 @@
-diff -ur a/configure.ac b/configure.ac
---- configure.ac	2012-11-19 05:05:29.000000000 -0500
-+++ configure.ac	2013-08-31 20:14:45.615252604 -0400
-@@ -273,13 +273,44 @@
+--- configure.ac.orig	2013-08-31 20:38:25.720549216 -0400
++++ configure.ac.new	2013-08-31 20:46:28.303115571 -0400
+@@ -273,13 +273,39 @@
      [ use_openssl=yes LDFLAGS="$LDFLAGS -L$withval" ]
  )
  
@@ -13,35 +12,30 @@ diff -ur a/configure.ac b/configure.ac
 +	[  --with-krb5=PREFIX Use Kerberos 5],
 +	[krb5="$withval"], [krb5=no])
 +if test "$krb5" != no; then
-+   AC_SEARCH_LIBS(gethostbyname, nsl)
-+   AC_SEARCH_LIBS(socket, socket)
-+   AC_CHECK_LIB(gen, compile)
-+   if test "$krb5" != yes; then
-+      PATH="$PATH:$krb5/bin"
-+   fi
-+   AC_CHECK_PROG(krb5config, krb5-config,yes)
-+   if test "$krb5config" = yes; then
-+      CPPFLAGS="$CPPFLAGS $(krb5-config --cflags krb5)"
-+      KRB5_LIBS="$(krb5-config --libs krb5)"
-+   else
-+      if test "$krb5" != yes; then
-+      	 CPPFLAGS="$CPPFLAGS -I$krb5/include"
-+      	 LDFLAGS="$LDFLAGS -L$krb5/lib"
-+      fi
-+      KRB5_LIBS="-lgssapi_krb5 -lk5crypto -lcom_err"
-+   fi
-+   AC_CHECK_HEADER(krb5.h, :, [AC_MSG_ERROR(Kerberos 5 headers not found)])
-+   local_save_LIBS=$LIBS
-+   LIBS="$libs $KRB5_LIBS"
-+   AC_CHECK_FUNC(krb5_init_context, :,
-+	           [AC_MSG_ERROR(Kerberos 5 libraries not found)])
-+   LIBS="$local_save_LIBS"
-+   AC_DEFINE(HAVE_KRB5, 1, [Define to compile with Kerberos 5 support.])
-+   LIBZEPHYR_LIBS="$LIBZEPHYR_LIBS $KRB5_LIBS"
-+   # the zephyr library needs -lresolv if it's built with krb5
-+   AC_CHECK_LIB(resolv, res_send, LIBZEPHYR_LIBS="-lresolv $LIBZEPHYR_LIBS",
-+		AC_CHECK_LIB(resolv, __res_send, LIBZEPHYR_LIBS="-lresolv $LIBZEPHYR_LIBS",
-+			AC_MSG_ERROR(Zephyr requires libresolv along with Kerberos V.)))
++	AC_SEARCH_LIBS(gethostbyname, nsl)
++	AC_SEARCH_LIBS(socket, socket)
++	AC_CHECK_LIB(gen, compile)
++	if test "$krb5" != yes; then
++		PATH="$PATH:$krb5/bin"
++	fi
++	AC_CHECK_PROG(krb5config, krb5-config,yes)
++	if test "$krb5config" = yes; then
++		CPPFLAGS="$CPPFLAGS $(krb5-config --cflags krb5)"
++		KRB5_LIBS="$(krb5-config --libs krb5)"
++	else
++		if test "$krb5" != yes; then
++			CPPFLAGS="$CPPFLAGS -I$krb5/include"
++			LDFLAGS="$LDFLAGS -L$krb5/lib"
++		fi
++			KRB5_LIBS="-lgssapi_krb5 -lk5crypto -lcom_err"
++	fi
++	AC_CHECK_HEADER(krb5.h, :, [AC_MSG_ERROR(Kerberos 5 headers not found)])
++	local_save_LIBS=$LIBS
++	LIBS="$libs $KRB5_LIBS"
++	AC_CHECK_FUNC(krb5_init_context, :,
++		[AC_MSG_ERROR(Kerberos 5 libraries not found)])
++	LIBS="$local_save_LIBS"
++	AC_DEFINE(HAVE_KRB5, 1, [Define to compile with Kerberos 5 support.])
 +fi
 +AC_SUBST(KRB5_LIBS)
  
@@ -50,6 +44,8 @@ diff -ur a/configure.ac b/configure.ac
 +    if test "x$use_krb5" != "xyes"; then
          CPPFLAGS="$CPPFLAGS -DOPENSSL_NO_KRB5"
      fi
+ 
+
 --- src/http_auth.c	2012-05-17 05:29:24.000000000 -0400
 +++ src/http_auth.c	2013-08-31 12:09:30.265879619 -0400
 @@ -15,6 +15,13 @@
