@@ -266,7 +266,7 @@
 +
 +    token_s.value = BUF_STR(sprinc);
 +    token_s.length = BUF_STR_LEN(sprinc);
-+    st_major = gss_import_name(&st_minor, &token_s, (have_server_princ) ? (gss_OID) GSS_KRB5_NT_PRINCIPAL_NAME : (gss_OID) GSS_C_NT_HOSTBASED_SERVICE, &server_name);
++    st_major = gss_import_name(&st_minor, &token_s, (gss_OID) GSS_KRB5_NT_PRINCIPAL_NAME, &server_name);
 +    if (GSS_ERROR(st_major)) {
 +        log_error_write(srv, __FILE__, __LINE__, "ss", "gss_import_name:", get_gss_error(gss_err, st_major, st_minor));
 +        goto end;
