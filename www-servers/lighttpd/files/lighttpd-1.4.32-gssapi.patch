@@ -100,31 +100,12 @@
  mod_rewrite_la_SOURCES = mod_rewrite.c
 --- src/http_auth.c	2012-05-17 05:29:24.000000000 -0400
 +++ src/http_auth.c	2013-08-31 12:09:30.265879619 -0400
-@@ -15,6 +15,18 @@
- # define HAVE_CRYPT
- #endif
- 
-+#ifdef HAVE_KRB5
-+# include <resolv.h>
-+# include <krb5.h>
-+# include <gssapi/gssapi.h>
-+# include <gssapi/gssapi_generic.h>
-+# include <gssapi/gssapi_krb5.h>
-+# define GSS_C_NT_USER_NAME gss_nt_user_name
-+# define GSS_C_NT_HOSTBASED_SERVICE gss_nt_service_name
-+# define GSS_KRB5_NT_PRINCIPAL_NAME gss_nt_krb5_name
-+# define krb5_get_err_text(context,code) error_message(code)
-+#endif
-+
- #include <sys/types.h>
- #include <sys/stat.h>
- 
-@@ -1200,3 +1212,570 @@
+@@ -1200,3 +1200,570 @@
  
  	return 0;
  }
 +
-+#ifdef HAVE_KRB5
++#ifdef USE_KRB5
 +const char *get_gss_error(buffer *msg, OM_uint32 err_maj, OM_uint32 err_min) {
 +    OM_uint32 maj_stat, min_stat;
 +    OM_uint32 msg_ctx = 0;
@@ -253,8 +234,8 @@
 +
 +	buffer *t_in;
 +	t_in = buffer_init();
-+    buffer_prepare_copy(t_in, strlen(realm_str));
-+    t_in->used = b64_pton(realm_str, t_in->ptr, t_in->size);
++	buffer_prepare_copy(t_in, strlen(realm_str));
++	t_in->used = b64_pton(realm_str, (u_char *) t_in->ptr, t_in->size);
 +
 +	if (t_in->used < 1) {
 +		log_error_write(srv, __FILE__, __LINE__, "ss", "decoding GSSAPI authentication header failed", realm_str);
@@ -299,7 +280,7 @@
 +    gss_err = buffer_init();
 +
 +    token_s.value = sprinc->ptr;
-+    token_s.length = CONST_STR_LEN(sprinc);
++    token_s.length = (int) CONST_STR_LEN(sprinc);
 +    st_major = gss_import_name(&st_minor, &token_s, (gss_OID) GSS_KRB5_NT_PRINCIPAL_NAME, &server_name);
 +    if (GSS_ERROR(st_major)) {
 +        log_error_write(srv, __FILE__, __LINE__, "ss", "gss_import_name:", get_gss_error(gss_err, st_major, st_minor));
@@ -692,42 +673,70 @@
 +#endif
 --- src/http_auth.h	2009-01-15 03:39:05.000000000 -0500
 +++ src/http_auth.h	2009-04-22 11:34:56.000000000 -0400
-@@ -14,7 +14,8 @@
+@@ -9,12 +9,29 @@
+ # include <ldap.h>
+ #endif
+ 
++#if defined(HAVE_KRB5)
++# define USE_KRB5
++# include <resolv.h>
++# include <krb5.h>
++# include <gssapi.h>
++# include <gssapi/gssapi_krb5.h>
++# define GSS_C_NT_USER_NAME gss_nt_user_name
++# define GSS_C_NT_HOSTBASED_SERVICE gss_nt_service_name
++# define GSS_KRB5_NT_PRINCIPAL_NAME gss_nt_krb5_name
++# define krb5_get_err_text(context,code) error_message(code)
++#endif
++
+ typedef enum {
+ 	AUTH_BACKEND_UNSET,
  	AUTH_BACKEND_PLAIN,
  	AUTH_BACKEND_LDAP,
  	AUTH_BACKEND_HTPASSWD,
 -	AUTH_BACKEND_HTDIGEST
++#ifdef USE_KRB5
 +	AUTH_BACKEND_HTDIGEST,
 +	AUTH_BACKEND_GSSAPI
++#else
++	AUTH_BACKEND_HTDIGEST,
++#endif
  } auth_backend_t;
  
- #ifdef USE_LDAP
-@@ -49,6 +50,11 @@
+ typedef struct {
+@@ -38,6 +55,13 @@
  	unsigned short auth_ldap_starttls;
  	unsigned short auth_ldap_allow_empty_pw;
  
++#ifdef USE_KRB5
 +	buffer *auth_gssapi_keytab;
 +	unsigned short auth_gssapi_passwd;
 +	unsigned short auth_gssapi_spnego;
 +	buffer *auth_gssapi_principal;
++#endif
 +
  	unsigned short auth_debug;
  
  	/* generated */
-@@ -64,6 +70,7 @@
- 	buffer *tmp_buf;
+@@ -57,6 +81,10 @@
  
  	buffer *auth_user;
-+	buffer *auth_cred;
  
++#ifdef USE_KRB5
++	buffer *auth_cred;
++#endif
++
  #ifdef USE_LDAP
  	buffer *ldap_filter;
-@@ -77,5 +84,7 @@
+ #endif
+@@ -69,5 +97,9 @@
  int http_auth_basic_check(server *srv, connection *con, mod_auth_plugin_data *p, array *req, buffer *url, const char *realm_str);
  int http_auth_digest_check(server *srv, connection *con, mod_auth_plugin_data *p, array *req, buffer *url, const char *realm_str);
  int http_auth_digest_generate_nonce(server *srv, mod_auth_plugin_data *p, buffer *fn, char hh[33]);
++#ifdef USE_KRB5
 +int http_auth_gssapi_check(server *srv, connection *con, mod_auth_plugin_data *p, array *req, buffer *url, const char *realm_str);
 +int http_auth_basic_gssapi_check(server *srv, connection *con, mod_auth_plugin_data *p, array *req, buffer *url, const char *realm_str);
++#endif
  
  #endif
 --- src/keyvalue.h	2009-01-15 03:39:05.000000000 -0500
