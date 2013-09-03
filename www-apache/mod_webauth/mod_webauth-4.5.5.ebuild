@@ -1,13 +1,12 @@
-# Copyright 2012 Defiance Engineering
 # Distributed under the terms of the GNU General Public License v2
-# $Header:  $
 
+EAPI=5
 inherit apache-module eutils depend.apache
 
 DESCRIPTION="Stanford's authentication module for kerberos and apache"
 HOMEPAGE="http://webauth.stanford.edu/"
 p=${P##'mod_'}
-SRC_URI="http://webauth.stanford.edu/dist/${p}.tar.gz"
+SRC_URI="http://webauth.stanford.edu/dist/${p}.tar.xz"
 S=${WORKDIR}/${p}
 LICENSE="as-is"
 SLOT="0"
@@ -19,10 +18,13 @@ DEPEND=">=dev-libs/openssl-0.9.7
 	virtual/krb5
 	dev-perl/DateTime-Format-DateParse
 	dev-perl/Time-Duration
-	memcache? ( dev-perl/Cache-Memcached )
-	ldap? ( 
+	memcache? (
+		dev-perl/Cache-Memcached
+		net-misc/memcached[sasl]
+	)
+	ldap? (
 		>=net-nds/openldap-2.0
-		>=dev-libs/cyrus-sasl-2.0 
+		>=dev-libs/cyrus-sasl-2.0
 	)"
 
 RDEPEND="${DEPEND}
@@ -35,6 +37,7 @@ RDEPEND="${DEPEND}
 		dev-perl/CGI-Application-Plugin-Forward
 		dev-perl/CGI-Application-Plugin-Redirect
 		dev-perl/CGI-Application-Plugin-TT
+		dev-perl/IO-Socket-SSL
 	)"
 
 
@@ -98,7 +101,7 @@ src_install() {
 	insinto /etc/webauth
 	if use webkdc ; then
 		doins ${FILESDIR}/webkdc.conf
-		doins ${S}/src/modules/webkdc/token.acl
+		doins ${S}/conf/token.acl
 	fi
 	dosym ${FILESDIR} /etc/webkdc
 	dosym /usr/share/weblogin /usr/local/share/weblogin
