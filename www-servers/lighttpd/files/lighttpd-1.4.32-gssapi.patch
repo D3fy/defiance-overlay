@@ -315,6 +315,7 @@
 +	/* fetch the username */
 +    st_major = gss_display_name(&st_minor, client_name, &token_out, NULL);
 +    if (GSS_ERROR(st_major)) {
++	log_error_write(srv, __FILE__, __LINE__, "ss", "Getting username:", client_name);
 +        log_error_write(srv, __FILE__, __LINE__, "ss", "gss_display_name:", get_gss_error(gss_err, st_major, st_minor));
 +        goto end;
 +    }
@@ -812,17 +813,7 @@
  			}
  		}
  	}
-@@ -243,6 +269,9 @@
- 		/* parse auth-header */
- 		if (NULL != (auth_realm = strchr(http_authorization, ' '))) {
- 			int auth_type_len = auth_realm - http_authorization;
-+			log_error_write(srv, __FILE__, __LINE__, "ss",
-+				"Determining http auth:",
-+				http_authorization);
- 
- 			if ((auth_type_len == 5) &&
- 			    (0 == strncasecmp(http_authorization, "Basic", auth_type_len))) {
-@@ -250,9 +279,11 @@
+@@ -250,9 +276,11 @@
  
  				if (0 == strcmp(method->value->ptr, "basic")) {
  					auth_satisfied = http_auth_basic_check(srv, con, p, req, con->uri.path, auth_realm+1);
@@ -835,7 +826,7 @@
  				auth_type = "Digest";
  				if (0 == strcmp(method->value->ptr, "digest")) {
  					if (-1 == (auth_satisfied = http_auth_digest_check(srv, con, p, req, con->uri.path, auth_realm+1))) {
-@@ -264,6 +295,22 @@
+@@ -264,6 +292,17 @@
  						return HANDLER_FINISHED;
  					}
  				}
@@ -848,17 +839,12 @@
 +					if (-1 == (auth_satisfied = http_auth_gssapi_check(srv, con, p, req, con->uri.path, auth_realm+1))) {
 +						con->http_status = 400;
 +						return HANDLER_FINISHED;
-+					} else {
-+						log_error_write(srv, __FILE__, __LINE__, "ss",
-+							"logging in (http_auth_gssapi_check):",
-+							http_authorization);
 +					}
-+
 +				}
  			} else {
  				log_error_write(srv, __FILE__, __LINE__, "ss",
  						"unknown authentification type:",
-@@ -297,8 +344,21 @@
+@@ -297,8 +336,21 @@
  			buffer_append_string_len(p->tmp_buf, CONST_STR_LEN("\", qop=\"auth\""));
  
  			response_header_insert(srv, con, CONST_STR_LEN("WWW-Authenticate"), CONST_BUF_LEN(p->tmp_buf));
@@ -880,7 +866,7 @@
  		}
  		return HANDLER_FINISHED;
  	} else {
-@@ -341,6 +401,10 @@
+@@ -341,6 +393,10 @@
  		{ "auth.backend.htdigest.userfile", NULL, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION }, /* 12 */
  		{ "auth.backend.htpasswd.userfile", NULL, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION }, /* 13 */
  		{ "auth.debug",                     NULL, T_CONFIG_SHORT, T_CONFIG_SCOPE_CONNECTION },  /* 14 */
@@ -891,7 +877,7 @@
  		{ NULL,                             NULL, T_CONFIG_UNSET, T_CONFIG_SCOPE_UNSET }
  	};
  
-@@ -368,6 +432,11 @@
+@@ -368,6 +424,11 @@
  		s->auth_ldap_starttls = 0;
  		s->auth_debug = 0;
  
@@ -903,7 +889,7 @@
  		s->auth_require = array_init();
  
  #ifdef USE_LDAP
-@@ -391,6 +460,10 @@
+@@ -391,6 +452,10 @@
  		cv[12].destination = s->auth_htdigest_userfile;
  		cv[13].destination = s->auth_htpasswd_userfile;
  		cv[14].destination = &(s->auth_debug);
@@ -914,7 +900,7 @@
  
  		p->config_storage[i] = s;
  		ca = ((data_config *)srv->config_context->data[i])->value;
-@@ -408,6 +481,8 @@
+@@ -408,6 +473,8 @@
  				s->auth_backend = AUTH_BACKEND_PLAIN;
  			} else if (0 == strcmp(s->auth_backend_conf->ptr, "ldap")) {
  				s->auth_backend = AUTH_BACKEND_LDAP;
@@ -923,7 +909,7 @@
  			} else {
  				log_error_write(srv, __FILE__, __LINE__, "sb", "auth.backend not supported:", s->auth_backend_conf);
  
-@@ -487,9 +562,10 @@
+@@ -487,9 +554,10 @@
  				return HANDLER_ERROR;
  			} else {
  				if (0 != strcmp(method, "basic") &&
@@ -936,7 +922,7 @@
  							"auth.require = ( \"...\" => ( ..., \"method\" => \"...\") )");
  					return HANDLER_ERROR;
  				}
-@@ -628,6 +704,18 @@
+@@ -628,6 +696,18 @@
  #endif
  }
  
@@ -955,7 +941,7 @@
  int mod_auth_plugin_init(plugin *p);
  int mod_auth_plugin_init(plugin *p) {
  	p->version     = LIGHTTPD_VERSION_ID;
-@@ -635,6 +723,7 @@
+@@ -635,6 +715,7 @@
  	p->init        = mod_auth_init;
  	p->set_defaults = mod_auth_set_defaults;
  	p->handle_uri_clean = mod_auth_uri_handler;
