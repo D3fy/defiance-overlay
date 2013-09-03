@@ -284,7 +284,7 @@
 +
 +    token_s.value = sprinc->ptr;
 +	log_error_write(srv, __FILE__, __LINE__, "ss", "getting token with:", sprinc->ptr);
-+    token_s.length = (int) CONST_STR_LEN(sprinc);
++    token_s.length = (int) CONST_STR_LEN(sprinc->ptr);
 +    st_major = gss_import_name(&st_minor, &token_s, GSS_KRB5_NT_PRINCIPAL_NAME, &server_name);
 +    if (GSS_ERROR(st_major)) {
 +        log_error_write(srv, __FILE__, __LINE__, "ss", "gss_import_name:", get_gss_error(gss_err, st_major, st_minor));
