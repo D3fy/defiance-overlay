@@ -100,7 +100,7 @@
  mod_rewrite_la_SOURCES = mod_rewrite.c
 --- src/http_auth.c	2012-05-17 05:29:24.000000000 -0400
 +++ src/http_auth.c	2013-08-31 12:09:30.265879619 -0400
-@@ -1200,3 +1200,570 @@
+@@ -1200,3 +1200,572 @@
  
  	return 0;
  }
@@ -235,10 +235,12 @@
 +	buffer *t_in;
 +	t_in = buffer_init();
 +	buffer_prepare_copy(t_in, strlen(realm_str));
++	log_error_write(srv, __FILE__, __LINE__, "ss", "decoding GSSAPI authentication header failed (1)", realm_str);
 +	t_in->used = b64_pton(realm_str, (u_char *) t_in->ptr, t_in->size);
++	log_error_write(srv, __FILE__, __LINE__, "ss", "decoding GSSAPI authentication header failed (2)", realm_str);
 +
 +	if (t_in->used < 1) {
-+		log_error_write(srv, __FILE__, __LINE__, "ss", "decoding GSSAPI authentication header failed", realm_str);
++		log_error_write(srv, __FILE__, __LINE__, "ss", "decoding GSSAPI authentication header failed (3)", realm_str);
 +		buffer_free(t_in);
 +		return 0;
 +	}
