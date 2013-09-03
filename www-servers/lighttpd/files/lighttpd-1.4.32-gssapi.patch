@@ -311,7 +311,7 @@
 +        goto end;
 +    }
 +
-+	log_error_write(srv, __FILE__, __LINE__, "ss", "Getting username:", t_in->ptr);
++	log_error_write(srv, __FILE__, __LINE__, "ss", "Server name:", server_name);
 +	/* fetch the username */
 +    st_major = gss_display_name(&st_minor, client_name, &token_out, NULL);
 +    if (GSS_ERROR(st_major)) {
