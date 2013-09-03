@@ -23,8 +23,8 @@ DEPEND=">=dev-libs/openssl-0.9.7
 		net-misc/memcached[sasl]
 	)
 	ldap? (
-		>=net-nds/openldap-2.0
-		>=dev-libs/cyrus-sasl-2.0
+		>=net-nds/openldap-2.0[kerberos,sasl]
+		>=dev-libs/cyrus-sasl-2.0[kerberos]
 	)"
 
 RDEPEND="${DEPEND}
