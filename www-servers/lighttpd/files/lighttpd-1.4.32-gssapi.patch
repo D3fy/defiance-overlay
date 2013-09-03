@@ -100,7 +100,7 @@
  mod_rewrite_la_SOURCES = mod_rewrite.c
 --- src/http_auth.c	2012-05-17 05:29:24.000000000 -0400
 +++ src/http_auth.c	2013-08-31 12:09:30.265879619 -0400
-@@ -1200,3 +1200,572 @@
+@@ -1200,3 +1200,573 @@
  
  	return 0;
  }
@@ -258,6 +258,7 @@
 +    buffer *ktname;
 +    ktname = buffer_init_string("KRB5_KTNAME=");
 +    buffer_append_string_buffer(ktname, p->conf.auth_gssapi_keytab);
++    log_error_write(srv, __FILE__, __LINE__, "ss", "putting ktname:", ktname->ptr);
 +    putenv(ktname->ptr);
 +    /* ktname becomes part of the environment, do not free */
 +    /* buffer_free(ktname); */
