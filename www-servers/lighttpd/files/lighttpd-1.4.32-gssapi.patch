@@ -100,7 +100,7 @@
  mod_rewrite_la_SOURCES = mod_rewrite.c
 --- src/http_auth.c	2012-05-17 05:29:24.000000000 -0400
 +++ src/http_auth.c	2013-08-31 12:09:30.265879619 -0400
-@@ -1200,3 +1200,573 @@
+@@ -1200,3 +1200,574 @@
  
  	return 0;
  }
@@ -283,8 +283,9 @@
 +    gss_err = buffer_init();
 +
 +    token_s.value = sprinc->ptr;
++	log_error_write(srv, __FILE__, __LINE__, "ss", "getting token with:", sprinc->ptr);
 +    token_s.length = (int) CONST_STR_LEN(sprinc);
-+    st_major = gss_import_name(&st_minor, &token_s, (gss_OID) GSS_KRB5_NT_PRINCIPAL_NAME, &server_name);
++    st_major = gss_import_name(&st_minor, &token_s, GSS_KRB5_NT_PRINCIPAL_NAME, &server_name);
 +    if (GSS_ERROR(st_major)) {
 +        log_error_write(srv, __FILE__, __LINE__, "ss", "gss_import_name:", get_gss_error(gss_err, st_major, st_minor));
 +        goto end;
