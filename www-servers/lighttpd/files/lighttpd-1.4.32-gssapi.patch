@@ -294,7 +294,7 @@
 +        goto end;
 +    }
 +
-+    //log_error_write(srv, __FILE__, __LINE__, "ss", "Acquiring credentials for", token_s.value);
++    log_error_write(srv, __FILE__, __LINE__, "ss", "Acquiring credentials for", token_s.value);
 +
 +    /* acquire server's own credentials */
 +    st_major = gss_acquire_cred(&st_minor, server_name, GSS_C_INDEFINITE, GSS_C_NO_OID_SET, GSS_C_ACCEPT, &server_cred, NULL, NULL);
@@ -752,48 +752,42 @@
  	char *key;
 --- src/mod_auth.c	2012-04-19 08:05:52.000000000 -0400
 +++ src/mod_auth.c	2013-08-31 14:14:41.638958852 -0400
-@@ -6,6 +6,11 @@
- #include <sys/types.h>
- #include <sys/stat.h>
- 
-+#include <krb5.h>
-+#include <gssapi/gssapi.h>
-+#include <gssapi/gssapi_generic.h>
-+#include <gssapi/gssapi_krb5.h>
-+
- #include <stdlib.h>
- #include <string.h>
- #include <errno.h>
-@@ -34,6 +39,8 @@
+@@ -34,6 +34,10 @@
  
  	p->tmp_buf = buffer_init();
  
++#ifdef USE_KRB5
 +	p->auth_cred = buffer_init();
++#endif
 +
  	p->auth_user = buffer_init();
  #ifdef USE_LDAP
  	p->ldap_filter = buffer_init();
-@@ -50,6 +57,9 @@
+@@ -50,6 +54,11 @@
  	if (!p) return HANDLER_GO_ON;
  
  	buffer_free(p->tmp_buf);
 +
++#ifdef USE_KRB5
 +	buffer_free(p->auth_cred);
++#endif
 +
  	buffer_free(p->auth_user);
  #ifdef USE_LDAP
  	buffer_free(p->ldap_filter);
-@@ -76,6 +86,9 @@
+@@ -76,6 +85,11 @@
  			buffer_free(s->auth_ldap_filter);
  			buffer_free(s->auth_ldap_cafile);
  
++#ifdef USE_KRB5
 +			buffer_free(s->auth_gssapi_keytab);
 +			buffer_free(s->auth_gssapi_principal);
++#endif
 +
  #ifdef USE_LDAP
  			buffer_free(s->ldap_filter_pre);
  			buffer_free(s->ldap_filter_post);
-@@ -114,6 +127,10 @@
+@@ -114,6 +128,10 @@
  	PATCH(auth_ldap_cafile);
  	PATCH(auth_ldap_starttls);
  	PATCH(auth_ldap_allow_empty_pw);
@@ -804,7 +798,7 @@
  #ifdef USE_LDAP
  	p->anon_conf = s;
  	PATCH(ldap_filter_pre);
-@@ -169,6 +186,14 @@
+@@ -169,6 +187,14 @@
  				PATCH(auth_ldap_bindpw);
  			} else if (buffer_is_equal_string(du->key, CONST_STR_LEN("auth.backend.ldap.allow-empty-pw"))) {
  				PATCH(auth_ldap_allow_empty_pw);
@@ -819,7 +813,7 @@
  			}
  		}
  	}
-@@ -250,9 +275,11 @@
+@@ -250,9 +276,11 @@
  
  				if (0 == strcmp(method->value->ptr, "basic")) {
  					auth_satisfied = http_auth_basic_check(srv, con, p, req, con->uri.path, auth_realm+1);
@@ -832,7 +826,7 @@
  				auth_type = "Digest";
  				if (0 == strcmp(method->value->ptr, "digest")) {
  					if (-1 == (auth_satisfied = http_auth_digest_check(srv, con, p, req, con->uri.path, auth_realm+1))) {
-@@ -264,6 +291,14 @@
+@@ -264,6 +292,14 @@
  						return HANDLER_FINISHED;
  					}
  				}
@@ -847,7 +841,7 @@
  			} else {
  				log_error_write(srv, __FILE__, __LINE__, "ss",
  						"unknown authentification type:",
-@@ -297,6 +332,15 @@
+@@ -297,6 +333,15 @@
  			buffer_append_string_len(p->tmp_buf, CONST_STR_LEN("\", qop=\"auth\""));
  
  			response_header_insert(srv, con, CONST_STR_LEN("WWW-Authenticate"), CONST_BUF_LEN(p->tmp_buf));
@@ -863,7 +857,7 @@
  		} else {
  			/* evil */
  		}
-@@ -341,6 +385,10 @@
+@@ -341,6 +386,10 @@
  		{ "auth.backend.htdigest.userfile", NULL, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION }, /* 12 */
  		{ "auth.backend.htpasswd.userfile", NULL, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION }, /* 13 */
  		{ "auth.debug",                     NULL, T_CONFIG_SHORT, T_CONFIG_SCOPE_CONNECTION },  /* 14 */
@@ -874,7 +868,7 @@
  		{ NULL,                             NULL, T_CONFIG_UNSET, T_CONFIG_SCOPE_UNSET }
  	};
  
-@@ -368,6 +416,11 @@
+@@ -368,6 +417,11 @@
  		s->auth_ldap_starttls = 0;
  		s->auth_debug = 0;
  
@@ -886,7 +880,7 @@
  		s->auth_require = array_init();
  
  #ifdef USE_LDAP
-@@ -391,6 +444,10 @@
+@@ -391,6 +445,10 @@
  		cv[12].destination = s->auth_htdigest_userfile;
  		cv[13].destination = s->auth_htpasswd_userfile;
  		cv[14].destination = &(s->auth_debug);
@@ -897,7 +891,7 @@
  
  		p->config_storage[i] = s;
  		ca = ((data_config *)srv->config_context->data[i])->value;
-@@ -408,6 +465,8 @@
+@@ -408,6 +466,8 @@
  				s->auth_backend = AUTH_BACKEND_PLAIN;
  			} else if (0 == strcmp(s->auth_backend_conf->ptr, "ldap")) {
  				s->auth_backend = AUTH_BACKEND_LDAP;
@@ -906,7 +900,7 @@
  			} else {
  				log_error_write(srv, __FILE__, __LINE__, "sb", "auth.backend not supported:", s->auth_backend_conf);
  
-@@ -487,9 +546,10 @@
+@@ -487,9 +547,10 @@
  				return HANDLER_ERROR;
  			} else {
  				if (0 != strcmp(method, "basic") &&
@@ -919,7 +913,7 @@
  							"auth.require = ( \"...\" => ( ..., \"method\" => \"...\") )");
  					return HANDLER_ERROR;
  				}
-@@ -628,6 +688,18 @@
+@@ -628,6 +689,18 @@
  #endif
  }
  
@@ -938,7 +932,7 @@
  int mod_auth_plugin_init(plugin *p);
  int mod_auth_plugin_init(plugin *p) {
  	p->version     = LIGHTTPD_VERSION_ID;
-@@ -635,6 +707,7 @@
+@@ -635,6 +708,7 @@
  	p->init        = mod_auth_init;
  	p->set_defaults = mod_auth_set_defaults;
  	p->handle_uri_clean = mod_auth_uri_handler;
