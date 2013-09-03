@@ -257,8 +257,8 @@
 +    ktname = buffer_init_string("KRB5_KTNAME=");
 +    buffer_append_string_buffer(ktname, p->conf.auth_gssapi_keytab);
 +    putenv(ktname->ptr);
-+    // ktname becomes part of the environment, do not free
-+    //buffer_free(ktname);
++    /* ktname becomes part of the environment, do not free */
++    /* buffer_free(ktname); */
 +
 +    buffer *sprinc;
 +    sprinc = buffer_init();
