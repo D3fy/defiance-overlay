@@ -12,12 +12,13 @@ SRC_URI="http://download.lighttpd.net/lighttpd/releases-1.4.x/${P}.tar.bz2"
 LICENSE="BSD GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~sparc-fbsd ~x86-fbsd"
-IUSE="bzip2 doc fam gdbm ipv6 kerberos ldap libev lua minimal mmap memcache mysql pcre php rrdtool selinux ssl test uploadprogress webdav xattr zlib"
+IUSE="bzip2 debug doc fam gdbm ipv6 kerberos ldap libev lua minimal mmap memcache mysql pcre php rrdtool selinux ssl test uploadprogress webdav xattr zlib"
 
 REQUIRED_USE="kerberos? ( ssl )"
 
 RDEPEND="
 	bzip2?    ( app-arch/bzip2 )
+	debug?    ( dev-util/valgrind )
 	fam?      ( virtual/fam )
 	gdbm?     ( sys-libs/gdbm )
 	ldap?     ( >=net-nds/openldap-2.1.26 )
@@ -28,8 +29,8 @@ RDEPEND="
 	pcre?     ( >=dev-libs/libpcre-3.1 )
 	php?      ( dev-lang/php[cgi] )
 	rrdtool?  ( net-analyzer/rrdtool )
-	selinux? ( sec-policy/selinux-apache )
-	ssl?    ( >=dev-libs/openssl-0.9.7[kerberos?] )
+	selinux?  ( sec-policy/selinux-apache )
+	ssl?      ( >=dev-libs/openssl-0.9.7[kerberos?] )
 	kerberos? ( virtual/krb5 )
 	webdav? (
 		dev-libs/libxml2
@@ -122,6 +123,7 @@ src_configure() {
 		$(use_enable ipv6) \
 		$(use_enable mmap) \
 		$(use_with bzip2) \
+		$(use_with debug valgrind) \
 		$(use_with fam) \
 		$(use_with gdbm) \
 		$(use_with kerberos krb5) \
