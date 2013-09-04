@@ -287,12 +287,12 @@
 +        goto end;
 +    }
 +
-+    /* memset(&token_s, 0, sizeof(token_s));
++    memset(&token_s, 0, sizeof(token_s));
 +    st_major = gss_display_name(&st_minor, server_name, &token_s, NULL);
 +    if (GSS_ERROR(st_major)) {
 +        log_error_write(srv, __FILE__, __LINE__, "ss", "gss_display_name:", get_gss_error(gss_err, st_major, st_minor));
 +        goto end;
-+    } */
++    }
 +
 +	log_error_write(srv, __FILE__, __LINE__, "ss", "server_name:", server_name);
 +    /* acquire server's own credentials */
