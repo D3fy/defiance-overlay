@@ -325,7 +325,7 @@
 +		goto end;
 +	}
 +
-+	if (acc_flags & GSS_C_DELEG_FLAG)) {
++	if (acc_flags & GSS_C_DELEG_FLAG) {
 +		ret = store_gss_creds(srv, con, p, token_out.value, client_cred);
 +		log_error_write(srv, __FILE__, __LINE__, "ss", "authenticating user:", token_out.value);
 +		if (!ret) {
