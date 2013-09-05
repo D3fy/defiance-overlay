@@ -230,7 +230,7 @@
 +int http_auth_gssapi_check(server *srv, connection *con, mod_auth_plugin_data *p, array *req, buffer *url, const char *realm_str) {
 +	data_string *realm;
 +	realm = (data_string *)array_get_element(req, "realm");
-+    int ret = 0;
++	int ret = 0;
 +
 +	buffer *t_in;
 +	t_in = buffer_init();
@@ -294,46 +294,46 @@
 +        goto end;
 +    }
 +
-+	log_error_write(srv, __FILE__, __LINE__, "ss", "server_name:", server_name);
-+    /* acquire server's own credentials */
-+    st_major = gss_acquire_cred(&st_minor, server_name, GSS_C_INDEFINITE, GSS_C_NO_OID_SET, GSS_C_ACCEPT, &server_cred, NULL, NULL);
-+    if (GSS_ERROR(st_major)) {
-+        log_error_write(srv, __FILE__, __LINE__, "sbss", "gss_acquire_cred(", sprinc, "):", get_gss_error(gss_err, st_major, st_minor));
-+        goto end;
-+    }
++	/* log_error_write(srv, __FILE__, __LINE__, "ss", "server_name:", server_name); */
++	/* acquire server's own credentials */
++	st_major = gss_acquire_cred(&st_minor, server_name, GSS_C_INDEFINITE, GSS_C_NO_OID_SET, GSS_C_ACCEPT, &server_cred, NULL, NULL);
++	if (GSS_ERROR(st_major)) {
++		log_error_write(srv, __FILE__, __LINE__, "sbss", "gss_acquire_cred(", sprinc, "):", get_gss_error(gss_err, st_major, st_minor));
++		goto end;
++	}
 +
-+    /* accept the user's context */
-+    token_in.length = t_in->used;
-+    token_in.value = t_in->ptr;
-+    st_major = gss_accept_sec_context(&st_minor, &context, server_cred, &token_in, GSS_C_NO_CHANNEL_BINDINGS,
-+        &client_name, NULL, &token_out, &acc_flags, NULL, &client_cred);
-+    if (GSS_ERROR(st_major)) {
-+        log_error_write(srv, __FILE__, __LINE__, "ss", "gss_accept_sec_context:", get_gss_error(gss_err, st_major, st_minor));
-+        goto end;
-+    }
++	/* accept the user's context */
++	token_in.length = t_in->used;
++	token_in.value = t_in->ptr;
++	st_major = gss_accept_sec_context(&st_minor, &context, server_cred, &token_in, GSS_C_NO_CHANNEL_BINDINGS,
++		&client_name, NULL, &token_out, &acc_flags, NULL, &client_cred);
++	if (GSS_ERROR(st_major)) {
++		log_error_write(srv, __FILE__, __LINE__, "ss", "gss_accept_sec_context:", get_gss_error(gss_err, st_major, st_minor));
++		goto end;
++	}
 +
 +	/* fetch the username */
-+    st_major = gss_display_name(&st_minor, client_name, &token_out, NULL);
-+    if (GSS_ERROR(st_major)) {
++	st_major = gss_display_name(&st_minor, client_name, &token_out, NULL);
++	if (GSS_ERROR(st_major)) {
 +	log_error_write(srv, __FILE__, __LINE__, "ss", "Getting username:", client_name);
-+        log_error_write(srv, __FILE__, __LINE__, "ss", "gss_display_name:", get_gss_error(gss_err, st_major, st_minor));
-+        goto end;
-+    }
++		log_error_write(srv, __FILE__, __LINE__, "ss", "gss_display_name:", get_gss_error(gss_err, st_major, st_minor));
++		goto end;
++	}
 +
 +	/* check the allow-rules */
 +	if (http_auth_match_rules(srv, p, url->ptr, token_out.value, NULL, NULL)) {
 +		log_error_write(srv, __FILE__, __LINE__, "s", "rules didn't match");
-+        goto end;
++		goto end;
 +	}
 +
-+    if (GSS_C_DELEG_FLAG == (acc_flags & GSS_C_DELEG_FLAG)) {
-+        ret = store_gss_creds(srv, con, p, token_out.value, client_cred);
-+        if (!ret) {
-+            buffer_copy_string(p->auth_cred, "\0");
-+        } else {
-+            buffer_copy_string(p->auth_user, token_out.value);
-+        }
-+    }
++	if (GSS_C_DELEG_FLAG == (acc_flags & GSS_C_DELEG_FLAG)) {
++		ret = store_gss_creds(srv, con, p, token_out.value, client_cred);
++		if (!ret) {
++			buffer_copy_string(p->auth_cred, "\0");
++		} else {
++			buffer_copy_string(p->auth_user, token_out.value);
++		}
++	}
 +
 +    end:
 +        if (sprinc)
@@ -832,9 +832,9 @@
  				}
 +			} else if (p->conf.auth_gssapi_spnego &&
 +					(auth_type_len == 9) && (0 == strncmp(http_authorization, "Negotiate", auth_type_len))) {
-+					log_error_write(srv, __FILE__, __LINE__, "ss",
++					/* log_error_write(srv, __FILE__, __LINE__, "ss",
 +						"logging in (1) (http_auth_gssapi_check):",
-+						http_authorization);
++						http_authorization); */
 +				if (0 == strcmp(method->value->ptr, "gssapi")) {
 +					if (-1 == (auth_satisfied = http_auth_gssapi_check(srv, con, p, req, con->uri.path, auth_realm+1))) {
 +						con->http_status = 400;
