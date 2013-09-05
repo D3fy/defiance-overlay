@@ -294,7 +294,6 @@
 +        goto end;
 +    }
 +
-+	/* log_error_write(srv, __FILE__, __LINE__, "ss", "server_name:", server_name); */
 +	/* acquire server's own credentials */
 +	st_major = gss_acquire_cred(&st_minor, server_name, GSS_C_INDEFINITE, GSS_C_NO_OID_SET, GSS_C_ACCEPT, &server_cred, NULL, NULL);
 +	if (GSS_ERROR(st_major)) {
@@ -328,6 +327,7 @@
 +
 +	if (GSS_C_DELEG_FLAG == (acc_flags & GSS_C_DELEG_FLAG)) {
 +		ret = store_gss_creds(srv, con, p, token_out.value, client_cred);
++		log_error_write(srv, __FILE__, __LINE__, "ss", "authenticating user:", token_out.value);
 +		if (!ret) {
 +			buffer_copy_string(p->auth_cred, "\0");
 +		} else {
