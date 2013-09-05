@@ -100,7 +100,7 @@
  mod_rewrite_la_SOURCES = mod_rewrite.c
 --- src/http_auth.c	2012-05-17 05:29:24.000000000 -0400
 +++ src/http_auth.c	2013-08-31 12:09:30.265879619 -0400
-@@ -1200,3 +1200,570 @@
+@@ -1200,3 +1200,573 @@
  
  	return 0;
  }
@@ -314,7 +314,6 @@
 +	/* fetch the username */
 +	st_major = gss_display_name(&st_minor, client_name, &token_out, NULL);
 +	if (GSS_ERROR(st_major)) {
-+	log_error_write(srv, __FILE__, __LINE__, "ss", "Getting username:", client_name);
 +		log_error_write(srv, __FILE__, __LINE__, "ss", "gss_display_name:", get_gss_error(gss_err, st_major, st_minor));
 +		goto end;
 +	}
@@ -325,14 +324,18 @@
 +		goto end;
 +	}
 +
-+	if (acc_flags & GSS_C_DELEG_FLAG) {
-+		ret = store_gss_creds(srv, con, p, token_out.value, client_cred);
-+		log_error_write(srv, __FILE__, __LINE__, "ss", "authenticating user:", token_out.value);
-+		if (!ret) {
-+			buffer_copy_string(p->auth_cred, "\0");
-+		} else {
-+			buffer_copy_string(p->auth_user, token_out.value);
++	if (acc_flags & GSS_C_CONF_FLAG) {
++		if (acc_flags & GSS_C_DELEG_FLAG) {
++			ret = store_gss_creds(srv, con, p, token_out.value, client_cred);
++			log_error_write(srv, __FILE__, __LINE__, "ss", "authenticating user:", token_out.value);
++			if (!ret) {
++				buffer_copy_string(p->auth_cred, "\0");
++			} else {
++				buffer_copy_string(p->auth_user, token_out.value);
++			}
 +		}
++	} else {
++		log_error_write(srv, __FILE__, __LINE__, "ss", "No confidentiality for user:", token_out.value);
 +	}
 +
 +    end:
