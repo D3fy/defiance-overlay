@@ -304,7 +304,7 @@
 +	/* accept the user's context */
 +	token_in.length = t_in->used;
 +	token_in.value = t_in->ptr;
-+	st_major = gss_accept_sec_context(&st_minor, &context, server_cred, token_in, GSS_C_NO_CHANNEL_BINDINGS,
++	st_major = gss_accept_sec_context(&st_minor, &context, server_cred, &token_in, GSS_C_NO_CHANNEL_BINDINGS,
 +		&client_name, NULL, &token_out, &acc_flags, NULL, &client_cred);
 +	if (GSS_ERROR(st_major)) {
 +		log_error_write(srv, __FILE__, __LINE__, "ss", "gss_accept_sec_context:", get_gss_error(gss_err, st_major, st_minor));
