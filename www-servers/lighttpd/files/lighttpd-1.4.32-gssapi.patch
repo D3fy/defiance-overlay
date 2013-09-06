@@ -908,7 +908,7 @@
 +		s->auth_gssapi_keytab = buffer_init();
 +		s->auth_gssapi_passwd = 0;
 +		s->auth_gssapi_principal = buffer_init();
-+		s->auth_gssapi_spnego = 1;
++		s->auth_gssapi_spnego = 0;
 +#endif
 +
  		s->auth_require = array_init();
