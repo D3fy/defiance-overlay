@@ -851,8 +851,8 @@
 +				(0 == strncasecmp(http_authorization, "Negotiate", auth_type_len))) {
 +				if (0 == strcmp(method->value->ptr, "gssapi")) {
 +					if (p->conf.auth_gssapi_spnego) {
-+						auth_satisfied = http_auth_basic_gssapi_check(srv, con, p, req, con->uri.path, auth_realm+1);
-+					} else {
++					/*	auth_satisfied = http_auth_basic_gssapi_check(srv, con, p, req, con->uri.path, auth_realm+1);
++					} else { */
 +						if (-1 == (auth_satisfied = http_auth_gssapi_check(srv, con, p, req, con->uri.path, auth_realm+1))) {
 +							con->http_status = 400;
 +							return HANDLER_FINISHED;
@@ -908,7 +908,7 @@
 +		s->auth_gssapi_keytab = buffer_init();
 +		s->auth_gssapi_passwd = 0;
 +		s->auth_gssapi_principal = buffer_init();
-+		s->auth_gssapi_spnego = 0;
++		s->auth_gssapi_spnego = 1;
 +#endif
 +
  		s->auth_require = array_init();
