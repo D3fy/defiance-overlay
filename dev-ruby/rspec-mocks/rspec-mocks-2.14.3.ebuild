@@ -3,7 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/dev-ruby/rspec-mocks/rspec-mocks-2.14.3.ebuild,v 1.1 2013/08/11 01:04:03 mrueg Exp $
 
 EAPI=5
-USE_RUBY="jruby ruby20"
+USE_RUBY="jruby ruby19 ruby20"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
 

@@ -3,7 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/dev-ruby/daemons/daemons-1.1.9.ebuild,v 1.3 2013/01/15 05:13:30 zerochaos Exp $
 
 EAPI=4
-USE_RUBY="ruby20 jruby"
+USE_RUBY="ruby19 ruby20 jruby"
 
 RUBY_FAKEGEM_EXTRADOC="Releases README TODO"
 RUBY_FAKEGEM_DOCDIR="html"

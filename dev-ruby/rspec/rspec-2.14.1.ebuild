@@ -3,7 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/dev-ruby/rspec/rspec-2.14.1.ebuild,v 1.1 2013/07/20 06:46:59 graaff Exp $
 
 EAPI=5
-USE_RUBY="jruby ruby20"
+USE_RUBY="jruby ruby19 ruby20"
 
 RUBY_FAKEGEM_TASK_TEST=""
 
