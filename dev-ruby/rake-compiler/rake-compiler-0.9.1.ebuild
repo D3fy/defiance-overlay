@@ -3,7 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/dev-ruby/rake-compiler/rake-compiler-0.9.1.ebuild,v 1.1 2013/08/05 09:11:43 mrueg Exp $
 
 EAPI=5
-USE_RUBY="ruby19 ruby20"
+USE_RUBY="jruby ruby19 ruby20"
 
 RUBY_FAKEGEM_RECIPE_TEST="none"
 
