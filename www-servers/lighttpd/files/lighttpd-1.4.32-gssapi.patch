@@ -24,10 +24,10 @@
 -AC_ARG_WITH(kerberos5,
 -    AC_HELP_STRING([--with-kerberos5],[use Kerberos5 support with OpenSSL]),
 -    [ use_kerberos=yes ], [use_kerberos=no]
-+dnl Check for krb5
-+AC_MSG_CHECKING(for krb5)
++dnl Check for kerberos5
++AC_MSG_CHECKING(for kerberos5)
 +AC_ARG_WITH(krb5,
-+	AC_HELP_STRING([--with-krb5@<:@=DIR@:>@],[Use Kerberos 5]),
++	AC_HELP_STRING([--with-kerberos5@<:@=DIR@:>@],[Use Kerberos 5]),
 +	[WITH_KRB5=$withval],[WITH_KRB5=no])
 +if test "$WITH_KRB5" != no; then
 +	use_krb5=yes
@@ -41,13 +41,13 @@
 +AC_MSG_RESULT([$use_krb5])
 +
 +AC_ARG_WITH(krb5-includes,
-+    AC_HELP_STRING([--with-krb5-includes=DIR],[Kerberos includes]),
-+    [ use_krb5=yes CPPFLAGS="$CPPFLAGS -I$withval" ]
++	AC_HELP_STRING([--with-kerberos5-includes=DIR],[Kerberos includes]),
++	[ use_krb5=yes CPPFLAGS="$CPPFLAGS -I$withval" ]
 +)
 +
 +AC_ARG_WITH(krb5-libs,
-+    AC_HELP_STRING([--with-krb5-libs=DIR],[Kerberos libraries]),
-+    [ use_krb5=yes LDFLAGS="$LDFLAGS -L$withval" ]
++	AC_HELP_STRING([--with-kerberos5-libs=DIR],[Kerberos libraries]),
++	[ use_krb5=yes LDFLAGS="$LDFLAGS -L$withval" ]
  )
  
 +if test "x$use_krb5" = "xyes"; then
@@ -107,124 +107,124 @@
 +
 +#ifdef USE_KRB5
 +const char *get_gss_error(buffer *msg, OM_uint32 err_maj, OM_uint32 err_min) {
-+    OM_uint32 maj_stat, min_stat;
-+    OM_uint32 msg_ctx = 0;
-+    gss_buffer_desc status_string;
++	OM_uint32 maj_stat, min_stat;
++	OM_uint32 msg_ctx = 0;
++	gss_buffer_desc status_string;
 +
-+    do {
-+        maj_stat = gss_display_status(&min_stat, err_maj,
-+                    GSS_C_GSS_CODE, GSS_C_NO_OID,
-+                    &msg_ctx, &status_string);
-+        if (GSS_ERROR(maj_stat))
-+            break;
++	do {
++		maj_stat = gss_display_status(&min_stat, err_maj,
++			GSS_C_GSS_CODE, GSS_C_NO_OID,
++			&msg_ctx, &status_string);
++		if (GSS_ERROR(maj_stat))
++			break;
 +
-+        buffer_append_string(msg, status_string.value);
-+        gss_release_buffer(&min_stat, &status_string);
++		buffer_append_string(msg, status_string.value);
++		gss_release_buffer(&min_stat, &status_string);
 +
-+        maj_stat = gss_display_status(&min_stat, err_min,
-+                    GSS_C_MECH_CODE, GSS_C_NULL_OID,
-+                    &msg_ctx, &status_string);
-+        if (!GSS_ERROR(maj_stat)) {
-+            buffer_append_string(msg, " (");
-+            buffer_append_string(msg, status_string.value);
-+            buffer_append_string(msg, ")");
-+            gss_release_buffer(&min_stat, &status_string);
-+        }
-+    } while (!GSS_ERROR(maj_stat) && msg_ctx != 0);
++		maj_stat = gss_display_status(&min_stat, err_min,
++			GSS_C_MECH_CODE, GSS_C_NULL_OID,
++			&msg_ctx, &status_string);
++		if (!GSS_ERROR(maj_stat)) {
++			buffer_append_string(msg, " (");
++			buffer_append_string(msg, status_string.value);
++			buffer_append_string(msg, ")");
++			gss_release_buffer(&min_stat, &status_string);
++		}
++	} while (!GSS_ERROR(maj_stat) && msg_ctx != 0);
 +
-+    return msg->ptr;
++	return msg->ptr;
 +}
 +
 +static int create_krb5_ccache(server *srv, connection *con, mod_auth_plugin_data *p, krb5_context kcontext, krb5_principal princ, krb5_ccache *ccache) {
-+    int fd;
-+    krb5_error_code problem;
-+    krb5_ccache tmp_ccache = NULL;
-+    buffer *ccname;
-+    int ret = 0;
++	int fd;
++	krb5_error_code problem;
++	krb5_ccache tmp_ccache = NULL;
++	buffer *ccname;
++	int ret = 0;
 +
-+    ccname = buffer_init_string("FILE:/tmp/krb5cc_gssapi_XXXXXX");
-+    fd = mkstemp(ccname->ptr + strlen("FILE:"));
-+    if (fd < 0) {
++	ccname = buffer_init_string("FILE:/tmp/krb5cc_gssapi_XXXXXX");
++	fd = mkstemp(ccname->ptr + strlen("FILE:"));
++	if (fd < 0) {
 +		log_error_write(srv, __FILE__, __LINE__, "ss", "mkstemp():", strerror(errno));
-+        ret = -1;
-+        goto end;
-+    }
-+    close(fd);
++		ret = -1;
++		goto end;
++	}
++	close(fd);
 +
-+    problem = krb5_cc_resolve(kcontext, ccname->ptr, &tmp_ccache);
-+    if (problem) {
++	problem = krb5_cc_resolve(kcontext, ccname->ptr, &tmp_ccache);
++	if (problem) {
 +		log_error_write(srv, __FILE__, __LINE__, "ss", "krb5_cc_resolve():", krb5_get_err_text(kcontext, problem));
-+        unlink(ccname->ptr + 5);
-+        ret = -1;
-+        goto end;
-+    }
++		unlink(ccname->ptr + 5);
++		ret = -1;
++		goto end;
++	}
 +
-+    problem = krb5_cc_initialize(kcontext, tmp_ccache, princ);
-+    if (problem) {
++	problem = krb5_cc_initialize(kcontext, tmp_ccache, princ);
++	if (problem) {
 +		log_error_write(srv, __FILE__, __LINE__, "ssss", "krb5_cc_initialize (", ccname, ")", krb5_get_err_text(kcontext, problem));
-+        ret = -1;
-+        goto end;
-+    }
++		ret = -1;
++		goto end;
++	}
 +
-+    array_set_key_value(con->environment, CONST_STR_LEN("KRB5CCNAME"), ccname->ptr + 5, ccname->used - 6);
-+    array_set_key_value(con->request.headers, CONST_STR_LEN("X-Forwarded-Keytab"), ccname->ptr + 5, ccname->used - 6);
-+    buffer_copy_string(p->auth_cred, ccname->ptr + 5);
++	array_set_key_value(con->environment, CONST_STR_LEN("KRB5CCNAME"), ccname->ptr + 5, ccname->used - 6);
++	array_set_key_value(con->request.headers, CONST_STR_LEN("X-Forwarded-Keytab"), ccname->ptr + 5, ccname->used - 6);
++	buffer_copy_string(p->auth_cred, ccname->ptr + 5);
 +
-+    *ccache = tmp_ccache;
-+    tmp_ccache = NULL;
++	*ccache = tmp_ccache;
++	tmp_ccache = NULL;
 +
 +end:
-+    if (tmp_ccache)
-+        krb5_cc_destroy(kcontext, tmp_ccache);
-+    buffer_free(ccname);
++	if (tmp_ccache)
++		krb5_cc_destroy(kcontext, tmp_ccache);
++	buffer_free(ccname);
 +
-+    return ret;
++	return ret;
 +}
 +
 +static int store_gss_creds(server *srv, connection *con, mod_auth_plugin_data *p, char *princ_name, gss_cred_id_t delegated_cred) {
-+    OM_uint32 maj_stat, min_stat;
-+    krb5_principal princ = NULL;
-+    krb5_ccache ccache = NULL;
-+    krb5_error_code problem;
-+    krb5_context context;
-+    int ret = 0;
++	OM_uint32 maj_stat, min_stat;
++	krb5_principal princ = NULL;
++	krb5_ccache ccache   = NULL;
++	krb5_error_code problem;
++	krb5_context context;
++	int ret = 0;
 +
-+    problem = krb5_init_context(&context);
-+    if (problem) {
++	problem = krb5_init_context(&context);
++	if (problem) {
 +		log_error_write(srv, __FILE__, __LINE__, "ss", "krb5_init_context()", krb5_get_err_text(context, problem));
-+        goto end;
-+    }
++		goto end;
++	}
 +
-+    problem = krb5_parse_name(context, princ_name, &princ);
-+    if (problem) {
++	problem = krb5_parse_name(context, princ_name, &princ);
++	if (problem) {
 +		log_error_write(srv, __FILE__, __LINE__, "ss", "krb5_parse_name()", krb5_get_err_text(context, problem));
-+        goto end;
-+    }
++		goto end;
++	}
 +
-+    if (create_krb5_ccache(srv, con, p, context, princ, &ccache))
-+        goto end;
++	if (create_krb5_ccache(srv, con, p, context, princ, &ccache))
++		goto end;
 +
-+    maj_stat = gss_krb5_copy_ccache(&min_stat, delegated_cred, ccache);
-+    if (GSS_ERROR(maj_stat)) {
-+        buffer *msg;
-+        msg = buffer_init();
++	maj_stat = gss_krb5_copy_ccache(&min_stat, delegated_cred, ccache);
++	if (GSS_ERROR(maj_stat)) {
++		buffer *msg;
++		msg = buffer_init();
 +		log_error_write(srv, __FILE__, __LINE__, "ssss", "gss_krb5_copy_ccache (", princ_name, ")", get_gss_error(msg, maj_stat, min_stat));
-+        buffer_free(msg);
-+        goto end;
-+    }
++		buffer_free(msg);
++		goto end;
++	}
 +
-+    krb5_cc_close(context, ccache);
-+    ccache = NULL;
-+    ret = 1;
++	krb5_cc_close(context, ccache);
++	ccache = NULL;
++	ret = 1;
 +
-+    end:
-+        if (princ)
-+            krb5_free_principal(context, princ);
-+        if (ccache)
-+            krb5_cc_destroy(context, ccache);
-+        krb5_free_context(context);
++	end:
++		if (princ)
++			krb5_free_principal(context, princ);
++		if (ccache)
++			krb5_cc_destroy(context, ccache);
++		krb5_free_context(context);
 +
-+        return ret;
++	return ret;
 +}
 +
 +int http_auth_gssapi_check(server *srv, connection *con, mod_auth_plugin_data *p, array *req, buffer *url, const char *realm_str) {
@@ -243,49 +243,49 @@
 +		return 0;
 +	}
 +
-+    OM_uint32 st_major, st_minor, acc_flags;
-+    gss_buffer_desc token_s = GSS_C_EMPTY_BUFFER;
-+    gss_buffer_desc token_in = GSS_C_EMPTY_BUFFER;
-+    gss_buffer_desc token_out = GSS_C_EMPTY_BUFFER;
-+    gss_cred_id_t server_cred = GSS_C_NO_CREDENTIAL;
-+    gss_cred_id_t client_cred = GSS_C_NO_CREDENTIAL;
-+    gss_ctx_id_t context = GSS_C_NO_CONTEXT;
-+    gss_name_t server_name = GSS_C_NO_NAME;
-+    gss_name_t client_name = GSS_C_NO_NAME;
++	OM_uint32 st_major, st_minor, acc_flags;
++	gss_buffer_desc token_s   = GSS_C_EMPTY_BUFFER;
++	gss_buffer_desc token_in  = GSS_C_EMPTY_BUFFER;
++	gss_buffer_desc token_out = GSS_C_EMPTY_BUFFER;
++	gss_cred_id_t server_cred = GSS_C_NO_CREDENTIAL;
++	gss_cred_id_t client_cred = GSS_C_NO_CREDENTIAL;
++	gss_ctx_id_t context      = GSS_C_NO_CONTEXT;
++	gss_name_t server_name    = GSS_C_NO_NAME;
++	gss_name_t client_name    = GSS_C_NO_NAME;
 +
-+    buffer *ktname;
-+    ktname = buffer_init_string("KRB5_KTNAME=");
-+    buffer_append_string_buffer(ktname, p->conf.auth_gssapi_keytab);
-+    putenv(ktname->ptr);
-+    /* ktname becomes part of the environment, do not free */
-+    /* buffer_free(ktname); */
++	buffer *ktname;
++	ktname = buffer_init_string("KRB5_KTNAME=");
++	buffer_append_string_buffer(ktname, p->conf.auth_gssapi_keytab);
++	putenv(ktname->ptr);
++	/* ktname becomes part of the environment, do not free */
++	/* buffer_free(ktname); */
 +
-+    buffer *sprinc;
-+    sprinc = buffer_init();
-+    buffer_copy_string_buffer(sprinc, p->conf.auth_gssapi_principal);
-+    if (strchr(sprinc->ptr, '/') == NULL) {
-+        buffer_append_string(sprinc, "/");
-+        if (strchr(con->request.http_host->ptr, ':') == NULL) {
-+            buffer_append_string_buffer(sprinc, con->request.http_host);
-+        } else {
-+            buffer_append_string_len(sprinc, con->request.http_host->ptr, strcspn(con->request.http_host->ptr, ":"));
-+        }
-+    }
-+    if (strchr(sprinc->ptr, '@') == NULL) {
-+        buffer_append_string(sprinc, "@");
-+        buffer_append_string_buffer(sprinc, realm->value);
-+    }
++	buffer *sprinc;
++	sprinc = buffer_init();
++	buffer_copy_string_buffer(sprinc, p->conf.auth_gssapi_principal);
++	if (strchr(sprinc->ptr, '/') == NULL) {
++		buffer_append_string(sprinc, "/");
++		if (strchr(con->request.http_host->ptr, ':') == NULL) {
++			buffer_append_string_buffer(sprinc, con->request.http_host);
++		} else {
++			buffer_append_string_len(sprinc, con->request.http_host->ptr, strcspn(con->request.http_host->ptr, ":"));
++		}
++	}
++	if (strchr(sprinc->ptr, '@') == NULL) {
++		buffer_append_string(sprinc, "@");
++		buffer_append_string_buffer(sprinc, realm->value);
++	}
 +
-+    buffer *gss_err;
-+    gss_err = buffer_init();
++	buffer *gss_err;
++	gss_err = buffer_init();
 +
-+    token_s.value = sprinc->ptr;
-+    token_s.length = sprinc->used ? sprinc->used -1 : 0;
-+    st_major = gss_import_name(&st_minor, &token_s, (gss_OID) GSS_KRB5_NT_PRINCIPAL_NAME, &server_name);
-+    if (GSS_ERROR(st_major)) {
-+        log_error_write(srv, __FILE__, __LINE__, "ss", "gss_import_name:", get_gss_error(gss_err, st_major, st_minor));
-+        goto end;
-+    }
++	token_s.value = sprinc->ptr;
++	token_s.length = sprinc->used ? sprinc->used -1 : 0;
++	st_major = gss_import_name(&st_minor, &token_s, (gss_OID) GSS_KRB5_NT_PRINCIPAL_NAME, &server_name);
++	if (GSS_ERROR(st_major)) {
++		log_error_write(srv, __FILE__, __LINE__, "ss", "gss_import_name:", get_gss_error(gss_err, st_major, st_minor));
++		goto end;
++	}
 +
 +	memset(&token_s, 0, sizeof(token_s));
 +	st_major = gss_display_name(&st_minor, server_name, &token_s, NULL);
@@ -339,176 +339,176 @@
 +		log_error_write(srv, __FILE__, __LINE__, "ss", "No confidentiality for user:", token_out.value);
 +	}
 +
-+    end:
-+        if (sprinc)
-+            buffer_free(sprinc);
-+        if (t_in)
-+            buffer_free(t_in);
-+        if (gss_err)
-+            buffer_free(gss_err);
++	end:
++		if (sprinc)
++			buffer_free(sprinc);
++		if (t_in)
++			buffer_free(t_in);
++		if (gss_err)
++			buffer_free(gss_err);
 +
-+        if (context != GSS_C_NO_CONTEXT)
-+            gss_delete_sec_context(&st_minor, &context, GSS_C_NO_BUFFER);
++		if (context != GSS_C_NO_CONTEXT)
++			gss_delete_sec_context(&st_minor, &context, GSS_C_NO_BUFFER);
 +
-+        if (client_cred != GSS_C_NO_CREDENTIAL)
-+            gss_release_cred(&st_minor, &client_cred);
-+        if (server_cred != GSS_C_NO_CREDENTIAL)
-+            gss_release_cred(&st_minor, &server_cred);
++		if (client_cred != GSS_C_NO_CREDENTIAL)
++			gss_release_cred(&st_minor, &client_cred);
++		if (server_cred != GSS_C_NO_CREDENTIAL)
++			gss_release_cred(&st_minor, &server_cred);
 +
-+        if (client_name != GSS_C_NO_NAME)
-+            gss_release_name(&st_minor, &client_name);
-+        if (server_name != GSS_C_NO_NAME)
-+            gss_release_name(&st_minor, &server_name);
++		if (client_name != GSS_C_NO_NAME)
++			gss_release_name(&st_minor, &client_name);
++		if (server_name != GSS_C_NO_NAME)
++			gss_release_name(&st_minor, &server_name);
 +
-+        if (token_s.length)
-+            gss_release_buffer(&st_minor, &token_s);
-+        //if (token_in.length)
-+        //    gss_release_buffer(&st_minor, &token_in);
-+        if (token_out.length)
-+            gss_release_buffer(&st_minor, &token_out);
++		if (token_s.length)
++			gss_release_buffer(&st_minor, &token_s);
++		/* if (token_in.length)
++		 *	gss_release_buffer(&st_minor, &token_in); */
++		if (token_out.length)
++			gss_release_buffer(&st_minor, &token_out);
 +
-+        return ret;
++	return ret;
 +}
 +
 +static krb5_error_code verify_krb5_init_creds(server *srv, krb5_context context, krb5_creds *creds, krb5_principal ap_req_server, krb5_keytab ap_req_keytab) {
-+    krb5_error_code ret;
-+    krb5_data req;
-+    krb5_ccache local_ccache = NULL;
-+    krb5_creds *new_creds = NULL;
-+    krb5_auth_context auth_context = NULL;
-+    krb5_keytab keytab = NULL;
-+    char *server_name;
++	krb5_error_code ret;
++	krb5_data req;
++	krb5_ccache local_ccache       = NULL;
++	krb5_creds *new_creds          = NULL;
++	krb5_auth_context auth_context = NULL;
++	krb5_keytab keytab             = NULL;
++	char *server_name;
 +
-+    memset(&req, 0, sizeof(req));
++	memset(&req, 0, sizeof(req));
 +
-+    if (ap_req_keytab == NULL) {
-+        ret = krb5_kt_default(context, &keytab);
-+        if (ret)
-+            return ret;
-+    } else
-+        keytab = ap_req_keytab;
++	if (ap_req_keytab == NULL) {
++		ret = krb5_kt_default(context, &keytab);
++		if (ret)
++			return ret;
++	} else
++		keytab = ap_req_keytab;
 +
-+    ret = krb5_cc_resolve(context, "MEMORY:", &local_ccache);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "s", "krb5_cc_resolve() failed when verifying KDC");
-+        //return ret;
-+        goto end;
-+    }
++	ret = krb5_cc_resolve(context, "MEMORY:", &local_ccache);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "s", "krb5_cc_resolve() failed when verifying KDC");
++		/* return ret; */
++		goto end;
++	}
 +
-+    ret = krb5_cc_initialize(context, local_ccache, creds->client);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "s", "krb5_cc_initialize() failed when verifying KDC");
-+        goto end;
-+    }
++	ret = krb5_cc_initialize(context, local_ccache, creds->client);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "s", "krb5_cc_initialize() failed when verifying KDC");
++		goto end;
++	}
 +
-+    ret = krb5_cc_store_cred(context, local_ccache, creds);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "s", "krb5_cc_store_cred() failed when verifying KDC");
-+        goto end;
-+    }
++	ret = krb5_cc_store_cred(context, local_ccache, creds);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "s", "krb5_cc_store_cred() failed when verifying KDC");
++		goto end;
++	}
 +
-+    ret = krb5_unparse_name(context, ap_req_server, &server_name);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "s", "krb5_unparse_name() failed when verifying KDC");
-+        goto end;
-+    }
++	ret = krb5_unparse_name(context, ap_req_server, &server_name);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "s", "krb5_unparse_name() failed when verifying KDC");
++		goto end;
++	}
 +
-+    //log_error_write(srv, __FILE__, __LINE__, "ss", "Trying to verify authenticity of KDC using principal", server_name);
-+    free(server_name);
++	/* log_error_write(srv, __FILE__, __LINE__, "ss", "Trying to verify authenticity of KDC using principal", server_name); */
++	free(server_name);
 +
-+    if (!krb5_principal_compare(context, ap_req_server, creds->server)) {
-+        krb5_creds match_cred;
++	if (!krb5_principal_compare(context, ap_req_server, creds->server)) {
++		krb5_creds match_cred;
 +
-+        memset(&match_cred, 0, sizeof(match_cred));
++		memset(&match_cred, 0, sizeof(match_cred));
 +
-+        match_cred.client = creds->client;
-+        match_cred.server = ap_req_server;
++		match_cred.client = creds->client;
++		match_cred.server = ap_req_server;
 +
-+        ret = krb5_get_credentials(context, 0, local_ccache, &match_cred, &new_creds);
-+        if (ret) {
-+            log_error_write(srv, __FILE__, __LINE__, "s", "krb5_get_credentials() failed when verifying KDC");
-+            goto end;
-+        }
-+        creds = new_creds;
-+    }
++		ret = krb5_get_credentials(context, 0, local_ccache, &match_cred, &new_creds);
++		if (ret) {
++			log_error_write(srv, __FILE__, __LINE__, "s", "krb5_get_credentials() failed when verifying KDC");
++			goto end;
++		}
++		creds = new_creds;
++	}
 +
-+    ret = krb5_mk_req_extended(context, &auth_context, 0, NULL, creds, &req);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "s", "krb5_mk_req_extended() failed when verifying KDC");
-+        goto end;
-+    }
++	ret = krb5_mk_req_extended(context, &auth_context, 0, NULL, creds, &req);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "s", "krb5_mk_req_extended() failed when verifying KDC");
++		goto end;
++	}
 +
-+    krb5_auth_con_free(context, auth_context);
-+    auth_context = NULL;
-+    ret = krb5_auth_con_init(context, &auth_context);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "s", "krb5_auth_con_init() failed when verifying KDC");
-+        goto end;
-+    }
++	krb5_auth_con_free(context, auth_context);
++	auth_context = NULL;
++	ret = krb5_auth_con_init(context, &auth_context);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "s", "krb5_auth_con_init() failed when verifying KDC");
++		goto end;
++	}
 +
-+    /* use KRB5_AUTH_CONTEXT_DO_SEQUENCE to skip replay cache checks */
-+    krb5_auth_con_setflags(context, auth_context, KRB5_AUTH_CONTEXT_DO_SEQUENCE);
-+    ret = krb5_rd_req(context, &auth_context, &req, ap_req_server, keytab, 0, NULL);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "s", "krb5_rd_req() failed when verifying KDC");
-+        goto end;
-+    }
++	/* use KRB5_AUTH_CONTEXT_DO_SEQUENCE to skip replay cache checks */
++	krb5_auth_con_setflags(context, auth_context, KRB5_AUTH_CONTEXT_DO_SEQUENCE);
++	ret = krb5_rd_req(context, &auth_context, &req, ap_req_server, keytab, 0, NULL);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "s", "krb5_rd_req() failed when verifying KDC");
++		goto end;
++	}
 +
-+end:
-+    krb5_free_data_contents(context, &req);
-+    if (auth_context)
-+        krb5_auth_con_free(context, auth_context);
-+    if (new_creds)
-+        krb5_free_creds(context, new_creds);
-+    if (ap_req_keytab == NULL && keytab)
-+        krb5_kt_close(context, keytab);
-+    if (local_ccache)
-+        krb5_cc_destroy(context, local_ccache);
++	end:
++		krb5_free_data_contents(context, &req);
++		if (auth_context)
++			krb5_auth_con_free(context, auth_context);
++		if (new_creds)
++			krb5_free_creds(context, new_creds);
++		if (ap_req_keytab == NULL && keytab)
++			krb5_kt_close(context, keytab);
++		if (local_ccache)
++			krb5_cc_destroy(context, local_ccache);
 +
-+    return ret;
++	return ret;
 +}
 +
 +static int store_krb5_creds(server *srv, connection *con, mod_auth_plugin_data *p,
 +                            krb5_context kcontext, krb5_ccache delegated_cred) {
-+    krb5_error_code problem;
-+    krb5_principal princ;
-+    krb5_ccache ccache;
-+    int ret = 0;
++	krb5_error_code problem;
++	krb5_principal princ;
++	krb5_ccache ccache;
++	int ret = 0;
 +
-+    problem = krb5_cc_get_principal(kcontext, delegated_cred, &princ);
-+    if (problem) {
-+        log_error_write(srv, __FILE__, __LINE__, "ss", "krb5_cc_get_principal() failed:", krb5_get_err_text(kcontext, problem));
-+        ret = -1;
-+        goto end;
-+    }
++	problem = krb5_cc_get_principal(kcontext, delegated_cred, &princ);
++	if (problem) {
++		log_error_write(srv, __FILE__, __LINE__, "ss", "krb5_cc_get_principal() failed:", krb5_get_err_text(kcontext, problem));
++		ret = -1;
++		goto end;
++	}
 +
-+    if (create_krb5_ccache(srv, con, p, kcontext, princ, &ccache)) {
-+        ret = -1;
-+        goto end;
-+    }
++	if (create_krb5_ccache(srv, con, p, kcontext, princ, &ccache)) {
++		ret = -1;
++		goto end;
++	}
 +
-+    problem = krb5_cc_copy_creds(kcontext, delegated_cred, ccache);
-+    if (problem) {
-+        log_error_write(srv, __FILE__, __LINE__, "ss", "Failed to store credentials:", krb5_get_err_text(kcontext, problem));
-+        ret = -1;
-+        goto end;
-+    }
++	problem = krb5_cc_copy_creds(kcontext, delegated_cred, ccache);
++	if (problem) {
++		log_error_write(srv, __FILE__, __LINE__, "ss", "Failed to store credentials:", krb5_get_err_text(kcontext, problem));
++		ret = -1;
++		goto end;
++	}
 +
-+    krb5_free_principal(kcontext, princ);
-+    krb5_cc_close(kcontext, ccache);
-+    return 0;
++	krb5_free_principal(kcontext, princ);
++	krb5_cc_close(kcontext, ccache);
++	return 0;
 +
-+end:
-+    if (princ)
-+        krb5_free_principal(kcontext, princ);
-+    if (ccache)
-+        krb5_cc_destroy(kcontext, ccache);
-+    return ret;
++	end:
++		if (princ)
++			krb5_free_principal(kcontext, princ);
++		if (ccache)
++			krb5_cc_destroy(kcontext, ccache);
++	return ret;
 +}
 +
 +int http_auth_basic_gssapi_check(server *srv, connection *con, mod_auth_plugin_data *p, array *req, buffer *url, const char *realm_str) {
 +	char *pw;
-+    buffer *username;
++	buffer *username;
 +
 +	username = buffer_init();
 +	if (!base64_decode(username, realm_str)) {
@@ -524,153 +524,153 @@
 +	}
 +
 +	*pw++ = '\0';
-+    if (pw == NULL || pw[0] == '\0') {
-+        log_error_write(srv, __FILE__, __LINE__, "s", "Empty passwords are not accepted");
-+        buffer_free(username);
-+        return 0;
-+    }
++	if (pw == NULL || pw[0] == '\0') {
++		log_error_write(srv, __FILE__, __LINE__, "s", "Empty passwords are not accepted");
++		buffer_free(username);
++		return 0;
++	}
 +	username->used = pw - username->ptr;
 +
-+    krb5_context kcontext = NULL;
-+    krb5_error_code code = krb5_init_context(&kcontext);
-+    if (code) {
-+        log_error_write(srv, __FILE__, __LINE__, "sds", "Cannot initialize Kerberos5 context (", code, ")");
-+        buffer_free(username);
-+        return 0;
-+    }
-+
-+    krb5_keytab keytab = NULL;
-+    krb5_kt_resolve(kcontext, p->conf.auth_gssapi_keytab->ptr, &keytab);
-+
-+    buffer *sprinc;
-+    sprinc = buffer_init();
-+    buffer_copy_string_buffer(sprinc, p->conf.auth_gssapi_principal);
-+    if (strchr(sprinc->ptr, '/') == NULL) {
-+        buffer_append_string(sprinc, "/");
-+        if (strchr(con->request.http_host->ptr, ':') == NULL) {
-+            buffer_append_string_buffer(sprinc, con->request.http_host);
-+        } else {
-+            buffer_append_string_len(sprinc, con->request.http_host->ptr, strcspn(con->request.http_host->ptr, ":"));
-+        }
-+    }
-+
-+    int ret = 0;
-+
-+	buffer *password = buffer_init();
-+    buffer_copy_string(password, pw);
-+
-+    krb5_principal s_princ = NULL;
-+    krb5_principal c_princ = NULL;
-+    krb5_creds c_creds;
-+    krb5_ccache c_ccache = NULL;
-+    krb5_ccache ret_ccache = NULL;
-+
-+    ret = krb5_parse_name(kcontext, sprinc->ptr, &s_princ);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "sbss", "Error parsing server name (", sprinc, "):", krb5_get_err_text(kcontext, ret));
-+        ret = -1;
-+        goto end;
-+    }
-+
-+    if (strchr(username->ptr, '@') == NULL) {
-+        data_string *realm;
-+        realm = (data_string *)array_get_element(req, "realm");
-+
-+        BUFFER_APPEND_STRING_CONST(username, "@");
-+        buffer_append_string_buffer(username, realm->value);
-+    }
-+
-+    ret = krb5_parse_name(kcontext, username->ptr, &c_princ);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "sbss", "Error parsing client name (", username, "):", krb5_get_err_text(kcontext, ret));
-+        ret = -1;
-+        goto end;
-+    }
-+
-+    /*
-+    char *name = NULL;
-+    ret = krb5_unparse_name(kcontext, c_princ, &name);
-+    if (ret == 0) {
-+        log_error_write(srv, __FILE__, __LINE__, "sbsb", "Trying to get TGT for user:", username, "password:", password);
-+        free(name);
-+    }
-+    */
-+
-+    memset(&c_creds, 0, sizeof(c_creds));
-+    ret = krb5_get_init_creds_password(kcontext, &c_creds, c_princ, password->ptr, NULL, NULL, 0, NULL, NULL);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "ss", "krb5_get_init_creds_password() failed:", krb5_get_err_text(kcontext, ret));
-+        goto end;
-+    }
-+
-+    ret = verify_krb5_init_creds(srv, kcontext, &c_creds, s_princ, keytab);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "ss", "failed to verify krb5 credentials:", krb5_get_err_text(kcontext, ret));
-+        goto end;
-+    }
-+
-+    ret = krb5_cc_resolve(kcontext, "MEMORY:", &ret_ccache);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "ss", "generating new memory ccache failed:", krb5_get_err_text(kcontext, ret));
-+        goto end;
-+    }
-+
-+    ret = krb5_cc_initialize(kcontext, ret_ccache, c_princ);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "ss", "krb5_cc_initialize() failed:", krb5_get_err_text(kcontext, ret));
-+        goto end;
-+    }
-+
-+    ret = krb5_cc_store_cred(kcontext, ret_ccache, &c_creds);
-+    if (ret) {
-+        log_error_write(srv, __FILE__, __LINE__, "ss", "krb5_cc_store_cred() failed:", krb5_get_err_text(kcontext, ret));
-+        goto end;
-+    }
-+
-+    c_ccache = ret_ccache;
-+    ret_ccache = NULL;
-+
-+end:
-+    krb5_free_cred_contents(kcontext, &c_creds);
-+    if (ret_ccache)
-+        krb5_cc_destroy(kcontext, ret_ccache);
-+
-+    if (!ret && c_ccache && (ret = store_krb5_creds(srv, con, p, kcontext, c_ccache))) {
-+        log_error_write(srv, __FILE__, __LINE__, "sb", "store_krb5_creds failed for", username);
-+    }
-+
-+    if (c_princ)
-+        krb5_free_principal(kcontext, c_princ);
-+    if (password)
-+        buffer_free(password);
-+    if (s_princ)
-+        krb5_free_principal(kcontext, s_princ);
-+    if (sprinc)
-+        buffer_free(sprinc);
-+    if (c_ccache)
-+        krb5_cc_destroy(kcontext, c_ccache);
-+    if (keytab)
-+        krb5_kt_close(kcontext, keytab);
-+
-+    krb5_free_context(kcontext);
-+
-+    if (ret) {
-+        // ret == KRB5KDC_ERR_C_PRINCIPAL_UNKNOWN
-+        log_error_write(srv, __FILE__, __LINE__, "sbb", "password doesn't match for", con->uri.path, username);
-+        buffer_free(username);
-+        return 0;
-+    }
-+
-+	/* value is our allow-rules */
-+	if (http_auth_match_rules(srv, p, url->ptr, username->ptr, NULL, NULL)) {
-+		log_error_write(srv, __FILE__, __LINE__, "s", "rules didn't match");
++	krb5_context kcontext = NULL;
++	krb5_error_code code = krb5_init_context(&kcontext);
++	if (code) {
++		log_error_write(srv, __FILE__, __LINE__, "sds", "Cannot initialize Kerberos5 context (", code, ")");
 +		buffer_free(username);
 +		return 0;
 +	}
 +
-+	/* remember the username */
-+	buffer_copy_string_buffer(p->auth_user, username);
-+	buffer_free(username);
++	krb5_keytab keytab = NULL;
++	krb5_kt_resolve(kcontext, p->conf.auth_gssapi_keytab->ptr, &keytab);
++
++	buffer *sprinc;
++	sprinc = buffer_init();
++	buffer_copy_string_buffer(sprinc, p->conf.auth_gssapi_principal);
++	if (strchr(sprinc->ptr, '/') == NULL) {
++		buffer_append_string(sprinc, "/");
++		if (strchr(con->request.http_host->ptr, ':') == NULL) {
++			buffer_append_string_buffer(sprinc, con->request.http_host);
++		} else {
++			buffer_append_string_len(sprinc, con->request.http_host->ptr, strcspn(con->request.http_host->ptr, ":"));
++		}
++	}
++
++	int ret = 0;
++
++	buffer *password = buffer_init();
++	buffer_copy_string(password, pw);
++
++	krb5_principal s_princ = NULL;
++	krb5_principal c_princ = NULL;
++	krb5_creds c_creds;
++	krb5_ccache c_ccache   = NULL;
++	krb5_ccache ret_ccache = NULL;
++
++	ret = krb5_parse_name(kcontext, sprinc->ptr, &s_princ);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "sbss", "Error parsing server name (", sprinc, "):", krb5_get_err_text(kcontext, ret));
++		ret = -1;
++		goto end;
++	}
++
++	if (strchr(username->ptr, '@') == NULL) {
++		data_string *realm;
++		realm = (data_string *)array_get_element(req, "realm");
++
++		BUFFER_APPEND_STRING_CONST(username, "@");
++		buffer_append_string_buffer(username, realm->value);
++	}
++
++	ret = krb5_parse_name(kcontext, username->ptr, &c_princ);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "sbss", "Error parsing client name (", username, "):", krb5_get_err_text(kcontext, ret));
++		ret = -1;
++		goto end;
++	}
++
++	/*
++	 * char *name = NULL;
++	 * ret = krb5_unparse_name(kcontext, c_princ, &name);
++	 * if (ret == 0) {
++	 *	log_error_write(srv, __FILE__, __LINE__, "sbsb", "Trying to get TGT for user:", username, "password:", password);
++	 *	free(name);
++	 * }
++	 */
++
++	memset(&c_creds, 0, sizeof(c_creds));
++	ret = krb5_get_init_creds_password(kcontext, &c_creds, c_princ, password->ptr, NULL, NULL, 0, NULL, NULL);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "ss", "krb5_get_init_creds_password() failed:", krb5_get_err_text(kcontext, ret));
++		goto end;
++	}
++
++	ret = verify_krb5_init_creds(srv, kcontext, &c_creds, s_princ, keytab);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "ss", "failed to verify krb5 credentials:", krb5_get_err_text(kcontext, ret));
++		goto end;
++	}
++
++	ret = krb5_cc_resolve(kcontext, "MEMORY:", &ret_ccache);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "ss", "generating new memory ccache failed:", krb5_get_err_text(kcontext, ret));
++		goto end;
++	}
++
++	ret = krb5_cc_initialize(kcontext, ret_ccache, c_princ);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "ss", "krb5_cc_initialize() failed:", krb5_get_err_text(kcontext, ret));
++		goto end;
++	}
++
++	ret = krb5_cc_store_cred(kcontext, ret_ccache, &c_creds);
++	if (ret) {
++		log_error_write(srv, __FILE__, __LINE__, "ss", "krb5_cc_store_cred() failed:", krb5_get_err_text(kcontext, ret));
++		goto end;
++	}
++
++	c_ccache = ret_ccache;
++	ret_ccache = NULL;
++
++	end:
++		krb5_free_cred_contents(kcontext, &c_creds);
++		if (ret_ccache)
++			krb5_cc_destroy(kcontext, ret_ccache);
++
++		if (!ret && c_ccache && (ret = store_krb5_creds(srv, con, p, kcontext, c_ccache))) {
++			log_error_write(srv, __FILE__, __LINE__, "sb", "store_krb5_creds failed for", username);
++		}
++
++		if (c_princ)
++			krb5_free_principal(kcontext, c_princ);
++		if (password)
++			buffer_free(password);
++		if (s_princ)
++			krb5_free_principal(kcontext, s_princ);
++		if (sprinc)
++			buffer_free(sprinc);
++		if (c_ccache)
++			krb5_cc_destroy(kcontext, c_ccache);
++		if (keytab)
++			krb5_kt_close(kcontext, keytab);
++
++		krb5_free_context(kcontext);
++
++		if (ret) {
++			/* ret == KRB5KDC_ERR_C_PRINCIPAL_UNKNOWN */
++			log_error_write(srv, __FILE__, __LINE__, "sbb", "password doesn't match for", con->uri.path, username);
++			buffer_free(username);
++			return 0;
++		}
++
++		/* value is our allow-rules */
++		if (http_auth_match_rules(srv, p, url->ptr, username->ptr, NULL, NULL)) {
++			log_error_write(srv, __FILE__, __LINE__, "s", "rules didn't match");
++			buffer_free(username);
++			return 0;
++		}
++
++		/* remember the username */
++		buffer_copy_string_buffer(p->auth_user, username);
++		buffer_free(username);
 +
 +	return 1;
 +}
