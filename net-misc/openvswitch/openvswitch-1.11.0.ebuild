@@ -96,7 +96,7 @@ src_install() {
 	fi
 	# not working without the brcompat_mod kernel module which did not get
 	# included in the kernel and we can't build it anymore
-	rm "${D}/usr/sbin/ovs-brcompatd" "${D}/usr/share/man/man8/ovs-brcompatd.8"
+	# rm "${D}/usr/sbin/ovs-brcompatd" "${D}/usr/share/man/man8/ovs-brcompatd.8"
 
 	keepdir /var/{lib,log}/openvswitch
 	keepdir /etc/ssl/openvswitch
@@ -116,12 +116,16 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins rhel/etc_logrotate.d_openvswitch openvswitch
 
-	use modules && linux-mod_src_install
+
+	if kernel_is -lt 3 9 ; then
+		use modules && linux-mod_src_install
+	fi
 }
 
 pkg_postinst() {
-	use modules && linux-mod_pkg_postinst
-
+	if kernel_is -lt 3 9 ; then
+		use modules && linux-mod_pkg_postinst
+	fi
 	for pv in ${REPLACING_VERSIONS}; do
 		if ! version_is_at_least 1.9.0 ${pv} ; then
 			ewarn "The configuration database for Open vSwitch got moved in version 1.9.0 from"
@@ -133,6 +137,8 @@ pkg_postinst() {
 		fi
 	done
 
+	elog "${PN} built against kernels 3.9 and greater must have kernel built modules"
+	elog "   instead of portage built kernel modules"
 	elog "Use the following command to create an initial database for ovsdb-server:"
 	elog "   emerge --config =${CATEGORY}/${PF}"
 	elog "(will create a database in /var/lib/openvswitch/conf.db)"
