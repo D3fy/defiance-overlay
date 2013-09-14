@@ -44,7 +44,7 @@ RDEPEND="${RDEPEND}
 
 SITEFILE="50${PN}-mode-gentoo.el"
 
-RUBY_PATCHES=( "${FILESDIR}/puppet-openrc-status-fix.patch" )
+# RUBY_PATCHES=( "${FILESDIR}/" )
 
 pkg_setup() {
 	enewgroup puppet
