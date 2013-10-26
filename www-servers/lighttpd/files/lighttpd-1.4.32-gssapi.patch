@@ -320,7 +320,7 @@
 +	}
 +
 +	/* check the allow-rules */
-+	if (http_auth_match_rules(srv, p, url->ptr, token_out.value, NULL, NULL)) {
++	if (http_auth_match_rules(srv, req, token_out.value, NULL, NULL)) {
 +		log_error_write(srv, __FILE__, __LINE__, "s", "rules didn't match");
 +		goto end;
 +	}
@@ -663,7 +663,7 @@
 +		}
 +
 +		/* value is our allow-rules */
-+		if (http_auth_match_rules(srv, p, url->ptr, username->ptr, NULL, NULL)) {
++		if (http_auth_match_rules(srv, req, username->ptr, NULL, NULL)) {
 +			log_error_write(srv, __FILE__, __LINE__, "s", "rules didn't match");
 +			buffer_free(username);
 +			return 0;
