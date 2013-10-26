@@ -1,6 +1,6 @@
-diff -Nru a/configure.ac b/configure.ac
---- a/configure.ac	2013-08-31 20:38:25.720549216 +0400
-+++ b/configure.ac	2013-08-31 20:46:28.303115571 +0400
+
+--- configure.ac	2013-08-31 20:38:25.720549216 +0400
++++ configure.ac	2013-08-31 20:46:28.303115571 +0400
 @@ -253,11 +253,11 @@
      [WITH_OPENSSL=$withval],[WITH_OPENSSL=no])
  
