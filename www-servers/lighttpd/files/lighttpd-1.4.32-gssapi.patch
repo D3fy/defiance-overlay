@@ -840,7 +840,7 @@
 +#ifdef USE_KRB5
 +			} else if ((auth_type_len == 9) &&
 +				(0 == strncasecmp(http_authorization, "Negotiate", auth_type_len))) {
-+				if (0 == strcmp(reqi_method->value->ptr, "gssapi")) {
++				if (0 == strcmp(req_method->value->ptr, "gssapi")) {
 +					if (p->conf.auth_gssapi_spnego) {
 +					/*	auth_satisfied = http_auth_basic_gssapi_check(srv, con, p, req, con->uri.path, auth_realm+1);
 +					} else { */
