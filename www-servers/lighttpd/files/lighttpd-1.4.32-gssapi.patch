@@ -1,6 +1,6 @@
 diff -Nru a/configure.ac b/configure.ac
---- a/configure.ac	2013-08-31 20:38:25.720549216 -0400
-+++ b/configure.ac	2013-08-31 20:46:28.303115571 -0400
+--- a/configure.ac	2013-08-31 20:38:25.720549216 +0400
++++ b/configure.ac	2013-08-31 20:46:28.303115571 +0400
 @@ -253,11 +253,11 @@
      [WITH_OPENSSL=$withval],[WITH_OPENSSL=no])
  
@@ -88,8 +88,9 @@ diff -Nru a/configure.ac b/configure.ac
      LIBS="$OLDLIBS"
      AC_SUBST(SSL_LIB)
  fi
---- a/src/Makefile.am	2012-11-17 12:32:01.000000000 -0500
-+++ b/src/Makefile.am	2013-09-01 09:15:56.202867950 -0400
+diff -Nru a/src/Makefile.am b/src/Makefile.am
+--- a/src/Makefile.am	2012-11-17 12:32:01.000000000 +0500
++++ b/src/Makefile.am	2013-09-01 09:15:56.202867950 +0400
 @@ -243,7 +243,7 @@
  lib_LTLIBRARIES += mod_auth.la
  mod_auth_la_SOURCES = mod_auth.c http_auth.c
@@ -99,8 +100,9 @@ diff -Nru a/configure.ac b/configure.ac
  
  lib_LTLIBRARIES += mod_rewrite.la
  mod_rewrite_la_SOURCES = mod_rewrite.c
---- a/src/http_auth.c	2012-05-17 05:29:24.000000000 -0400
-+++ b/src/http_auth.c	2013-08-31 12:09:30.265879619 -0400
+diff -Nru a/src/http_auth.c b/src/http_auth.c
+--- a/src/http_auth.c	2012-05-17 05:29:24.000000000 +0400
++++ b/src/http_auth.c	2013-08-31 12:09:30.265879619 +0400
 @@ -1200,3 +1200,574 @@
  
  	return 0;
