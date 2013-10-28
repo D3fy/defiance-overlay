@@ -39,6 +39,7 @@ RDEPEND="${RDEPEND}
 		sys-libs/libselinux[ruby]
 		sec-policy/selinux-puppet
 	)
+	!minimal? ( >=www-servers/thin-1.6.0 )
 	vim-syntax? ( >=app-vim/puppet-syntax-3.0.1 )
 	>=app-portage/eix-0.18.0"
 
@@ -83,7 +84,7 @@ all_ruby_install() {
 		rm "${ED}/etc/puppet/auth.conf"
 	else
 		newinitd "${FILESDIR}"/puppetmaster.init-r1 puppetmaster
-		newconfd "${FILESDIR}"/puppetmaster.confd puppetmaster
+		newconfd "${FILESDIR}"/puppetmaster.confd-r1 puppetmaster
 
 		insinto /etc/puppet
 
