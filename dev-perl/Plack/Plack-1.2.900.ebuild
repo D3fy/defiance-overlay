@@ -26,6 +26,7 @@ RDEPEND="
 	>=dev-perl/HTTP-Body-1.60.0
 	>=dev-perl/Test-TCP-1.20.0
 	>=dev-perl/Stream-Buffered-0.20.0
+	dev-perl/File-ShareDir-Install
 "
 DEPEND="${RDEPEND}
 	test? (
