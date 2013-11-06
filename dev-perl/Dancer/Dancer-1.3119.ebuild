@@ -29,7 +29,7 @@ perl_meta_runtime() {
 	# HTTP::Body 1.07 ( 1.70.0 )
 	echo \>=dev-perl/HTTP-Body-1.70.0
 	# HTTP::Server::Simple::PSGI 0.11 ( 0.110.0 )
-	echo \>=dev-perl/HTTP-Server-Simple-PSGI-0.110.0
+	echo \>=dev-perl/HTTP-Server-Simple-PSGI-0.14.0
 	# LWP
 	echo dev-perl/libwww-perl
 	# MIME::Types
