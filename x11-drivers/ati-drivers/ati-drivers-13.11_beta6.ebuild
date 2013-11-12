@@ -1,6 +1,6 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ati-drivers-13.11_beta6.ebuild,v 1.1 2013/11/10 18:46:58 chithanh Exp $
 
 EAPI=5
 
@@ -8,13 +8,13 @@ inherit eutils multilib linux-info linux-mod toolchain-funcs versionator pax-uti
 
 DESCRIPTION="Ati precompiled drivers for Radeon Evergreen (HD5000 Series) and newer chipsets"
 HOMEPAGE="http://www.amd.com"
-#RUN="${WORKDIR}/amd-driver-installer-9.00-x86.x86_64.run"
+#RUN="${WORKDIR}/amd-catalyst-13.11-beta1-linux-x86.x86_64.run"
 SLOT="1"
-DRIVERS_URI="http://www2.ati.com/drivers/beta/amd-catalyst-13.8-beta1-linux-x86.x86_64.zip"
+DRIVERS_URI="http://www2.ati.com/drivers/beta/amd-catalyst-13.11-beta6-linux-x86.x86_64.zip"
 XVBA_SDK_URI="http://developer.amd.com/wordpress/media/2012/10/xvba-sdk-0.74-404001.tar.gz"
 SRC_URI="${DRIVERS_URI} ${XVBA_SDK_URI}"
 FOLDER_PREFIX="common/"
-IUSE="debug +modules multilib qt4 static-libs disable-watermark pax_kernel"
+IUSE="debug +modules multilib qt4 static-libs pax_kernel"
 
 LICENSE="AMD GPL-2 QPL-1.0"
 KEYWORDS="-* ~amd64 ~x86"
@@ -148,40 +148,33 @@ QA_DT_HASH="
 	usr/lib\(32\|64\)\?/OpenCL/vendors/amd/libOpenCL.so.1
 "
 
-CONFIG_CHECK="~MTRR ~!DRM ACPI PCI_MSI !LOCKDEP !PAX_KERNEXEC_PLUGIN_METHOD_OR"
-ERROR_MTRR="CONFIG_MTRR required for direct rendering."
-ERROR_DRM="CONFIG_DRM must be disabled or compiled as a module and not loaded for direct
-	rendering to work."
-ERROR_LOCKDEP="CONFIG_LOCKDEP (lock tracking) exports the symbol lock_acquire
-	as GPL-only. This prevents ${P} from compiling with an error like this:
-	FATAL: modpost: GPL-incompatible module fglrx.ko uses GPL-only symbol 'lock_acquire'"
-ERROR_PAX_KERNEXEC_PLUGIN_METHOD_OR="This config option will cause
-	kernel to reject loading the fglrx module with
-	\"ERROR: could not insert 'fglrx': Exec format error.\"
-	You may want to try CONFIG_PAX_KERNEXEC_PLUGIN_METHOD_BTS instead."
-
-_check_kernel_config() {
-	if ! linux_chkconfig_present AGP && \
-		! linux_chkconfig_present PCIEPORTBUS; then
-		ewarn "You don't have AGP and/or PCIe support enabled in the kernel"
-		ewarn "Direct rendering will not work."
-	fi
-
-	kernel_is ge 2 6 37 && kernel_is le 2 6 38 && if ! linux_chkconfig_present BKL ; then
-		die "CONFIG_BKL must be enabled for kernels 2.6.37-2.6.38."
-	fi
-
-	if use amd64 && ! linux_chkconfig_present COMPAT; then
-		die "CONFIG_COMPAT must be enabled for amd64 kernels."
-	fi
-}
-
 pkg_pretend() {
+	local CONFIG_CHECK="~MTRR ~!DRM ACPI PCI_MSI !LOCKDEP !PAX_KERNEXEC_PLUGIN_METHOD_OR"
+	use amd64 && CONFIG_CHECK+=" COMPAT"
+
+	local ERROR_MTRR="CONFIG_MTRR required for direct rendering."
+	local ERROR_DRM="CONFIG_DRM must be disabled or compiled as a module and not loaded for direct
+		rendering to work."
+	local ERROR_LOCKDEP="CONFIG_LOCKDEP (lock tracking) exports the symbol lock_acquire
+		as GPL-only. This prevents ${P} from compiling with an error like this:
+		FATAL: modpost: GPL-incompatible module fglrx.ko uses GPL-only symbol 'lock_acquire'"
+	local ERROR_PAX_KERNEXEC_PLUGIN_METHOD_OR="This config option will cause
+		kernel to reject loading the fglrx module with
+		\"ERROR: could not insert 'fglrx': Exec format error.\"
+		You may want to try CONFIG_PAX_KERNEXEC_PLUGIN_METHOD_BTS instead."
+	local ERROR_BKL="CONFIG_BKL must be enabled for kernels 2.6.37-2.6.38."
+
 	# workaround until bug 365543 is solved
 	if use modules; then
 		linux-info_pkg_setup
 		require_configured_kernel
-		_check_kernel_config
+		kernel_is ge 2 6 37 && kernel_is le 2 6 38 && CONFIG_CHECK+=" BKL"
+		check_extra_config
+		if ! linux_chkconfig_present AGP && \
+			! linux_chkconfig_present PCIEPORTBUS; then
+			ewarn "You don't have AGP and/or PCIe support enabled in the kernel"
+			ewarn "Direct rendering will not work."
+		fi
 	fi
 
 	if ! has XT ${PAX_MARKINGS} && use pax_kernel; then
@@ -252,6 +245,10 @@ src_unpack() {
 	mkdir xvba_sdk
 	cd xvba_sdk
 	unpack ${XVBA_SDK_DISTFILE}
+
+	mkdir -p "${WORKDIR}/extra" || die "mkdir extra failed"
+	cd "${WORKDIR}/extra"
+	tar -xf "../${FOLDER_PREFIX}usr/src/ati/fglrx_sample_source.tgz"
 }
 
 src_prepare() {
@@ -301,7 +298,9 @@ src_prepare() {
 	epatch "${FILESDIR}/ati-drivers-13.8-beta-include-seq_file.patch"
 
 	epatch "${FILESDIR}/check-for-iommu-only-if-iommu-is-supported.patch"
-	epatch "${FILESDIR}/ati-drivers-13.8-proc-permissions.diff"
+
+	# Fix #483400
+	epatch "${FILESDIR}/fgl_glxgears-do-not-include-glATI.patch"
 
 	# Compile fix, https://bugs.gentoo.org/show_bug.cgi?id=454870
 	use pax_kernel && epatch "${FILESDIR}/const-notifier-block.patch"
@@ -321,22 +320,6 @@ src_prepare() {
 	sed -i -e 's/__SMP__/CONFIG_SMP/' *.c *h || die "SMP sed failed"
 	sed -i -e 's/ifdef MODVERSIONS/ifdef CONFIG_MODVERSIONS/' *.c *.h \
 		|| die "MODVERSIONS sed failed"
-	cd "${S}"
-
-	mkdir extra || die "mkdir extra failed"
-	cd extra
-	unpack ./../${FOLDER_PREFIX}usr/src/ati/fglrx_sample_source.tgz
-
-	# Get rid of watermark. Oldest known reference:
-	# http://phoronix.com/forums/showthread.php?19875-Unsupported-Hardware-watermark
-	if use disable-watermark; then
-		ebegin "Disabling watermark"
-		driver="${MY_BASE_DIR}"/usr/X11R6/${PKG_LIBDIR}/modules/drivers/fglrx_drv.so
-		for x in $(objdump -d ${driver}|awk '/call/&&/EnableLogo/{print "\\x"$2"\\x"$3"\\x"$4"\\x"$5"\\x"$6}'); do
-		sed -i "s/${x/x5b/\x5b}/\x90\x90\x90\x90\x90/g" ${driver} || break 1
-		done
-		eend $? || die "Disabling watermark failed"
-	fi
 }
 
 src_compile() {
