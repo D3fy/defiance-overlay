@@ -1,6 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-drivers/ati-drivers/ati-drivers-13.11_beta6.ebuild,v 1.1 2013/11/10 18:46:58 chithanh Exp $
 
 EAPI=5
 
