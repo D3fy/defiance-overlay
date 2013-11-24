@@ -14,6 +14,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
+	virtual/perl-Module-Build
 	virtual/perl-XSLoader
 	virtual/perl-File-Spec
 	virtual/perl-Test-Harness
