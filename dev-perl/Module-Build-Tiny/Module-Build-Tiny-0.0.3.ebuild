@@ -11,7 +11,9 @@ DESCRIPTION="A tiny replacement for Module::Build"
 #LICENSE="|| ( Artistic GPL-1 GPL-2 GPL-3 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="
+IUSE=""
+
+RDEPEND="
 	virtual/perl-XSLoader
 	virtual/perl-File-Spec
 	virtual/perl-Test-Harness
@@ -26,8 +28,6 @@ IUSE="
 	virtual/perl-JSON-PP
 	dev-perl/ExtUtils-InstallPaths
 "
-
-RDEPEND=""
 DEPEND="${RDEPEND}"
 
 SRC_TEST="do"
