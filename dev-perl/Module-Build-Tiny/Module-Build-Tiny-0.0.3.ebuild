@@ -4,7 +4,7 @@ EAPI=5
 
 MODULE_AUTHOR=LEONT
 MODULE_VERSION=0.030
-inherit perl-module
+inherit perl-mb-tiny
 
 DESCRIPTION="A tiny replacement for Module::Build"
 
