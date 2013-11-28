@@ -27,6 +27,7 @@ RDEPEND="
 	>=dev-perl/Test-TCP-1.20.0
 	>=dev-perl/Stream-Buffered-0.20.0
 	dev-perl/File-ShareDir-Install
+	dev-perl/Apache-LogFormat-Compiler
 "
 DEPEND="${RDEPEND}
 	test? (
