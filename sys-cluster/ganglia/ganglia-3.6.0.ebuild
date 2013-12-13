@@ -1,6 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI="3"
 WEBAPP_OPTIONAL="yes"
@@ -11,7 +9,7 @@ WEBAPP_MANUAL_SLOT="yes"
 inherit eutils multilib webapp python
 
 DESCRIPTION="A scalable distributed monitoring system for clusters and grids"
-HOMEPAGE="http://ganglia.sourceforge.net/"
+HOMEPAGE="http://ganglia.info"
 SRC_URI="mirror://sourceforge/ganglia/${P}.tar.gz"
 LICENSE="BSD"
 
