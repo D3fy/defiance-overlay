@@ -41,3 +41,4 @@ TODO
         2) Dancer-Auth-Krb5(-complete)? I or someone else has to write this
         3) Dancer-Plugin-Memcache
         4) Monoceros
+        5) Dancer2 & Dancer2 plugins, namely dbic, cache and queue
