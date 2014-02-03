@@ -30,7 +30,7 @@ Installation
         cd /usr/local && git clone https://github.com/GrayTShirt/phoenix-overlay.git
         echo "PORTDIR_OVERLAY=\"/usr/local/phoenix-overlay\"" >> /etc/make.conf
         echo -e "@egencache --repo=Phoenix --update
-        !cd /usr/local/portage && git pull && git gc" > /etc/eix-sync.conf
+        !cd /usr/local/phoenix-overlay && git pull && git gc" > /etc/eix-sync.conf
 
 TODO
 ====
