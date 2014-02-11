@@ -19,5 +19,5 @@ IUSE=""
 DEPEND=">=dev-perl/HTML-Tagset-3.200.0
 	>=dev-perl/HTML-Parser-3.710.0
 	>=dev-perl/Lingua-Stem-0.840.0
-	>=perl-gcpan/Memoize-ExpireLRU-0.55
+	>=dev-perl/Memoize-ExpireLRU-0.55
 	dev-lang/perl"

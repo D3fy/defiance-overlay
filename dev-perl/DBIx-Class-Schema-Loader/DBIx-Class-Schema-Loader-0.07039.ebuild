@@ -16,26 +16,26 @@ SLOT="0"
 KEYWORDS="alpha amd64 amd64-fbsd arm arm64 hppa ia64 m68k mips ppc ppc64 s390 sh sparc sparc-fbsd x86 x86-fbsd   ppc-aix x86-freebsd x64-freebsd sparc64-freebsd hppa-hpux ia64-hpux x86-interix amd64-linux arm-linux ia64-linux ppc64-linux x86-linux ppc-macos x86-macos x64-macos m68k-mint x86-netbsd ppc-openbsd x86-openbsd x64-openbsd sparc-solaris sparc64-solaris x64-solaris x86-solaris x86-winnt x86-cygwin"
 IUSE=""
 
-DEPEND=">=perl-gcpan/String-CamelCase-0.02
+DEPEND=">=dev-perl/String-CamelCase-0.02
 	>=dev-perl/Scope-Guard-0.200.0
 	>=dev-perl/Class-Unload-0.70.0
 	>=dev-perl/DBD-SQLite-1.400.0
-	>=perl-gcpan/Lingua-EN-Inflect-Number-1.1
+	>=dev-perl/Lingua-EN-Inflect-Number-1.1
 	>=dev-perl/List-MoreUtils-0.330.0
 	>=dev-perl/MRO-Compat-0.120.0
 	dev-perl/DBIx-Class
 	dev-perl/Try-Tiny
 	>=dev-perl/Class-Accessor-Grouped-0.100.90
-	>=perl-gcpan/String-ToIdentifier-EN-0.11
+	>=dev-perl/String-ToIdentifier-EN-0.11
 	>=dev-perl/Test-Exception-0.320.0
-	>=perl-gcpan/Lingua-EN-Inflect-Phrase-0.18
+	>=dev-perl/Lingua-EN-Inflect-Phrase-0.18
 	>=dev-perl/Hash-Merge-0.120.0
-	>=perl-gcpan/Lingua-EN-Tagger-0.24
+	>=dev-perl/Lingua-EN-Tagger-0.24
 	dev-perl/Sub-Name
 	>=dev-perl/namespace-clean-0.240.0
 	>=dev-perl/Test-Warn-0.240.0
 	dev-perl/Class-C3-Componentised
-	perl-gcpan/DBIx-Class-IntrospectableM2M
+	dev-perl/DBIx-Class-IntrospectableM2M
 	dev-perl/Carp-Clan
 	>=dev-perl/Class-Inspector-1.280.0
 	dev-lang/perl"

@@ -18,5 +18,5 @@ IUSE=""
 
 DEPEND="dev-perl/Try-Tiny
 	dev-perl/Test-Fatal
-	perl-gcpan/Lingua-EN-FindNumber
+	dev-perl/Lingua-EN-FindNumber
 	dev-lang/perl"
