@@ -18,6 +18,9 @@ RDEPEND="
 	virtual/perl-ExtUtils-MakeMaker
 	dev-perl/Dancer
 	dev-perl/DBIx-Class
+	dev-perl/DBIx-Class-Schema-Loader
+	dev-perl/SQL-Translator
+	dev-perl/DBD-SQLite
 "
 DEPEND="${RDEPEND}"
 
