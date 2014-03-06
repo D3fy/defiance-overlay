@@ -8,7 +8,7 @@ inherit base autotools-utils eutils
 
 DESCRIPTION="A Nagios add-on for transferring check results "
 HOMEPAGE="http://www.nsca-ng.org/"
-SRC_URI="https://github.com/weiss/nsca-ng/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="http://www.nsca-ng.org/cgi-bin/repository/nsca-ng/snapshot/${P}.tar.gz"
 
 LICENSE="LGL"
 SLOT="0"
