@@ -13,7 +13,7 @@ SRC_URI="https://github.com/weiss/nsca-ng/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="LGL"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="minimal"
+IUSE="+aio +libev minimal"
 
 DEPEND="
 	>=dev-libs/openssl-1.0.0
@@ -23,6 +23,14 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
+	local myconf
+	if use libev ; then
+		myconf="${myconf} --with-ev=external"
+	else
+		myconf="${myconf} --with-ev=embedded"
+	fi
 	econf \
+		$myconf \
+		$(use_enable aio posix-aio) \
 		$(use_enable !minimal server )
 }
