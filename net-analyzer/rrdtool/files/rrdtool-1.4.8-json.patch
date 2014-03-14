@@ -1,5 +1,5 @@
---- rrdtool-1.4.8-old/src/rrd_tool.c	2014-03-14 16:59:40.260043376 -0400
-+++ rrdtool-1.4.8/src/rrd_tool.c	2014-03-14 17:11:48.720944511 -0400
+--- a/src/rrd_tool.c
++++ b/src/rrd_tool.c
 @@ -737,7 +737,7 @@
                  printf("  <%s>\n", META_TAG);
              }
