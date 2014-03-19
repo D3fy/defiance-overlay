@@ -2,6 +2,7 @@
 
 EAPI=5
 AUTOTOOLS_AUTORECONF=yes
+AUTOTOOLS_IN_SOURCE_BUILD=1
 
 inherit base autotools-utils eutils
 
@@ -15,6 +16,7 @@ KEYWORDS="~amd64"
 IUSE="kerberos pcre perl python php ruby"
 
 DEPEND="
+	dev-lang/perl
 	kerberos? ( virtual/krb5 )
 	pcre? ( dev-libs/libpcre )
 	dev-libs/libevent
