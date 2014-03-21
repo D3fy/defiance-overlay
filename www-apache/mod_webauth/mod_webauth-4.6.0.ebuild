@@ -12,10 +12,12 @@ LICENSE="as-is"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="ldap memcache perl webkdc"
-DEPEND=">=dev-libs/openssl-0.9.7
+DEPEND="
+	>=dev-libs/openssl-0.9.7
 	>=www-servers/apache-2.4.4
 	net-misc/curl
 	virtual/krb5
+	dev-libs/remctl[kerberos]
 	perl? (
 		dev-perl/DateTime-Format-DateParse
 		dev-perl/Time-Duration
@@ -26,7 +28,6 @@ DEPEND=">=dev-libs/openssl-0.9.7
 	)"
 
 RDEPEND="${DEPEND}
-	perl? ( www-apache/mod_perl )
 	memcache? ( dev-perl/Cache-Memcached )
 	webkdc? (
 		virtual/perl-CGI
