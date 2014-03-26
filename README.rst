@@ -1,5 +1,5 @@
 ==========================
-The Phoenix Gentoo/Funtoo Overlay
+The Phoenix Meta-Gentoo Overlay
 ==========================
 
 :keywords: webauth, sso, funtoo, gentoo, ebuild, perl, dancer
@@ -39,5 +39,5 @@ TODO
         1) Dancer-Auth-Krb5-Simple
         2) Dancer-Auth-Krb5(-complete)? I or someone else has to write this
         3) Dancer-Plugin-Memcache
-        4) Monoceros
-        5) Dancer2 & Dancer2 plugins, namely dbic, cache and queue
+        4) Dancer2 & Dancer2 plugins, namely cache and queue
+        5) Dancer-Session-(Redis|Memcache)
