@@ -63,6 +63,7 @@ Ebuild List
 * dev-perl/DBIx-Class-Schema-Loader
 * dev-perl/Dancer
 * dev-perl/Dancer-Logger-Log4perl
+* dev-perl/Dancer-Plugin-Assets
 * dev-perl/Dancer-Plugin-DBIC
 * dev-perl/Dancer-Plugin-Database
 * dev-perl/Dancer-Plugin-REST
@@ -124,7 +125,6 @@ Ebuild List
 * sys-cluster/hadoop
 * sys-cluster/zookeeper
 * sys-fs/lvm2
-* sys-kernel/linux-headers
 * virtual/d3fy-auth
 * virtual/udev
 * www-apache/mod_webauth
