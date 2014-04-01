@@ -19,6 +19,7 @@ DEPEND="
 	dev-libs/jansson
 	dev-libs/libev
 	net-libs/zeromq
+	dev-libs/libpcre
 "
 RDEPEND="${DEPEND}"
 
