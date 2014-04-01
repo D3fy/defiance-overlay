@@ -2,7 +2,7 @@
 The Phoenix Meta-Gentoo Overlay
 ==========================
 
-:keywords: webauth, sso, funtoo, gentoo, ebuild, perl, dancer
+:keywords: webauth, sso, funtoo, gentoo, ebuild, perl, dancer, monitoring
 :description:
 
     The beginnings of a meta distribution
@@ -132,6 +132,7 @@ Ebuild List
     * dev-ruby/tidy_ffi
     * dev-ruby/wrongdoc
     * dev-vcs/watchman
+    * net-analyzer/nagmq
     * net-analyzer/nsca-ng
     * net-analyzer/rrdtool
     * sys-apps/hwids
