@@ -3,7 +3,7 @@
 # $Header: $
 EAPI=5
 MODULE_AUTHOR=YANICK
-MODULE_VERSION=1.3119
+MODULE_VERSION=1.3123
 inherit perl-module
 
 DESCRIPTION='A minimal-effort oriented web application framework'
