@@ -11,9 +11,11 @@ DESCRIPTION="DBIx::Class interface for Dancer applications"
 #LICENSE="|| ( Artistic GPL-1 GPL-2 GPL-3 )"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="mysql postgres"
 
 RDEPEND="
+	mysql? ( dev-perl/DBD-mysql )
+	postgres? ( dev-perl/DBD-Pg )
 	virtual/perl-Module-Load
 	virtual/perl-ExtUtils-MakeMaker
 	dev-perl/Dancer
