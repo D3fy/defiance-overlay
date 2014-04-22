@@ -13,7 +13,7 @@
 # The perl-module eclass is designed to allow easier installation of perl
 # modules, and their incorporation into the Gentoo Linux system.
 
-inherit perl-module
+inherit perl-module base
 
 PERLMB_EXPF="src_unpack src_compile src_test src_install src_prepare src_configure"
 
