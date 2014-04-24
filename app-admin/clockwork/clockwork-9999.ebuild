@@ -17,7 +17,7 @@ IUSE=""
 DEPEND="
 	dev-libs/libxml2
 	app-admin/augeas
-	dev-libs/ctap
+	dev-libs/ctap[static-libs]
 "
 RDEPEND="${DEPEND}"
 
