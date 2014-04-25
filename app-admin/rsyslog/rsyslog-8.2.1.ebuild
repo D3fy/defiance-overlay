@@ -14,7 +14,7 @@ SRC_URI="http://www.rsyslog.com/files/download/${PN}/${P}.tar.gz"
 LICENSE="GPL-3 LGPL-3 Apache-2.0"
 KEYWORDS="~amd64 ~hppa ~x86"
 SLOT="0"
-IUSE="dbi debug doc extras kerberos mongodb mysql oracle postgres relp snmp ssl static-libs systemd zeromq zlib"
+IUSE="dbi debug doc extras jemalloc kerberos mongodb mysql oracle postgres relp snmp ssl static-libs systemd zeromq zlib"
 
 RDEPEND="
 	dev-libs/json-c:=
@@ -25,6 +25,7 @@ RDEPEND="
 	>=dev-libs/liblognorm-1.0.0
 	dbi? ( dev-db/libdbi )
 	extras? ( net-libs/libnet )
+	jemalloc? ( dev-libs/jemalloc )
 	kerberos? ( virtual/krb5 )
 	mongodb? ( dev-libs/libmongo-client )
 	mysql? ( virtual/mysql )
@@ -88,6 +89,7 @@ src_configure() {
 		$(use_enable debug memcheck)
 		$(use_enable debug valgrind)
 		$(use_enable extras omudpspoof)
+		$(use_enable jemalloc)
 		$(use_enable kerberos gssapi-krb5)
 		$(use_enable mongodb ommongodb)
 		$(use_enable mysql)
