@@ -1,7 +1,7 @@
 # Distributed under the terms of the GNU General Public License v2
 EAPI=5
 MODULE_AUTHOR=YANICK
-MODULE_VERSION=1.3123
+MODULE_VERSION=${PV}
 inherit perl-module
 
 DESCRIPTION='A minimal-effort oriented web application framework'
