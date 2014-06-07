@@ -132,6 +132,7 @@ src_install() {
 		emake DESTDIR="${D}" install-eventhandlers || die
 	fi
 
+	doheader -r include/* || die
 	newinitd "${FILESDIR}"/icinga-init.d icinga || die
 	newconfd "${FILESDIR}"/icinga-conf.d icinga || die
 	if use idoutils ; then
