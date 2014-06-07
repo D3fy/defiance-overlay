@@ -1,7 +1,0 @@
-# Default unicorn configuration.  If you need multiple unicorns (for multiple
-# applications); simply link the init file and copy this configuration to a new
-# location (i.e. /etc/init.d/unicorn.app1 and /etc/conf.d/unicorn.app1) to have
-# disparate environments.
-
-APP_ROOT=/var/www/localhost/htdocs
-

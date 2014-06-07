@@ -45,7 +45,6 @@ Ebuild List
 ===========
 
     * app-admin/clockwork
-    * app-admin/puppet
     * app-admin/rsyslog
     * dev-libs/ctap
     * dev-libs/remctl
@@ -126,11 +125,6 @@ Ebuild List
     * dev-perl/WWW-YouTube-Download
     * dev-perl/Web-Scraper
     * dev-perl/XML-Tiny
-    * dev-ruby/kgio
-    * dev-ruby/raindrops
-    * dev-ruby/rspec
-    * dev-ruby/tidy_ffi
-    * dev-ruby/wrongdoc
     * dev-vcs/watchman
     * net-analyzer/nagmq
     * net-analyzer/nsca-ng
@@ -141,14 +135,10 @@ Ebuild List
     * sys-cluster/ganglia
     * sys-cluster/hadoop
     * sys-cluster/zookeeper
-    * sys-fs/lvm2
     * virtual/d3fy-auth
     * virtual/udev
     * www-apache/mod_webauth
     * www-client/phantomjs
     * www-misc/fcgiwrap
-    * www-servers/jetty
     * www-servers/lighttpd
-    * www-servers/thin
-    * www-servers/unicorn
     * x11-drivers/ati-drivers
