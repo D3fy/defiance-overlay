@@ -17,7 +17,7 @@ SRC_URI="https://github.com/${PN}/${PN}-core/releases/download/v${PV}/${P}.tar.g
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~hppa ~x86"
-IUSE="+apache2 contrib eventhandler +idoutils lighttpd +mysql perl +plugins postgres ssl +vim-syntax +web"
+IUSE="+apache2 contrib eventhandler +idoutils lighttpd +mysql perfdata perl +plugins postgres ssl +vim-syntax +web"
 DEPEND="idoutils? ( dev-db/libdbi-drivers[mysql?,postgres?] )
 	perl? ( dev-lang/perl )
 	virtual/mailx
@@ -50,6 +50,7 @@ src_configure() {
 	$(use_with perl perlcache)
 	$(use_enable idoutils)
 	$(use_enable ssl)
+	$(use_enable perfdata)
 	--with-cgiurl=/icinga/cgi-bin
 	--with-log-dir=/var/log/icinga
 	--libdir=/usr/$(get_libdir)
