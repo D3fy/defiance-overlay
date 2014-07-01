@@ -13,7 +13,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="
-	dev-libs/zeromq
+	net-libs/zeromq
 	dev-perl/Moo
 	perl-core/Math-BigInt
 	dev-perl/EV
