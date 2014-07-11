@@ -15,7 +15,7 @@ IUSE=""
 RDEPEND="
 	net-libs/zeromq
 	dev-perl/Moo
-	perl-core/Math-BigInt
+	virtual/perl-Math-BigInt
 	dev-perl/EV
 	dev-perl/AnyEvent
 	dev-perl/Sub-Exporter

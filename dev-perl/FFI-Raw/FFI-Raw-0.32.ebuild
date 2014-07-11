@@ -16,7 +16,7 @@ RDEPEND="
 	virtual/libffi
 	virtual/perl-XSLoader
 	dev-perl/Devel-CheckLib
-	perl-core/Math-BigInt
+	virtual/perl-Math-BigInt
 	virtual/perl-ExtUtils-CBuilder
 	virtual/perl-Text-ParseWords
 "
