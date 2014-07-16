@@ -558,8 +558,6 @@ src_install() {
 	dodir /usr/share/nginx/html
 	insinto /usr/share/nginx/html
 	doins ${FILESDIR}/example/index.html
-	doins ${FILESDIR}/example/nginx-logo.png
-	doins ${FILESDIR}/example/powered-by-funtoo.png
 
 	doman man/nginx.8
 	dodoc CHANGES* README
