@@ -4,8 +4,7 @@ EAPI="5"
 
 DISTUTILS_OPTIONAL="true"
 GENTOO_DEPEND_ON_PERL="no"
-PYTHON_COMPAT=( python2_7 )
-inherit eutils distutils-r1 flag-o-matic multilib perl-module autotools
+inherit eutils flag-o-matic multilib perl-module autotools
 
 DESCRIPTION="A system to store and display time-series data"
 HOMEPAGE="http://oss.oetiker.ch/rrdtool/"
@@ -14,11 +13,7 @@ SRC_URI="http://oss.oetiker.ch/rrdtool/pub/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd ~amd64-linux ~ia64-linux ~x86-linux ~x86-macos ~x86-solaris"
-IUSE="dbi doc +graph lua perl python ruby rrdcgi static-libs tcl tcpd"
-
-PDEPEND="
-	ruby? ( ~dev-ruby/rrdtool-bindings-${PV} )
-"
+IUSE="dbi doc +graph lua perl rrdcgi static-libs tcl tcpd"
 
 RDEPEND="
 	>=dev-libs/glib-2.28.7[static-libs(+)?]
@@ -31,7 +26,6 @@ RDEPEND="
 	)
 	lua? ( dev-lang/lua[deprecated] )
 	perl? ( dev-lang/perl )
-	python? ( ${PYTHON_DEPS} )
 	tcl? ( dev-lang/tcl )
 	tcpd? ( sys-apps/tcp-wrappers )
 "
@@ -43,16 +37,6 @@ DEPEND="
 	virtual/awk
 "
 
-python_compile() {
-	cd bindings/python || die 'can not enter to python bindings directory'
-	distutils-r1_python_compile
-}
-
-python_install() {
-	cd bindings/python || die 'can not enter to python bindings directory'
-	distutils-r1_python_install
-}
-
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-1.4.7-configure.ac.patch
 	epatch "${FILESDIR}"/${PN}-1.4.8-json.patch
@@ -63,11 +47,6 @@ src_prepare() {
 		-e 's|$LUA_CFLAGS|IGNORE_THIS_BAD_TEST|g' \
 		-e 's|^sleep 1$||g' \
 		configure.ac || die
-
-	# Python bindings are built/installed manually
-	sed -i \
-		-e '/^all-local:/s| @COMP_PYTHON@||' \
-		bindings/Makefile.am || die
 
 	eautoreconf
 }
@@ -95,7 +74,6 @@ src_configure() {
 		$(use_enable lua) \
 		$(use_enable perl perl-site-install) \
 		$(use_enable perl) \
-		$(use_enable python) \
 		$(use_enable rrdcgi) \
 		$(use_enable static-libs static) \
 		$(use_enable tcl) \
@@ -108,8 +86,6 @@ src_configure() {
 
 src_compile() {
 	default
-
-	use python && distutils-r1_src_compile
 }
 
 src_install() {
@@ -129,8 +105,6 @@ src_install() {
 		perl_delete_localpod
 		perl_delete_packlist
 	fi
-
-	use python && distutils-r1_src_install
 
 	dodoc CHANGES CONTRIBUTORS NEWS README THREADS TODO
 
