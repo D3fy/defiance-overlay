@@ -15,9 +15,10 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
+	net-libs/zeromq
 	dev-libs/libxml2
 	app-admin/augeas
-	dev-libs/ctap[static-libs]
+	dev-libs/ctap
 "
 RDEPEND="${DEPEND}"
 
