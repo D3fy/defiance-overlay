@@ -15,7 +15,7 @@ IUSE="test"
 RDEPEND="
 	>=dev-perl/libwww-perl-5.814.0
 	>=dev-perl/URI-1.590.0
-	virtual/perl-PodParser
+	virtual/perl-Pod-Parser
 	>=dev-perl/File-ShareDir-1.0.0
 	dev-perl/Try-Tiny
 	virtual/perl-parent
