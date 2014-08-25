@@ -18,10 +18,11 @@ DEPEND="
 	>=sys-devel/bison-3.0.0
 	sys-devel/flex
 	dev-libs/libpcre
-	net-libs/zeromq
-	dev-libs/libxml2
 	app-admin/augeas
+	net-libs/zeromq
+	dev-libs/libsodium
 	dev-libs/ctap
+	dev-util/ccache
 "
 RDEPEND="${DEPEND}"
 
