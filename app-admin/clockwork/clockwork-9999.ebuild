@@ -3,7 +3,7 @@
 EAPI=5
 AUTOTOOLS_AUTORECONF=yes
 
-inherit base autotools-utils eutils git-2
+inherit base autotools-utils eutils git-2 user
 
 DESCRIPTION="The nifty configuration managment system"
 HOMEPAGE="http://clockwork.niftylogic.com/"
@@ -36,6 +36,6 @@ pkg_setup() {
 src_install() {
 	emake DESTDIR="${D}" install
 
-	newinitd "${FILESDIR}"/clockd.initd clock
-	newinitd "${FILESDIR}"/cogd.initd   root
+	newinitd "${FILESDIR}"/clockd.initd clockd
+	newinitd "${FILESDIR}"/cogd.initd   cogd
 }
