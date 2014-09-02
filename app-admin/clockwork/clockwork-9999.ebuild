@@ -27,3 +27,15 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 AUTOTOOLS_IN_SOURCE_BUILD=1
+
+pkg_setup() {
+	enewgroup clock
+	enewuser  clock -1 -1 /var/lib/clockwork clock
+}
+
+src_install() {
+	emake DESTDIR="${D}" install
+
+	newinitd "${FILESDIR}"/clockd.initd clock
+	newinitd "${FILESDIR}"/cogd.initd   root
+}

@@ -1,0 +1,24 @@
+#!/sbin/runscript
+# Distributed under the terms of the GNU General Public License v2
+
+
+pidfile=/var/run/cogd.pid
+depend() {
+	use net
+}
+
+start() {
+	ebegin "Starting clockwork master"
+	start-stop-daemon --start --quiet \
+		--background --exec /usr/sbin/cogd --pidfile ${pidfile}
+	eend $?
+}
+
+stop() {
+	ebegin "Stoping clockwork master"
+	start-stop-daemon --stop --quiet \
+		--exec /usr/sbin/cogd --pidfile ${pidfile}
+	eend $?
+}
+
+# vim:ts=4
