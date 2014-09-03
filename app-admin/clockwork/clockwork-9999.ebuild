@@ -7,7 +7,7 @@ inherit base autotools-utils eutils git-2 user
 
 DESCRIPTION="The nifty configuration managment system"
 HOMEPAGE="http://clockwork.niftylogic.com/"
-EGIT_REPO_URI="https://github.com/filefrog/clockwork"
+EGIT_REPO_URI="https://github.com/GrayTShirt/clockwork"
 
 LICENSE="CCLv3"
 SLOT="0"
