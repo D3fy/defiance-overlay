@@ -23,6 +23,7 @@ DEPEND="
 	dev-libs/libsodium
 	dev-libs/ctap
 	dev-util/ccache
+	app-portage/eix
 "
 RDEPEND="${DEPEND}"
 
