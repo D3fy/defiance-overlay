@@ -41,7 +41,6 @@ src_install() {
 
 	dodir /etc/clockwork
 	dodir /etc/clockwork/certs
-	dodir /etc/clockwork/trusted
 	dodir /etc/clockwork/gather.d
 
 	insinto /etc/clockwork
