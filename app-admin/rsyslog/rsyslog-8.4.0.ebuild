@@ -49,6 +49,10 @@ AUTOTOOLS_IN_SOURCE_BUILD=1
 
 DOCS=(AUTHORS ChangeLog)
 
+src_prepare() {
+	epatch "${FILESDIR}"/${PN}-8.4.0-json-c_error_desc.patch
+	eautoreconf
+}
 src_configure() {
 	# Maintainer notes:
 	# * rfc3195 needs a library and development of that library
