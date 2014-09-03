@@ -9,6 +9,8 @@ depend() {
 
 start() {
 	ebegin "Starting clockwork client"
+	checkpath --dir --owner root:root --mode 0770 \
+		/var/lock/cogd
 	start-stop-daemon --start --quiet \
 		--background --exec /usr/sbin/cogd --pidfile ${pidfile}
 	eend $?
