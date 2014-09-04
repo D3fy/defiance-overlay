@@ -27,7 +27,7 @@ start() {
 stop() {
 	ebegin "Stoping clockwork client"
 	start-stop-daemon --stop --quiet \
-		--background --exec /usr/sbin/cogd --pidfile ${pidfile}
+		--exec /usr/sbin/cogd --pidfile ${pidfile}
 	eend $?
 }
 
