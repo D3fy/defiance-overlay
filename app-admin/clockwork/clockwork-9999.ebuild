@@ -7,7 +7,7 @@ inherit base autotools-utils eutils git-2 user
 
 DESCRIPTION="The nifty configuration managment system"
 HOMEPAGE="http://clockwork.niftylogic.com/"
-EGIT_REPO_URI="https://github.com/filefrog/clockwork"
+EGIT_REPO_URI="https://github.com/GrayTShirt/clockwork"
 
 LICENSE="CCLv3"
 SLOT="0"
@@ -23,6 +23,7 @@ DEPEND="
 	dev-libs/libsodium
 	dev-libs/ctap
 	dev-util/ccache
+	app-portage/eix
 "
 RDEPEND="${DEPEND}"
 
@@ -41,7 +42,6 @@ src_install() {
 
 	dodir /etc/clockwork
 	dodir /etc/clockwork/certs
-	dodir /etc/clockwork/trusted
 	dodir /etc/clockwork/gather.d
 
 	insinto /etc/clockwork

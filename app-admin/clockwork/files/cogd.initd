@@ -12,6 +12,8 @@ ckconfig() {
 		einfo "Creating /etc/gshadow"
 		/usr/sbin/grpconv
 	fi
+	checkpath --directory --owner root:root --mode 0770 \
+		/var/lock/cogd
 }
 
 start() {
