@@ -18,7 +18,7 @@ ckconfig() {
 
 start() {
 	ebegin "Starting clockwork client"
-	ckconfig()
+	ckconfig
 	start-stop-daemon --start --quiet \
 		--background --exec /usr/sbin/cogd --pidfile ${pidfile}
 	eend $?
@@ -27,7 +27,7 @@ start() {
 stop() {
 	ebegin "Stoping clockwork client"
 	start-stop-daemon --stop --quiet \
-		--exec /usr/sbin/cogd --pidfile ${pidfile}
+		--background --exec /usr/sbin/cogd --pidfile ${pidfile}
 	eend $?
 }
 
