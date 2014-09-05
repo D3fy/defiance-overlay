@@ -3,8 +3,12 @@
 ├── README.rst
 ├── app-admin
 │   ├── clockwork
-│   │   ├── Manifest
-│   │   └── clockwork-9999.ebuild
+│   │   ├── clockwork-9999.ebuild
+│   │   └── files
+│   │       ├── clockd.conf
+│   │       ├── clockd.initd
+│   │       ├── cogd.conf
+│   │       └── cogd.initd
 │   └── rsyslog
 │       ├── Manifest
 │       ├── files
@@ -17,9 +21,10 @@
 │       │   │   ├── rsyslog.confd
 │       │   │   ├── rsyslog.initd
 │       │   │   └── rsyslog.logrotate
-│       │   └── rsyslog-7.2.5-json-c-pkgconfig.patch
+│       │   ├── rsyslog-7.2.5-json-c-pkgconfig.patch
+│       │   └── rsyslog-8.4.0-json-c_error_desc.patch
 │       ├── metadata.xml
-│       └── rsyslog-8.2.2.ebuild
+│       └── rsyslog-8.4.0.ebuild
 ├── dev-libs
 │   ├── ctap
 │   │   ├── Manifest
@@ -41,12 +46,10 @@
 │   │   └── Manifest
 │   ├── App-Rad
 │   │   ├── App-Rad-1.05.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── App-Rad-Plugin-MoreHelp
 │   │   ├── App-Rad-Plugin-MoreHelp-0.0001.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── CGI-Application
 │   │   ├── CGI-Application-4.50.ebuild
 │   │   └── Manifest
@@ -64,16 +67,13 @@
 │   │   └── Manifest
 │   ├── CSS-Minifier-XS
 │   │   ├── CSS-Minifier-XS-0.09.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Carp-Clan-Share
 │   │   ├── Carp-Clan-Share-0.013.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Crypt-OpenSSL-CA
 │   │   ├── Crypt-OpenSSL-CA-0.23.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Crypt-SaltedHash
 │   │   ├── Crypt-SaltedHash-0.09.ebuild
 │   │   └── Manifest
@@ -82,12 +82,10 @@
 │   │   └── Manifest
 │   ├── DBIx-Class-IntrospectableM2M
 │   │   ├── DBIx-Class-IntrospectableM2M-0.001001.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── DBIx-Class-Schema-Loader
 │   │   ├── DBIx-Class-Schema-Loader-0.07039.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Dancer
 │   │   ├── Dancer-1.3126.ebuild
 │   │   └── Manifest
@@ -96,8 +94,7 @@
 │   │   └── Manifest
 │   ├── Dancer-Plugin-Assets
 │   │   ├── Dancer-Plugin-Assets-1.52.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Dancer-Plugin-DBIC
 │   │   ├── Dancer-Plugin-DBIC-0.19.1.ebuild
 │   │   └── Manifest
@@ -109,27 +106,25 @@
 │   │   └── Manifest
 │   ├── Dancer-Session-Cookie
 │   │   ├── Dancer-Session-Cookie-0.22.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Devel-CheckLib
 │   │   ├── Devel-CheckLib-1.01.ebuild
 │   │   └── Manifest
 │   ├── Devel-Cover
 │   │   ├── Devel-Cover-1.06.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Devel-Leak
 │   │   ├── Devel-Leak-0.03.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Devel-Mallinfo
 │   │   ├── Devel-Mallinfo-12.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Directory-Scratch
 │   │   ├── Directory-Scratch-0.15.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
+│   ├── Exporter-Tiny
+│   │   ├── Exporter-Tiny-0.038.ebuild
+│   │   └── Manifest
 │   ├── ExtUtils-Config
 │   │   ├── ExtUtils-Config-0.007.ebuild
 │   │   └── Manifest
@@ -141,19 +136,16 @@
 │   │   └── Manifest
 │   ├── ExtUtils-ModuleMaker
 │   │   ├── ExtUtils-ModuleMaker-0.51.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── FFI-Raw
 │   │   ├── FFI-Raw-0.32.ebuild
 │   │   └── Manifest
 │   ├── File-Assets
 │   │   ├── File-Assets-0.064.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── File-Save-Home
 │   │   ├── File-Save-Home-0.09.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── File-ShareDir-Install
 │   │   ├── File-ShareDir-Install-0.5.ebuild
 │   │   └── Manifest
@@ -162,8 +154,7 @@
 │   │   └── Manifest
 │   ├── HTML-Declare
 │   │   ├── HTML-Declare-2.4.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── HTML-Selector-XPath
 │   │   ├── HTML-Selector-XPath-0.02.ebuild
 │   │   └── Manifest
@@ -178,74 +169,61 @@
 │   │   └── Manifest
 │   ├── IO-CaptureOutput
 │   │   ├── IO-CaptureOutput-1.1102.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── JavaScript-Minifier-XS
 │   │   ├── JavaScript-Minifier-XS-0.09.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Lingua-EN-FindNumber
 │   │   ├── Lingua-EN-FindNumber-1.2.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Lingua-EN-Inflect-Number
 │   │   ├── Lingua-EN-Inflect-Number-1.1.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Lingua-EN-Inflect-Phrase
 │   │   ├── Lingua-EN-Inflect-Phrase-0.18.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Lingua-EN-Number-IsOrdinal
 │   │   ├── Lingua-EN-Number-IsOrdinal-0.04.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Lingua-EN-Tagger
 │   │   ├── Lingua-EN-Tagger-0.24.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Lingua-EN-Words2Nums
 │   │   ├── Lingua-EN-Words2Nums-0.18.ebuild
-│   │   ├── Manifest
-│   │   └── files
+│   │   └── Manifest
 │   ├── Math-FFT
 │   │   ├── Manifest
-│   │   ├── Math-FFT-1.28.ebuild
-│   │   └── files
+│   │   └── Math-FFT-1.28.ebuild
 │   ├── Math-Int64
 │   │   ├── Manifest
 │   │   └── Math-Int64-0.30.ebuild
 │   ├── Math-MatrixReal
 │   │   ├── Manifest
-│   │   ├── Math-MatrixReal-2.09.ebuild
-│   │   └── files
-│   ├── Math-MatrixSparse
+│   │   └── Math-MatrixReal-2.09.ebuild
 │   ├── Memoize-ExpireLRU
 │   │   ├── Manifest
-│   │   ├── Memoize-ExpireLRU-0.55.ebuild
-│   │   └── files
+│   │   └── Memoize-ExpireLRU-0.55.ebuild
 │   ├── Module-Build-Tiny
 │   │   ├── Manifest
 │   │   └── Module-Build-Tiny-0.0.3.ebuild
 │   ├── NanoMsg-Raw
 │   │   ├── Manifest
 │   │   └── NanoMsg-Raw-0.02.ebuild
+│   ├── Net-GitHub
+│   │   ├── Manifest
+│   │   └── Net-GitHub-0.68.ebuild
 │   ├── Number-Tolerant
 │   │   ├── Manifest
-│   │   ├── Number-Tolerant-1.703.ebuild
-│   │   └── files
+│   │   └── Number-Tolerant-1.703.ebuild
 │   ├── Object-Tiny
 │   │   ├── Manifest
-│   │   ├── Object-Tiny-1.08.ebuild
-│   │   └── files
+│   │   └── Object-Tiny-1.08.ebuild
 │   ├── Path-Abstract
 │   │   ├── Manifest
-│   │   ├── Path-Abstract-0.096.ebuild
-│   │   └── files
+│   │   └── Path-Abstract-0.096.ebuild
 │   ├── Path-Resource
 │   │   ├── Manifest
-│   │   ├── Path-Resource-0.072.ebuild
-│   │   └── files
+│   │   └── Path-Resource-0.072.ebuild
 │   ├── Plack
 │   │   ├── Manifest
 │   │   ├── Plack-1.2.900.ebuild
@@ -253,57 +231,49 @@
 │   │   └── metadata.xml
 │   ├── Sereal-Decoder
 │   │   ├── Manifest
-│   │   ├── Sereal-Decoder-2.06.ebuild
-│   │   └── files
+│   │   └── Sereal-Decoder-2.06.ebuild
 │   ├── Sereal-Encoder
 │   │   ├── Manifest
-│   │   ├── Sereal-Encoder-2.06.ebuild
-│   │   └── files
+│   │   └── Sereal-Encoder-2.06.ebuild
 │   ├── Session-Storage-Secure
 │   │   ├── Manifest
-│   │   ├── Session-Storage-Secure-0.007.ebuild
-│   │   └── files
+│   │   └── Session-Storage-Secure-0.007.ebuild
 │   ├── Starman
 │   │   ├── Manifest
 │   │   └── Starman-0.4.8.ebuild
 │   ├── String-CamelCase
 │   │   ├── Manifest
-│   │   ├── String-CamelCase-0.02.ebuild
-│   │   └── files
+│   │   └── String-CamelCase-0.02.ebuild
 │   ├── String-Compare-ConstantTime
 │   │   ├── Manifest
-│   │   ├── String-Compare-ConstantTime-0.300.ebuild
-│   │   └── files
+│   │   └── String-Compare-ConstantTime-0.300.ebuild
 │   ├── String-PerlIdentifier
 │   │   ├── Manifest
-│   │   ├── String-PerlIdentifier-0.05.ebuild
-│   │   └── files
+│   │   └── String-PerlIdentifier-0.05.ebuild
 │   ├── String-ToIdentifier-EN
 │   │   ├── Manifest
-│   │   ├── String-ToIdentifier-EN-0.11.ebuild
-│   │   └── files
+│   │   └── String-ToIdentifier-EN-0.11.ebuild
 │   ├── System-Command
 │   │   ├── Manifest
 │   │   └── System-Command-1.09.ebuild
 │   ├── Test-Cmd
 │   │   ├── Manifest
-│   │   ├── Test-Cmd-1.05.ebuild
-│   │   └── files
+│   │   └── Test-Cmd-1.05.ebuild
 │   ├── Test-Cucumber-Tiny
 │   │   ├── Manifest
-│   │   ├── Test-Cucumber-Tiny-0.64.ebuild
-│   │   └── files
+│   │   └── Test-Cucumber-Tiny-0.64.ebuild
 │   ├── Test-Group
 │   │   ├── Manifest
-│   │   ├── Test-Group-0.19.ebuild
-│   │   └── files
+│   │   └── Test-Group-0.19.ebuild
 │   ├── Test-Lazy
 │   │   ├── Manifest
-│   │   ├── Test-Lazy-0.061.ebuild
-│   │   └── files
+│   │   └── Test-Lazy-0.061.ebuild
 │   ├── Twiggy
 │   │   ├── Manifest
 │   │   └── Twiggy-1.0.24.ebuild
+│   ├── Type-Tiny
+│   │   ├── Manifest
+│   │   └── Type-Tiny-1.000004.ebuild
 │   ├── WWW-Mechanize-Pluggable
 │   │   ├── Manifest
 │   │   └── WWW-Mechanize-Pluggable-1.12.ebuild
@@ -318,12 +288,10 @@
 │   │   └── Web-Scraper-0.37.ebuild
 │   ├── XML-Tiny
 │   │   ├── Manifest
-│   │   ├── XML-Tiny-2.06.ebuild
-│   │   └── files
+│   │   └── XML-Tiny-2.06.ebuild
 │   ├── ZMQ-FFI
 │   │   ├── Manifest
 │   │   └── ZMQ-FFI-0.12.ebuild
-│   ├── ZMQ-FFi
 │   └── ZMQ-LibZMQ3
 │       ├── Manifest
 │       └── ZMQ-LibZMQ3-1.18.ebuild
@@ -331,25 +299,6 @@
 │   └── watchman
 │       ├── Manifest
 │       └── watchman-2.9.8.ebuild
-├── distfile
-│   ├── CSS-Minifier-XS-0.09.tar.gz
-│   ├── Carp-Clan-Share-0.013.tar.gz
-│   ├── Crypt-OpenSSL-CA-0.23.tar.gz
-│   ├── Dancer-Plugin-Assets-1.52.tar.gz
-│   ├── Devel-Leak-0.03.tar.gz
-│   ├── Devel-Mallinfo-12.tar.gz
-│   ├── Directory-Scratch-0.15.tar.gz
-│   ├── File-Assets-0.064.tar.gz
-│   ├── HTML-Declare-2.4.tar.gz
-│   ├── JavaScript-Minifier-XS-0.09.tar.gz
-│   ├── Object-Tiny-1.08.tar.gz
-│   ├── Path-Abstract-0.096.tar.gz
-│   ├── Path-Resource-0.072.tar.gz
-│   ├── Test-Cmd-1.05.tar.gz
-│   ├── Test-Cucumber-Tiny-0.64.tar.gz
-│   ├── Test-Group-0.19.tar.gz
-│   ├── Test-Lazy-0.061.tar.gz
-│   └── XML-Tiny-2.06.tar.gz
 ├── eclass
 │   └── perl-mb-tiny.eclass
 ├── metadata
@@ -376,7 +325,8 @@
 │   │   └── nagmq-9999.ebuild
 │   ├── nsca-ng
 │   │   ├── Manifest
-│   │   └── nsca-ng-1.2.ebuild
+│   │   ├── nsca-ng-1.2.ebuild
+│   │   └── nsca-ng-1.3.ebuild
 │   └── rrdtool
 │       ├── Manifest
 │       ├── files
@@ -387,42 +337,10 @@
 │       │   └── rrdtool-1.4.8-json.patch
 │       ├── metadata.xml
 │       └── rrdtool-1.4.8-r3.ebuild
-├── net-misc
-│   └── networkmanager
-│       ├── Manifest
-│       ├── files
-│       │   ├── 01-org.freedesktop.NetworkManager.settings.modify.system.pkla
-│       │   ├── 01-org.freedesktop.NetworkManager.settings.modify.system.rules
-│       │   ├── 10-openrc-status-r3
-│       │   ├── addwifi
-│       │   ├── addwifi-with-delay
-│       │   ├── init.d.NetworkManager
-│       │   ├── networkmanager-0.8.4.0-fix-tests.patch
-│       │   ├── networkmanager-0.8.4.0-ifnet-smarter-write.patch
-│       │   ├── networkmanager-0.8.4.0-shared-connection.patch
-│       │   ├── networkmanager-0.9.2.0-init-provide-net-r1.patch
-│       │   ├── networkmanager-0.9.2.0-pre-sleep.patch
-│       │   ├── networkmanager-0.9.4.0-dhclient-ipv6.patch
-│       │   ├── networkmanager-0.9.4.0-fix-quote-handling.patch
-│       │   ├── networkmanager-0.9.4.0-force-libnl1.1-r1.patch
-│       │   ├── networkmanager-0.9.4.0-ip_ppp.h.patch
-│       │   ├── networkmanager-0.9.4.0-ipv6-route.patch
-│       │   ├── networkmanager-0.9.4.0-libnm-glib-ensure_inited.patch
-│       │   ├── networkmanager-0.9.4.0-libnm-glib-init-gerror.patch
-│       │   ├── networkmanager-0.9.4.0-nl80211-encryption-caps.patch
-│       │   ├── networkmanager-0.9.4.0-wifi-kernel-api.patch
-│       │   ├── networkmanager-0.9.6.0-cached-ipv6-routes-1.patch
-│       │   ├── networkmanager-0.9.6.0-cached-ipv6-routes-2.patch
-│       │   ├── networkmanager-0.9.6.0-daemon-signals.patch
-│       │   ├── networkmanager-0.9.6.4-object-api.h.patch
-│       │   ├── networkmanager-0.9.7.995-pre-sleep.patch
-│       │   ├── networkmanager-0.9_rc3-fix-tests.patch
-│       │   ├── networkmanager-dhcpcd.patch
-│       │   └── nm-system-settings.conf-ifnet
-│       ├── metadata.xml
-│       └── networkmanager-0.9.8.2-r2.ebuild
+├── net-libs
+│   └── libcurve
+│       └── libcurve-9999.ebuild
 ├── profiles
-│   ├── package.unmask
 │   └── repo_name
 ├── sys-cluster
 │   └── ganglia
@@ -439,7 +357,6 @@
 │       └── metadata.xml
 ├── tree.txt
 ├── virtual
-│   ├── d3fy-auth
 │   └── udev
 │       ├── Manifest
 │       ├── metadata.xml
@@ -507,4 +424,4 @@
             ├── switchlibGL
             └── typesafe-kuid.diff
 
-175 directories, 332 files
+129 directories, 295 files
