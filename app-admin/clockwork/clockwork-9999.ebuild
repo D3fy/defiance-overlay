@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/filefrog/clockwork"
 LICENSE="CCLv3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="+vim-syntax"
 
 DEPEND="
 	>=sys-devel/bison-3.0.0
@@ -47,4 +47,14 @@ src_install() {
 	insinto /etc/clockwork
 	doins   "${FILESDIR}"/cogd.conf
 	doins   "${FILESDIR}"/clockd.conf
+
+	if use vim-syntax; then
+		insinto /usr/share/vim/vimfiles/ftdetect
+		doins "${S}"/extras/vim/ftdetect/clockwork.vim
+
+		insinto /usr/share/vim/vimfiles/syntax
+		doins "${S}"/extras/vim/syntax/clockwork.vim
+		doins "${S}"/extras/vim/syntax/clockd.vim
+		doins "${S}"/extras/vim/syntax/cogd.vim
+	fi
 }
