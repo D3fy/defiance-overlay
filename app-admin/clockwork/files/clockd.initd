@@ -23,7 +23,8 @@ stop() {
 
 reload() {
 	ebegin "Reloading clockwork master"
-	start-stop-daemon --exec /usr/sbin/clockd --signal HUP
+	start-stop-daemon --exec /usr/sbin/clockd --signal HUP \
+		--pidfile ${pidfile}
 	eend $?
 }
 
