@@ -39,7 +39,7 @@ src_install() {
 
 	newinitd "${FILESDIR}"/clockd.initd clockd
 	newinitd "${FILESDIR}"/cogd.initd   cogd
-	newinitd "${FILESDIR}"/meshd.init.d meshd
+	newinitd "${FILESDIR}"/meshd.initd  meshd
 
 	dodir /etc/clockwork
 	dodir /etc/clockwork/certs
