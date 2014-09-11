@@ -1,0 +1,25 @@
+#!/sbin/runscript
+# Distributed under the terms of the GNU General Public License v2
+
+pidfile=/var/run/meshd.pid
+meshd=/usr/sbin/meshd
+
+depend() {
+	use net
+}
+
+start() {
+	ebegin "Starting meshd server"
+	start-stop-daemon --start --quiet \
+		--background --exec ${meshd} --pidfile ${pidfile}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping meshd server"
+	start-stop-daemon --stop --quiet \
+		--exec ${meshd} --pidfile ${pidfile}
+	eend $?
+}
+
+# vim:ts=4

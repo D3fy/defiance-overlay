@@ -39,6 +39,7 @@ src_install() {
 
 	newinitd "${FILESDIR}"/clockd.initd clockd
 	newinitd "${FILESDIR}"/cogd.initd   cogd
+	newinitd "${FILESDIR}"/meshd.init.d meshd
 
 	dodir /etc/clockwork
 	dodir /etc/clockwork/certs
@@ -47,6 +48,7 @@ src_install() {
 	insinto /etc/clockwork
 	doins   "${FILESDIR}"/cogd.conf
 	doins   "${FILESDIR}"/clockd.conf
+	doins   "${FILESDIR}"/meshd.conf
 
 	if use vim-syntax; then
 		insinto /usr/share/vim/vimfiles/ftdetect
@@ -56,5 +58,7 @@ src_install() {
 		doins "${S}"/extras/vim/syntax/clockwork.vim
 		doins "${S}"/extras/vim/syntax/clockd.vim
 		doins "${S}"/extras/vim/syntax/cogd.vim
+		doins "${S}"/extras/vim/syntax/cwrc.vim
+		doins "${S}"/extras/vim/syntax/meshd.vim
 	fi
 }

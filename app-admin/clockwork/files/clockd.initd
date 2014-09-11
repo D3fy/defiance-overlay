@@ -18,7 +18,7 @@ start() {
 }
 
 stop() {
-	ebegin "Stoping clockwork master"
+	ebegin "Stopping clockwork master"
 	start-stop-daemon --stop --quiet \
 		--exec ${clockd} --pidfile ${pidfile}
 	eend $?
