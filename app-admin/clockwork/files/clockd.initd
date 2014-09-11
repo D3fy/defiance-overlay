@@ -1,8 +1,11 @@
 #!/sbin/runscript
 # Distributed under the terms of the GNU General Public License v2
 
+extra_commands="reload"
 
 pidfile=/var/run/clockd.pid
+clockd=/usr/sbin/clockd
+
 depend() {
 	use net
 }
@@ -10,20 +13,20 @@ depend() {
 start() {
 	ebegin "Starting clockwork master"
 	start-stop-daemon --start --quiet \
-		--background --exec /usr/sbin/clockd --pidfile ${pidfile}
+		--background --exec ${clockd} --pidfile ${pidfile}
 	eend $?
 }
 
 stop() {
 	ebegin "Stoping clockwork master"
 	start-stop-daemon --stop --quiet \
-		--exec /usr/sbin/clockd --pidfile ${pidfile}
+		--exec ${clockd} --pidfile ${pidfile}
 	eend $?
 }
 
 reload() {
 	ebegin "Reloading clockwork master"
-	start-stop-daemon --exec /usr/sbin/clockd --signal HUP \
+	start-stop-daemon --exec ${clockd} --signal HUP \
 		--pidfile ${pidfile}
 	eend $?
 }
