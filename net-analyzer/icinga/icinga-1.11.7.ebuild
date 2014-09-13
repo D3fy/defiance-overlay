@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit depend.apache eutils multilib toolchain-funcs user versionator
+inherit eutils multilib toolchain-funcs user versionator
 
 DESCRIPTION="Nagios Fork - Check daemon, CGIs, docs, IDOutils"
 HOMEPAGE="http://www.icinga.org/"
@@ -17,7 +17,7 @@ SRC_URI="https://github.com/${PN}/${PN}-core/releases/download/v${PV}/${P}.tar.g
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~hppa ~x86"
-IUSE="+apache2 contrib eventhandler idoutils lighttpd mysql perfdata perl plugins postgres ssl +vim-syntax web"
+IUSE="contrib eventhandler idoutils lighttpd mysql perfdata perl plugins postgres ssl +vim-syntax web"
 DEPEND="idoutils? ( dev-db/libdbi-drivers[mysql?,postgres?] )
 	perl? ( dev-lang/perl )
 	virtual/mailx
@@ -30,10 +30,7 @@ RDEPEND="${DEPEND}
 	plugins? ( net-analyzer/nagios-plugins )"
 RESTRICT="test"
 
-want_apache2
-
 pkg_setup() {
-	depend.apache_pkg_setup
 	enewgroup icinga
 	enewgroup icinga
 	enewuser icinga -1 -1 /var/lib/icinga "icinga,icinga"
@@ -75,15 +72,10 @@ src_configure() {
 		myconf+=" --with-eventhandler-dir=/etc/icinga/eventhandlers"
 	fi
 
-	if use !apache2 && use !lighttpd ; then
-		myconf+=" --with-command-group=icinga"
+	if use lighttpd ; then
+		myconf+=" --with-command-group=lighttpd"
 	else
-		if use apache2 ; then
-			myconf+=" --with-httpd-conf=/etc/apache2/conf.d"
-			myconf+=" --with-command-group=apache"
-		elif use lighttpd ; then
-			myconf+=" --with-command-group=lighttpd"
-		fi
+		myconf+=" --with-command-group=icinga"
 	fi
 
 	econf ${myconf}
@@ -139,10 +131,7 @@ src_install() {
 	fi
 	# Apache Module
 	if use web ; then
-		if use apache2 ; then
-			insinto "${APACHE_MODULES_CONFDIR}"
-			newins "${FILESDIR}"/icinga-apache.conf 99_icinga.conf || die
-		elif use lighttpd ; then
+		if use lighttpd ; then
 			insinto /etc/lighttpd
 			newins "${FILESDIR}"/icinga-lighty.conf lighttpd_icinga.conf || die
 		else
@@ -167,9 +156,7 @@ src_install() {
 	keepdir /var/lib/icinga/rw
 	keepdir /var/lib/icinga/spool/checkresults
 
-	if use apache2 ; then
-		webserver=apache
-	elif use lighttpd ; then
+	if use lighttpd ; then
 		webserver=lighttpd
 	else
 		webserver=icinga
@@ -189,33 +176,14 @@ pkg_postinst() {
 		elog "Note that the user your webserver is running as needs"
 		elog "read-access to /etc/icinga."
 		elog
-		if use apache2 || use lighttpd ; then
+		if use lighttpd ; then
 			elog "There are several possible solutions to accomplish this,"
 			elog "choose the one you are most comfortable with:"
 			elog
-			if use apache2 ; then
-				elog "	usermod -G icinga apache"
-				elog "or"
-				elog "	chown icinga:apache /etc/icinga"
-				elog
-				elog "Also edit /etc/conf.d/apache2 and add a line like"
-				elog "APACHE2_OPTS=\"\$APACHE2_OPTS -D ICINGA\""
-				elog
-				elog "Icinga web service needs user authentication. If you"
-				elog "use the base configuration, you need a password file"
-				elog "with a password for user \"icingaadmin\""
-				elog "You can create this file by executing:"
-				elog "htpasswd -c /etc/icinga/htpasswd.users icingaadmin"
-				elog
-				elog "you may want to also add apache to the icinga group"
-				elog "to allow it access to the AuthUserFile"
-				elog
-			elif use lighttpd ; then
-				elog "  usermod -G icinga lighttpd "
-				elog "or"
-				elog "  chown icinga:lighttpd /etc/icinga"
-				elog "Also edit /etc/lighttpd/lighttpd.conf and add 'include \"lighttpd_icinga.conf\"'"
-			fi
+			elog "  usermod -G icinga lighttpd "
+			elog "or"
+			elog "  chown icinga:lighttpd /etc/icinga"
+			elog "Also edit /etc/lighttpd/lighttpd.conf and add 'include \"lighttpd_icinga.conf\"'"
 			elog
 			elog "That will make icinga's web front end visable via"
 			elog "http://localhost/icinga/"
