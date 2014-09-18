@@ -1,7 +1,7 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-EAPI="3"
+EAPI=5
 MODULE_AUTHOR=MIYAGAWA
 MODULE_VERSION="0.16"
 inherit perl-module

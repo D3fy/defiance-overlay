@@ -1,6 +1,6 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=4
+EAPI=5
 
 MODULE_AUTHOR=MIYAGAWA
 MODULE_VERSION=0.02
