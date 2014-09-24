@@ -15,8 +15,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="dev-perl/HTML-Template
-	perl-core/Class-ISA
-	perl-core/CGI
-	perl-core/Module-Build"
+	virtual/perl-CGI
+	virtual/perl-Module-Build
 RDEPEND="${DEPEND}"
 
