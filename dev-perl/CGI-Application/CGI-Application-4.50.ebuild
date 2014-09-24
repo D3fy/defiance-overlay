@@ -1,6 +1,4 @@
-# Copyright 2012 Defiance Engineering
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI=5
 
@@ -17,5 +15,5 @@ IUSE=""
 DEPEND="dev-perl/HTML-Template
 	virtual/perl-CGI
 	virtual/perl-Module-Build
+"
 RDEPEND="${DEPEND}"
-
