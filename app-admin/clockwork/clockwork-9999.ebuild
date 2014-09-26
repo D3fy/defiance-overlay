@@ -62,3 +62,8 @@ src_install() {
 		doins "${S}"/extras/vim/syntax/meshd.vim
 	fi
 }
+
+pkg_postinst() {
+	elog "Generating a unique host UUID, to prevent network duplication"
+	/usr/bin/cw uuid >/dev/null || die "Unable to run /usr/bin/cw uuid"
+}
