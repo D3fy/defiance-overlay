@@ -102,7 +102,7 @@ MULTILIB_WRAPPED_HEADERS=(
 	/usr/include/TlsOptions.h
 
 	# USE=-minimal
-	/usr/include/lmdb.h
+	# /usr/include/lmdb.h
 )
 
 openldap_filecount() {
@@ -317,11 +317,11 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-mdb-unbundle.patch
 	rm -rf "${S}"/libraries/liblmdb
 
-	sed -i.orig \
-		-e '/IDOCS.*DESTDIR/s,/man/man1,/share/man/man1,g' \
-		-e '/ILIBS.*DESTDIR/s,/lib,/$(LIBDIR),g' \
-		"${S}"/libraries/liblmdb/Makefile \
-		|| die "Failed to fix LMDB manpage install location"
+	# sed -i.orig \
+	#	-e '/IDOCS.*DESTDIR/s,/man/man1,/share/man/man1,g' \
+	#	-e '/ILIBS.*DESTDIR/s,/lib,/$(LIBDIR),g' \
+	#	"${S}"/libraries/liblmdb/Makefile \
+	#	|| die "Failed to fix LMDB manpage install location"
 
 	cd "${S}"/build || die
 	einfo "Making sure upstream build strip does not do stripping too early"
@@ -517,9 +517,9 @@ multilib_src_compile() {
 		fi
 
 		# LMDB tools
-		cp -ral "${S}"/libraries/liblmdb "${BUILD_DIR}"/libraries/liblmdb || die
-		cd "${BUILD_DIR}"/libraries/liblmdb || die
-		emake CC="${CC}" CXX="${CXX}" OPT="${CFLAGS}" prefix="${EPREFIX}/usr" DESTDIR="${D}" SHELL="${EPREFIX}"/bin/bash LIBDIR="$(get_libdir)"
+		# cp -ral "${S}"/libraries/liblmdb "${BUILD_DIR}"/libraries/liblmdb || die
+		# cd "${BUILD_DIR}"/libraries/liblmdb || die
+		# emake CC="${CC}" CXX="${CXX}" OPT="${CFLAGS}" prefix="${EPREFIX}/usr" DESTDIR="${D}" SHELL="${EPREFIX}"/bin/bash LIBDIR="$(get_libdir)"
 
 		if use smbkrb5passwd ; then
 			einfo "Building contrib-module: smbk5pwd"
@@ -639,9 +639,9 @@ multilib_src_install() {
 
 	if ! use minimal && multilib_is_native_abi; then
 		# LMDB tools
-		cd "${BUILD_DIR}"/libraries/liblmdb || die
-		dodir /usr/include /usr/lib /usr/bin /usr/share/man/man1 # otherwise this will make them files :-(
-		emake CC="${CC}" CXX="${CXX}" OPT="${CFLAGS}" prefix="${EPREFIX}/usr" DESTDIR="${D}" SHELL="${EPREFIX}"/bin/bash LIBDIR="$(get_libdir)" install
+		# cd "${BUILD_DIR}"/libraries/liblmdb || die
+		# dodir /usr/include /usr/lib /usr/bin /usr/share/man/man1 # otherwise this will make them files :-(
+		# emake CC="${CC}" CXX="${CXX}" OPT="${CFLAGS}" prefix="${EPREFIX}/usr" DESTDIR="${D}" SHELL="${EPREFIX}"/bin/bash LIBDIR="$(get_libdir)" install
 
 		# openldap modules go here
 		# TODO: write some code to populate slapd.conf with moduleload statements
@@ -751,8 +751,8 @@ multilib_src_install() {
 		docinto back-shell ; dodoc "${S}"/servers/slapd/back-shell/searchexample*
 		docinto back-perl ; dodoc "${S}"/servers/slapd/back-perl/SampleLDAP.pm
 
-		docinto liblmdb ; dodoc "${S}"/libraries/liblmdb/{sample*txt,CHANGES,COPYRIGHT,LICENSE}
-		doman "${S}"/libraries/liblmdb/*.1
+		# docinto liblmdb ; dodoc "${S}"/libraries/liblmdb/{sample*txt,CHANGES,COPYRIGHT,LICENSE}
+		# doman "${S}"/libraries/liblmdb/*.1
 
 		dosbin "${S}"/contrib/slapd-tools/statslog
 		newdoc "${S}"/contrib/slapd-tools/README README.statslog
