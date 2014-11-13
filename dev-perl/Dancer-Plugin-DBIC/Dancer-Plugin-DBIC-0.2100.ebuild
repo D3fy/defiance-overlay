@@ -3,7 +3,6 @@
 EAPI=5
 
 MODULE_AUTHOR=IRONCAMEL
-MODULE_VERSION=0.1901
 inherit perl-module
 
 DESCRIPTION="DBIx::Class interface for Dancer applications"
