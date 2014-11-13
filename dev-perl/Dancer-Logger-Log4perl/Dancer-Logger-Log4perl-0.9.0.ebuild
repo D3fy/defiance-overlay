@@ -2,7 +2,7 @@
 
 EAPI=5
 
-MODULE_AUTHOR=POLETTIX
+MODULE_AUTHOR=CASAO
 inherit perl-module
 
 DESCRIPTION="Dancer adapter for Log::Log4perl"
