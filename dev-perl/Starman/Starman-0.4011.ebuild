@@ -3,7 +3,6 @@
 EAPI=5
 
 MODULE_AUTHOR=MIYAGAWA
-MODULE_VERSION=0.4008
 inherit perl-mb-tiny
 
 DESCRIPTION="High-performance preforking PSGI/Plack web server"
