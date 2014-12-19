@@ -2,6 +2,7 @@
 
 EAPI=5
 MODULE_AUTHOR=LEONT
+MODULE_VERSION=0.039
 inherit perl-module
 
 DESCRIPTION='A tiny replacement for Module::Build'

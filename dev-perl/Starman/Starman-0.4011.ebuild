@@ -19,7 +19,7 @@ RDEPEND="
 	dev-perl/HTTP-Parser-XS
 	dev-perl/libwww-perl[ssl?]
 	dev-perl/Data-Dump
-	>=dev-perl/Module-Build-Tiny-0.039
+	>=dev-perl/Module-Build-Tiny-0.39.0
 "
 DEPEND="${RDEPEND}"
 
