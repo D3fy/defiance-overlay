@@ -1,25 +1,23 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI='5'
 AUTOTOOLS_AUTORECONF=yes
 
 inherit base autotools-utils eutils git-2 user
 
-DESCRIPTION="The nifty configuration managment system"
-HOMEPAGE="http://clockwork.niftylogic.com/"
 EGIT_REPO_URI="https://github.com/filefrog/clockwork"
 
-if [[ ${PV} == *9999* ]]; then
-	KEYWORDS=""
-	EGIT_COMMIT=""
-else
+if [[ ${PV} != 9999 ]] ; then
 	# Set the commit ID
-	KEYWORDS="~amd64 ~x86 ~x86-linux"
 	EGIT_COMMIT="6579f4a2de573366c9e95347d97ec9b41a20f151"
+	KEYWORDS="amd64 x86 x86-linux"
 fi
 
-LICENSE="CCLv3"
 SLOT="0"
+
+LICENSE="CCLv3"
+DESCRIPTION="The nifty configuration managment system"
+HOMEPAGE="http://clockwork.niftylogic.com/"
 
 IUSE="+vim-syntax"
 
