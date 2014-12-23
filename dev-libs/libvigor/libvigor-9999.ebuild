@@ -5,6 +5,7 @@ EAPI=5
 inherit autotools-utils git-2
 
 AUTOTOOLS_AUTORECONF=yes
+AUTOTOOLS_IN_SOURCE_BUILD=yes
 
 DESCRIPTION="The missing bits of C"
 HOMEPAGE="https://github.com/filefrog/libvigor"
