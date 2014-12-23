@@ -8,7 +8,7 @@ AUTOTOOLS_AUTORECONF=yes
 
 DESCRIPTION="The missing bits of C"
 HOMEPAGE="https://github.com/filefrog/libvigor"
-EGIT_REPO_URI="https://github.com/graytshirt/libvigor"
+EGIT_REPO_URI="https://github.com/filefrog/libvigor"
 
 LICENSE="GPL3"
 SLOT="0"
