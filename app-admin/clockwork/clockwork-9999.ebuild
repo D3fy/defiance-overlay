@@ -19,8 +19,7 @@ DEPEND="
 	sys-devel/flex
 	dev-libs/libpcre
 	app-admin/augeas
-	net-libs/zeromq
-	dev-libs/libsodium
+	dev-libs/libvigor
 	dev-libs/ctap
 	dev-util/ccache
 	app-portage/eix
