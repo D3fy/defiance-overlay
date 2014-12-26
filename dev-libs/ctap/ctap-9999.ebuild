@@ -4,11 +4,11 @@ EAPI=5
 
 inherit autotools-utils git-2
 
-EGIT_REPO_URI="https://github.com/graytshirt/ctap"
+EGIT_REPO_URI="https://github.com/filefrog/ctap"
 
 if [[ ${PV} != 9999 ]] ; then
 	# Set the commit ID
-	EGIT_COMMIT="b2917873875d0e751232f0c5aabf9a4925a6104b"
+	EGIT_COMMIT="e96b0627f5d91ea1ef431ccc1b8c5f3399b10c2b"
 	KEYWORDS="amd64 x86 x86-linux"
 fi
 

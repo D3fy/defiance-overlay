@@ -8,7 +8,7 @@ EGIT_REPO_URI="https://github.com/filefrog/ctap"
 
 if [[ ${PV} != 9999 ]] ; then
 	# Set the commit ID
-	EGIT_COMMIT="76232b78908c54c08746b5b9b16e477436b21fb9"
+	EGIT_COMMIT="e96b0627f5d91ea1ef431ccc1b8c5f3399b10c2b"
 	KEYWORDS="amd64 x86 x86-linux"
 fi
 
