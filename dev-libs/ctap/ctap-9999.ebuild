@@ -8,7 +8,7 @@ EGIT_REPO_URI="https://github.com/graytshirt/ctap"
 
 if [[ ${PV} != 9999 ]] ; then
 	# Set the commit ID
-	EGIT_COMMIT="8ab806f55af9f23671e7ea257d1fd7abd2fa658a"
+	EGIT_COMMIT="b2917873875d0e751232f0c5aabf9a4925a6104b"
 	KEYWORDS="amd64 x86 x86-linux"
 fi
 
