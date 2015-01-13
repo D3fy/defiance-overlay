@@ -12,7 +12,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-perl/HTML-Tree
-	dev-perl/XML-XPathEngine"
+DEPEND="
+	dev-perl/HTML-Tree
+	dev-perl/XML-XPathEngine
+"
 RDEPEND="${DEPEND}"
-

@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-libs/libsodium net-libs/zeromq net-libs/czmq dev-vcs/git
+DESCRIPTION=An encryption and authentication library for ZeroMQ applications
+EAPI=5
+HOMEPAGE=http://curvezmq.org
+KEYWORDS=~amd64
+LICENSE=GPL3
+RDEPEND=dev-libs/libsodium net-libs/zeromq net-libs/czmq
+SLOT=0
+_eclasses_=autotools	39d84bc1cdd1ca0172355e08661c5f7f	autotools-utils	6f381431305797b69527d7fba3b6495f	eutils	f99a767f569b1f0731b3a1edd17c1d11	git-2	e28f0d8a9b321431b1e699782851b827	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0dfbfa13f57c6184f4728d12ac002aac
+_md5_=90a21ca58057e041e2767c217113e7c9

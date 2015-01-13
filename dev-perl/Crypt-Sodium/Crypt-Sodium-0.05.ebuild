@@ -5,7 +5,7 @@ EAPI=5
 MODULE_AUTHOR="MGREGORO"
 inherit perl-module
 
-DESCRIPTION="Crypt::Sodium - Perl bindings for libsodium (NaCL)"
+DESCRIPTION="Perl bindings for libsodium (NaCL)"
 
 SLOT="0"
 KEYWORDS="~amd64"

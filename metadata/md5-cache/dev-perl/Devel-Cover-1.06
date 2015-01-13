@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-perl/Test-Warn dev-lang/perl:=[-build(-)]
+DESCRIPTION=Code coverage metrics for Perl
+EAPI=5
+HOMEPAGE=http://search.cpan.org/dist/Devel-Cover/
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Artistic GPL-1 GPL-2 GPL-3 )
+RDEPEND=dev-lang/perl:=[-build(-)]
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/P/PJ/PJCJ/Devel-Cover-1.06.tar.gz
+_eclasses_=eutils	f99a767f569b1f0731b3a1edd17c1d11	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	perl-module	64e9b3f9fbef3c18fb02c41aa4141145	toolchain-funcs	0dfbfa13f57c6184f4728d12ac002aac	unpacker	f300a7ca9131b1024a79762e8edd3c52
+_md5_=e56399cf1e24e90a36a251ae4571bfab
