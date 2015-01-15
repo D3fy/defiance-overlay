@@ -1,12 +1,13 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-perl/Test-Most dev-perl/Path-Class dev-perl/Path-Abstract dev-perl/Class-Accessor >=dev-perl/Test-Lazy-0.061 dev-lang/perl dev-lang/perl:=[-build(-)]
+DEPEND=dev-perl/Path-Class dev-perl/Path-Abstract dev-perl/Class-Accessor test? ( >=dev-perl/Test-Lazy-0.061 dev-perl/Test-Most ) dev-lang/perl:=[-build(-)]
 DESCRIPTION=URI/Path::Class combination
 EAPI=5
 HOMEPAGE=http://search.cpan.org/dist/Path-Resource/
-KEYWORDS=alpha amd64 amd64-fbsd arm arm64 hppa ia64 m68k mips ppc ppc64 s390 sh sparc sparc-fbsd x86 x86-fbsd ppc-aix x86-freebsd x64-freebsd sparc64-freebsd hppa-hpux ia64-hpux x86-interix amd64-linux arm-linux ia64-linux ppc64-linux x86-linux ppc-macos x86-macos x64-macos m68k-mint x86-netbsd ppc-openbsd x86-openbsd x64-openbsd sparc-solaris sparc64-solaris x64-solaris x86-solaris x86-winnt x86-cygwin
+IUSE=test
+KEYWORDS=amd64 amd64-fbsd x86 x86-fbsd x86-freebsd x64-freebsd amd64-linux x86-linux
 LICENSE=|| ( Artistic GPL-1 GPL-2 GPL-3 )
 RDEPEND=dev-lang/perl:=[-build(-)]
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/R/RK/RKRIMEN/Path-Resource-0.072.tar.gz
-_eclasses_=eutils	f99a767f569b1f0731b3a1edd17c1d11	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	perl-module	64e9b3f9fbef3c18fb02c41aa4141145	toolchain-funcs	0dfbfa13f57c6184f4728d12ac002aac	unpacker	f300a7ca9131b1024a79762e8edd3c52
-_md5_=ebccbc1e1ce3672877bacef77328c4e5
+_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	perl-module	64e9b3f9fbef3c18fb02c41aa4141145	toolchain-funcs	0dfbfa13f57c6184f4728d12ac002aac	unpacker	f300a7ca9131b1024a79762e8edd3c52
+_md5_=31945446c3e6b3d8660dea469866e862
