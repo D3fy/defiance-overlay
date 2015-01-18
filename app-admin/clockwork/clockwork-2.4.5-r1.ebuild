@@ -9,7 +9,7 @@ EGIT_REPO_URI="https://github.com/filefrog/clockwork"
 
 if [[ ${PV} != 9999 ]] ; then
 	# Set the commit ID
-	EGIT_COMMIT="6fb3d4931e217148308570b433b839e7d2bd48cc"
+	EGIT_COMMIT="2ba473f09ee5a9523756da99c7204771704e0429"
 	KEYWORDS="amd64 x86 x86-linux"
 fi
 
