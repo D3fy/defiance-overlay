@@ -10,14 +10,16 @@ DESCRIPTION="Low-level interface to the nanomsg scalability protocols library"
 #LICENSE="|| ( Artistic GPL-1 GPL-2 GPL-3 )"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="test"
 
 RDEPEND="
 	virtual/perl-XSLoader
 	virtual/perl-ExtUtils-MakeMaker
-	dev-perl/Test-Fatal
 	virtual/perl-Time-HiRes
-	dev-perl/Test-TCP
+	test? (
+		dev-perl/Test-Fatal
+		dev-perl/Test-TCP
+	)
 	>=dev-libs/nanomsg-0.2"
 DEPEND="${RDEPEND}"
 
