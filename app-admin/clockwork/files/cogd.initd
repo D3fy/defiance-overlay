@@ -1,8 +1,11 @@
 #!/sbin/runscript
 # Distributed under the terms of the GNU General Public License v2
 
+extra_commands="reload"
 
 pidfile=/var/run/cogd.pid
+cogd=/usr/sbin/cogd
+
 depend() {
 	use  net logger
 }
@@ -14,20 +17,28 @@ ckconfig() {
 	fi
 	checkpath --directory --owner root:root --mode 0770 \
 		/var/lock/cogd
+
 }
 
 start() {
 	ebegin "Starting clockwork client"
 	ckconfig
 	start-stop-daemon --start --quiet \
-		--background --exec /usr/sbin/cogd --pidfile ${pidfile}
+		--background --exec ${cogd} --pidfile ${pidfile}
 	eend $?
 }
 
 stop() {
 	ebegin "Stopping clockwork client"
 	start-stop-daemon --stop --quiet \
-		--exec /usr/sbin/cogd --pidfile ${pidfile}
+		--exec ${cogd} --pidfile ${pidfile}
+	eend $?
+}
+
+reload() {
+	ebegin "Reloading clockwork client"
+	start-stop-daemon --exec ${cogd} --signal HUP \
+		--pidfile ${pidfile}
 	eend $?
 }
 

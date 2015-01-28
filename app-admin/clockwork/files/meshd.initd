@@ -1,11 +1,13 @@
 #!/sbin/runscript
 # Distributed under the terms of the GNU General Public License v2
 
+extra_commands="reload"
+
 pidfile=/var/run/meshd.pid
 meshd=/usr/sbin/meshd
 
 depend() {
-	use net
+	use net logger
 }
 
 start() {
@@ -19,6 +21,13 @@ stop() {
 	ebegin "Stopping meshd server"
 	start-stop-daemon --stop --quiet \
 		--exec ${meshd} --pidfile ${pidfile}
+	eend $?
+}
+
+reload() {
+	ebegin "Reloading meshd server"
+	start-stop-daemon --exec ${meshd} --signal HUP \
+		--pidfile ${pidfile}
 	eend $?
 }
 

@@ -7,7 +7,7 @@ pidfile=/var/run/clockd.pid
 clockd=/usr/sbin/clockd
 
 depend() {
-	use net
+	use net logger
 }
 
 start() {

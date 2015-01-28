@@ -9,7 +9,7 @@ EGIT_REPO_URI="https://github.com/filefrog/clockwork"
 
 if [[ ${PV} != 9999 ]] ; then
 	# Set the commit ID
-	EGIT_COMMIT="203d8e5370a15139b9681bea443ced920aa29a9f"
+	EGIT_COMMIT="ef4cfd237959f2bf39346196e860f62638183431"
 	KEYWORDS="*"
 fi
 
@@ -46,6 +46,7 @@ src_install() {
 	dodir /etc/clockwork
 	dodir /etc/clockwork/certs
 	dodir /etc/clockwork/gather.d
+	dodir /usr/lib/clockwork/state
 
 	insinto /etc/clockwork
 	newinitd "${FILESDIR}"/cogd.initd   cogd
