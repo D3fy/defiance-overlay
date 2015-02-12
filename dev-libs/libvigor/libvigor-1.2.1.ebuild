@@ -2,21 +2,15 @@
 
 EAPI=5
 
-inherit autotools-utils git-2
-
-EGIT_REPO_URI="https://github.com/filefrog/libvigor"
-
-if [[ ${PV} != 9999 ]] ; then
-	# Set the commit ID
-	EGIT_COMMIT="d281485889402c837dc254a2f321c9dcbd1f9d87"
-	KEYWORDS="amd64 x86 x86-linux"
-fi
+inherit autotools-utils 
 
 AUTOTOOLS_AUTORECONF=yes
 AUTOTOOLS_IN_SOURCE_BUILD=yes
 
 DESCRIPTION="The missing bits of C"
 HOMEPAGE="https://github.com/filefrog/libvigor"
+SRC_URI="https://github.com/filefrog/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+KEYWORDS="*"
 
 LICENSE="GPL3"
 SLOT="0"
