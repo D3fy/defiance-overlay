@@ -21,7 +21,7 @@ DEPEND="
 	sys-devel/flex
 	dev-libs/libpcre
 	app-admin/augeas
-	>=dev-libs/libvigor-1.1.0
+	>=dev-libs/libvigor-1.2.3
 	>=dev-libs/ctap-1.1.5
 	dev-util/ccache
 	app-portage/eix
