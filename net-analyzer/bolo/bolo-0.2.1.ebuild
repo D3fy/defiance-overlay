@@ -5,6 +5,7 @@ EAPI=5
 inherit base autotools-utils eutils
 
 AUTOTOOLS_AUTORECONF=yes
+AUTOTOOLS_IN_SOURCE_BUILD=1
 
 DESCRIPTION="The Bolo Monitoring System"
 HOMEPAGE="https://github.com/filefrog/bolo"
@@ -21,6 +22,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_compile() {
-	emake -j1 || die
-}
+#src_compile() {
+#	emake -j1 || die
+#}
