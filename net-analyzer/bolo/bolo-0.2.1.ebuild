@@ -24,3 +24,16 @@ DEPEND="
 	dev-libs/libvigor
 "
 RDEPEND="${DEPEND}"
+
+pkg_setup() {
+	enewgroup bolo
+	enewuser  bolo -1 -1 /var/lib/bolo bolo
+}
+
+src_install() {
+	emake DESTDIR="${D}" install
+
+	insinto  /etc
+	newinitd "${FILESDIR}/bolo.initd" bolo
+	doins    "${FILESDIR}/bolo.conf"
+}

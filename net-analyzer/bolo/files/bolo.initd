@@ -1,0 +1,40 @@
+#!/sbin/runscript
+# Distributed under the terms of the GNU General Public License v2
+
+extra_commands="reload"
+
+pidfile=/var/run/bolo.pid
+bolo=/usr/sbin/bolo
+
+depend() {
+	use net logger
+}
+
+ckconfig() {
+	checkpath --directory --owner bolo:bolo --mode 0770 \
+		/var/lib/bolo
+}
+
+start() {
+	ebegin "Starting Bolo"
+	ckconfig
+	start-stop-daemon --start --quiet \
+		--background --exec ${bolo} --pidfile ${pidfile}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping Bolo"
+	start-stop-daemon --stop --quiet \
+		--exec ${bolo} --pidfile ${pidfile}
+	eend $?
+}
+
+reload() {
+	ebegin "Reloading Bolo"
+	start-stop-daemon --exec ${bolo} --signal HUP \
+		--pidfile ${pidfile}
+	eend $?
+}
+
+# vim:ts=4
