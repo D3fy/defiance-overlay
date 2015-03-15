@@ -19,9 +19,8 @@ IUSE=""
 DEPEND="
 	>=dev-libs/ctap-1.1.5
 	>=dev-libs/libvigor-1.1.0
+	net-analyzer/rrdtool
+	dev-libs/libpcre
+	dev-libs/libvigor
 "
 RDEPEND="${DEPEND}"
-
-#src_compile() {
-#	emake -j1 || die
-#}
