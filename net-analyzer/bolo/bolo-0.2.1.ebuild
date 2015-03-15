@@ -2,7 +2,7 @@
 
 EAPI=5
 
-inherit base autotools-utils eutils
+inherit base autotools-utils eutils user
 
 AUTOTOOLS_AUTORECONF=yes
 AUTOTOOLS_IN_SOURCE_BUILD=1
