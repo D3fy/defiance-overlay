@@ -2,7 +2,7 @@
 
 EAPI=5
 
-inherit autotools-utils eutils
+inherit base autotools-utils eutils
 
 AUTOTOOLS_AUTORECONF=yes
 
@@ -20,3 +20,7 @@ DEPEND="
 	>=dev-libs/libvigor-1.1.0
 "
 RDEPEND="${DEPEND}"
+
+src_compile() {
+	emake -j1 || die
+}
