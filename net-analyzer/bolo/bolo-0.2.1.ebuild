@@ -2,21 +2,15 @@
 
 EAPI=5
 
-inherit autotools-utils git-2
-
-EGIT_REPO_URI="https://github.com/filefrog/bolo"
-
-if [[ ${PV} != 9999 ]] ; then
-	# Set the commit ID
-	EGIT_COMMIT="8a5e110f99450ba1914f0d1a9c536a588a5589b5"
-	KEYWORDS="~*"
-fi
+inherit autotools-utils eutils
 
 AUTOTOOLS_AUTORECONF=yes
 
 DESCRIPTION="The Bolo Monitoring System"
 HOMEPAGE="https://github.com/filefrog/bolo"
 
+SRC_URI="https://github.com/filefrog/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+KEYWORDS="~*"
 LICENSE="GPL3"
 SLOT="0"
 IUSE=""
