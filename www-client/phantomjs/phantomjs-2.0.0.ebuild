@@ -62,7 +62,7 @@ src_prepare() {
 src_compile() {
 	./build.sh \
 		--confirm \
-		--pcre=system --sqlite=system --harfbuzz=system \
+		--sqlite=system \
 		--jobs $(makeopts_jobs) \
 		--qt-config "$($(tc-getPKG_CONFIG) --cflags-only-I freetype2)" \
 		|| die
