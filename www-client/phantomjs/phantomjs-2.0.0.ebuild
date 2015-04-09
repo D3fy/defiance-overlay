@@ -13,7 +13,7 @@ SRC_URI="https://bitbucket.org/ariya/phantomjs/downloads/${P}-source.zip"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="icu examples"
+IUSE="examples"
 
 RDEPEND="dev-libs/icu:=
 	dev-libs/openssl
@@ -23,7 +23,6 @@ RDEPEND="dev-libs/icu:=
 	media-libs/gst-plugins-base:1.0
 	media-libs/libpng:0=
 	dev-libs/libpcre
-	media-libs/harfbuzz
 	dev-db/sqlite
 	virtual/jpeg:0"
 DEPEND="${RDEPEND}
