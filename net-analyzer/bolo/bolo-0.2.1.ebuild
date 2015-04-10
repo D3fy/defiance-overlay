@@ -21,7 +21,6 @@ DEPEND="
 	>=dev-libs/libvigor-1.1.0
 	net-analyzer/rrdtool
 	dev-libs/libpcre
-	dev-libs/libvigor
 "
 RDEPEND="${DEPEND}"
 
