@@ -2,14 +2,15 @@
 
 EAPI=5
 
-inherit autotools-utils git-2
+inherit base autotools-utils git-2 eutils
 
 AUTOTOOLS_AUTORECONF=yes
-EGIT_REPO_URI="https://github.com/filefrog/bolo-collectors"
+AUTOTOOLS_IN_SOURCE_BUILD=1
 
 DESCRIPTION="Collector Scripts for bolo"
 HOMEPAGE="https://github.com/filefrog/bolo-collectors"
 
+EGIT_REPO_URI="https://github.com/filefrog/bolo-collectors"
 LICENSE="GPLv3"
 SLOT="0"
 IUSE=""
