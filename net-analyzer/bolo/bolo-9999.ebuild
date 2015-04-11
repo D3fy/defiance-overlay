@@ -31,7 +31,10 @@ pkg_setup() {
 src_install() {
 	emake DESTDIR="${D}" install
 
+	einfo "Install init scripts"
 	insinto  /etc
-	newinitd "${FILESDIR}/bolo.initd" bolo
 	doins    "${FILESDIR}/bolo.conf"
+	newinitd "${FILESDIR}/bolo.initd" bolo
+	newinitd "${FILESDIR}/bolo2rrd.initd" bolo2rrd
+	newconfd "${FILESDIR}/bolo2rrd.confd" bolo2rrd
 }

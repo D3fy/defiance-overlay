@@ -3,37 +3,33 @@
 
 extra_commands="reload"
 
-pidfile=/var/run/bolo.pid
-bolo=/usr/sbin/bolo
+PIDFILE=/var/run/bolo.pid
+BIN=/usr/sbin/bolo
 
 depend() {
 	use net logger
 }
 
-ckconfig() {
+start() {
 	checkpath --directory --owner bolo:bolo --mode 0770 \
 		/var/lib/bolo
-}
-
-start() {
 	ebegin "Starting Bolo"
-	ckconfig
 	start-stop-daemon --start --quiet \
-		--background --exec ${bolo} --pidfile ${pidfile}
+		--background --exec ${BIN} --pidfile ${PIDFILE}
 	eend $?
 }
 
 stop() {
 	ebegin "Stopping Bolo"
 	start-stop-daemon --stop --quiet \
-		--exec ${bolo} --pidfile ${pidfile}
+		--exec ${BIN} --pidfile ${PIDFILE}
 	eend $?
 }
 
 reload() {
 	ebegin "Reloading Bolo"
-	start-stop-daemon --exec ${bolo} --signal HUP \
-		--pidfile ${pidfile}
+	start-stop-daemon --exec ${BIN} --signal HUP \
+		--pidfile ${PIDFILE}
 	eend $?
 }
 
