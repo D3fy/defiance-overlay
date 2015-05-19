@@ -2,7 +2,7 @@
 
 EAPI=5
 
-inherit base autotools-utils git-2 eutils user
+inherit base autotools-utils eutils user
 
 AUTOTOOLS_AUTORECONF=yes
 AUTOTOOLS_IN_SOURCE_BUILD=1
@@ -10,7 +10,8 @@ AUTOTOOLS_IN_SOURCE_BUILD=1
 DESCRIPTION="The Bolo Monitoring System"
 HOMEPAGE="https://github.com/filefrog/bolo"
 
-EGIT_REPO_URI="https://github.com/filefrog/bolo"
+SRC_URI="https://github.com/filefrog/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+KEYWORDS="~*"
 LICENSE="GPL3"
 SLOT="0"
 IUSE=""
