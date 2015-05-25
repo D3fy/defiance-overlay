@@ -13,13 +13,23 @@ HOMEPAGE="https://github.com/filefrog/bolo-collectors"
 EGIT_REPO_URI="https://github.com/filefrog/bolo-collectors"
 LICENSE="GPLv3"
 SLOT="0"
-IUSE=""
+IUSE="+http +iptables mysql postgres rrdtool"
 
 DEPEND="
 	>=dev-libs/libvigor-1.1.0
-	net-misc/curl
-	net-analyzer/rrdtool
-	net-firewall/iptables[ipv6]
-	dev-db/postgresql
+	http?     ( net-misc/curl )
+	iptables? ( net-firewall/iptables[ipv6] )
+	mysql?    ( virtual/mysql )
+	postgres? ( dev-db/postgresql )
+	rrdtool?  ( net-analyzer/rrdtool )
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	econf \
+		$(use_with http httpd-collector) \
+		$(use_with iptables fw-collector) \
+		$(use_with mysql mysql-collector) \
+		$(use_with postgres postgres-collector) \
+		$(use_with rrdtool rrdcache-collector)
+}
