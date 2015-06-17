@@ -16,7 +16,6 @@ IUSE="test"
 
 RDEPEND="
 	virtual/perl-CPAN-Meta
-	virtual/perl-Module-Build
 	test? ( dev-perl/Test-TCP )
 "
 DEPEND="${RDEPEND}"
