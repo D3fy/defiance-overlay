@@ -16,7 +16,6 @@ RDEPEND="
 	dev-perl/Dancer
 	virtual/perl-Sys-Syslog
 	virtual/perl-File-Spec
-	virtual/perl-Module-Build
 "
 DEPEND="${RDEPEND}"
 
