@@ -16,6 +16,7 @@ RDEPEND="
 	virtual/perl-XSLoader
 	virtual/perl-ExtUtils-MakeMaker
 	virtual/perl-Time-HiRes
+	dev-perl/Devel-CheckLib
 	test? (
 		dev-perl/Test-Fatal
 		dev-perl/Test-TCP

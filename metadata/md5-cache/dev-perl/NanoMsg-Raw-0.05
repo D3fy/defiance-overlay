@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=virtual/perl-XSLoader virtual/perl-ExtUtils-MakeMaker virtual/perl-Time-HiRes test? ( dev-perl/Test-Fatal dev-perl/Test-TCP ) >=dev-libs/nanomsg-0.2 dev-lang/perl:=[-build(-)]
+DEPEND=virtual/perl-XSLoader virtual/perl-ExtUtils-MakeMaker virtual/perl-Time-HiRes dev-perl/Devel-CheckLib test? ( dev-perl/Test-Fatal dev-perl/Test-TCP ) >=dev-libs/nanomsg-0.2 dev-lang/perl:=[-build(-)]
 DESCRIPTION=Low-level interface to the nanomsg scalability protocols library
 EAPI=5
 HOMEPAGE=http://search.cpan.org/dist/NanoMsg-Raw/
 IUSE=test
 KEYWORDS=~amd64
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=virtual/perl-XSLoader virtual/perl-ExtUtils-MakeMaker virtual/perl-Time-HiRes test? ( dev-perl/Test-Fatal dev-perl/Test-TCP ) >=dev-libs/nanomsg-0.2 dev-lang/perl:=[-build(-)]
+RDEPEND=virtual/perl-XSLoader virtual/perl-ExtUtils-MakeMaker virtual/perl-Time-HiRes dev-perl/Devel-CheckLib test? ( dev-perl/Test-Fatal dev-perl/Test-TCP ) >=dev-libs/nanomsg-0.2 dev-lang/perl:=[-build(-)]
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/B/BO/BORISZ/NanoMsg-Raw-0.05.tar.gz
 _eclasses_=eutils	9fb270e417e0e83d64ca52586c4a79de	multilib	62927b3db3a589b0806255f3a002d5d3	multiprocessing	d7f2985a2c76c365ee20269db5261414	perl-module	b37d70740b27d7c9cdde04679a6b2ba7	toolchain-funcs	42408102d713fbad60ca21349865edb4	unpacker	f300a7ca9131b1024a79762e8edd3c52
-_md5_=061005f57603dc0613ddef0d907b780f
+_md5_=bc2f6256607fe8b9c99815df77cd2e09
