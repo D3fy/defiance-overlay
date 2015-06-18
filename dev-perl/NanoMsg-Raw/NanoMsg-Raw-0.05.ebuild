@@ -2,7 +2,7 @@
 
 EAPI=5
 
-MODULE_AUTHOR="FLORA"
+MODULE_AUTHOR="BORISZ"
 inherit perl-module
 
 DESCRIPTION="Low-level interface to the nanomsg scalability protocols library"
