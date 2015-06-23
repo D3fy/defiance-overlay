@@ -2,23 +2,19 @@
 
 EAPI=5
 
-inherit autotools-utils git-2
-
-EGIT_REPO_URI="https://github.com/filefrog/ctap"
-
-if [[ ${PV} != 9999 ]] ; then
-	# Set the commit ID
-	EGIT_COMMIT="e96b0627f5d91ea1ef431ccc1b8c5f3399b10c2b"
-	KEYWORDS="amd64 x86 x86-linux"
-fi
-
-SLOT="0"
-
-LICENSE="GPL3"
-DESCRIPTION="Test Anything Protocol (tap) for C"
-HOMEPAGE="https://github.com/filefrog/ctap/"
+inherit autotools-utils
 
 AUTOTOOLS_AUTORECONF=yes
+AUTOTOOLS_IN_SOURCE_BUILD=yes
+
+DESCRIPTION="Test Anything Protocol (tap) for C"
+HOMEPAGE="https://github.com/filefrog/ctap/"
+SRC_URI="https://github.com/filefrog/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
+KEYWORDS="*"
+SLOT="0"
+LICENSE="GPL3"
 IUSE="static-libs"
 
+DEPEND=""
 RDEPEND="${DEPEND}"
