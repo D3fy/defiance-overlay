@@ -33,9 +33,14 @@ src_install() {
 	emake DESTDIR="${D}" install
 
 	einfo "Install init scripts"
-	insinto  /etc
+	insinto  /etc/bolo
+	insopts  -o bolo -g bolo
 	doins    "${FILESDIR}/bolo.conf"
+	insopts  -m 0400
+	doins    "${FILESDIR}/pg.creds"
 	newinitd "${FILESDIR}/bolo.initd" bolo
+	newinitd "${FILESDIR}/bolo2pg.initd" bolo2pg
+	newconfd "${FILESDIR}/bolo2pg.confd" bolo2pg
 	newinitd "${FILESDIR}/bolo2rrd.initd" bolo2rrd
 	newconfd "${FILESDIR}/bolo2rrd.confd" bolo2rrd
 }
