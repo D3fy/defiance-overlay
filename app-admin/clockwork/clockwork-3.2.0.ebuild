@@ -67,6 +67,7 @@ src_install() {
 		doins "${S}"/extras/vim/syntax/cogd.vim
 		doins "${S}"/extras/vim/syntax/cwrc.vim
 		doins "${S}"/extras/vim/syntax/meshd.vim
+		doins "${S}"/extras/vim/syntax/pnasm.vim
 	fi
 }
 

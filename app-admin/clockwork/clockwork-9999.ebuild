@@ -19,7 +19,7 @@ LICENSE="CCLv3"
 DESCRIPTION="The nifty configuration managment system"
 HOMEPAGE="http://clockwork.niftylogic.com/"
 
-IUSE="+vim-syntax"
+IUSE="clockd meshd vim-syntax"
 
 DEPEND="
 	>=sys-devel/bison-3.0.0
@@ -43,18 +43,24 @@ pkg_setup() {
 src_install() {
 	emake DESTDIR="${D}" install
 
-	newinitd "${FILESDIR}"/clockd.initd clockd
-	newinitd "${FILESDIR}"/cogd.initd   cogd
-	newinitd "${FILESDIR}"/meshd.initd  meshd
-
 	dodir /etc/clockwork
 	dodir /etc/clockwork/certs
 	dodir /etc/clockwork/gather.d
+	dodir /usr/lib/clockwork/state
 
 	insinto /etc/clockwork
+	newinitd "${FILESDIR}"/cogd.initd   cogd
 	doins   "${FILESDIR}"/cogd.conf
-	doins   "${FILESDIR}"/clockd.conf
-	doins   "${FILESDIR}"/meshd.conf
+
+	if use clockd; then
+		newinitd "${FILESDIR}"/clockd.initd clockd
+		doins   "${FILESDIR}"/clockd.conf
+	fi
+
+	if use meshd; then
+		newinitd "${FILESDIR}"/meshd.initd  meshd
+		doins   "${FILESDIR}"/meshd.conf
+	fi
 
 	if use vim-syntax; then
 		insinto /usr/share/vim/vimfiles/ftdetect
@@ -66,6 +72,7 @@ src_install() {
 		doins "${S}"/extras/vim/syntax/cogd.vim
 		doins "${S}"/extras/vim/syntax/cwrc.vim
 		doins "${S}"/extras/vim/syntax/meshd.vim
+		doins "${S}"/extras/vim/syntax/pnasm.vim
 	fi
 }
 
