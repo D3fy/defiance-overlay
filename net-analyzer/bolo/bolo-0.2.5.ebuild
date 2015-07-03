@@ -18,13 +18,14 @@ IUSE="postgres rrdtool sqlite"
 
 DEPEND="
 	>=dev-libs/ctap-1.1.5
+"
+RDEPEND="
 	>=dev-libs/libvigor-1.1.0
 	dev-libs/libpcre
 	rrdtool? ( net-analyzer/rrdtool )
 	postgres? ( dev-db/postgresql )
 	sqlite? ( dev-db/sqlite )
 "
-RDEPEND="${DEPEND}"
 
 pkg_setup() {
 	enewgroup bolo
