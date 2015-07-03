@@ -14,7 +14,7 @@ SRC_URI="https://github.com/filefrog/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~*"
 LICENSE="GPL3"
 SLOT="0"
-IUSE=""
+IUSE="postgres rrdtool sqlite"
 
 DEPEND="
 	>=dev-libs/ctap-1.1.5
@@ -28,6 +28,13 @@ RDEPEND="${DEPEND}"
 pkg_setup() {
 	enewgroup bolo
 	enewuser  bolo -1 -1 /var/lib/bolo bolo
+}
+
+src_configure() {
+	econf \
+		$(use_with postgres pg-subscriber) \
+		$(use_with rrdtool rrd-subscriber) \
+		$(use_with sqlite sqlite-subscriber)
 }
 
 src_install() {
