@@ -13,20 +13,28 @@ HOMEPAGE="https://github.com/filefrog/bolo"
 EGIT_REPO_URI="https://github.com/filefrog/bolo"
 LICENSE="GPL3"
 SLOT="0"
-IUSE=""
+IUSE="postgres rrdtool sqlite"
 
 DEPEND="
 	>=dev-libs/ctap-1.1.5
 	>=dev-libs/libvigor-1.1.0
-	net-analyzer/rrdtool
 	dev-libs/libpcre
-	dev-db/postgresql
+	rrdtool? ( net-analyzer/rrdtool )
+	postgres? ( dev-db/postgresql )
+	sqlite? ( dev-db/sqlite )
 "
 RDEPEND="${DEPEND}"
 
 pkg_setup() {
 	enewgroup bolo
 	enewuser  bolo -1 -1 /var/lib/bolo bolo
+}
+
+src_configure() {
+	econf \
+		$(use_with postgres pg-subscriber) \
+		$(use_with rrdtool rrd-subscriber) \
+		$(use_with sqlite sqlite-subscriber)
 }
 
 src_install() {
@@ -37,10 +45,16 @@ src_install() {
 	insopts  -o bolo -g bolo
 	doins    "${FILESDIR}/bolo.conf"
 	insopts  -m 0400
-	doins    "${FILESDIR}/pg.creds"
 	newinitd "${FILESDIR}/bolo.initd" bolo
-	newinitd "${FILESDIR}/bolo2pg.initd" bolo2pg
-	newconfd "${FILESDIR}/bolo2pg.confd" bolo2pg
-	newinitd "${FILESDIR}/bolo2rrd.initd" bolo2rrd
-	newconfd "${FILESDIR}/bolo2rrd.confd" bolo2rrd
+	if use postgres; then
+		doins    "${FILESDIR}/pg.creds"
+		newinitd "${FILESDIR}/bolo2pg.initd" bolo2pg
+		newconfd "${FILESDIR}/bolo2pg.confd" bolo2pg
+	fi
+	if use rrdtool; then
+		newinitd "${FILESDIR}/bolo2rrd.initd" bolo2rrd
+		newconfd "${FILESDIR}/bolo2rrd.confd" bolo2rrd
+	fi
+	newinitd "${FILESDIR}/bolo2log.initd" bolo2log
+	newconfd "${FILESDIR}/bolo2log.confd" bolo2log
 }
