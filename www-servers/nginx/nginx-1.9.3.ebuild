@@ -322,6 +322,7 @@ RDEPEND="http-cache? ( dev-libs/openssl )
 	pcre? ( dev-libs/libpcre )
 	pcre-jit? ( dev-libs/libpcre[jit] )
 	ssl? ( dev-libs/openssl )
+	google_perftools? ( dev-util/google-perftools )
 
 	nginx_modules_http_geoip? ( dev-libs/geoip )
 	nginx_modules_http_gunzip? ( sys-libs/zlib )
