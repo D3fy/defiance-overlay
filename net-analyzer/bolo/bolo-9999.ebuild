@@ -45,7 +45,7 @@ src_install() {
 	doman    man/send_bolo.1 man/stat_bolo.1
 	dobin    send_bolo stat_bolo bolospy bolo_nsca
 	if use core; then
-		einfo    "Bolo Core"
+		einfo    "  Core"
 		dosbin    bolo
 		doman     man/bolo.conf.5 man/bolo.8
 		doins    "${FILESDIR}/bolo.conf"
@@ -54,21 +54,21 @@ src_install() {
 		newconfd "${FILESDIR}/bolo2log.confd" bolo2log
 	fi
 	if use dbolo; then
-		einfo    "Bolo Client Daemon"
+		einfo    "  Client Daemon"
 		dosbin    dbolo
 		doman     man/dbolo.1 man/dbolo.conf.5
 		newinitd "${FILESDIR}/dbolo.initd" dbolo
 		newconfd "${FILESDIR}/dbolo.confd" dbolo
 	fi
 	if use meta; then
-		einfo    "Bolo Meta Subscriber"
+		einfo    "  Meta Subscriber"
 		dosbin    bolo2meta
 		doman     man/bolo2meta.8
 		newinitd "${FILESDIR}/bolo2meta.initd" bolo2meta
 		newconfd "${FILESDIR}/bolo2meta.confd" bolo2meta
 	fi
 	if use postgres; then
-		einfo    "Bolo Postgres Subscriber"
+		einfo    "  Postgres Subscriber"
 		dosbin    bolo2pg
 		doman     man/bolo2pg.8
 		insopts  -m 0400
@@ -78,14 +78,14 @@ src_install() {
 		newconfd "${FILESDIR}/bolo2pg.confd" bolo2pg
 	fi
 	if use rrdtool; then
-		einfo    "Bolo RRD Subscriber"
+		einfo    "  RRD Subscriber"
 		dosbin    bolo2rrd
 		doman     man/bolo2rrd.8
 		newinitd "${FILESDIR}/bolo2rrd.initd" bolo2rrd
 		newconfd "${FILESDIR}/bolo2rrd.confd" bolo2rrd
 	fi
 	if use sqlite; then
-		einfo    "Bolo Sqlite Subscriber"
+		einfo    "  Sqlite Subscriber"
 		dosbin    bolo2sqlite
 		# doman     man/bolo2sqlite.8
 		newinitd "${FILESDIR}/bolo2sqlite.initd" bolo2sqlite
