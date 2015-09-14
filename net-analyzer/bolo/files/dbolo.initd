@@ -1,0 +1,28 @@
+#!/sbin/runscript
+# Distributed under the terms of the GNU General Public License v2
+
+PIDFILE=/var/run/dbolo.pid
+BIN=/usr/sbin/dbolo
+
+depend() {
+	use net logger
+}
+
+start() {
+	ebegin "Starting DBolo"
+	start-stop-daemon --start --quiet \
+		--background --exec ${BIN} \
+		--pidfile ${PIDFILE} -- -p ${PIDFILE} \
+		-u ${USER} -g ${GROUP} -e ${ENDPOINT} \
+		-s ${SPLAY} -c ${COMMANDS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping DBolo"
+	start-stop-daemon --stop --quiet \
+		--exec ${BIN} --pidfile ${PIDFILE}
+	eend $?
+}
+
+# vim:ts=4
