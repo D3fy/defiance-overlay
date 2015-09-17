@@ -16,7 +16,7 @@ SRC_URI="https://github.com/${PN}/${PN}-core/releases/download/v${PV}/${P}.tar.g
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~hppa ~x86"
+KEYWORDS="amd64 x86"
 IUSE="contrib eventhandler idoutils lighttpd mysql perfdata perl plugins postgres ssl +vim-syntax web"
 DEPEND="idoutils? ( dev-db/libdbi-drivers[mysql?,postgres?] )
 	perl? ( dev-lang/perl )
