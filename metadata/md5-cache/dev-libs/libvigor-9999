@@ -6,5 +6,5 @@ HOMEPAGE=https://github.com/filefrog/libvigor
 LICENSE=GPL3
 RDEPEND=>=dev-libs/ctap-1.1.5 dev-libs/libsodium net-libs/zeromq
 SLOT=0
-_eclasses_=autotools	7d16e72a943b4803ca9691b2ecf89216	autotools-utils	106d29d66151588cad8ee4f31122cffb	eutils	351a78113be5b393c09a2c948701ad36	git-2	1bb87192831f668cd20d93ffb1689c94	libtool	7f78cd7d403808a350c9ae23f5821fb4	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_eclasses_=autotools	542bf3f83917668f3893f4da1ca238ff	autotools-utils	106d29d66151588cad8ee4f31122cffb	eutils	43da5163ba106e87d22d2e7d6d67537f	git-2	1bb87192831f668cd20d93ffb1689c94	libtool	7f78cd7d403808a350c9ae23f5821fb4	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	1dfcad7b3f439dbc511d76c49f23da0d
 _md5_=9b0a779b28df85a7b83b7909ff30298b
