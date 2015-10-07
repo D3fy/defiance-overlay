@@ -4,7 +4,7 @@ EAPI=5
 
 inherit autotools-utils git-2
 
-EGIT_REPO_URI="https://github.com/filefrog/ztk.got"
+EGIT_REPO_URI="https://github.com/filefrog/ztk.git"
 
 KEYWORDS="amd64 x86 x86-linux"
 
