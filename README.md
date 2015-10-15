@@ -13,11 +13,14 @@ Which will be opionated, but effort will be made to keep it clean and fast.
 
 ## Installation
 
-For Portage >= 2.3.8
+For Portage >= 2.3.8:
+
 	cd /usr/local && git clone https://github.com/GrayTShirt/phoenix-overlay.git
 	echo -e "[phoenix]\nlocation = /usr/local/phoenix-overlay\nsync-type = git\nsync-uri  = https://github.com/graytshirt/phoenix-overlay.git\nauto-sync = true" >> /etc/portage/repos.conf/phoenix
 
-For Portage <  2.3.8
+
+For Portage <  2.3.8:
+
 	cd /usr/local && git clone https://github.com/GrayTShirt/phoenix-overlay.git
 	echo "PORTDIR_OVERLAY=\"\${PORTDIR_OVERLAY} /usr/local/phoenix-overlay\"" >> /etc/make.conf
 	echo "\!echo -e \" \\\e[1;32m*\\\e[0m Updating Phoenix-Overlay\" && cd /usr/local/phoenix-overlay && git pull" >> /etc/eix-sync.conf
