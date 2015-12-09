@@ -1,12 +1,12 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=[-build(-)]
-DESCRIPTION=pass a file descriptor over a socket
+DEPEND=dev-libs/hiredis dev-lang/perl:=[-build(-)]
+DESCRIPTION=interact with Redis using the hiredis client
 EAPI=5
-HOMEPAGE=http://search.cpan.org/dist/IO-FDPass/
+HOMEPAGE=http://search.cpan.org/dist/Redis-hiredis/
 KEYWORDS=~amd64
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=[-build(-)]
+RDEPEND=dev-libs/hiredis dev-lang/perl:=[-build(-)]
 SLOT=0
-SRC_URI=mirror://cpan/authors/id/M/ML/MLEHMANN/IO-FDPass-1.0.tar.gz
+SRC_URI=mirror://cpan/authors/id/N/NE/NEOPHENIX/Redis-hiredis-0.11.0.tar.gz
 _eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	perl-module	1cfb38bf68a24c8394e41d2f53003146	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	unpacker	1d149d9bda7723e740cfd28118f27813
-_md5_=44cb9857083d1bc5b792352ded5388da
+_md5_=b91982b6dc89085643620aa8b371497a
