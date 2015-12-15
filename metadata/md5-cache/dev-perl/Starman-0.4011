@@ -9,5 +9,5 @@ LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=test? ( dev-perl/Test-Requires ) >=dev-perl/Plack-1.2.900 dev-perl/net-server dev-perl/HTTP-Parser-XS dev-perl/libwww-perl[ssl?] dev-perl/Data-Dump >=dev-perl/Module-Build-Tiny-0.39.0 dev-lang/perl:=[-build(-)]
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/MI/MIYAGAWA/Starman-0.4011.tar.gz
-_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	d9bd2ddd85a58e470b49ca997e255a4c	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	perl-mb-tiny	66041298ef76a2a086ff83e8b8b0f748	perl-module	1cfb38bf68a24c8394e41d2f53003146	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	unpacker	1d149d9bda7723e740cfd28118f27813
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	eutils	d9bd2ddd85a58e470b49ca997e255a4c	multilib	3972ca401cf7dbb430df9995f5d8d580	multiprocessing	e32940a7b2a9992ad217eccddb84d548	perl-functions	bb696d2fa83d594dd8a900d0cb858a95	perl-mb-tiny	66041298ef76a2a086ff83e8b8b0f748	perl-module	f6f618e05c3182f044c96da774b0c4e9	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	unpacker	1d149d9bda7723e740cfd28118f27813
 _md5_=1399be4c62240af32500e19bee9741f9
