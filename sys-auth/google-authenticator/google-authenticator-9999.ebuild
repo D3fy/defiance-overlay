@@ -14,9 +14,9 @@ AUTOTOOLS_IN_SOURCE_BUILD=yes
 LICENSE="Apache 2.0"
 SLOT="0"
 KEYWORDS="~*"
-IUSE=""
+IUSE="+qr"
 
-DEPEND=""
+DEPEND="qr? ( media-gfx/qrencode )"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
