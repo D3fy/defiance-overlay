@@ -1,12 +1,12 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=qr? ( media-gfx/qrencode ) dev-vcs/git
+DEPEND=virtual/pam qr? ( media-gfx/qrencode ) dev-vcs/git
 DESCRIPTION=Pam module for Google Authenticator (2-factor)
 EAPI=5
 HOMEPAGE=https://github.com/google/google-authenticator
 IUSE=+qr
 KEYWORDS=~*
 LICENSE=Apache 2.0
-RDEPEND=qr? ( media-gfx/qrencode )
+RDEPEND=virtual/pam qr? ( media-gfx/qrencode )
 SLOT=0
 _eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	autotools-utils	419811142edf3516b0d0cf1a254d93cb	eutils	d9bd2ddd85a58e470b49ca997e255a4c	git-2	df00117322129fb906bb0a53c3d6a020	libtool	b75230758539a7da029e24afdb693960	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
-_md5_=3a423a9c390ff1bdc5bfc86f691d7909
+_md5_=4c4be62f0d014696788344a1f1f7c717

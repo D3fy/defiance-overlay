@@ -16,7 +16,10 @@ SLOT="0"
 KEYWORDS="~*"
 IUSE="+qr"
 
-DEPEND="qr? ( media-gfx/qrencode )"
+DEPEND="
+	virtual/pam
+	qr? ( media-gfx/qrencode )
+"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
@@ -26,7 +29,8 @@ src_prepare() {
 
 src_configure() {
 	cd ${ECONF_SOURCE:-.}/libpam
-	econf
+	econf \
+		  --libdir=/$(get_libdir)
 }
 
 src_compile() {
@@ -37,4 +41,6 @@ src_compile() {
 src_install() {
 	cd ${ECONF_SOURCE:-.}/libpam
 	emake DESTDIR="${D}" install
+
+	rm "${D}/$(get_libdir)/security/pam_google_authenticator.la"
 }
