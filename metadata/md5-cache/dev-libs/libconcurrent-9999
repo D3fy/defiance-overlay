@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile configure install unpack
+DEPEND=dev-lang/nasm dev-vcs/git
+DESCRIPTION=Concurrent Programming Library (Coroutine) for C
+EAPI=5
+HOMEPAGE=https://github.com/sharow/libconcurrent
+KEYWORDS=~*
+LICENSE=Copyright
+RDEPEND=dev-lang/nasm
+SLOT=0
+_eclasses_=git-2	df00117322129fb906bb0a53c3d6a020
+_md5_=c0eec2d7acdf10b0347926171a9d0b9c
