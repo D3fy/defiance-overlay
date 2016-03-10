@@ -13,5 +13,5 @@ SLOT="0"
 KEYWORDS="amd64 amd64-fbsd x86 x86-fbsd x86-freebsd x64-freebsd amd64-linux x86-linux"
 IUSE="test"
 
-RDEPEND=""
+RDEPEND="dev-perl/Module-Build"
 DEPEND="${RDEPEND}"
