@@ -13,6 +13,7 @@ KEYWORDS="*"
 IUSE=""
 
 RDEPEND="
+	dev-perl/Module-Build
 	dev-perl/Guard
 	dev-perl/Try-Tiny
 	dev-perl/Plack
