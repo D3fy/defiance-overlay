@@ -12,13 +12,14 @@ DESCRIPTION=""
 #LICENSE="|| ( Artistic GPL-1 GPL-2 GPL-3 )"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test"
+IUSE=""
 
 RDEPEND="
-	virtual/perl-ExtUtils-MakeMaker
 	dev-perl/Types-Serialiser
-	test? (  dev-perl/Canary-Stability )
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	virtual/perl-ExtUtils-MakeMaker
+	dev-perl/Canary-Stability
+"
 
 SRC_TEST="do"
