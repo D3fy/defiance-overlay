@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-perl/Digest-HMAC dev-perl/Digest-SHA1 virtual/perl-Math-BigInt dev-perl/Moose dev-lang/perl:=
+DEPEND=dev-perl/Module-Build dev-perl/Digest-HMAC dev-perl/Digest-SHA1 virtual/perl-Math-BigInt dev-perl/Moose dev-lang/perl:=
 DESCRIPTION=OATH One Time Passwords
 EAPI=6
 HOMEPAGE=http://search.cpan.org/dist/Authen-OATH/
@@ -9,4 +9,4 @@ RDEPEND=dev-perl/Digest-HMAC dev-perl/Digest-SHA1 virtual/perl-Math-BigInt dev-p
 SLOT=0
 SRC_URI=http://search.cpan.org/CPAN/authors/id/S/SI/SIFUKURT/Authen-OATH-v1.0.0.tar.gz
 _eclasses_=multiprocessing	e32940a7b2a9992ad217eccddb84d548	perl-functions	aac50de73be0a80ebe780e0b20850130	perl-module	c584f9e0fe426f3dcc2c46c6f7cb95ce
-_md5_=1f84adc84eeda7f3c7f1066b0d3a601d
+_md5_=ebf09b4cda836a4df7a1b426b7264fd4

@@ -21,4 +21,7 @@ RDEPEND="
 	virtual/perl-Math-BigInt
 	dev-perl/Moose
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	dev-perl/Module-Build
+	${RDEPEND}
+"
