@@ -9,6 +9,7 @@ inherit perl-module
 
 DESCRIPTION="OATH One Time Passwords"
 SRC_URI="http://search.cpan.org/CPAN/authors/id/S/SI/SIFUKURT/${PN}-v${PV}.tar.gz"
+S="${WORKDIR}/${PN}-v${PV}"
 #LICENSE="|| ( Artistic GPL-1+ )"
 SLOT="0"
 KEYWORDS="~*"
