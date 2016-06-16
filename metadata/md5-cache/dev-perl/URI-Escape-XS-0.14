@@ -1,0 +1,10 @@
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=
+EAPI=6
+HOMEPAGE=http://search.cpan.org/dist/URI-Escape-XS/
+KEYWORDS=~*
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=virtual/perl-ExtUtils-MakeMaker dev-lang/perl:=
+SLOT=0
+_eclasses_=multiprocessing	e32940a7b2a9992ad217eccddb84d548	perl-functions	aac50de73be0a80ebe780e0b20850130	perl-module	c584f9e0fe426f3dcc2c46c6f7cb95ce
+_md5_=e0c23d73be17a05e6f327cc5921174e7
