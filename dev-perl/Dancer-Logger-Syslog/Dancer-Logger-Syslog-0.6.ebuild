@@ -13,6 +13,7 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND="
+	dev-perl/Module-Build
 	dev-perl/Dancer
 	virtual/perl-Sys-Syslog
 	virtual/perl-File-Spec
