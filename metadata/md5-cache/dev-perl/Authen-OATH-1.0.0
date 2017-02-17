@@ -8,5 +8,5 @@ LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/Digest-HMAC dev-perl/Digest-SHA1 virtual/perl-Math-BigInt dev-perl/Moose dev-lang/perl:=
 SLOT=0
 SRC_URI=http://search.cpan.org/CPAN/authors/id/S/SI/SIFUKURT/Authen-OATH-v1.0.0.tar.gz
-_eclasses_=multiprocessing	e32940a7b2a9992ad217eccddb84d548	perl-functions	aac50de73be0a80ebe780e0b20850130	perl-module	c584f9e0fe426f3dcc2c46c6f7cb95ce
+_eclasses_=multiprocessing	eb9be4b678c4e71f3f530a767df31912	perl-functions	aac50de73be0a80ebe780e0b20850130	perl-module	f6549146ea31a902e20b5f2e6f244358
 _md5_=ebf09b4cda836a4df7a1b426b7264fd4
