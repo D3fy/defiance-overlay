@@ -1,6 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 inherit user golang-build golang-vcs-snapshot
@@ -9,7 +7,7 @@ EGO_PN="k8s.io/kubernetes/..."
 ARCHIVE_URI="https://github.com/kubernetes/kubernetes/archive/v${PV}.tar.gz -> kubernetes-${PV}.tar.gz"
 KEYWORDS="~amd64"
 
-DESCRIPTION="CLI to run commands against Kubernetes clusters"
+DESCRIPTION="The daemon agent that runs on each node of Kubernetes clusters"
 HOMEPAGE="https://github.com/kubernetes/kubernetes https://kubernetes.io"
 SRC_URI="${ARCHIVE_URI}"
 
