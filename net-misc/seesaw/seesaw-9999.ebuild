@@ -1,7 +1,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit user golang-build git-r3
+inherit user golang-build git-r3 linux-info
 
 EGO_PN="github.com/google/seesaw/..."
 
@@ -25,4 +25,5 @@ RDEPEND="
 
 RESTRICT="test"
 
-
+CHECK_CHECK="~IP_VS"
+WARNING_IP_VS="CONFIG_IP_VS isn't set. Seesaw will be unable to loadbalance traffic!"

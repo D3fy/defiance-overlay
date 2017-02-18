@@ -1,4 +1,4 @@
-DEFINED_PHASES=compile install test unpack
+DEFINED_PHASES=compile install setup test unpack
 DEPEND=dev-libs/libnl anycast? ( net-misc/quagga[protobuf] ) >=dev-lang/go-1.4.2:= >=dev-vcs/git-1.8.2.1
 DESCRIPTION=Seesaw v2 is a Linux Virtual Server (LVS) based load balancing platform
 EAPI=6
@@ -9,5 +9,5 @@ LICENSE=Apache-2.0
 RDEPEND=anycast? ( net-misc/quagga[protobuf] )
 RESTRICT=test
 SLOT=0
-_eclasses_=eutils	ea170b525f6a38a006be05c9d9429f13	git-r3	6efc2d7de07a77bf72c7207b48d0e123	golang-base	08fe6e0e2b4750daff8887a7f0e1f873	golang-build	a44f10e6bd86ecccf2a07cc0d4cf6bec	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	user	80aaa71614ced86f02ee1a513821dc87
-_md5_=93f1b64faaa94c53eb22ece1966cb2fc
+_eclasses_=eutils	ea170b525f6a38a006be05c9d9429f13	git-r3	6efc2d7de07a77bf72c7207b48d0e123	golang-base	08fe6e0e2b4750daff8887a7f0e1f873	golang-build	a44f10e6bd86ecccf2a07cc0d4cf6bec	linux-info	af49d8ab3be91bb1d38b7201dc9e5123	multilib	165fc17c38d1b11dac2008280dab6e80	toolchain-funcs	1b1da0c45c555989dc5d832b54880783	user	80aaa71614ced86f02ee1a513821dc87	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=677df7619e064334d0b23e95b5daff4a
