@@ -8,7 +8,7 @@ EGO_PN=${EGO_SRC}/...
 
 DESCRIPTION="Seesaw v2 is a Linux Virtual Server (LVS) based load balancing platform"
 HOMEPAGE="https://github.com/google/seesaw"
-# EGIT_REPO_URI="${HOMEPAGE}"
+KEYWORD="~amd64 ~x86"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -41,12 +41,7 @@ src_compile() {
 }
 
 src_install() {
-	#EGO_PN=${EGO_SRC}
-	# golang-build_src_install
 	env GOPATH="${WORKDIR}/${P}" \
 		go install -v -work -x ${EGO_BUILD_FLAGS} "${EGO_PN}"
-	#pushd src/${EGO_PN%/*} || die
-	#make install
-	#popd || die
 	dobin bin/*
 }
