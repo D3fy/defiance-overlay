@@ -43,7 +43,9 @@ src_compile() {
 src_install() {
 	env GOPATH="${WORKDIR}/${P}" \
 		go install -v -work -x ${EGO_BUILD_FLAGS} "${EGO_PN}"
-	doins   src/"${EGO_SRC}"/etc/seesaw/*
+	pushd   src/"${EGO_SRC}" || die
+	doins   etc/seesaw/*
+	popd || die
 	doinitd "${FILESDIR}"/${PN}-watchdog.initd
 	dobin   bin/*
 }
