@@ -51,4 +51,6 @@ src_install() {
 	insinto  /etc/${PN}
 	doins     etc/${PN}/*
 	popd      || die
+	setcap cap_net_raw+ep "${ED}"/usr/bin/seesaw_ha
+	setcap cap_net_raw+ep "${ED}"/usr/bin/seesaw_healthcheck
 }
