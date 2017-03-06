@@ -47,7 +47,7 @@ src_install() {
 	dobin     bin/*
 	pushd     src/"${EGO_PN%/*}" || die
 	dodoc     README.md
-	sed -i -e 's/\/usr\/local\/seasaw/\/usr\/bin/' etc/${PN}/*
+	sed -i -e 's/\/usr\/local\/seesaw/\/usr\/bin/' etc/${PN}/*
 	insinto  /etc/${PN}
 	doins     etc/${PN}/*
 	popd      || die
