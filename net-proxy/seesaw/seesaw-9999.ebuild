@@ -45,7 +45,6 @@ src_install() {
 		go install -v -work -x ${EGO_BUILD_FLAGS} "${EGO_PN}"
 	newinitd "${FILESDIR}"/${PN}-watchdog.initd ${PN}-watchdog
 	dobin     bin/*
-	popd || die
 	pushd     src/"${EGO_PN%/*}" || die
 	dodoc     README.md
 	sed -i -e 's/\/usr\/local\/seasaw/\/usr\/bin/' etc/${PN}/*
