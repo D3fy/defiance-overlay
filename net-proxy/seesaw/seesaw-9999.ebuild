@@ -34,6 +34,9 @@ PATCHES=(
 
 src_unpack() {
 	golang-vcs-defiance_src_unpack
+	pushd src/"${EGO_PN%/*}" || die
+	sed -i -e 's/\/usr\/local\/seasaw/\/usr\/bin/' etc/${PN}/*
+	popd || die
 }
 
 src_compile() {
