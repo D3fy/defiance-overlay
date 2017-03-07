@@ -28,10 +28,6 @@ RESTRICT="test"
 CHECK_CHECK="~IP_VS"
 WARNING_IP_VS="CONFIG_IP_VS isn't set. Seesaw will be unable to loadbalance traffic!"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.1-nl-cb.patch
-)
-
 src_unpack() {
 	golang-vcs-defiance_src_unpack
 }
