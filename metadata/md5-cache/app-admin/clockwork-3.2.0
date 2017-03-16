@@ -9,5 +9,5 @@ LICENSE=GPLv3
 RDEPEND=>=sys-devel/bison-3.0.0 sys-devel/flex dev-libs/libpcre app-admin/augeas >=dev-libs/libvigor-1.2.6 >=dev-libs/ctap-1.1.5 dev-util/ccache app-portage/eix
 SLOT=0
 SRC_URI=https://github.com/filefrog/clockwork/archive/v3.2.0.tar.gz -> clockwork-3.2.0.tar.gz
-_eclasses_=autotools	7027963e8e8cc12c91117bdb9225dc26	autotools-utils	042d779bc872564b26c4e5cf018db8ed	base	df2aa567b3f0595aae0d0923889f7631	eutils	3c847a0129fed780bd709b98e426f89c	libtool	48b1b9f6194d2842456514d1184ca72e	multilib	0236be304ee52e7f179ed2f337075515	toolchain-funcs	53b75b4a49cf3e61530a523804045432	user	e4b567c44272a719fabf53f0f885d3f7
+_eclasses_=autotools	7027963e8e8cc12c91117bdb9225dc26	autotools-utils	042d779bc872564b26c4e5cf018db8ed	base	df2aa567b3f0595aae0d0923889f7631	eutils	3c847a0129fed780bd709b98e426f89c	libtool	48b1b9f6194d2842456514d1184ca72e	multilib	0236be304ee52e7f179ed2f337075515	toolchain-funcs	6eb35f81556258a4bc9182ad3dfd58ee	user	e4b567c44272a719fabf53f0f885d3f7
 _md5_=a9d2f161d50b5e77fe94274d083ad990
