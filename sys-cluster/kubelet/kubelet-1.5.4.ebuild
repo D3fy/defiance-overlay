@@ -26,7 +26,8 @@ src_prepare() {
 }
 
 src_compile() {
-	LDFLAGS="" GOPATH="${WORKDIR}/${P}" emake -j1 -C src/${EGO_PN%/*} WHAT=cmd/${PN}
+	export GOPATH="${WORKDIR}/${P}"
+	LDFLAGS="" emake -j1 -C src/${EGO_PN%/*} WHAT=cmd/${PN}
 }
 
 src_install() {
