@@ -5,6 +5,8 @@ EAPI=5
 
 inherit eutils autotools autotools-utils
 
+AUTOTOOLS_IN_SOURCE_BUILD=1
+
 DESCRIPTION="Compiles finite state machines from regular languages into executable code"
 HOMEPAGE="http://www.colm.net/open-source/ragel/"
 SRC_URI="http://www.colm.net/files/ragel/${P}.tar.gz"
