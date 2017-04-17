@@ -2,8 +2,8 @@
 
 EAPI=6
 
-DESCRIPTION="a library for lazy people"
-HOMEPAGE="https://github.com/graythshirt/liblazy"
+DESCRIPTION="High density shim library"
+HOMEPAGE="https://github.com/graythshirt/liblead"
 SRC_URI="https://github.com/graytshirt/${PN}/releases/${P}.tar.xz"
 KEYWORDS="~*"
 
