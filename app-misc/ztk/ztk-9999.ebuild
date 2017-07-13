@@ -4,7 +4,7 @@ EAPI=5
 
 inherit autotools-utils git-2
 
-EGIT_REPO_URI="https://github.com/filefrog/ztk.git"
+EGIT_REPO_URI="https://github.com/jhunt/ztk.git"
 
 KEYWORDS="amd64 x86 x86-linux"
 
@@ -17,7 +17,7 @@ AUTOTOOLS_AUTORECONF=yes
 AUTOTOOLS_IN_SOURCE_BUILD=yes
 
 DESCRIPTION="ZeroMQ Toolkit"
-HOMEPAGE="https://github.com/filefrog/ztk"
+HOMEPAGE="https://github.com/jhunt/ztk"
 
 LICENSE="GPL3"
 SLOT="0"

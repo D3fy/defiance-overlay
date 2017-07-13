@@ -11,7 +11,7 @@ LICENSE="GPLv3"
 DESCRIPTION="The nifty configuration managment system"
 HOMEPAGE="http://clockwork.niftylogic.com/"
 
-SRC_URI="https://github.com/filefrog/clockwork/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/jhunt/clockwork/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="*"
 
 IUSE="clockd meshd vim-syntax"

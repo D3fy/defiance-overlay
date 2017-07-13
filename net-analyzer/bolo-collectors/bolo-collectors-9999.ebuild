@@ -8,9 +8,9 @@ AUTOTOOLS_AUTORECONF=yes
 AUTOTOOLS_IN_SOURCE_BUILD=1
 
 DESCRIPTION="Collector Scripts for bolo"
-HOMEPAGE="https://github.com/filefrog/bolo-collectors"
+HOMEPAGE="https://github.com/bolo/bolo-collectors"
 
-EGIT_REPO_URI="https://github.com/filefrog/bolo-collectors"
+EGIT_REPO_URI="https://github.com/bolo/bolo-collectors"
 LICENSE="GPLv3"
 SLOT="0"
 IUSE="+http +iptables mysql postgres rrdtool"

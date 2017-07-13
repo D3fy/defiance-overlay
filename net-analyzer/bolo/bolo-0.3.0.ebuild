@@ -8,7 +8,7 @@ AUTOTOOLS_AUTORECONF=yes
 AUTOTOOLS_IN_SOURCE_BUILD=1
 
 DESCRIPTION="The Bolo Monitoring System"
-HOMEPAGE="https://github.com/filefrog/bolo"
+HOMEPAGE="http://bolo.niftylogic.com/"
 
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz"
 KEYWORDS="~*"

@@ -4,7 +4,7 @@ EAPI=5
 
 inherit autotools-utils git-2
 
-EGIT_REPO_URI="https://github.com/filefrog/ctap"
+EGIT_REPO_URI="https://github.com/jhunt/ctap"
 
 if [[ ${PV} != 9999 ]] ; then
 	# Set the commit ID
@@ -16,7 +16,7 @@ SLOT="0"
 
 LICENSE="GPL3"
 DESCRIPTION="Test Anything Protocol (tap) for C"
-HOMEPAGE="https://github.com/filefrog/ctap/"
+HOMEPAGE="https://github.com/jhunt/ctap/"
 
 AUTOTOOLS_AUTORECONF=yes
 IUSE="static-libs"

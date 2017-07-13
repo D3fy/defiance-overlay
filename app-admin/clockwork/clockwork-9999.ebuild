@@ -5,7 +5,7 @@ AUTOTOOLS_AUTORECONF=yes
 
 inherit base autotools-utils eutils git-2 user
 
-EGIT_REPO_URI="https://github.com/filefrog/clockwork"
+EGIT_REPO_URI="https://github.com/jhunt/clockwork"
 
 if [[ ${PV} != 9999 ]] ; then
 	# Set the commit ID

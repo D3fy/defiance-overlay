@@ -4,7 +4,7 @@ EAPI=5
 
 inherit autotools-utils git-2
 
-EGIT_REPO_URI="https://github.com/filefrog/libvigor"
+EGIT_REPO_URI="https://github.com/jhunt/libvigor"
 
 if [[ ${PV} != 9999 ]] ; then
 	# Set the commit ID
@@ -16,7 +16,7 @@ AUTOTOOLS_AUTORECONF=yes
 AUTOTOOLS_IN_SOURCE_BUILD=yes
 
 DESCRIPTION="The missing bits of C"
-HOMEPAGE="https://github.com/filefrog/libvigor"
+HOMEPAGE="https://github.com/jhunt/libvigor"
 
 LICENSE="GPL3"
 SLOT="0"

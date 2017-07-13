@@ -8,7 +8,7 @@ AUTOTOOLS_AUTORECONF=yes
 AUTOTOOLS_IN_SOURCE_BUILD=1
 
 DESCRIPTION="Collector Scripts for bolo"
-HOMEPAGE="https://github.com/filefrog/bolo-collectors"
+HOMEPAGE="http://bolo.niftylogic.com/"
 
 SRC_URI="https://github.com/bolo/${PN}/releases/download/v${PV}/${P}.tar.gz"
 KEYWORDS="~*"
