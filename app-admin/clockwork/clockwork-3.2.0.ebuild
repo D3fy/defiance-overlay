@@ -1,10 +1,10 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI='5'
+EAPI=6
 AUTOTOOLS_AUTORECONF=yes
 
-inherit base autotools-utils eutils user
+inherit eutils user
 
 SLOT="0"
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		ctap is an easy way to get Perl-style TAP testing convenience in C.
+		It ships as a standalone shared library that you can link to your
+		tests, and a header file that contains functions and macros for doing
+		things like assertions, skip/todo blocks and dynamic evaluation.
+
+		ctap stays out of your way, letting you focus on writing tests
+	</longdescription>
+</pkgmetadata>
