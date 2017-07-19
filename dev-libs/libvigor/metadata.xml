@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik></name>
+	</maintainer>
+	<longdescription lang="en">
+		This is libvigor, an attempt at a lightweight but absurdly useful runtime support library for modern C.
+	</longdescription>
+</pkgmetadata>
