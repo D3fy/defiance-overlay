@@ -3,8 +3,7 @@
 
 EAPI=6
 
-AUTOTOOLS_AUTORECONF=yes
-AUTOTOOLS_IN_SOURCE_BUILD=yes
+inherit autotools
 
 DESCRIPTION="Test Anything Protocol (tap) for C"
 HOMEPAGE="https://github.com/jhunt/ctap/"
@@ -17,3 +16,8 @@ IUSE="static-libs"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	eapply_user
+	eautoreconf
+}
