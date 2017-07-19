@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		Clockwork is a Configuration management system. It's similar to Puppet,
+		except completely written in C, utilizing zeromq for transport and
+		libsodium for encryption and authorization.
+	</longdescription>
+	<use>
+		<flag name="clockd">Install the master daemon</flag>
+		<flag name="meshd">Install the clockwork push daemon</flag>
+		<flag name="vim-syntax">Install vim syntax for clockwork configuration and recipies</flag>
+	</use>
+</pkgmetadata>

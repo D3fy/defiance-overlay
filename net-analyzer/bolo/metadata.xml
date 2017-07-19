@@ -6,6 +6,8 @@
 		<name>Dan Molik</name>
 	</maintainer>
 	<longdescription lang="en">
+		Bolo is a monitoring, alerting, and telemetry aggregation platform.
+		It's written in C and uses ZeroMQ as the network transport.
 	</longdescription>
 	<use>
 		<flag name="dbolo">Build the metrics collection agent</flag>

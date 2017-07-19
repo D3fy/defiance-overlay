@@ -7,7 +7,7 @@ inherit autotools-utils git-r3
 
 EGIT_REPO_URI="https://github.com/jhunt/ztk.git"
 
-KEYWORDS="amd64 x86 x86-linux"
+KEYWORDS="~amd64 ~x86"
 
 if [[ ${PV} != 9999 ]] ; then
 	# Set the commit ID

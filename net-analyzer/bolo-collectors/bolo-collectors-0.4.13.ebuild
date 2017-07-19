@@ -12,7 +12,7 @@ DESCRIPTION="Collector Scripts for bolo"
 HOMEPAGE="http://bolo.niftylogic.com/"
 
 SRC_URI="https://github.com/bolo/${PN}/releases/download/v${PV}/${P}.tar.gz"
-KEYWORDS="~*"
+KEYWORDS="~arm ~amd64 ~x86"
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="+http +iptables mysql postgres rrdtool snmp"

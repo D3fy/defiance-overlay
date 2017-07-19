@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit base autotools-utils git-2 eutils user
+inherit base autotools-utils git-r3 eutils user
 
 AUTOTOOLS_AUTORECONF=yes
 AUTOTOOLS_IN_SOURCE_BUILD=1

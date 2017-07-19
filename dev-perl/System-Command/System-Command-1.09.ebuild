@@ -11,5 +11,5 @@ DESCRIPTION="Object for running system commands"
 LICENSE="|| ( Artistic GPL-2 )"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~arm ~amd64 ~x86"
 IUSE=""

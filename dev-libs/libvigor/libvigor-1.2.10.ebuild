@@ -11,7 +11,7 @@ AUTOTOOLS_IN_SOURCE_BUILD=yes
 DESCRIPTION="The missing bits of C"
 HOMEPAGE="https://github.com/jhunt/libvigor"
 SRC_URI="https://github.com/jhunt/${PN}/releases/download/v${PV}/${P}.tar.gz"
-KEYWORDS="arm amd64 x86"
+KEYWORDS="~arm ~amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0"

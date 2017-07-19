@@ -10,7 +10,7 @@ EGIT_REPO_URI="https://github.com/jhunt/ctap"
 if [[ ${PV} != 9999 ]] ; then
 	# Set the commit ID
 	EGIT_COMMIT="e96b0627f5d91ea1ef431ccc1b8c5f3399b10c2b"
-	KEYWORDS="amd64 x86 x86-linux"
+	KEYWORDS="~amd64 ~x86 ~x86-linux"
 fi
 
 SLOT="0"
