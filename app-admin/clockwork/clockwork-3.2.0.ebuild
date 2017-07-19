@@ -4,7 +4,7 @@
 EAPI=6
 AUTOTOOLS_AUTORECONF=yes
 
-inherit eutils user
+inherit autotools eutils user
 
 SLOT="0"
 
@@ -34,7 +34,10 @@ RDEPEND="
 	app-portage/eix
 "
 
-AUTOTOOLS_IN_SOURCE_BUILD=1
+src_prepare() {
+	eapply_user
+	eautoreconf
+}
 
 pkg_setup() {
 	enewgroup clock
