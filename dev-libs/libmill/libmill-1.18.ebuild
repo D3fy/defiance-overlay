@@ -3,6 +3,8 @@
 
 EAPI=6
 
+inherit autotools
+
 AUTOTOOLS_AUTORECONF=yes
 AUTOTOOLS_IN_SOURCE_BUILD=yes
 

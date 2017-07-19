@@ -1,4 +1,5 @@
 DEFINED_PHASES=-
+DEPEND=>=app-portage/elt-patches-20170317 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DESCRIPTION=Go-style concurrency for C
 EAPI=6
 HOMEPAGE=http://libmill.org/
@@ -6,4 +7,5 @@ KEYWORDS=~arm ~amd64 ~x86
 LICENSE=GPL-3
 SLOT=0
 SRC_URI=https://github.com/sustrik/libmill/archive/1.18.tar.gz -> libmill-1.18.tar.gz
-_md5_=c15805ee9deb390b1551fa87032edd6b
+_eclasses_=autotools	7027963e8e8cc12c91117bdb9225dc26	libtool	e32ea84bf82cf8987965b574672dba93	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	8fec6b1eb195836560e70b66d98fb163
+_md5_=502a4eb9504fc85d6e4eb89cdbe686dc
