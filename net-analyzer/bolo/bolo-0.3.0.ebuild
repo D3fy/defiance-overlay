@@ -1,12 +1,9 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
-inherit base autotools-utils eutils user
-
-AUTOTOOLS_AUTORECONF=yes
-AUTOTOOLS_IN_SOURCE_BUILD=1
+inherit eutils user
 
 DESCRIPTION="The Bolo Monitoring System"
 HOMEPAGE="http://bolo.niftylogic.com/"
@@ -18,15 +15,13 @@ SLOT="0"
 IUSE="core +dbolo meta postgres rrdtool sqlite"
 
 DEPEND="
-	>=dev-libs/ctap-1.1.5
-"
-RDEPEND="
 	>=dev-libs/libvigor-1.1.0
 	dev-libs/libpcre
 	rrdtool? ( net-analyzer/rrdtool )
 	postgres? ( dev-db/postgresql:* )
 	sqlite? ( dev-db/sqlite )
 "
+RDEPEND="${DEPEND}"
 
 pkg_setup() {
 	enewgroup bolo

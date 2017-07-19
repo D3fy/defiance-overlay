@@ -1,12 +1,9 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
-inherit base autotools-utils eutils
-
-AUTOTOOLS_AUTORECONF=yes
-AUTOTOOLS_IN_SOURCE_BUILD=1
+inherit autotools eutils
 
 DESCRIPTION="Collector Scripts for bolo"
 HOMEPAGE="http://bolo.niftylogic.com/"
@@ -27,6 +24,11 @@ DEPEND="
 	snmp?     ( dev-perl/Net-SNMP )
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	eapply_user
+	eautoreconf
+}
 
 src_configure() {
 	econf \

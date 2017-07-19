@@ -15,23 +15,27 @@ HOMEPAGE="http://clockwork.niftylogic.com/"
 SRC_URI="https://github.com/jhunt/clockwork/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="clockd meshd vim-syntax"
+IUSE="clockd meshd vim-syntax test"
 
 DEPEND="
 	>=sys-devel/bison-3.0.0
 	sys-devel/flex
 	dev-libs/libpcre
 	app-admin/augeas
+	sys-libs/readline:*
 	>=dev-libs/libvigor-1.2.6
 	>=dev-libs/ctap-1.1.5
-	dev-util/ccache
+	sys-apps/util-linux
+	test? ( dev-libs/ctap )
 "
 RDEPEND="
 	dev-libs/libpcre
 	app-admin/augeas
+	sys-libs/readline:*
 	>=dev-libs/libvigor-1.2.6
 	dev-util/ccache
 	app-portage/eix
+	sys-apps/util-linux
 "
 
 src_prepare() {

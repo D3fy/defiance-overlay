@@ -1,12 +1,9 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
-inherit base autotools-utils git-r3 eutils
-
-AUTOTOOLS_AUTORECONF=yes
-AUTOTOOLS_IN_SOURCE_BUILD=1
+inherit autotools git-r3 eutils
 
 DESCRIPTION="Collector Scripts for bolo"
 HOMEPAGE="https://github.com/bolo/bolo-collectors"
@@ -25,6 +22,11 @@ DEPEND="
 	rrdtool?  ( net-analyzer/rrdtool )
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	eapply_user
+	eautoreconf
+}
 
 src_configure() {
 	econf \
