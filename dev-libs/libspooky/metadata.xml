@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		This is a C version of Bob Jenkin's spooky hash. The only advantage over
+		Bob's original version is that it is in C, not C++ and comes with some
+		test and benchmark code.
+
+		This is a very competitive hash function, but is somewhat unportable (64bit
+		little endian only). It's more portable than some of the contenders like
+		CityHash.
+
+		Quoting Bobs original description: SpookyHash: a 128-bit noncryptographic
+		hash function By Bob Jenkins, public domain
+	</longdescription>
+</pkgmetadata>
