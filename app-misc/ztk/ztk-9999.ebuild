@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit git-r3
+inherit autotools git-r3
 
 EGIT_REPO_URI="https://github.com/jhunt/ztk.git"
 
@@ -30,3 +30,8 @@ DEPEND="
 	net-libs/zeromq
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	eapply_user
+	eautoreconf
+}

@@ -10,13 +10,17 @@ KEYWORDS="~arm ~amd64 ~x86"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
+IUSE="test"
 
 DEPEND="
 	dev-libs/libsodium
 	net-libs/zeromq
+	test? ( dev-libs/ctap )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	dev-libs/libsodium
+	net-libs/zeromq
+"
 
 src_compile() {
 	emake -j1 || die
