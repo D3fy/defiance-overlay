@@ -1,3 +1,4 @@
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI='5'
@@ -15,7 +16,7 @@ fi
 
 SLOT="0"
 
-LICENSE="CCLv3"
+LICENSE="GPL-3"
 DESCRIPTION="The nifty configuration managment system"
 HOMEPAGE="http://clockwork.niftylogic.com/"
 

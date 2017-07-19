@@ -1,3 +1,4 @@
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -10,9 +11,9 @@ AUTOTOOLS_IN_SOURCE_BUILD=yes
 DESCRIPTION="Go-style concurrency for C"
 HOMEPAGE="http://libmill.org/"
 SRC_URI="https://github.com/sustrik/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="*"
+KEYWORDS="amd64 x86"
 
-LICENSE="GPL3"
+LICENSE="GPL-3"
 SLOT="0"
 IUSE=""
 

@@ -1,3 +1,4 @@
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -12,7 +13,7 @@ HOMEPAGE="http://bolo.niftylogic.com/"
 
 SRC_URI="https://github.com/bolo/${PN}/releases/download/v${PV}/${P}.tar.gz"
 KEYWORDS="~*"
-LICENSE="GPLv3"
+LICENSE="GPL-3"
 SLOT="0"
 IUSE="+http +iptables mysql postgres rrdtool snmp"
 
@@ -21,7 +22,7 @@ DEPEND="
 	http?     ( net-misc/curl )
 	iptables? ( net-firewall/iptables[ipv6] )
 	mysql?    ( virtual/mysql )
-	postgres? ( dev-db/postgresql )
+	postgres? ( dev-db/postgresql:* )
 	rrdtool?  ( net-analyzer/rrdtool )
 	snmp?     ( dev-perl/Net-SNMP )
 "

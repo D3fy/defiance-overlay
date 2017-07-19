@@ -1,3 +1,4 @@
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI='5'
@@ -7,12 +8,12 @@ inherit base autotools-utils eutils user
 
 SLOT="0"
 
-LICENSE="GPLv3"
+LICENSE="GPL-3"
 DESCRIPTION="The nifty configuration managment system"
 HOMEPAGE="http://clockwork.niftylogic.com/"
 
 SRC_URI="https://github.com/jhunt/clockwork/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="*"
+KEYWORDS="arm amd64 x86"
 
 IUSE="clockd meshd vim-syntax"
 

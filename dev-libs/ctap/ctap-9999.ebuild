@@ -1,8 +1,9 @@
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
 
-inherit autotools-utils git-2
+inherit autotools-utils git-r3
 
 EGIT_REPO_URI="https://github.com/jhunt/ctap"
 
@@ -14,7 +15,7 @@ fi
 
 SLOT="0"
 
-LICENSE="GPL3"
+LICENSE="GPL-3"
 DESCRIPTION="Test Anything Protocol (tap) for C"
 HOMEPAGE="https://github.com/jhunt/ctap/"
 

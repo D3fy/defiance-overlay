@@ -1,3 +1,4 @@
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -12,7 +13,7 @@ HOMEPAGE="http://bolo.niftylogic.com/"
 
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz"
 KEYWORDS="~*"
-LICENSE="GPL3"
+LICENSE="GPL-3"
 SLOT="0"
 IUSE="core +dbolo meta postgres rrdtool sqlite"
 
@@ -23,7 +24,7 @@ RDEPEND="
 	>=dev-libs/libvigor-1.1.0
 	dev-libs/libpcre
 	rrdtool? ( net-analyzer/rrdtool )
-	postgres? ( dev-db/postgresql )
+	postgres? ( dev-db/postgresql:* )
 	sqlite? ( dev-db/sqlite )
 "
 

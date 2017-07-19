@@ -1,3 +1,4 @@
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -11,9 +12,9 @@ DESCRIPTION="Test Anything Protocol (tap) for C"
 HOMEPAGE="https://github.com/jhunt/ctap/"
 SRC_URI="https://github.com/jhunt/${PN}/releases/download/v${PV}/${P}.tar.gz"
 
-KEYWORDS="*"
+KEYWORDS="arm amd64 x86"
 SLOT="0"
-LICENSE="GPL3"
+LICENSE="GPL-3"
 IUSE="static-libs"
 
 DEPEND=""

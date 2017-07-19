@@ -1,3 +1,4 @@
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -8,7 +9,7 @@ inherit perl-module
 DESCRIPTION="Perl OAuth 2.0 implementation"
 
 SLOT="0"
-KEYWORDS="*"
+KEYWORDS="arm amd64 x86"
 IUSE=""
 
 RDEPEND="

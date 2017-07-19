@@ -1,8 +1,9 @@
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
 
-inherit base autotools-utils git-2 eutils
+inherit base autotools-utils git-r3 eutils
 
 AUTOTOOLS_AUTORECONF=yes
 AUTOTOOLS_IN_SOURCE_BUILD=1
@@ -11,7 +12,7 @@ DESCRIPTION="Collector Scripts for bolo"
 HOMEPAGE="https://github.com/bolo/bolo-collectors"
 
 EGIT_REPO_URI="https://github.com/bolo/bolo-collectors"
-LICENSE="GPLv3"
+LICENSE="GPL-3"
 SLOT="0"
 IUSE="+http +iptables mysql postgres rrdtool"
 
@@ -20,7 +21,7 @@ DEPEND="
 	http?     ( net-misc/curl )
 	iptables? ( net-firewall/iptables[ipv6] )
 	mysql?    ( virtual/mysql )
-	postgres? ( dev-db/postgresql )
+	postgres? ( dev-db/postgresql:* )
 	rrdtool?  ( net-analyzer/rrdtool )
 "
 RDEPEND="${DEPEND}"

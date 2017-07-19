@@ -3,10 +3,10 @@ DEPEND=dev-perl/String-PerlIdentifier dev-lang/perl:=[-build(-)]
 DESCRIPTION=Place file safely under user home directory
 EAPI=5
 HOMEPAGE=http://search.cpan.org/dist/File-Save-Home/
-KEYWORDS=alpha amd64 amd64-fbsd arm hppa ia64 m68k mips ppc ppc64 s390 sh sparc sparc-fbsd x86 x86-fbsd ppc-aix x86-freebsd x64-freebsd sparc64-freebsd hppa-hpux ia64-hpux x86-interix amd64-linux arm-linux ia64-linux ppc64-linux x86-linux ppc-macos x86-macos x64-macos m68k-mint x86-netbsd ppc-openbsd x86-openbsd x64-openbsd sparc-solaris sparc64-solaris x64-solaris x86-solaris x86-winnt x86-cygwin
+KEYWORDS=arm amd64 amd64-linux x86 x86-linux
 LICENSE=|| ( Artistic GPL-1 GPL-2 GPL-3 )
 RDEPEND=dev-lang/perl:=[-build(-)]
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/J/JK/JKEENAN/File-Save-Home-0.09.tar.gz
 _eclasses_=epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	9c113d6a64826c40154cad7be15d95ea	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	multiprocessing	284a473719153462f3e974d86c8cb81c	perl-functions	01e8c68d5a528bbcda4d3c60205983df	perl-module	863b35d127db98823d439f8d73c2d011	toolchain-funcs	8fec6b1eb195836560e70b66d98fb163	unpacker	f40f7b4bd5aa88c2a4ba7b0d1e0ded70
-_md5_=04aaa4e37757c9b73512390edbbef93c
+_md5_=c18ca275b9e352bf21691ff0634dee04

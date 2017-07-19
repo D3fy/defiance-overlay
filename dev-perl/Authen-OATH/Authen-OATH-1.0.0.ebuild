@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
@@ -10,9 +9,10 @@ inherit perl-module
 DESCRIPTION="OATH One Time Passwords"
 SRC_URI="http://search.cpan.org/CPAN/authors/id/S/SI/SIFUKURT/${PN}-v${PV}.tar.gz"
 S="${WORKDIR}/${PN}-v${PV}"
-#LICENSE="|| ( Artistic GPL-1+ )"
+
 SLOT="0"
-KEYWORDS="~*"
+
+KEYWORDS="arm amd64 amd64-linux x86 x86-linux"
 IUSE=""
 
 RDEPEND="
