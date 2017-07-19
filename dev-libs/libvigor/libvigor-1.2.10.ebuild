@@ -13,7 +13,6 @@ SLOT="0"
 IUSE=""
 
 DEPEND="
-	>=dev-libs/ctap-1.1.5
 	dev-libs/libsodium
 	net-libs/zeromq
 "
