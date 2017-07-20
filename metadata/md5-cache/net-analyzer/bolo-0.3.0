@@ -1,13 +1,13 @@
 DEFINED_PHASES=configure install setup
-DEPEND=>=dev-libs/libvigor-1.1.0 dev-libs/libpcre rrdtool? ( net-analyzer/rrdtool ) postgres? ( dev-db/postgresql:* ) sqlite? ( dev-db/sqlite )
+DEPEND=>=dev-libs/libvigor-1.1.0 dev-libs/libpcre rrdtool? ( net-analyzer/rrdtool ) postgres? ( dev-db/postgresql:* ) sqlite? ( dev-db/sqlite ) redis? ( dev-libs/hiredis )
 DESCRIPTION=The Bolo Monitoring System
 EAPI=6
 HOMEPAGE=http://bolo.niftylogic.com/
-IUSE=core +dbolo meta postgres rrdtool sqlite
+IUSE=core +dbolo meta postgres redis rrdtool sqlite
 KEYWORDS=~arm ~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=>=dev-libs/libvigor-1.1.0 dev-libs/libpcre rrdtool? ( net-analyzer/rrdtool ) postgres? ( dev-db/postgresql:* ) sqlite? ( dev-db/sqlite )
+RDEPEND=>=dev-libs/libvigor-1.1.0 dev-libs/libpcre rrdtool? ( net-analyzer/rrdtool ) postgres? ( dev-db/postgresql:* ) sqlite? ( dev-db/sqlite ) redis? ( dev-libs/hiredis )
 SLOT=0
 SRC_URI=https://github.com/bolo/bolo/releases/download/v0.3.0/bolo-0.3.0.tar.gz
 _eclasses_=epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	9c113d6a64826c40154cad7be15d95ea	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	8fec6b1eb195836560e70b66d98fb163	user	e4b567c44272a719fabf53f0f885d3f7
-_md5_=04d176f867e530e38aafff567694e3d9
+_md5_=c71de9a2fd2059bc19246925f4c1fbd1

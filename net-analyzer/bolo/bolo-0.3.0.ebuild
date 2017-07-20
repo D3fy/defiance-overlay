@@ -12,7 +12,7 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz"
 KEYWORDS="~arm ~amd64 ~x86"
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="core +dbolo meta postgres rrdtool sqlite"
+IUSE="core +dbolo meta postgres redis rrdtool sqlite"
 
 DEPEND="
 	>=dev-libs/libvigor-1.1.0
@@ -20,6 +20,7 @@ DEPEND="
 	rrdtool? ( net-analyzer/rrdtool )
 	postgres? ( dev-db/postgresql:* )
 	sqlite? ( dev-db/sqlite )
+	redis? ( dev-libs/hiredis )
 "
 RDEPEND="${DEPEND}"
 
@@ -32,15 +33,16 @@ src_configure() {
 	econf \
 		$(use_with postgres pg-subscriber) \
 		$(use_with rrdtool rrd-subscriber) \
-		$(use_with sqlite sqlite-subscriber)
+		$(use_with sqlite sqlite-subscriber) \
+		$(use_with redis redis-subscriber)
 }
 
 src_install() {
 	einfo   "Installing Bolo Monitoring System"
 	insinto  /etc/bolo
 	insopts  -o bolo -g bolo
-	doman    man/send_bolo.1 man/stat_bolo.1
-	dobin    send_bolo stat_bolo bolospy bolo_nsca
+	doman    man/bolo_send.1 man/bolo_stat.1
+	dobin    bolo bolospy bolo_nsca
 	if use core; then
 		einfo    "  Core"
 		dosbin    bolo
