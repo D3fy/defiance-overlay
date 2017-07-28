@@ -10,11 +10,12 @@
 		It's written in C and uses ZeroMQ as the network transport.
 	</longdescription>
 	<use>
-		<flag name="dbolo">Build the metrics collection agent</flag>
 		<flag name="core">Build the aggregation daemon</flag>
-		<flag name="postgres">Build the daemon to dump alerts to postgres</flag>
-		<flag name="rrdtool">Build the daemon to dump metrics to rrd</flag>
+		<flag name="dbolo">Build the metrics collection agent</flag>
 		<flag name="meta">Build the daemon to track internal performance</flag>
+		<flag name="postgres">Build the daemon to dump alerts to postgres</flag>
+		<flag name="redis">Build the keys to redis daemon</flag>
+		<flag name="rrdtool">Build the daemon to dump metrics to rrd</flag>
 		<flag name="sqlite">Build the daemon to dump alerts to sqlite</flag>
 	</use>
 </pkgmetadata>

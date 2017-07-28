@@ -3,7 +3,7 @@
 
 EAPI=5
 
-MODULE_AUTHOR="BOBTFISH"
+MODULE_AUTHOR="ETHER"
 
 inherit perl-module
 

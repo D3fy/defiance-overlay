@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Dan Molik</name>
+		<email>dan@d3fy.net</email>
+	</maintainer>
+	<longdescription lang="en">
+		When writing test suites for modules that operate on files, it's often
+		inconvenient to correctly create a platform-independent temporary storage
+		space, manipulate files inside it, then clean it up when the test exits.
+		The inconvenience usually results in tests that don't work everywhere,
+		or worse, no tests at all.
+
+		This module aims to eliminate that problem by making it easy to do
+		things right.
+	</longdescription>
+</pkgmetadata>
