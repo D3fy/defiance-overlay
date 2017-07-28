@@ -49,7 +49,7 @@ src_install() {
 	insinto  /etc/bolo
 	insopts  -o bolo -g bolo
 	doman    man/bolo-send.1 man/bolo-spy.1
-	dobin    bolo bolospy bolo_nsca
+	dobin    bolo
 	if use core; then
 		einfo    "  Core"
 		dosbin    bolo
