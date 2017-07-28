@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		Curve - authentication and encryption library
+		Curve implements the CurveZMQ elliptic curve security mechanism, for use in ZeroMQ applications. This library is primarily a reference implementation for the CurveZMQ specification but may also be used for end-to-end security.
+
+		The ZeroMQ core library has its own implementation of CurveZMQ over TCP, since July 2013. The Curve library is intended:
+
+		To facilitate CurveZMQ implementations in other languages by providing a reference implementation.
+		To provide security for older versions of ZeroMQ.
+		To provide end-to-end security over untrusted intermediaries, for instance between two chat clients connected over a public ZeroMQ-based chat server.
+		To provide security over other transports that fit the one-to-one model (it will not work over multicast).
+	</longdescription>
+</pkgmetadata>

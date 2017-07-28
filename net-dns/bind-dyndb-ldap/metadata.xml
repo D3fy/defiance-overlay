@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		The dynamic LDAP back-end is a plug-in for BIND that provides an LDAP database back-end capabilities. It requires dyndb interface which is present in BIND versions >= 9.11.0rc1.
+
+		Features
+		support for dynamic updates
+		SASL authentication
+		SyncRepl (RFC 4533) for run-time synchronization with LDAP server
+		read-query performance nearly same as with plain BIND
+		AXFR and IXFR zone transfers are supported
+		DNSSEC in-line signing is supported, including dynamic updates
+	</longdescription>
+</pkgmetadata>
