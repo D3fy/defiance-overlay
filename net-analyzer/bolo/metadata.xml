@@ -11,11 +11,15 @@
 	</longdescription>
 	<use>
 		<flag name="core">Build the aggregation daemon</flag>
+		<flag name="console">Build the ncurses console subscriber</flag>
 		<flag name="dbolo">Build the metrics collection agent</flag>
+		<flag name="ffd">Build the flat file daemon subscriber to store metrics</flag>
+		<flag name="influxdb">Build the influxdb subscriber to send metrics</flag>
 		<flag name="meta">Build the daemon to track internal performance</flag>
 		<flag name="postgres">Build the daemon to dump alerts to postgres</flag>
 		<flag name="redis">Build the keys to redis daemon</flag>
 		<flag name="rrdtool">Build the daemon to dump metrics to rrd</flag>
+		<flag name="slack">Build the slack subscriber to send alets</flag>
 		<flag name="sqlite">Build the daemon to dump alerts to sqlite</flag>
 	</use>
 </pkgmetadata>
