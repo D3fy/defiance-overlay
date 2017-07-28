@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Dan Molik</name>
+		<email>dan@d3fy.net</email>
+	</maintainer>
+	<longdescription lang="en">
+		In the course of deploying an application on another user's system, you sometimes need to place a file in or underneath that user's home directory. Can you do so safely?
+
+		This Perl extension provides several functions which try to determine whether you can, indeed, safely create directories and files underneath a user's home directory. Among other things, if you are placing a file in such a location only temporarily -- say, for testing purposes -- you can temporarily hide any already existing file with the same name and restore it to its original name and timestamps when you are done.
+	</longdescription>
+</pkgmetadata>

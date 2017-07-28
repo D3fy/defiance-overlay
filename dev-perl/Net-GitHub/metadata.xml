@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Dan Molik</name>
+		<email>dan@d3fy.net</email>
+	</maintainer>
+	<longdescription lang="en">
+		http://github.com is a popular git host.
+
+This distribution provides easy methods to access GitHub via their APIs.
+
+Check http://developer.github.com/ for more details of the GitHub APIs.
+
+Read Net::GitHub::V3 for API usage.
+
+Read Net::GitHub::V4 for GitHub GraphQL API.
+
+If you prefer object oriented way, Pithub is 'There is more than one way to do it'.
+	</longdescription>
+</pkgmetadata>
