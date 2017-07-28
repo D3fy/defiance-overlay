@@ -48,12 +48,14 @@ src_install() {
 	einfo   "Installing Bolo Monitoring System"
 	insinto  /etc/bolo
 	insopts  -o bolo -g bolo
-	doman    man/bolo-send.1 man/bolo-spy.1
+	doman    man/bolo-send.1
 	dobin    bolo
 	if use core; then
 		einfo    "  Core"
 		dosbin    bolo
-		doman     man/bolo.conf.5 man/bolo.8
+		doman     man/bolo.conf.5 man/bolo.1       man/bolo-forget.1
+		doman     man/bolo-name.1 man/bolo-query.1 man/bolo-cache.1
+		doman     man/bolo-spy.1  man/bolo-aggr.1
 		doins    "${FILESDIR}/bolo.conf"
 		newinitd "${FILESDIR}/bolo.initd" bolo
 		newinitd "${FILESDIR}/bolo2log.initd" bolo2log
