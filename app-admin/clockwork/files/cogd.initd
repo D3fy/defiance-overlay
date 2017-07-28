@@ -3,11 +3,14 @@
 
 extra_commands="reload"
 
-pidfile=/var/run/cogd.pid
-cogd=/usr/sbin/cogd
+command=/usr/sbin/cogd
+COGD_CONF=${COGD_CONF:-/etc/clockwork/meshd.conf}
+commad_args="-c \"${COGD_CONF}\""
+pidfile=${COGD_PIDFILE:-/run/meshd.pid}
 
 depend() {
-	use  net logger
+	need net
+	use  dns logger
 }
 
 ckconfig() {
@@ -20,26 +23,9 @@ ckconfig() {
 
 }
 
-start() {
-	ebegin "Starting clockwork client"
-	ckconfig
-	start-stop-daemon --start --quiet \
-		--background --exec ${cogd} --pidfile ${pidfile}
-	eend $?
-}
-
-stop() {
-	ebegin "Stopping clockwork client"
-	start-stop-daemon --stop --quiet \
-		--exec ${cogd} --pidfile ${pidfile}
-	eend $?
-}
-
 reload() {
 	ebegin "Reloading clockwork client"
 	start-stop-daemon --exec ${cogd} --signal HUP \
 		--pidfile ${pidfile}
 	eend $?
 }
-
-# vim:ts=4
