@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Dan Molik</name>
+		<email>dan@d3fy.net</email>
+	</maintainer>
+	<longdescription lang="en">
+		This module automatically exports a single subroutine, make_varname(), which returns a string composed of random characters that qualifies as the name for a Perl variable. The characters are limited to upper- and lower-case letters in the English alphabet, the numerals from 0 through 9 and the underscore character. The first character may not be a numeral.
+
+By default, make_varname() returns a string of 10 characters, but if a numerical argument between 3 and 20 is passed to it, a string of that length will be returned. Arguments smaller than 3 are rounded up to 3; arguments greater than 20 are rounded down to 20.
+	</longdescription>
+</pkgmetadata>

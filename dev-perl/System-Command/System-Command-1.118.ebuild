@@ -4,7 +4,6 @@
 EAPI=5
 
 MODULE_AUTHOR=BOOK
-MODULE_VERSION=1.09
 inherit perl-module
 
 DESCRIPTION="Object for running system commands"
