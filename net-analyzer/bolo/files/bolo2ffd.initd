@@ -1,11 +1,12 @@
 #!/sbin/runscript
 # Distributed under the terms of the GNU General Public License v2
 
-PIDFILE=/var/run/bolo2rrd.pid
-BIN=/usr/sbin/bolo2rrd
+PIDFILE=/run/${SVCNAME}.pid
+command=/usr/sbin/${SVCNAME}
 
 depend() {
-	use net logger
+	need net
+	use  dns logger
 }
 
 start() {
@@ -13,7 +14,7 @@ start() {
 		${RRD}
 	ebegin "Starting Bolo2RRD"
 	start-stop-daemon --start --quiet \
-		--background --exec ${BIN} \
+		--background --exec ${command} \
 		--pidfile ${PIDFILE} -- -p ${PIDFILE} \
 		-u ${USER} -g ${GROUP} -e ${ENDPOINT} \
 		-r ${RRD}
@@ -23,7 +24,7 @@ start() {
 stop() {
 	ebegin "Stopping Bolo2RRD"
 	start-stop-daemon --stop --quiet \
-		--exec ${BIN} --pidfile ${PIDFILE}
+		--exec ${command} --pidfile ${PIDFILE}
 	eend $?
 }
 
