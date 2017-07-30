@@ -1,34 +1,27 @@
-#!/sbin/runscript
+#!/sbin/openrc-run
 # Distributed under the terms of the GNU General Public License v2
 
 extra_commands="reload"
 
-PIDFILE=/var/run/bolo.pid
-BIN=/usr/sbin/bolo
+pidfile=/run/${SVCNAME}.pid
+command="/usr/bin/${SVCNAME}"
+command_args="aggr"
+
+data_dir=${data_dir:-"/var/lib/${SVCNAME}"}
 
 depend() {
-	use net logger
+	need net
+	use  dns logger
 }
 
-start() {
+start_pre() {
 	checkpath --directory --owner bolo:bolo --mode 0770 \
-		/var/lib/bolo
-	ebegin "Starting Bolo"
-	start-stop-daemon --start --quiet \
-		--background --exec ${BIN} --pidfile ${PIDFILE}
-	eend $?
-}
-
-stop() {
-	ebegin "Stopping Bolo"
-	start-stop-daemon --stop --quiet \
-		--exec ${BIN} --pidfile ${PIDFILE}
-	eend $?
+		${data_dir}
 }
 
 reload() {
 	ebegin "Reloading Bolo"
-	start-stop-daemon --exec ${BIN} --signal HUP \
+	start-stop-daemon --exec ${command} --signal HUP \
 		--pidfile ${PIDFILE}
 	eend $?
 }
