@@ -12,7 +12,7 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz"
 KEYWORDS="~arm ~amd64 ~x86"
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="core console +dbolo ffd influxdb meta postgres redis rrdtool slack sqlite"
+IUSE="core console +dbolo ffd influxdb meta postgres redis rrdtool slack sqlite test"
 
 DEPEND="
 	>=dev-libs/libvigor-1.1.0
@@ -24,6 +24,7 @@ DEPEND="
 	postgres? ( dev-db/postgresql:* )
 	slack? ( net-misc/curl )
 	sqlite? ( dev-db/sqlite )
+	test? ( dev-libs/ctap )
 "
 RDEPEND="${DEPEND}"
 
