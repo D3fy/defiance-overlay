@@ -85,7 +85,7 @@ src_install() {
 	fi
 	if use influxdb; then
 		einfo    "  InfluxDB Subscriber"
-		dosbin    bolo2infludb
+		dosbin    bolo2influxdb
 		doman     man/bolo2influxdb.8
 		newinitd "${FILESDIR}/bolo2influxdb.initd" bolo2influxdb
 		newconfd "${FILESDIR}/bolo2influxdb.confd" bolo2influxdb
