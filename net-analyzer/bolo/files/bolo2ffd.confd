@@ -1,0 +1,11 @@
+# conf.d file for bolo2rrd
+
+USER="bolo"
+GROUP="bolo"
+
+# The endpoint is the bolo subscriber endpoint
+# Where bolo2rrd connectes to and looks for events
+ENDPOINT="tcp://127.0.0.1:2999"
+
+# The root directory where the RRDs are stored
+RRD="/var/lib/bolo/rrd"

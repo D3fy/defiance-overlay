@@ -25,7 +25,7 @@ ckconfig() {
 
 reload() {
 	ebegin "Reloading clockwork client"
-	start-stop-daemon --exec ${cogd} --signal HUP \
+	start-stop-daemon --exec ${command} --signal HUP \
 		--pidfile ${pidfile}
 	eend $?
 }

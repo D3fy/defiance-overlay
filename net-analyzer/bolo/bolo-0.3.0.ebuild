@@ -36,12 +36,12 @@ src_configure() {
 	econf \
 		$(use_with console console-subscriber) \
 		$(use_with ffd ffd-subscriber) \
+		$(use_with influxdb influxdb-subscriber) \
 		$(use_with postgres pg-subscriber) \
 		$(use_with redis redis-subscriber) \
 		$(use_with rrdtool rrd-subscriber) \
 		$(use_with sqlite sqlite-subscriber) \
-		$(use_with slack slack-subscriber) \
-		$(use_with influxdb influxdb-subscriber)
+		$(use_with slack slack-subscriber)
 }
 
 src_install() {
@@ -68,6 +68,20 @@ src_install() {
 		newinitd "${FILESDIR}/dbolo.initd" dbolo
 		newconfd "${FILESDIR}/dbolo.confd" dbolo
 	fi
+	if use ffd; then
+		einfo    "  Flat File Subscriber"
+		dosbin    bolo2ffd
+		doman     man/bolo2ffd.8
+		newinitd "${FILESDIR}/bolo2ffd.initd" bolo2ffd
+		newconfd "${FILESDIR}/bolo2ffd.confd" bolo2ffd
+	fi
+	if use influxdb; then
+		einfo    "  InfluxDB Subscriber"
+		dosbin    bolo2infludb
+		doman     man/bolo2influxdb.8
+		newinitd "${FILESDIR}/bolo2influxdb.initd" bolo2influxdb
+		newconfd "${FILESDIR}/bolo2influxdb.confd" bolo2influxdb
+	fi
 	if use meta; then
 		einfo    "  Meta Subscriber"
 		dosbin    bolo2meta
@@ -85,6 +99,13 @@ src_install() {
 		newinitd "${FILESDIR}/bolo2pg.initd" bolo2pg
 		newconfd "${FILESDIR}/bolo2pg.confd" bolo2pg
 	fi
+	if use redis; then
+		einfo    "  Redis Subscriber"
+		dosbin    bolo2redis
+		doman     man/bolo2redis.8
+		newinitd "${FILESDIR}/bolo2redis.initd" bolo2redis
+		newconfd "${FILESDIR}/bolo2redis.confd" bolo2redis
+	fi
 	if use rrdtool; then
 		einfo    "  RRD Subscriber"
 		dosbin    bolo2rrd
@@ -98,5 +119,12 @@ src_install() {
 		# doman     man/bolo2sqlite.8
 		newinitd "${FILESDIR}/bolo2sqlite.initd" bolo2sqlite
 		newconfd "${FILESDIR}/bolo2sqlite.confd" bolo2sqlite
+	fi
+	if use slack; then
+		einfo    "  Slack Subscriber"
+		dosbin    bolo2slack
+		# doman     man/bolo2sqlite.8
+		newinitd "${FILESDIR}/bolo2slack.initd" bolo2slack
+		newconfd "${FILESDIR}/bolo2slack.confd" bolo2slack
 	fi
 }

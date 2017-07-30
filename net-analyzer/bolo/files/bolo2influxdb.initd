@@ -1,27 +1,28 @@
-#!/sbin/openrc-run
+#!/sbin/runscript
 # Distributed under the terms of the GNU General Public License v2
 
-PIDFILE=/run/${SVCNAME}.pid
-command=/usr/sbin/${SVCNAME}
+PIDFILE=/var/run/bolo2sqlite.pid
+BIN=/usr/sbin/bolo2sqlite
 
 depend() {
-	need net
-	use  dns logger
+	use net logger
 }
 
 start() {
-	ebegin "Starting DBolo"
+	ebegin "Starting Bolo2sqlite"
 	start-stop-daemon --start --quiet \
 		--background --exec ${BIN} \
 		--pidfile ${PIDFILE} -- -p ${PIDFILE} \
 		-u ${USER} -g ${GROUP} -e ${ENDPOINT} \
-		-s ${SPLAY} -c ${COMMANDS}
+		-d ${DATABASE}
 	eend $?
 }
 
 stop() {
-	ebegin "Stopping DBolo"
+	ebegin "Stopping Bolo2sqlite"
 	start-stop-daemon --stop --quiet \
 		--exec ${BIN} --pidfile ${PIDFILE}
 	eend $?
 }
+
+# vim:ts=4
