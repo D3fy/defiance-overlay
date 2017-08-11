@@ -24,9 +24,11 @@ DEPEND="
 	app-admin/augeas
 	sys-libs/readline:*
 	>=dev-libs/libvigor-1.2.6
-	>=dev-libs/ctap-1.1.5
 	sys-apps/util-linux
-	test? ( dev-libs/ctap )
+	test? (
+		dev-perl/Text-Diff
+		dev-libs/ctap
+	)
 "
 RDEPEND="
 	dev-libs/libpcre
