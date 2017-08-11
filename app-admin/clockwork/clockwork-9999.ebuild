@@ -25,6 +25,7 @@ DEPEND="
 	sys-apps/util-linux
 	test? (
 		dev-perl/Text-Diff
+		dev-perl/File-Slurp
 		dev-libs/ctap
 	)
 "
