@@ -1,0 +1,10 @@
+DEFINED_PHASES=prepare unpack
+DEPEND=>=net-dns/bind-9.11 >=app-portage/elt-patches-20170422 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1
+DESCRIPTION=Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)
+EAPI=6
+HOMEPAGE=https://fedorahosted.org/bind-dyndb-ldap/
+LICENSE=GPL-2
+RDEPEND=>=net-dns/bind-9.11
+SLOT=0
+_eclasses_=autotools	7027963e8e8cc12c91117bdb9225dc26	git-r3	cbafa3261c37c7e3af44bb16a34ea390	libtool	0081a71a261724730ec4c248494f044d	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	185a06792159ca143528e7010368e8af
+_md5_=a205e6250462b81ab6e1cdc0ae82e16e
