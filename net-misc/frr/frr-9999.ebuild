@@ -7,7 +7,7 @@ inherit autotools eutils git-r3 flag-o-matic multilib pam readme.gentoo-r1 tmpfi
 
 DESCRIPTION="an IP routing protocol suite for BGP, IS-IS, LDP, OSPF, PIM, and RIP"
 HOMEPAGE="https://frrouting.org/"
-EGIT_REPO__URI="https://github.com/FRRouting/frr"
+EGIT_REPO_URI="https://github.com/FRRouting/frr"
 
 LICENSE="GPL-2"
 SLOT="0"
