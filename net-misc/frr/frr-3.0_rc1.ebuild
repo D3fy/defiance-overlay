@@ -8,6 +8,7 @@ inherit autotools eutils flag-o-matic multilib pam readme.gentoo-r1 tmpfiles use
 DESCRIPTION="an IP routing protocol suite for BGP, IS-IS, LDP, OSPF, PIM, and RIP"
 HOMEPAGE="https://frrouting.org/"
 PSRC="${P/_rc/-rc}"
+S="${WORKDIR}/${PSRC}"
 SRC_URI="https://github.com/FRRouting/${PN}/releases/download/${PSRC}/${PSRC}.tar.xz -> ${P}.tar.xz"
 
 LICENSE="GPL-2"
