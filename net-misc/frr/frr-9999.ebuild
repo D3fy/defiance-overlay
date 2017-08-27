@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 
-IUSE="caps fpm doc eigrpd elibc_glibc ipv6 multipath nhrpd ospfapi pam protobuf +readline snmp tcp-zebra"
+IUSE="caps datacenter doc eigrpd elibc_glibc fpm ipv6 ldpd multipath nhrpd ospfapi pam protobuf +readline snmp tcp-zebra"
 
 COMMON_DEPEND="
 	caps? ( sys-libs/libcap )
@@ -72,6 +72,7 @@ src_configure() {
 		$(usex snmp '--enable-snmp' '' '' '') \
 		$(use_enable !elibc_glibc pcreposix) \
 		$(use_enable fpm) \
+		$(use_enable datacenter) \
 		$(use_enable tcp-zebra) \
 		$(use_enable doc) \
 		$(usex multipath $(use_enable multipath) '' '=0' '') \
@@ -80,6 +81,7 @@ src_configure() {
 		$(use_with pam libpam) \
 		$(use_enable nhrpd) \
 		$(use_enable eigrpd) \
+		$(use_enable ldpd) \
 		$(use_enable protobuf) \
 		$(use_enable ipv6 ripngd) \
 		$(use_enable ipv6 ospf6d) \
