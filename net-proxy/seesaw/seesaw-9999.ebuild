@@ -18,10 +18,10 @@ IUSE="anycast"
 DEPEND="
 	dev-libs/libnl
 	dev-go/go-protobuf
-	anycast? ( ( net-misc/frr[protobuf] ) || ( net-misc/quagga[protobuf] ) )
+	anycast? ( || ( net-misc/frr[protobuf] net-misc/quagga[protobuf] ) )
 "
 RDEPEND="
-	anycast? ( ( net-misc/frr[protobuf] ) || ( net-misc/quagga[protobuf] ) )
+	anycast? ( || ( net-misc/frr[protobuf] net-misc/quagga[protobuf] ) )
 "
 
 RESTRICT="test"
