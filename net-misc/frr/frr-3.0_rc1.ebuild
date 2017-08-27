@@ -15,7 +15,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 
-IUSE="caps fpm doc eigrpd elibc_glibc ipv6 multipath nhrpd ospfapi pam protobuf +readline snmp tcp-zebra"
+IUSE="caps fpm doc elibc_glibc ipv6 multipath nhrpd ospfapi pam protobuf +readline snmp tcp-zebra"
 
 COMMON_DEPEND="
 	caps? ( sys-libs/libcap )
@@ -81,7 +81,6 @@ src_configure() {
 		$(use_enable readline vtysh) \
 		$(use_with pam libpam) \
 		$(use_enable nhrpd) \
-		$(use_enable eigrpd) \
 		$(use_enable protobuf) \
 		$(use_enable ipv6 ripngd) \
 		$(use_enable ipv6 ospf6d) \
