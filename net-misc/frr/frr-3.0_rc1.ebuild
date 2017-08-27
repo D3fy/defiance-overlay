@@ -47,7 +47,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	eapply "${PATCHES[@]}"
 	eapply_user
 	eautoreconf
 }
