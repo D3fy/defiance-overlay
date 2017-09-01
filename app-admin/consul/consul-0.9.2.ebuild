@@ -30,7 +30,7 @@ pkg_setup() {
 src_prepare() {
 	eapply_user
 
-	sed -e 's:^\(GIT_DESCRIBE=\).*:\1v'${PV}':' \
+	sed -e 's:^\(GIT_DESCRIBE=\).*:\1'${PV}':' \
 		-e 's:^\(GIT_COMMIT=\).*:\1:' \
 		-e 's:^\(GIT_DIRTY=\).*:\1:' \
 		-e 's:go get -u -v $(GOTOOLS)::' \
