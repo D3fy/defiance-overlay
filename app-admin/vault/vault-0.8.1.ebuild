@@ -14,7 +14,7 @@ LICENSE="MPL-2.0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RESTRICT="test"
+RESTRICT="strip,test"
 
 DEPEND="dev-lang/go:=
 	dev-go/gox"

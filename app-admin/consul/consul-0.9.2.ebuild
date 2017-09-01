@@ -15,7 +15,7 @@ SLOT="0"
 LICENSE="MPL-2.0"
 IUSE=""
 
-RESTRICT="test"
+RESTRICT="strip,test"
 
 DEPEND="dev-go/gox
 	>=dev-lang/go-1.7.5:=
