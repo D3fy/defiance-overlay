@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 
-DEPEND=">=net-dns/bind-9.11"
+DEPEND=">=net-dns/bind-9.11[dlz]"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
