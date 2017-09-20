@@ -17,7 +17,7 @@ IUSE="caps datacenter doc eigrpd elibc_glibc fpm ipv6 ldpd multipath nhrpd ospfa
 COMMON_DEPEND="
 	caps? ( sys-libs/libcap )
 	nhrpd? ( net-dns/c-ares:0= )
-	pcre? ( dev-libs/pcre )
+	pcre? ( dev-libs/libpcre )
 	protobuf? ( dev-libs/protobuf-c:0= )
 	readline? (
 		sys-libs/readline:0=
