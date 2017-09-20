@@ -73,7 +73,7 @@ src_configure() {
 		$(usex snmp '--enable-snmp' '' '' '') \
 		$(use_enable !elibc_glibc pcreposix) \
 		$(use_enable fpm) \
-		$(use_enable datacenter '--enable-datacenter --enable-cumulus') \
+		$(usex datacenter '--enable-cumulus --enable-datacenter' '' '' '') \
 		$(use_enable doc) \
 		$(usex multipath $(use_enable multipath) '' '=0' '') \
 		$(usex ospfapi '--enable-opaque-lsa --enable-ospf-te --enable-ospfclient' '' '' '') \
