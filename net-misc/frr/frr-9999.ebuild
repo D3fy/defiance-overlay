@@ -15,8 +15,10 @@ SLOT="0"
 IUSE="caps datacenter doc eigrpd elibc_glibc fpm ipv6 ldpd multipath nhrpd ospfapi pcre pam protobuf +readline snmp zeromq"
 
 COMMON_DEPEND="
+	dev-libs/json-c
 	caps? ( sys-libs/libcap )
 	nhrpd? ( net-dns/c-ares:0= )
+	pam? ( virtual/pam )
 	pcre? ( dev-libs/libpcre )
 	protobuf? ( dev-libs/protobuf-c:0= )
 	readline? (
