@@ -1,0 +1,10 @@
+# you can change the init script behavior by setting those parameters
+# - group (default: nomad)
+# - pidfile (default: /run/nomad/nomad.pid)
+# - user (default: nomad)
+
+# extra arguments for the consul agent
+command_args="-config-dir=/etc/nomad.d"
+
+# upstream strongly recommends > 1
+GOMAXPROCS=2
