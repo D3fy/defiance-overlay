@@ -51,7 +51,7 @@ src_compile() {
 src_install() {
 	local x
 
-	dobin "${S}/pkg/linux_amd64$(use lxc && echo '-lxc')/${PN}"
+	dobin "${S}/bin/${PN}"
 	
 	for x in /var/{lib,log}/${PN}; do
 		keepdir "${x}"
