@@ -51,8 +51,8 @@ src_compile() {
 src_install() {
 	local x
 
-	dobin "${S}/bin/${PN}"
-	
+	dobin "${S}/src/${EGO_PN}/pkg/linux_amd64$(use lxc && echo '-lxc')/${PN}"
+
 	for x in /var/{lib,log}/${PN}; do
 		keepdir "${x}"
 		fowners ${PN}:${PN} "${x}"
