@@ -12,17 +12,21 @@ EGIT_REPO_URI="https://github.com/FRRouting/frr"
 LICENSE="GPL-2"
 SLOT="0"
 
-IUSE="caps datacenter doc eigrpd elibc_glibc fpm ipv6 ldpd multipath nhrpd ospfapi pam protobuf +readline snmp"
+IUSE="caps datacenter doc eigrpd elibc_glibc fpm ipv6 ldpd multipath nhrpd ospfapi pcre pam protobuf +readline snmp zeromq"
 
 COMMON_DEPEND="
+	dev-libs/json-c
 	caps? ( sys-libs/libcap )
 	nhrpd? ( net-dns/c-ares:0= )
+	pam? ( virtual/pam )
+	pcre? ( dev-libs/libpcre )
 	protobuf? ( dev-libs/protobuf-c:0= )
 	readline? (
 		sys-libs/readline:0=
 		pam? ( sys-libs/pam )
 	)
 	snmp? ( net-analyzer/net-snmp )
+	zeromq? ( net-libs/zeromq )
 	!elibc_glibc? ( dev-libs/libpcre )"
 DEPEND="${COMMON_DEPEND}
 	sys-apps/gawk
@@ -71,7 +75,7 @@ src_configure() {
 		$(usex snmp '--enable-snmp' '' '' '') \
 		$(use_enable !elibc_glibc pcreposix) \
 		$(use_enable fpm) \
-		$(use_enable datacenter) \
+		$(usex datacenter '--enable-cumulus --enable-datacenter' '' '' '') \
 		$(use_enable doc) \
 		$(usex multipath $(use_enable multipath) '' '=0' '') \
 		$(usex ospfapi '--enable-opaque-lsa --enable-ospf-te --enable-ospfclient' '' '' '') \
@@ -80,10 +84,12 @@ src_configure() {
 		$(use_enable nhrpd) \
 		$(use_enable eigrpd) \
 		$(use_enable ldpd) \
+		$(use_enable pcre pcreposix) \
 		$(use_enable protobuf) \
 		$(use_enable ipv6 ripngd) \
 		$(use_enable ipv6 ospf6d) \
-		$(use_enable ipv6 rtadv)
+		$(use_enable ipv6 rtadv) \
+		$(use_enable zeromq)
 }
 
 src_install() {
