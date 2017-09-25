@@ -1,0 +1,10 @@
+--- glusterfs-3.12.1.old/libglusterfs/src/compat.h	2017-09-25 13:36:00.804119881 -0400
++++ glusterfs-3.12.1/libglusterfs/src/compat.h	2017-09-25 13:36:42.414304520 -0400
+@@ -507,6 +507,7 @@
+ /* Use run API, see run.h */
+ #include <stdlib.h> /* system(), mkostemp() */
+ #include <stdio.h> /* popen() */
++#include <sys/sysmacros.h>
+ #pragma GCC poison system mkostemp popen
+ #endif
+ 
