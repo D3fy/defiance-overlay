@@ -3,7 +3,10 @@
 
 EAPI=6
 
-inherit autotools eutils
+POSTGRES_COMPAT=( 10 )
+POSTGRES_USEDEP="server"
+
+inherit autotools eutils postgres-multi versionator
 
 SLOT="0"
 
@@ -14,15 +17,29 @@ SRC_URI="https://github.com/citusdata/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="static-libs"
+REQUIRED_USE="${POSTGRES_REQ_USE}"
 
-DEPEND="dev-db/postgresql"
+DEPEND="
+	${POSTGRES_DEP}
+"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
 	eapply_user
 	eautoreconf
+	postgres-multi_src_prepare
 }
+src_configure() {
+	postgres-multi_foreach econf
+}
+
+src_compile() {
+	postgres-multi_foreach emake
+}
+
 src_install() {
-	emake DESTDIR="${D}" install
+	postgres-multi_foreach emake DESTDIR="${D}" install
+
+	use static-libs || find "${ED}" -name '*.a' -delete
 }
