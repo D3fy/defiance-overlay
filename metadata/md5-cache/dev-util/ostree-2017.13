@@ -1,0 +1,9 @@
+DEFINED_PHASES=-
+DESCRIPTION=Operating system and container binary deployment and upgrades
+EAPI=6
+HOMEPAGE=https://ostree.readthedocs.io/en/latest/
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+SLOT=0
+SRC_URI=https://github.com/ostreedev/ostree/releases/download/v2017.13/libostree-2017.13.tar.xz -> ostree-2017.13.tar.xz
+_md5_=1de160e1c27f28dad6f144f1e022fdb4
