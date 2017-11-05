@@ -13,6 +13,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="curl gjs grub selinux soup systemd zeroconf"
 
 S="${WORKDIR}/lib${P}"
+REQUIRED_USE="curl? ( soup )"
 DEPEND="
 	sys-devel/flex
 	sys-devel/bison
