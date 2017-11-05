@@ -12,7 +12,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
+S="${WORKDIR}/lib${P}"
 DEPEND=""
 RDEPEND="${DEPEND}"
-
-
