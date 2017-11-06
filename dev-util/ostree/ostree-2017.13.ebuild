@@ -38,17 +38,23 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	eapply_user
+
+	sed -e '/^OT_DEP_CRYPTO_CFLAGS/d' \
+		-e '/OT_DEP_CURL_CFLAGS/d' \
+		-i "${S}/Makefile"
+	sed -e '/^OT_DEP_CRYPTO_CFLAGS/d' \
+		-e '/OT_DEP_CURL_CFLAGS/d' \
+		-i "${S}/apidoc/Makefile"
+}
+
 src_configure() {
 	econf \
 		$(use_with curl) \
 		$(use_with soup) \
 		--with-crypto=openssl \
 		--with-openssl \
-		--with-mkinitcpio \
 		$(use_with zeroconf avahi) \
 		$(use_with systemd)
-}
-
-src_compile() {
-	emake -j1
 }
