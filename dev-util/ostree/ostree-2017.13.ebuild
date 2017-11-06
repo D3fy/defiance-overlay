@@ -38,18 +38,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	eapply_user
-
-	sed -e '/^OT_DEP_CRYPTO_CFLAGS/d' \
-		-e '/OT_DEP_CURL_CFLAGS/d' \
-		-i "${S}/Makefile"
-	sed -e '/^OT_DEP_CRYPTO_CFLAGS/d' \
-		-e '/OT_DEP_CURL_CFLAGS/d' \
-		-i "${S}/apidoc/Makefile"
-}
-
 src_configure() {
+	export OT_DEP_CRYPTO_CFLAGS=""
+	export OT_DEP_CURL_CFLAGS=""
+
 	econf \
 		$(use_with curl) \
 		$(use_with soup) \

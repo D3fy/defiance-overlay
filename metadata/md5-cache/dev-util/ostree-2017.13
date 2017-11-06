@@ -1,4 +1,4 @@
-DEFINED_PHASES=configure prepare
+DEFINED_PHASES=configure
 DEPEND=sys-devel/flex sys-devel/bison dev-libs/glib sys-libs/zlib app-arch/xz-utils app-crypt/gpgme sys-fs/fuse app-arch/libarchive dev-libs/openssl sys-apps/util-linux curl? ( net-misc/curl ) grub? ( sys-boot/grub ) gjs? ( dev-libs/gjs ) soup? ( net-libs/libsoup ) systemd? ( sys-apps/systemd ) zeroconf? ( net-dns/avahi )
 DESCRIPTION=Operating system and container binary deployment and upgrades
 EAPI=6
@@ -10,4 +10,4 @@ RDEPEND=sys-devel/flex sys-devel/bison dev-libs/glib sys-libs/zlib app-arch/xz-u
 REQUIRED_USE=curl? ( soup )
 SLOT=0
 SRC_URI=https://github.com/ostreedev/ostree/releases/download/v2017.13/libostree-2017.13.tar.xz -> ostree-2017.13.tar.xz
-_md5_=326f27e1392326f66161851aaee1463f
+_md5_=d82f13f57e140f5e2a67b8ea7f02fef2
