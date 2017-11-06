@@ -44,7 +44,11 @@ src_configure() {
 		$(use_with soup) \
 		--with-crypto=openssl \
 		--with-openssl \
-		$(use_with zeroconf avahi) \
 		--with-mkinitcpio \
+		$(use_with zeroconf avahi) \
 		$(use_with systemd)
+}
+
+src_compile() {
+	emake -j1
 }
