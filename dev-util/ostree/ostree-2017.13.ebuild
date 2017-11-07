@@ -32,6 +32,7 @@ DEPEND="
 	grub? ( sys-boot/grub )
 	gjs? ( dev-libs/gjs )
 
+	selinux? ( sys-libs/libselinux )
 	soup? ( net-libs/libsoup )
 	systemd? ( sys-apps/systemd )
 	zeroconf? ( net-dns/avahi )
@@ -46,6 +47,6 @@ src_configure() {
 		$(use_with soup) \
 		--with-crypto=openssl \
 		--with-openssl \
-		$(use_with zeroconf avahi) \
-		$(use_with systemd)
+		$(use_with selinux ) \
+		$(use_with zeroconf avahi)
 }
