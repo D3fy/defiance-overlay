@@ -10,4 +10,4 @@ RDEPEND=sys-devel/flex sys-devel/bison dev-libs/glib sys-libs/zlib app-arch/xz-u
 REQUIRED_USE=curl? ( soup )
 SLOT=0
 SRC_URI=https://github.com/ostreedev/ostree/releases/download/v2017.13/libostree-2017.13.tar.xz -> ostree-2017.13.tar.xz
-_md5_=d82f13f57e140f5e2a67b8ea7f02fef2
+_md5_=b48cb8e29628ff37b263a58216e91bea
