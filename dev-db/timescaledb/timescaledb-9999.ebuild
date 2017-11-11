@@ -14,7 +14,7 @@ EGIT_REPO_URI="https://github.com/timescale/${PN}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE=""
+IUSE="static-libs"
 
 DEPEND="
 	dev-util/cmake
