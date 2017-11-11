@@ -24,7 +24,6 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	eapply_user
-	eautoreconf
 	postgres-multi_src_prepare
 }
 src_configure() {
