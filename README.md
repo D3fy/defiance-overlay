@@ -16,6 +16,7 @@ libs: libmill, libconcurrent, libspooky, libvigor
 ## Installation
 
 For Layman
+
 	layman -a defiance
 
 For Portage >= 2.3.8:
