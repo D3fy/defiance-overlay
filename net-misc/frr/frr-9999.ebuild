@@ -92,6 +92,10 @@ src_configure() {
 		$(use_enable zeromq)
 }
 
+src_compile() {
+	emake -j1
+}
+
 src_install() {
 	default
 	prune_libtool_files

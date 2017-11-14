@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install prepare setup test
+DEPEND=postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
+DESCRIPTION=PostgreSQL Workload Analyzer
+EAPI=6
+HOMEPAGE=http://dalibo.github.io/powa/
+IUSE=static-libs postgres_targets_postgres10
+KEYWORDS=~amd64 ~x86
+LICENSE=DWTFYW
+RDEPEND=dev-db/pg_stat_kcache dev-db/pg_qualstats dev-db/hypopg postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
+REQUIRED_USE=|| ( postgres_targets_postgres10 )
+SLOT=0
+SRC_URI=https://github.com/dalibo/powa-archivist/archive/REL_3_1_1.tar.gz -> powa-3.1.1.tar.gz
+_eclasses_=epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	227b041a120d309fdefbebb3b8c1dfa9	ltprune	2770eed66a9b8ef944714cd0e968182e	multibuild	72647e255187a1fadc81097b3657e5c3	multilib	97f470f374f2e94ccab04a2fb21d811e	postgres	c59d58664169a60e232dd018eae69172	postgres-multi	4ad3669c874bed68b375f87035e46db8	toolchain-funcs	185a06792159ca143528e7010368e8af	user	e4b567c44272a719fabf53f0f885d3f7	versionator	c80ccf29e90adea7c5cae94b42eb76d0
+_md5_=4f3c4b51d0681e5578ac2999c7db133b
