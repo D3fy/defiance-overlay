@@ -7,8 +7,8 @@ PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
 
 inherit distutils-r1 eutils versionator flag-o-matic
 
-DESCRIPTION=""
-HOMEPAGE=""
+DESCRIPTION="The PostgreSQL Workload Analyzer web frontend"
+HOMEPAGE="http://powa.readthedocs.io/en/latest/powa-web/index.html"
 SRC_URI="https://pypi.io/packages/source/p/${PN}/${P}.tar.gz"
 
 LICENSE=""
