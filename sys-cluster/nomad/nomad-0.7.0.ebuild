@@ -7,7 +7,7 @@ inherit golang-vcs-snapshot user
 
 KEYWORDS="~amd64"
 EGO_PN="github.com/hashicorp/${PN}"
-DESCRIPTION=""
+DESCRIPTION="The cluster manager from Hashicorp"
 HOMEPAGE="http://www.nomadproject.io"
 SRC_URI="https://github.com/hashicorp/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 

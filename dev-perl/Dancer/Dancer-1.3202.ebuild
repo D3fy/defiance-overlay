@@ -4,7 +4,7 @@ MODULE_AUTHOR=BIGPRESH
 MODULE_VERSION=${PV}
 inherit perl-module
 
-DESCRIPTION='A minimal-effort oriented web application framework'
+DESCRIPTION="A minimal-effort oriented web application framework"
 LICENSE=" || ( Artistic GPL-2 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"

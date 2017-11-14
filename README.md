@@ -26,103 +26,55 @@ For Portage >= 2.3.8:
 
 ## List of Ebuilds
 
-    .
-    ├── app-admin
-    │   ├── clockwork
-    │   │   ├── clockwork-3.3.0.ebuild
-    │   │   └── clockwork-9999.ebuild
-    │   └── helm-bin
-    │       └── helm-bin-2.5.0.ebuild
-    ├── app-misc
-    │   └── ztk
-    │       └── ztk-9999.ebuild
-    ├── dev-db
-    │   ├── citus
-    │   │   └── citus-7.0.3.ebuild
-    │   ├── hypopg
-    │   │   └── hypopg-1.1.0.ebuild
-    │   ├── pg_qualstats
-    │   │   └── pg_qualstats-1.0.2.ebuild
-    │   ├── pg_stat_kcache
-    │   │   └── pg_stat_kcache-2.0.3.ebuild
-    │   ├── postgresql-hll
-    │   │   └── postgresql-hll-2.10.2.ebuild
-    │   ├── powa
-    │   │   └── powa-3.1.1.ebuild
-    │   ├── powa-web
-    │   │   └── powa-web-3.1.4.ebuild
-    │   └── timescaledb
-    │       └── timescaledb-9999.ebuild
-    ├── dev-libs
-    │   ├── ctap
-    │   │   └── ctap-2.0.0.ebuild
-    │   ├── libmill
-    │   │   └── libmill-1.18.ebuild
-    │   ├── libspooky
-    │   │   └── libspooky-1.0.0.ebuild
-    │   └── libvigor
-    │       └── libvigor-1.2.10.ebuild
-    ├── dev-perl
-    │   ├── Authen-OATH
-    │   │   └── Authen-OATH-1.0.0.ebuild
-    │   ├── Authen-SASL-XS
-    │   │   └── Authen-SASL-XS-1.00.ebuild
-    │   ├── Dancer
-    │   │   └── Dancer-1.3202.ebuild
-    │   ├── Directory-Scratch
-    │   │   └── Directory-Scratch-0.18.ebuild
-    │   ├── ExtUtils-ModuleMaker
-    │   │   └── ExtUtils-ModuleMaker-0.56.ebuild
-    │   ├── File-Save-Home
-    │   │   └── File-Save-Home-0.09.ebuild
-    │   ├── Gazelle
-    │   │   └── Gazelle-0.46.ebuild
-    │   ├── Git-Repository
-    │   │   └── Git-Repository-1.320.ebuild
-    │   ├── Krb5
-    │   │   └── Krb5-1.9.ebuild
-    │   ├── Net-GitHub
-    │   │   └── Net-GitHub-0.89.ebuild
-    │   ├── Net-OAuth2
-    │   │   └── Net-OAuth2-0.63.ebuild
-    │   ├── Redis-hiredis
-    │   │   └── Redis-hiredis-0.11.0.ebuild
-    │   ├── String-PerlIdentifier
-    │   │   └── String-PerlIdentifier-0.06.ebuild
-    │   └── System-Command
-    │       └── System-Command-1.118.ebuild
-    ├── dev-util
-    │   ├── ostree
-    │   │   └── ostree-2017.13.ebuild
-    │   └── ragel
-    │       ├── ragel-6.10-r1.ebuild
-    │       └── ragel-6.9-r1.ebuild
-    ├── net-analyzer
-    │   ├── bolo
-    │   │   ├── bolo-0.3.0.ebuild
-    │   │   └── bolo-9999.ebuild
-    │   └── bolo-collectors
-    │       ├── bolo-collectors-0.4.13.ebuild
-    │       └── bolo-collectors-9999.ebuild
-    ├── net-dns
-    │   └── bind-dyndb-ldap
-    │       ├── bind-dyndb-ldap-11.1.ebuild
-    │       └── bind-dyndb-ldap-9999.ebuild
-    ├── net-libs
-    │   └── libcurve
-    │       └── libcurve-9999.ebuild
-    ├── net-misc
-    │   └── frr
-    │       ├── frr-3.0_rc1.ebuild
-    │       └── frr-9999.ebuild
-    ├── net-proxy
-    │   └── seesaw
-    │       └── seesaw-9999.ebuild
-    ├── sys-cluster
-    │   ├── glusterfs
-    │   │   └── glusterfs-3.12.2.ebuild
-    │   └── nomad
-    │       └── nomad-0.7.0.ebuild
-    └── x11-themes
-        └── albatross
-            └── albatross-1.7.4.ebuild
+  - [clockwork](http://clockwork.niftylogic.com/)
+    The nifty configuration managment system
+  - [helm-bin](https://helm.sh/)
+    The Kubernetes Package Manager
+  - [ztk](https://github.com/jhunt/ztk)
+    ZeroMQ Toolkit
+  - [citus](https://www.citusdata.com/)
+    Scalable PostgreSQL for multi-tenant and real-time workloads
+  - [hypopg](http://dalibo.github.io/hypopg/)
+    Hypothetical Indexes for PostgreSQL
+  - [pg_qualstats](https://github.com/dalibo/pg_qualstats)
+    A PostgreSQL extension for collecting statistics about predicates, helping find what indices are missing
+  - [pg_stat_kcache](https://github.com/dalibo/pg_stat_kcache)
+    Gather statistics about physical disk access and CPU consumption done by backends
+  - [postgresql-hll](https://github.com/citusdata/postgresql-hll)
+    PostgreSQL extension adding HyperLogLog data structures as a native data type
+  - [powa](http://dalibo.github.io/powa/)
+    PostgreSQL Workload Analyzer
+  - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html)
+    The PostgreSQL Workload Analyzer web frontend
+  - [timescaledb](http://www.timescale.com/)
+    A time-series database optimized for fast ingest and complex queries
+  - [ctap](https://github.com/jhunt/ctap/)
+    Test Anything Protocol (tap) for C
+  - [libmill](http://libmill.org/)
+    Go-style concurrency for C
+  - [libspooky](https://github.com/graytshirt/libspooky)
+    Spooky hash lib
+  - [libvigor](https://github.com/jhunt/libvigor)
+    The missing bits of C
+  - [ostree](https://ostree.readthedocs.io/en/latest/)
+    Operating system and container binary deployment and upgrades
+  - [ragel](http://www.colm.net/open-source/ragel/)
+    Compiles finite state machines from regular languages into executable code
+  - [bolo](https://github.com/bolo/bolo-collectors)
+    Collector Scripts for bolo
+  - [bolo-collectors](https://github.com/bolo/bolo-collectors)
+    Collector Scripts for bolo
+  - [bind-dyndb-ldap](https://fedorahosted.org/bind-dyndb-ldap/)
+    Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)
+  - [libcurve](http://curvezmq.org)
+    An encryption and authentication library for ZeroMQ applications
+  - [frr](https://frrouting.org/)
+    an IP routing protocol suite for BGP, IS-IS, LDP, OSPF, PIM, and RIP
+  - [seesaw](https://github.com/google/seesaw)
+    Seesaw v2 is a Linux Virtual Server (LVS) based load balancing platform
+  - [glusterfs](http://www.gluster.org/)
+    GlusterFS is a powerful network/cluster filesystem
+  - [nomad](http://www.nomadproject.io)
+    The cluster manager from Hashicorp
+  - [albatross](http://shimmerproject.org/projects/albatross/)
+    Desktop Suite for Xfce
