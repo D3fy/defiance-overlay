@@ -7,19 +7,21 @@ inherit autotools eutils flag-o-matic multilib pam readme.gentoo-r1 tmpfiles use
 
 DESCRIPTION="an IP routing protocol suite for BGP, IS-IS, LDP, OSPF, PIM, and RIP"
 HOMEPAGE="https://frrouting.org/"
-PSRC="${P/_rc/-rc}"
-S="${WORKDIR}/${PSRC}"
-SRC_URI="https://github.com/FRRouting/${PN}/releases/download/${PSRC}/${PSRC}.tar.xz -> ${P}.tar.xz"
+S="${WORKDIR}/${PN}-${P}"
+SRC_URI="https://github.com/FRRouting/${PN}/archive/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~x86"
 
-IUSE="caps fpm doc elibc_glibc ipv6 multipath nhrpd ospfapi pam protobuf +readline snmp tcp-zebra"
+IUSE="caps datacenter doc elibc_glibc fpm ipv6 ldpd multipath nhrpd ospfapi pcre pam protobuf +readline snmp"
 
 COMMON_DEPEND="
+	dev-libs/json-c
 	caps? ( sys-libs/libcap )
 	nhrpd? ( net-dns/c-ares:0= )
+	pam? ( virtual/pam )
+	pcre? ( dev-libs/libpcre )
 	protobuf? ( dev-libs/protobuf-c:0= )
 	readline? (
 		sys-libs/readline:0=
@@ -74,13 +76,15 @@ src_configure() {
 		$(usex snmp '--enable-snmp' '' '' '') \
 		$(use_enable !elibc_glibc pcreposix) \
 		$(use_enable fpm) \
-		$(use_enable tcp-zebra) \
+		$(usex datacenter '--enable-cumulus --enable-datacenter' '' '' '') \
 		$(use_enable doc) \
 		$(usex multipath $(use_enable multipath) '' '=0' '') \
 		$(usex ospfapi '--enable-opaque-lsa --enable-ospf-te --enable-ospfclient' '' '' '') \
 		$(use_enable readline vtysh) \
 		$(use_with pam libpam) \
 		$(use_enable nhrpd) \
+		$(use_enable ldpd) \
+		$(use_enable pcre pcreposix) \
 		$(use_enable protobuf) \
 		$(use_enable ipv6 ripngd) \
 		$(use_enable ipv6 ospf6d) \
