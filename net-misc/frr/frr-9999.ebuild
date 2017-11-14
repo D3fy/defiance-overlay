@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/FRRouting/frr"
 LICENSE="GPL-2"
 SLOT="0"
 
-IUSE="caps datacenter doc eigrpd elibc_glibc fpm ipv6 ldpd multipath nhrpd ospfapi pcre pam protobuf +readline snmp zeromq"
+IUSE="caps datacenter doc eigrpd elibc_glibc fpm ipv6 ldpd multipath nhrpd ospfapi pcre pam protobuf +readline ssh snmp zeromq"
 
 COMMON_DEPEND="
 	dev-libs/json-c
@@ -89,6 +89,7 @@ src_configure() {
 		$(use_enable ipv6 ripngd) \
 		$(use_enable ipv6 ospf6d) \
 		$(use_enable ipv6 rtadv) \
+		$(use_enable ssh shell-access) \
 		$(use_enable zeromq)
 }
 
