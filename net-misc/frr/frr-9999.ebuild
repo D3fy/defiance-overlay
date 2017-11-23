@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/FRRouting/frr"
 LICENSE="GPL-2"
 SLOT="0"
 
-IUSE="caps datacenter doc eigrpd elibc_glibc fpm ipv6 ldpd multipath nhrpd ospf pcre pam protobuf +readline ssh snmp zeromq"
+IUSE="caps datacenter doc eigrpd elibc_glibc fpm ipv6 ldpd multipath nhrpd ospf pcre pam protobuf +readline ssh snmp static zeromq"
 
 COMMON_DEPEND="
 	dev-libs/json-c
@@ -70,7 +70,7 @@ src_configure() {
 		--with-pkg-extra-version="-gentoo" \
 		--sysconfdir=/etc/frr \
 		--localstatedir=/run/frr \
-		--disable-static \
+		$(use_enable static) \
 		$(use_enable caps capabilities) \
 		$(usex snmp '--enable-snmp' '' '' '') \
 		$(use_enable !elibc_glibc pcreposix) \
@@ -78,7 +78,7 @@ src_configure() {
 		$(usex datacenter '--enable-cumulus --enable-datacenter' '' '' '') \
 		$(use_enable doc) \
 		$(usex multipath $(use_enable multipath) '' '=0' '') \
-		$(usex ospf '--disable-ospfd --disable-ospfapi --disable-ospfclient' '--disable-ospfd --disable-ospfapi --disable-ospfclient' '' '') \
+		$(usex ospf '--enable-ospfd --enable-ospfapi --enable-ospfclient' '--enable-ospfd --enable-ospfapi --enable-ospfclient' '' '') \
 		$(use_enable readline vtysh) \
 		$(use_with pam libpam) \
 		$(use_enable nhrpd) \
