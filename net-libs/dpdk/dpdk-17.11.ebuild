@@ -31,4 +31,5 @@ src_install() {
 		DESTDIR=${D} \
 		CONFIG_RTE_BUILD_SHARED_LIB=$(use shared && echo 'y' || echo 'n') \
 		EXTRA_CFLAGS="${CFLAGS}"
+	mv ${D}/lib ${D}/lib64
 }
