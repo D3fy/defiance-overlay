@@ -11,7 +11,7 @@ SRC_URI="http://fast.${PN}.org/rel/${P}.tar.xz"
 
 LICENSE="BSD-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE=""
 
 DEPEND=""
@@ -22,8 +22,10 @@ pkg_setup() {
 }
 
 src_compile() {
-	emake  install \
-		T=x86_64-native-linuxapp-$(tc-get-compiler-type) \
+	CTARGET="${ARCH}"
+	use amd64 && CTARGET='x86_64'
+	ARCH=${CTARGET} emake install \
+		T=${CTARGET}-native-linuxapp-$(tc-get-compiler-type) \
 		RTE_DEVEL_BUILD=n \
 		prefix="${EPREFIX}/usr" \
 		EXTRA_CFLAGS="${CFLAGS}" \
