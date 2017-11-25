@@ -31,9 +31,5 @@ src_configure() {
 }
 
 src_compile() {
-	ARCH="x86_64" emake
-}
-
-src_install() {
-	emake install
+	ARCH="x86_64" emake install
 }
