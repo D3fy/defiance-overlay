@@ -21,15 +21,11 @@ pkg_setup() {
 	linux-mod_pkg_setup
 }
 
-src_configure() {
-	emake -j1 config \
+src_compile() {
+	emake  install \
 		T=x86_64-native-linuxapp-$(tc-get-compiler-type) \
 		RTE_DEVEL_BUILD=n \
 		prefix="${EPREFIX}/usr" \
 		EXTRA_CFLAGS="${CFLAGS}" \
 		EXTRA_LDFLAGS="${LDFLAGS}"
-}
-
-src_compile() {
-	ARCH="x86_64" emake install
 }
