@@ -21,7 +21,7 @@ pkg_setup() {
 	linux-mod_pkg_setup
 }
 
-src_compile() {
+src_install() {
 	CTARGET="${ARCH}"
 	use amd64 && CTARGET='x86_64'
 	ARCH=${CTARGET} emake install \
@@ -30,7 +30,4 @@ src_compile() {
 		prefix="${EPREFIX}/usr" \
 		DESTDIR=${D} \
 		EXTRA_CFLAGS="${CFLAGS}"
-		# EXTRA_LDFLAGS="${LDFLAGS}"
-
-	tree ${D}
 }
