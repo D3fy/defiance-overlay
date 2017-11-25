@@ -28,6 +28,7 @@ src_compile() {
 		T=${CTARGET}-native-linuxapp-$(tc-get-compiler-type) \
 		RTE_DEVEL_BUILD=n \
 		prefix="${EPREFIX}/usr" \
+		DESTDIR=${D} \
 		EXTRA_CFLAGS="${CFLAGS}"
 		# EXTRA_LDFLAGS="${LDFLAGS}"
 }
