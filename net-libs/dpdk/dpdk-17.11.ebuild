@@ -12,9 +12,9 @@ SRC_URI="http://fast.${PN}.org/rel/${P}.tar.xz"
 LICENSE="BSD-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE=""
+IUSE="shared"
 
-DEPEND=""
+DEPEND="dev-lang/nasm"
 RDEPEND="${DEPEND}"
 
 pkg_setup() {
@@ -29,5 +29,6 @@ src_install() {
 		RTE_DEVEL_BUILD=n \
 		prefix="${EPREFIX}/usr" \
 		DESTDIR=${D} \
+		CONFIG_RTE_BUILD_SHARED_LIB=$(use shared && echo 'y' || echo 'n') \
 		EXTRA_CFLAGS="${CFLAGS}"
 }
