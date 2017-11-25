@@ -31,4 +31,6 @@ src_compile() {
 		DESTDIR=${D} \
 		EXTRA_CFLAGS="${CFLAGS}"
 		# EXTRA_LDFLAGS="${LDFLAGS}"
+
+	tree ${D}
 }
