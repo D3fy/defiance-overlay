@@ -21,7 +21,7 @@ pkg_setup() {
 	linux-mod_pkg_setup
 }
 
-src_install() {
+src_compile() {
 	CTARGET="${ARCH}"
 	use amd64 && CTARGET='x86_64'
 	ARCH=${CTARGET} emake install \
@@ -31,5 +31,8 @@ src_install() {
 		DESTDIR=${D} \
 		CONFIG_RTE_BUILD_SHARED_LIB=$(use shared && echo 'y' || echo 'n') \
 		EXTRA_CFLAGS="${CFLAGS}"
-	mv ${D}/lib ${D}/lib64
+}
+
+src_install() {
+	use shared && mv ${D}/lib ${D}/lib64
 }
