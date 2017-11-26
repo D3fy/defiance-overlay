@@ -34,5 +34,6 @@ src_compile() {
 }
 
 src_install() {
-	use shared && mv ${D}/lib ${D}/lib64
+	use shared && mv ${D}/usr/lib ${D}/usr/lib64
+	tree ${D}
 }
