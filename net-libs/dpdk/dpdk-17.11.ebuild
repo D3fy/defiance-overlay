@@ -28,21 +28,21 @@ pkg_setup() {
 }
 
 src_configure() {
-	emake config O=${T} \
-		T=$(ctarget)-native-linuxapp-$(tc-get-compiler-type) \
+	emake config \
+		T=$(ctarget)-native-linuxapp-$(tc-get-compiler-type)
+}
+
+src_compile() {
+	cd ${S}/build
+	ARCH=$(ctarget) emake \
 		RTE_DEVEL_BUILD=n \
 		CONFIG_RTE_BUILD_SHARED_LIB=$(use shared && echo 'y' || echo 'n') \
 		EXTRA_CFLAGS="${CFLAGS}"
 }
 
-src_compile() {
-	ARCH=$(ctarget) emake build O=${T}
-}
-
 src_install() {
-	emake install O=${T} \
-		prefix="${EPREFIX}/usr" \
-		DESTDIR=${D} \
+	pushd ${S}/build
+	emake install DESTDIR=${D} prefix="${EPREFIX}/usr"
+	popd
 	use shared && use amd64 && mv ${D}/usr/lib ${D}/usr/lib64
-	tree ${D}
 }
