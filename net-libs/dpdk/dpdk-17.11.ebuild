@@ -17,25 +17,32 @@ IUSE="shared"
 DEPEND="dev-lang/nasm"
 RDEPEND="${DEPEND}"
 
+function ctarget() {
+	CTARGET="${ARCH}"
+	use amd64 && CTARGET='x86_64'
+	echo $CTARGET
+}
+
 pkg_setup() {
 	linux-mod_pkg_setup
 }
 
-src_compile() {
-	CTARGET="${ARCH}"
-	use amd64 && CTARGET='x86_64'
-	ARCH=${CTARGET} emake build \
-		T=${CTARGET}-native-linuxapp-$(tc-get-compiler-type) \
+src_configure() {
+	emake config O=${T} \
+		T=$(ctarget)-native-linuxapp-$(tc-get-compiler-type) \
 		RTE_DEVEL_BUILD=n \
-		prefix="${EPREFIX}/usr" \
-		DESTDIR=${D} \
-		O=./ \
 		CONFIG_RTE_BUILD_SHARED_LIB=$(use shared && echo 'y' || echo 'n') \
 		EXTRA_CFLAGS="${CFLAGS}"
 }
 
+src_compile() {
+	ARCH=$(ctarget) emake build O=${T}
+}
+
 src_install() {
-	emake install
-	use shared && mv ${D}/usr/lib ${D}/usr/lib64
+	emake install O=${T} \
+		prefix="${EPREFIX}/usr" \
+		DESTDIR=${D} \
+	use shared && use amd64 && mv ${D}/usr/lib ${D}/usr/lib64
 	tree ${D}
 }
