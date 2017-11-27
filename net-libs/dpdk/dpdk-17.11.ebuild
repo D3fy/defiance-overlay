@@ -31,12 +31,12 @@ pkg_setup() {
 }
 
 src_configure() {
-	emake config \
+	ARCH=$(ctarget) emake config \
 		T=$(ctarget)-native-linuxapp-$(tc-get-compiler-type)
 }
 
 src_compile() {
-	cd ${S}/build
+	cd ${S}/build || die
 	ARCH=$(ctarget) emake \
 		RTE_DEVEL_BUILD=n \
 		CONFIG_RTE_BUILD_SHARED_LIB=$(use shared && echo 'y' || echo 'n') \
@@ -44,8 +44,11 @@ src_compile() {
 }
 
 src_install() {
-	pushd ${S}/build
-	emake install DESTDIR=${D} prefix="${EPREFIX}/usr"
-	popd
+	pushd ${S}/build > /dev/null || die
+	sed -i -e 's/\$T/\$(TMPL)/' ../mk/rte.sdkinstall.mk
+	ARCH=$(ctarget) emake install \
+			DESTDIR=${D} \
+			prefix="${EPREFIX}/usr"
+	popd > /dev/null
 	use shared && use amd64 && mv ${D}/usr/lib ${D}/usr/lib64
 }
