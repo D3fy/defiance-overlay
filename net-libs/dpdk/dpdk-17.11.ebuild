@@ -14,7 +14,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="shared"
 
-DEPEND="dev-lang/nasm"
+DEPEND="
+	dev-lang/nasm
+	sys-process/numactl
+"
 RDEPEND="${DEPEND}"
 
 function ctarget() {
