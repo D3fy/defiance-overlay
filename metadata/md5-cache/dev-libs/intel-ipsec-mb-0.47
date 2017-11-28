@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile install
+DEPEND=dev-lang/nasm
+DESCRIPTION=Multi-Buffer Crypto for IPsec Library
+EAPI=6
+HOMEPAGE=https://github.com/intel/intel-ipsec-mb
+IUSE=shared
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-3
+RDEPEND=dev-lang/nasm
+SLOT=0
+SRC_URI=https://github.com/intel/intel-ipsec-mb/archive/v0.47.tar.gz -> intel-ipsec-mb-0.47.tar.gz
+_md5_=c6c39dde6973d99846f19df9e0ec0fd1
