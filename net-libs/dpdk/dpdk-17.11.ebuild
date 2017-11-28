@@ -50,8 +50,7 @@ src_install() {
 	sed -i -e 's/^ifdef\ T/ifdef\ TMPL/' ../mk/rte.sdkinstall.mk
 	ARCH=$(ctarget) emake install \
 			DESTDIR=${D} \
-			libdir="${EPREFIX}/usr/$(get_libdir)"
+			libdir="${EPREFIX}/usr/$(get_libdir)" \
 			prefix="${EPREFIX}/usr"
 	popd > /dev/null
-	use shared && use amd64 && mv ${D}/usr/lib ${D}/usr/lib64
 }
