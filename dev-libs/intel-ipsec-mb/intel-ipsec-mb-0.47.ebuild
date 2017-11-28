@@ -18,15 +18,19 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	emake
 	use shared && emake SHARED=y
+	emake
 }
 
 src_install() {
-	dolib    "${S}/libIPSec_MB.a"
 	pushd    ${S} > /dev/null || die
-	insinto  "/usr/include/${PN}"
+	dolib    libIPSec_MB.a
+	if use shared ; then
+		dolib.so *.so
+	fi
+	insinto  /usr/include/${PN}
 	doins    *.h
 	doins    include/types.h
+	dodoc    {LICENSE,README}
 	popd > /dev/null || die
 }
