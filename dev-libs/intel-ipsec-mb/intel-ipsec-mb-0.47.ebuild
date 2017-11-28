@@ -10,7 +10,7 @@ SRC_URI="https://github.com/intel/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="shared"
+IUSE=""
 
 DEPEND="
 	dev-lang/nasm
@@ -18,16 +18,12 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	use shared && emake SHARED=y
 	emake
 }
 
 src_install() {
 	pushd    ${S} > /dev/null || die
 	dolib    libIPSec_MB.a
-	if use shared ; then
-		dolib.so *.so
-	fi
 	insinto  /usr/include/${PN}
 	doins    *.h
 	doins    include/types.h
