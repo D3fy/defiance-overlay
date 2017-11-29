@@ -27,6 +27,8 @@ function ctarget() {
 	echo $CTARGET
 }
 
+CONFIG_CHECK="~IOMMU_SUPPORT ~AMD_IOMMU ~VFIO ~VFIO_PCI ~UIO ~UIO_PDRV_GENIRQ ~UIO_DMEM_GENIRQ"
+
 pkg_setup() {
 	linux-mod_pkg_setup
 }
