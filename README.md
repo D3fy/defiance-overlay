@@ -50,6 +50,8 @@ For Portage >= 2.3.8:
     A time-series database optimized for fast ingest and complex queries
   - [ctap](https://github.com/jhunt/ctap/)
     Test Anything Protocol (tap) for C
+  - [intel-ipsec-mb](https://github.com/intel/intel-ipsec-mb)
+    Multi-Buffer Crypto for IPsec Library
   - [libmill](http://libmill.org/)
     Go-style concurrency for C
   - [libspooky](https://github.com/graytshirt/libspooky)
@@ -66,6 +68,8 @@ For Portage >= 2.3.8:
     Collector Scripts for bolo
   - [bind-dyndb-ldap](https://fedorahosted.org/bind-dyndb-ldap/)
     Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)
+  - [dpdk](http://dpdk.org/)
+    A set of libraries and drivers for fast packet processing
   - [libcurve](http://curvezmq.org)
     An encryption and authentication library for ZeroMQ applications
   - [frr](https://frrouting.org/)
