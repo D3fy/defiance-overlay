@@ -74,6 +74,8 @@ For Portage >= 2.3.8:
     An encryption and authentication library for ZeroMQ applications
   - [frr](https://frrouting.org/)
     an IP routing protocol suite for BGP, IS-IS, LDP, OSPF, PIM, and RIP
+  - [openvswitch](http://openvswitch.org)
+    Production quality, multilayer virtual switch with dpdk
   - [seesaw](https://github.com/google/seesaw)
     Seesaw v2 is a Linux Virtual Server (LVS) based load balancing platform
   - [glusterfs](http://www.gluster.org/)
