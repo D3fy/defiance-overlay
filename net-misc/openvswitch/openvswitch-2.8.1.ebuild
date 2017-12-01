@@ -83,7 +83,7 @@ src_configure() {
 		--with-logdir=/var/log/openvswitch \
 		--with-pkidir=/etc/ssl/openvswitch \
 		--with-dbdir=/var/lib/openvswitch \
-		$(usex dpdk "--with-dpdk=/usr/share/dpdk/$(ctarget)-native-linuxapp-$(tc-get-get-complier-type)" '--without-dpdk' '' '') \
+		$(usex dpdk "--with-dpdk=/usr/share/dpdk/$(ctarget)-native-linuxapp-$(tc-get-complier-type)" '--without-dpdk' '' '') \
 		$(use_enable ssl) \
 		$(use_enable !debug ndebug)
 }
