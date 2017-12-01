@@ -10,7 +10,7 @@ HOMEPAGE="http://dpdk.org/"
 SRC_URI="http://fast.${PN}.org/rel/${P}.tar.xz"
 
 LICENSE="BSD-3"
-SLOT="0"
+SLOT="0/stable"
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="shared ssl"
 
