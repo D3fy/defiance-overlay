@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure
+DEPEND=sys-devel/flex sys-devel/bison dev-libs/glib sys-libs/zlib app-arch/xz-utils app-crypt/gpgme sys-fs/fuse app-arch/libarchive dev-libs/openssl sys-apps/util-linux curl? ( net-misc/curl ) grub? ( sys-boot/grub ) gjs? ( dev-libs/gjs ) selinux? ( sys-libs/libselinux ) soup? ( net-libs/libsoup ) systemd? ( sys-apps/systemd ) zeroconf? ( net-dns/avahi )
+DESCRIPTION=Operating system and container binary deployment and upgrades
+EAPI=6
+HOMEPAGE=https://ostree.readthedocs.io/en/latest/
+IUSE=curl gjs grub selinux soup systemd zeroconf
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=sys-devel/flex sys-devel/bison dev-libs/glib sys-libs/zlib app-arch/xz-utils app-crypt/gpgme sys-fs/fuse app-arch/libarchive dev-libs/openssl sys-apps/util-linux curl? ( net-misc/curl ) grub? ( sys-boot/grub ) gjs? ( dev-libs/gjs ) selinux? ( sys-libs/libselinux ) soup? ( net-libs/libsoup ) systemd? ( sys-apps/systemd ) zeroconf? ( net-dns/avahi )
+REQUIRED_USE=curl? ( soup )
+SLOT=0
+SRC_URI=https://github.com/ostreedev/ostree/releases/download/v2017.14/libostree-2017.14.tar.xz -> ostree-2017.14.tar.xz
+_md5_=b2b2e38d51ae62f62ee1f216b6d1a423
