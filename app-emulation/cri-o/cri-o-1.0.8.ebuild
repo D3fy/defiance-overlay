@@ -23,6 +23,7 @@ IUSE=""
 
 DEPEND="
 	dev-go/go-md2man
+	app-emulation/runc
 	dev-util/ostree"
 RDEPEND="${DEPEND}"
 
