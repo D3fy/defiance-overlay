@@ -22,6 +22,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
+	net-misc/cni-plugins
 	dev-go/go-md2man
 	app-emulation/runc
 	dev-util/ostree"
