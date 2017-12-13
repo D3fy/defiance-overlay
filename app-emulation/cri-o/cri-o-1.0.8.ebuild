@@ -13,7 +13,7 @@ ARCHIVE_URI="https://github.com/kubernetes-incubator/${PN}/archive/v${PV}.tar.gz
 	${EGO_VENDOR_URI}"
 
 DESCRIPTION="Lightweight container runtime for Kubernetes"
-HOMEPAGE=""
+HOMEPAGE="http://cri-o.io/"
 SRC_URI="${ARCHIVE_URI}"
 
 LICENSE="Apache-2.0"
