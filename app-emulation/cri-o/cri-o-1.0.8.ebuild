@@ -47,4 +47,21 @@ src_install() {
 	pushd src/${EGO_PN} || die
 
 	emake DESTDIR="${D}" PREFIX="${D}${EPREFIX}/usr" install
+
+	dodir   /etc/crio
+	insinto /etc/crio
+	doins   ${FILESDIR}/crio.conf
+	doins   ${FILESDIR}/seccomp.json
+	dodir   /etc/crio/net.d
+	insinto /etc/crio/net.d
+	doins   ${FILESDIR}/99-loopback.conf
+
+	insinto /etc
+	doins   ${FILESDIR}/crictl.yaml
+
+	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
+	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
+
+	dodir /usr/share/containers/oci/hooks.d
+	dodir /var/lib/containers/storage
 }
