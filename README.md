@@ -1,5 +1,7 @@
 # The Defiance Overlay
 
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/D3fy/defiance-overlay.svg?columns=To%20do,In%20Progress&style=flat-square)](https://waffle.io/D3fy/defiance-overlay)
+
 The beginnings of a meta distribution
 
 Here are some SEO keywords:
