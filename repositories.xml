@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="beta" status="unofficial">
+    <name>defiance</name>
+    <description lang="en">performant cloud</description>
+    <homepage>https://github.com/d3fy/defiance-overlay</homepage>
+    <owner type="person">
+      <email>dan@d3fy.net</email>
+      <name>Dan Molik</name>
+    </owner>
+    <source type="git">https://github.com/d3fy/defiance-overlay.git</source>
+    <source type="git">git://github.com/d3fy/defiance-overlay.git</source>
+    <source type="git">git@github.com:d3fy/defiance-overlay.git</source>
+    <feed>https://github.com/d3fy/defiance-overlay/commits/master.atom</feed>
+  </repo>
+</repositories>
