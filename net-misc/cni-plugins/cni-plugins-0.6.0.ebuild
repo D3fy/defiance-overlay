@@ -19,7 +19,7 @@ SRC_URI="${ARCHIVE_URI}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~arm"
 IUSE=""
 
 DEPEND=""
@@ -31,7 +31,13 @@ src_compile() {
 	for d in $PLUGINS; do
 		if [ -d "$d" ]; then
 			plugin="$(basename "$d")"
-			go build -v -work -x -o "${PWD}/bin/$plugin" -pkgdir "$GOPATH/pkg" "$@" "$REPO_PATH/$d"
+			echo "Building ${plugin}"
+			GOPATH="${S}" go build -v -x -o "bin/$plugin" -pkgdir "${GOPATH}/pkg" "${EGO_PN}/${d}"
 		fi
 	done
+}
+
+src_install() {
+	exeinto /usr/libexec/cni
+	doexe ${S}/src/${EGO_PN}/bin/*
 }
