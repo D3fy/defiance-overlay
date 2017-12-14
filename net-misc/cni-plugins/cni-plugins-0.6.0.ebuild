@@ -32,12 +32,12 @@ src_compile() {
 		if [ -d "$d" ]; then
 			plugin="$(basename "$d")"
 			echo "Building ${plugin}"
-			GOPATH="${S}" go build -v -x -o "bin/$plugin" -pkgdir "${GOPATH}/pkg" "${EGO_PN}/${d}"
+			GOPATH="${S}" go install -v "${EGO_PN}/${d}"
 		fi
 	done
 }
 
 src_install() {
 	exeinto /usr/libexec/cni
-	doexe ${S}/src/${EGO_PN}/bin/*
+	doexe ${S}/bin/*
 }

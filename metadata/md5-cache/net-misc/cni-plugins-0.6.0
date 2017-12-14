@@ -8,4 +8,4 @@ LICENSE=Apache-2.0
 SLOT=0
 SRC_URI=https://github.com/containernetworking/plugins/archive/v0.6.0.tar.gz -> cni-plugins-0.6.0.tar.gz
 _eclasses_=bash-completion-r1	8e447753aaf658afa609fbf961d80ab7	golang-base	51a1f13e065f1cff4507685d9cc268c7	golang-vcs-snapshot	913580335becddd3ebecefe852e47536	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	185a06792159ca143528e7010368e8af
-_md5_=0dc526c9586712321db15832e5d29f82
+_md5_=419be12ba3865c5d665024fdf9df00ec
