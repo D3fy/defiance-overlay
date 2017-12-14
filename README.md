@@ -52,8 +52,8 @@ For Portage >= 2.3.8:
     an IP routing protocol suite for BGP, IS-IS, LDP, OSPF, PIM, and RIP
   - [glusterfs](http://www.gluster.org/)
     GlusterFS is a powerful network/cluster filesystem
-  - [helm-bin](https://helm.sh/)
-    The Kubernetes Package Manager
+  - [heketi](https://github.com/heketi/heketi)
+    RESTful based volume management framework for GlusterFS
   - [hypopg](http://dalibo.github.io/hypopg/)
     Hypothetical Indexes for PostgreSQL
   - [intel-ipsec-mb](https://github.com/intel/intel-ipsec-mb)
@@ -86,8 +86,6 @@ For Portage >= 2.3.8:
     Compiles finite state machines from regular languages into executable code
   - [seesaw](https://github.com/google/seesaw)
     Seesaw v2 is a Linux Virtual Server (LVS) based load balancing platform
-  - [String-PerlIdentifier]()
-    Generate a random name for a Perl variable
   - [timescaledb](http://www.timescale.com/)
     A time-series database optimized for fast ingest and complex queries
   - [ztk](https://github.com/jhunt/ztk)
