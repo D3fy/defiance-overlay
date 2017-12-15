@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		Gathers statistics about real reads and writes done by the filesystem layer.
+		It is provided in the form of an extension for PostgreSQL >= 9.4., and
+		requires pg_stat_statements extension to be installed. PostgreSQL 9.4 or
+		more is required as previous version of provided pg_stat_statements didn't
+		expose the queryid field.
+	</longdescription>
+</pkgmetadata>
