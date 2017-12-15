@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		CRI-O is meant to provide an integration path between OCI conformant runtimes and
+		the kubelet. Specifically, it implements the Kubelet Container Runtime Interface
+		(CRI) using OCI conformant runtimes. The scope of CRI-O is tied to the scope of
+		the CRI.
+
+		At a high level, we expect the scope of CRI-O to be restricted to the following
+		functionalities:
+
+		Support multiple image formats including the existing Docker image format
+		Support for multiple means to download images including trust and image verification
+		Container image management (managing image layers, overlay filesystems, etc)
+		Container process lifecycle management
+		Monitoring and logging required to satisfy the CRI
+		Resource isolation as required by the CRI
+	</longdescription>
+</pkgmetadata>

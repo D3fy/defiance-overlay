@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		What is Citus?
+
+		- Open-source PostgreSQL extension (not a fork)
+		- Scalable across multiple machines through sharding and replication
+		- Distributed engine for query parallelization
+		- Database designed to scale multi-tenant applications
+
+		Citus is a distributed database that scales across commodity servers using
+		transparent sharding and replication. Citus extends the underlying database
+		rather than forking it, giving developers and enterprises the power and
+		familiarity of a relational database. As an extension, Citus supports new
+		PostgreSQL releases, and allows you to benefit from new features while
+		maintaining compatibility with existing PostgreSQL tools.
+	</longdescription>
+</pkgmetadata>

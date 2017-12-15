@@ -13,7 +13,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz"
 
 LICENSE="LGPL-3 GPL-2"
 SLOT="0"
-KEYWORDS="~arm ~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="dev-go/glide"

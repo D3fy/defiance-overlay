@@ -5,6 +5,10 @@
 		<email>pinkbyte@gentoo.org</email>
 		<name>Sergey Popov</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>dan@danmolik.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
 	<longdescription>
 		Quagga is a modern fork of Zebra. Quagga is a routing software package that provides TCP/IP
 		based routing services with routing protocols support such as RIPv1, RIPv2, RIPng, OSPFv2,
@@ -40,10 +44,6 @@
 		<flag name="readline">
 			Enable support for <pkg>sys-libs/readline</pkg> to provide the Quagga Virtual Terminal
 			Interface Shell (vtysh)
-		</flag>
-		<flag name="tcp-zebra">
-			Enable TCP zserv interface on port 2600 for Zebra/protocol-daemon communication. Unix domain
-			sockets are chosen otherwise
 		</flag>
 	</use>
 </pkgmetadata>
