@@ -6,30 +6,48 @@
 		<name>Sergey Popov</name>
 	</maintainer>
 	<maintainer type="person">
-		<email>dan@danmolik.net</email>
+		<email>dan@d3fy.net</email>
 		<name>Dan Molik</name>
 	</maintainer>
 	<longdescription>
-		Quagga is a modern fork of Zebra. Quagga is a routing software package that provides TCP/IP
-		based routing services with routing protocols support such as RIPv1, RIPv2, RIPng, OSPFv2,
-		OSPFv3, BGP-4, and BGP-4+. Quagga also supports special BGP Route Reflector and Route Server
-		behavior.  In addition to traditional IPv4 routing protocols, Quagga also supports IPv6 routing
-		protocols. With SNMP daemon which supports SMUX protocol, Quagga provides routing protocol
-		MIBs. Furthermore Quagga supports OSPFAPI, a API interface to the OSPF LSDB. It supports
-		inspection as well as injection of normal and opaque OSPF LSAs. Applications like SRRD - The
-		Service Rounting Redundancy Daemon - can make use of OSPFAPI to inject opaque data into the OSPF
-		routing domain. SRRD, for example, implements a cluster server by using the OSPFAPI to flood
-		service state information into the routing domain
+		FRRouting (FRR) is an IP routing protocol suite for Linux and Unix platforms which
+		includes protocol daemons for BGP, IS-IS, LDP, OSPF, PIM, and RIP.
+
+		FRR’s seamless integration with the native Linux/Unix IP networking stacks
+		makes it applicable to a wide variety of use cases including connecting
+		hosts/VMs/containers to the network, advertising network services, LAN
+		switching and routing, Internet access routers, and Internet peering.
+		
+		FRR has its roots in the Quagga project. In fact, it was started by many
+		long-time Quagga developers who combined their efforts to improve on
+		Quagga's well-established foundation in order to create the best routing
+		protocol stack available. We invite you to participate in the FRRouting
+		community and help shape the future of networking.
+		
+		Join the ranks of network architects using FRR for ISPs, SaaS infrastructure,
+		web 2.0 businesses, hyperscale services, and Fortune 500 private clouds.
 	</longdescription>
 	<use>
+		<flag name="datacenter">
+			Enable Cumulus Switch and Data Center Extensions
+		</flag>
+		<flag name="eigrpd">
+			Enable support for the EIGRP protocol Daemon
+		</flag>
 		<flag name="fpm">
 			Enable Forwarding Plane Manager support
+		</flag>
+		<flag name="ldpd">
+			Enable Label Distribution Protocol (LDP) support for MPLS support
 		</flag>
 		<flag name="multipath">
 			Enable multipath routes support for any number of routes
 		</flag>
 		<flag name="nhrpd">
 			Build Next Hop Resolution Protocol daemon
+		</flag>
+		<flag name="ospf">
+			Enable OSPF support on a whole
 		</flag>
 		<flag name="ospfapi">
 			Enable OSPFAPI support for client applications accessing the OSPF link state database
@@ -44,6 +62,12 @@
 		<flag name="readline">
 			Enable support for <pkg>sys-libs/readline</pkg> to provide the Quagga Virtual Terminal
 			Interface Shell (vtysh)
+		</flag>
+		<flag name="ssh">
+			Enable support for secure remote shell access
+		</flag>
+		<flag name="zeromq">
+			Enable support for <pkg>net-libs/zeromq</pkg>
 		</flag>
 	</use>
 </pkgmetadata>
