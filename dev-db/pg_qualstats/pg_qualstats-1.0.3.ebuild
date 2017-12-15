@@ -10,7 +10,7 @@ inherit eutils postgres-multi versionator
 
 SLOT="0"
 
-DESCRIPTION="A PostgreSQL extension for collecting statistics about predicates, helping find what indices are missing"
+DESCRIPTION="A PostgreSQL extension for collecting statistics about predicates to find what indices are missing"
 HOMEPAGE="https://github.com/dalibo/pg_qualstats"
 SRC_URI="https://github.com/dalibo/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 

@@ -22,9 +22,9 @@ src_compile() {
 }
 
 src_install() {
-	pushd    ${S} > /dev/null || die
+	pushd    "${S}" > /dev/null || die
 	dolib    libIPSec_MB.a
-	insinto  /usr/include/${PN}
+	insinto  "/usr/include/${PN}"
 	doins    *.h
 	doins    include/types.h
 	dodoc    {LICENSE,README}

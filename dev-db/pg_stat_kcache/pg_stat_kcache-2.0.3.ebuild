@@ -12,7 +12,7 @@ inherit eutils postgres-multi versionator
 
 SLOT="0"
 
-DESCRIPTION="Gather statistics about physical disk access and CPU consumption done by backends"
+DESCRIPTION="Gather statistics about disk access and CPU consumption done by backends"
 HOMEPAGE="https://github.com/dalibo/pg_stat_kcache"
 SRC_URI="https://github.com/dalibo/${PN}/archive/${PSRC}.tar.gz -> ${P}.tar.gz"
 

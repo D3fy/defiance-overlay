@@ -3,7 +3,6 @@
 
 EAPI=6
 
-
 EGO_PN="github.com/containernetworking/plugins"
 
 inherit golang-vcs-snapshot bash-completion-r1
@@ -39,5 +38,5 @@ src_compile() {
 
 src_install() {
 	exeinto /usr/libexec/cni
-	doexe ${S}/bin/*
+	doexe "${S}/bin/*"
 }
