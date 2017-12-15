@@ -24,9 +24,14 @@ DEPEND="
 	postgres? ( dev-db/postgresql:* )
 	slack? ( net-misc/curl )
 	sqlite? ( dev-db/sqlite )
-	test? ( dev-libs/ctap )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	test? (
+		app-misc/ztk
+		dev-libs/ctap
+	)
+	${DEPEND}
+"
 
 pkg_setup() {
 	enewgroup bolo
