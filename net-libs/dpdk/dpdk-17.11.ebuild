@@ -11,7 +11,7 @@ SRC_URI="http://fast.${PN}.org/rel/${P}.tar.xz"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="shared ssl"
 
 DEPEND="
