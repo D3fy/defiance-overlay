@@ -17,7 +17,6 @@ SLOT="0"
 IUSE="static-libs"
 
 DEPEND="
-	dev-util/cmake
 	${POSTGRES_DEP}
 "
 RDEPEND="${DEPEND}"

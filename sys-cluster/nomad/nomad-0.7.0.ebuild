@@ -15,7 +15,7 @@ SLOT="0"
 LICENSE="MPL-2.0"
 IUSE="lxc"
 
-RESTRICT="strip,test"
+RESTRICT="strip test"
 
 DEPEND="
 	lxc? ( app-emulation/lxc )

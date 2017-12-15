@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit eutils autotools autotools-utils
+inherit eutils autotools
 
 AUTOTOOLS_IN_SOURCE_BUILD=1
 
@@ -23,6 +23,11 @@ RDEPEND=""
 RESTRICT=test
 
 DOCS=( ChangeLog CREDITS README TODO )
+
+src_prepare() {
+	eapply_user
+	eautoreconf
+}
 
 src_test() {
 	cd "${S}"/test
