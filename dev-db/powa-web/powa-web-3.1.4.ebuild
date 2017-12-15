@@ -11,7 +11,7 @@ DESCRIPTION="The PostgreSQL Workload Analyzer web frontend"
 HOMEPAGE="http://powa.readthedocs.io/en/latest/powa-web/index.html"
 SRC_URI="https://pypi.io/packages/source/p/${PN}/${P}.tar.gz"
 
-LICENSE=""
+LICENSE="CC0-1.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""

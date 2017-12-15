@@ -9,7 +9,7 @@ DESCRIPTION="A set of libraries and drivers for fast packet processing"
 HOMEPAGE="http://dpdk.org/"
 SRC_URI="http://fast.${PN}.org/rel/${P}.tar.xz"
 
-LICENSE="BSD-3"
+LICENSE="BSD-2"
 SLOT="0/stable"
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="shared ssl"

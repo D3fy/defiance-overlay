@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		Nomad is a cluster manager, designed for both long lived services and short
+		lived batch processing workloads. Developers use a declarative job
+		specification to submit work, and Nomad ensures constraints are satisfied
+		and resource utilization is optimized by efficient task packing. Nomad
+		supports all major operating systems and virtualized, containerized, or
+		standalone applications.
+	</longdescription>
+	<use>
+		<flag name="lxc">Use LXC as a container manager</flag>
+	</use>
+</pkgmetadata>

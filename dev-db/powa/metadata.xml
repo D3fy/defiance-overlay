@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		PoWA is a PostgreSQL Workload Analyzer that gathers performance stats and
+		provides real-time charts and graphs to help monitor and tune your PostgreSQL
+		servers.
+
+		For more information, please read:
+
+		- the PoWA main website : http://dalibo.github.io/powa/
+		- the Documentation : http://powa.readthedocs.io/
+	</longdescription>
+</pkgmetadata>
