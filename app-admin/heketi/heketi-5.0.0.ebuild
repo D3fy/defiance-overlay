@@ -32,12 +32,12 @@ src_compile() {
 src_install() {
 	local x
 
-	dobin  ${S}/src/${EGO_PN}/client/cli/go/${PN}-cli
-	dosbin ${S}/src/${EGO_PN}/${PN}
+	dobin  "${S}/src/${EGO_PN}/client/cli/go/${PN}-cli"
+	dosbin "${S}/src/${EGO_PN}/${PN}"
 
 	dodir   /etc/${PN}
 	insinto /etc/${PN}
-	doins   ${S}/src/${EGO_PN}/etc/${PN}.json
+	doins   "${S}/src/${EGO_PN}/etc/${PN}.json"
 
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
 	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
@@ -47,6 +47,6 @@ src_install() {
 		fowners ${PN}:${PN} "${x}"
 	done
 
-	doman  ${S}/src/${EGO_PN}/doc/man/*
-	dodoc  ${S}/src/${EGO_PN}/README.md
+	doman  "${S}/src/${EGO_PN}/doc/man/*"
+	dodoc  "${S}/src/${EGO_PN}/README.md"
 }

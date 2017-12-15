@@ -50,14 +50,14 @@ src_install() {
 
 	dodir   /etc/crio
 	insinto /etc/crio
-	doins   ${FILESDIR}/crio.conf
-	doins   ${FILESDIR}/seccomp.json
+	doins   "${FILESDIR}/crio.conf"
+	doins   "${FILESDIR}/seccomp.json"
 	dodir   /etc/crio/net.d
 	insinto /etc/crio/net.d
-	doins   ${FILESDIR}/99-loopback.conf
+	doins   "${FILESDIR}/99-loopback.conf"
 
 	insinto /etc
-	doins   ${FILESDIR}/crictl.yaml
+	doins   "${FILESDIR}/crictl.yaml"
 
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
 	newconfd "${FILESDIR}/${PN}.confd" "${PN}"

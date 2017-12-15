@@ -17,7 +17,7 @@ IUSE="shared ssl"
 DEPEND="
 	dev-lang/nasm
 	sys-process/numactl
-	ssl? ( dev-libs/openssl )
+	ssl? ( dev-libs/openssl:* )
 "
 RDEPEND="${DEPEND}"
 
