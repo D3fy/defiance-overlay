@@ -26,12 +26,12 @@ DEPEND="
 	postgres? ( dev-db/postgresql:* )
 	slack? ( net-misc/curl )
 	sqlite? ( dev-db/sqlite )
-"
-RDEPEND="
 	test? (
 		dev-libs/ctap
 		app-misc/ztk
 	)
+"
+RDEPEND="
 	${DEPEND}
 "
 
