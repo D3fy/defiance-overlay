@@ -5,6 +5,10 @@
 		<email>dev-zero@gentoo.org</email>
 	</maintainer>
 	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<maintainer type="person">
 		<email>prometheanfire@gentoo.org</email>
 	</maintainer>
 	<maintainer type="project">
@@ -12,6 +16,7 @@
 		<name>Gentoo Virtualization Project</name>
 	</maintainer>
 	<use>
+		<flag name="dpdk">Build with Data Plane Development Kit (DPDK) support</flag>
 		<flag name="monitor">Build the Python and GUI dependent monitor applications</flag>
 	</use>
 </pkgmetadata>
