@@ -15,11 +15,14 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="shared ssl"
 
 DEPEND="
-	dev-lang/nasm
 	sys-process/numactl
 	ssl? ( dev-libs/openssl:* )
 "
 RDEPEND="${DEPEND}"
+DEPEND="
+	${DEPEND}
+	dev-lang/nasm
+"
 
 function ctarget() {
 	CTARGET="${ARCH}"

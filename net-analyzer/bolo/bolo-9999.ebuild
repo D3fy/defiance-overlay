@@ -26,13 +26,14 @@ DEPEND="
 	postgres? ( dev-db/postgresql:* )
 	slack? ( net-misc/curl )
 	sqlite? ( dev-db/sqlite )
+"
+RDEPEND="${DEPEND}"
+DEPEND="
+	${DEPEND}
 	test? (
 		dev-libs/ctap
 		app-misc/ztk
 	)
-"
-RDEPEND="
-	${DEPEND}
 "
 
 pkg_setup() {

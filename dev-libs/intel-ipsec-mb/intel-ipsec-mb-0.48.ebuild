@@ -12,10 +12,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="
-	dev-lang/nasm
-"
-RDEPEND="${DEPEND}"
+DEPEND="dev-lang/nasm"
 
 src_compile() {
 	emake

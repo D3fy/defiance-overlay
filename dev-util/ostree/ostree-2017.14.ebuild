@@ -15,8 +15,6 @@ IUSE="curl gjs grub selinux soup systemd zeroconf"
 S="${WORKDIR}/lib${P}"
 REQUIRED_USE="curl? ( soup )"
 DEPEND="
-	sys-devel/flex
-	sys-devel/bison
 	dev-libs/glib
 
 	sys-libs/zlib
@@ -38,6 +36,11 @@ DEPEND="
 	zeroconf? ( net-dns/avahi )
 "
 RDEPEND="${DEPEND}"
+DEPEND="
+	${DEPEND}
+	sys-devel/flex
+	sys-devel/bison
+"
 
 src_configure() {
 	econf \
