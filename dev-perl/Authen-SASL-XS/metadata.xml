@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>perl@gentoo.org</email>
+	</maintainer>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		SASL is a generic mechanism for authentication used by several network
+		protocols. Authen::SASL::XS provides an implementation framework that all
+		protocols should be able to share.
+
+		The XS framework makes calls into the existing libsasl.so resp. libsasl2
+		shared library to perform SASL client connection functionality, including
+		loading existing shared library mechanisms.
+	</longdescription>
+</pkgmetadata>

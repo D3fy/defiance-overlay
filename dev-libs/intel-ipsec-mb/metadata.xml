@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		Intel Multi-Buffer Crypto for IPsec Library is highly-optimized
+		software implementations of the core cryptographic processing for IPsec,
+		which provides industry-leading performance on a range of Intel(R) Processors.
+
+		For information on how to build and use this library, see the
+		Intel White Paper:
+		"Fast Multi-buffer IPsec Implementations on Intel Architecture Processors".
+		Jim Guilford, Sean Gulley, et. al.
+
+		The easiest way to find it is to search the Internet for the title and
+		Intel White Paper.
+	</longdescription>
+</pkgmetadata>

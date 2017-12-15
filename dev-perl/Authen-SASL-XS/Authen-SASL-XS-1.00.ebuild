@@ -6,7 +6,7 @@ EAPI=6
 DIST_AUTHOR="GBARR"
 inherit perl-module
 
-DESCRIPTION=""
+DESCRIPTION="Code to glue Perl SASL to Cyrus SASL"
 
 #LICENSE="|| ( Artistic GPL-1+ )"
 SLOT="0"
@@ -15,6 +15,7 @@ IUSE=""
 
 RDEPEND=""
 DEPEND="
+	dev-libs/cyrus-sasl
 	dev-perl/Devel-CheckLib
 	dev-perl/Authen-SASL
 	${RDEPEND}"

@@ -1,5 +1,6 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-perl/Devel-CheckLib dev-perl/Authen-SASL dev-lang/perl:=
+DEPEND=dev-libs/cyrus-sasl dev-perl/Devel-CheckLib dev-perl/Authen-SASL dev-lang/perl:=
+DESCRIPTION=Code to glue Perl SASL to Cyrus SASL
 EAPI=6
 HOMEPAGE=http://search.cpan.org/dist/Authen-SASL-XS/
 KEYWORDS=~amd64 ~x86
@@ -8,4 +9,4 @@ RDEPEND=dev-lang/perl:=
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/G/GB/GBARR/Authen-SASL-XS-1.00.tar.gz
 _eclasses_=multiprocessing	6f5991c7101863d0b29df63990ad852e	perl-functions	01e8c68d5a528bbcda4d3c60205983df	perl-module	863b35d127db98823d439f8d73c2d011
-_md5_=dea5efef9774eca31f7b4ed704e4231b
+_md5_=124cc0309e38c11a465ed2c1fd1c0e3e
