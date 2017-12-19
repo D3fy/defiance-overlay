@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		pg_qualstats is a PostgreSQL extension keeping statistics on predicates found
+		in WHERE statements and JOIN clauses.
+
+		This is useful if you want to be able to analyze what are the most-often
+		executed quals (predicates) on your database. The powa project makes use of
+		this to provide advances index suggestions.
+
+		It also allows you to identify correlated columns, by identifying which
+		columns are most frequently queried together.
+
+		The extension works by looking for known patterns in queries. Currently,
+		this includes:
+
+		- Binary OpExpr where at least one side is a column from a table. Whenever
+		possible, the predicate will be swaped so that CONST OP VAR expressions are
+		turned into VAR COMMUTED_OP CONST. AND and OR expression members are counted
+		as separate entries.
+		Ex: WHERE column1 = 2, WHERE column1 = column2, WHERE 3 = column3
+
+		- ScalarArrayOpExpr where the left side is a VAR, and the right side is an
+		array constant. Those will be counted one time per element in the array.
+		Ex: WHERE column1 IN (2, 3) will be counted as 2 occurences
+		for the (column1, '=') operator pair
+
+		- BooleanTest where the expression is a simple boolean column reference
+		Ex: WHERE column1 IS TRUE Please not that clauses like WHERE columns1,
+		WHERE NOT column1 won't be processed by pg_qualstats (yet)
+	</longdescription>
+</pkgmetadata>

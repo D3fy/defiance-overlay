@@ -9,17 +9,20 @@ DESCRIPTION="A set of libraries and drivers for fast packet processing"
 HOMEPAGE="http://dpdk.org/"
 SRC_URI="http://fast.${PN}.org/rel/${P}.tar.xz"
 
-LICENSE="BSD-3"
+LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="shared ssl"
 
 DEPEND="
-	dev-lang/nasm
 	sys-process/numactl
-	ssl? ( dev-libs/openssl )
+	ssl? ( dev-libs/openssl:* )
 "
 RDEPEND="${DEPEND}"
+DEPEND="
+	${DEPEND}
+	dev-lang/nasm
+"
 
 function ctarget() {
 	CTARGET="${ARCH}"
@@ -42,7 +45,7 @@ src_configure() {
 }
 
 src_compile() {
-	cd ${S}/build || die
+	cd "${S}/build" || die
 	ARCH=$(ctarget) emake \
 		RTE_DEVEL_BUILD=n \
 		CONFIG_RTE_BUILD_SHARED_LIB=$(use shared && echo 'y' || echo 'n') \
@@ -51,7 +54,7 @@ src_compile() {
 }
 
 src_install() {
-	pushd ${S}/build > /dev/null || die
+	pushd "${S}/build" > /dev/null || die
 	sed -i -e 's/^ifdef\ T/ifdef\ TMPL/' ../mk/rte.sdkinstall.mk
 	ARCH=$(ctarget) emake install \
 			DESTDIR=${D} \

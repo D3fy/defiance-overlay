@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		This Postgres module introduces a new data type hll which is a HyperLogLog
+		data structure. HyperLogLog is a fixed-size, set-like structure used for
+		distinct value counting with tunable precision. For example, in 1280 bytes hll
+		can estimate the count of tens of billions of distinct values with only a few
+		percent error.
+
+		In addition to the algorithm proposed in the original paper, this
+		implementation is augmented to improve its accuracy and memory use without
+		sacrificing much speed. See below for more details.
+
+		This postgresql-hll extension was originally developed by the Science team
+		from Aggregate Knowledge, now a part of Neustar. Please see the
+		acknowledgements section below for details about its contributors.
+	</longdescription>
+</pkgmetadata>

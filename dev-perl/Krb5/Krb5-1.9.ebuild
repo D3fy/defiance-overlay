@@ -6,7 +6,7 @@ EAPI=6
 DIST_AUTHOR="JHORWITZ"
 inherit perl-module
 
-DESCRIPTION=""
+DESCRIPTION="Perl extension for Kerberos 5"
 
 #LICENSE="|| ( Artistic GPL-1+ )"
 SLOT="0"

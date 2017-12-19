@@ -7,24 +7,21 @@ DESCRIPTION="Multi-Buffer Crypto for IPsec Library"
 HOMEPAGE="https://github.com/intel/intel-ipsec-mb"
 SRC_URI="https://github.com/intel/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="BSD-3"
+LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="
-	dev-lang/nasm
-"
-RDEPEND="${DEPEND}"
+DEPEND="dev-lang/nasm"
 
 src_compile() {
 	emake
 }
 
 src_install() {
-	pushd    ${S} > /dev/null || die
+	pushd    "${S}" > /dev/null || die
 	dolib    libIPSec_MB.a
-	insinto  /usr/include/${PN}
+	insinto  "/usr/include/${PN}"
 	doins    *.h
 	doins    include/types.h
 	dodoc    {LICENSE,README}

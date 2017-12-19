@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name=""></flag>
+	</use>
+	<upstream>
+		<maintainer>
+			<email></email>
+			<name></name>
+		</maintainer>
+		<bugs-to></bugs-to>
+		<doc></doc>
+		<changelog></changelog>
+		<remote-id></remote-id>
+	</upstream>
+	<slots>
+		<slot name="0">
+			Slot Description goes here.
+		</slot>
+	</slots>
+</pkgmetadata>

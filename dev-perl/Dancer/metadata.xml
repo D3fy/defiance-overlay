@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>perl@gentoo.org</email>
+	</maintainer>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">a
+		Dancer is a web application framework designed to be as effortless as possible
+		for the developer, taking care of the boring bits as easily as possible, yet
+		staying out of your way and letting you get on with writing your code.
+
+		Dancer aims to provide the simplest way for writing web applications, and
+		offers the flexibility to scale between a very simple lightweight web service
+		consisting of a few lines of code in a single file, all the way up to a more
+		complex fully-fledged web application with session support, templates for
+		views and layouts, etc.
+
+		If you don't want to write CGI scripts by hand, and find Catalyst too big or
+		cumbersome for your project, Dancer is what you need.
+
+		Dancer has few pre-requisites, so your Dancer webapps will be easy to deploy.
+
+		Dancer apps can be used with an embedded web server (great for easy testing),
+		and can run under PSGI/Plack for easy deployment in a variety of webserver
+		environments.
+	</longdescription>
+</pkgmetadata>

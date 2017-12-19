@@ -9,7 +9,7 @@ DESCRIPTION="The Bolo Monitoring System"
 HOMEPAGE="http://bolo.niftylogic.com/"
 
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz"
-KEYWORDS="~arm ~amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="core console +dbolo ffd influxdb meta postgres redis rrdtool slack sqlite test"
@@ -24,9 +24,15 @@ DEPEND="
 	postgres? ( dev-db/postgresql:* )
 	slack? ( net-misc/curl )
 	sqlite? ( dev-db/sqlite )
-	test? ( dev-libs/ctap )
 "
 RDEPEND="${DEPEND}"
+DEPEND="
+	${DEPEND}
+	test? (
+		dev-libs/ctap
+		app-misc/ztk
+	)
+"
 
 pkg_setup() {
 	enewgroup bolo

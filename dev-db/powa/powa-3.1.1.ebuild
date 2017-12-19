@@ -16,7 +16,7 @@ DESCRIPTION="PostgreSQL Workload Analyzer"
 HOMEPAGE="http://dalibo.github.io/powa/"
 SRC_URI="https://github.com/dalibo/${PN}-archivist/archive/${PSRC}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="DWTFYW"
+LICENSE="CC0-1.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="static-libs"

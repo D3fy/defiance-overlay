@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit autotools-utils git-r3
+inherit autotools git-r3
 
 DESCRIPTION="An encryption and authentication library for ZeroMQ applications"
 HOMEPAGE="http://curvezmq.org"
@@ -20,4 +20,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-AUTOTOOLS_AUTORECONF=yes
+src_prepare() {
+	eapply_user
+	eautoreconf
+}

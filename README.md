@@ -1,18 +1,9 @@
 # The Defiance Overlay
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/D3fy/defiance-overlay.svg?columns=To%20do,In%20Progress&style=flat-square)](https://waffle.io/D3fy/defiance-overlay)
+[![Shield.io - Flat travis icon](https://img.shields.io/travis/D3fy/defiance-overlay.svg?style=flat-square)](https://travis-ci.org/D3fy/defiance-overlay)
 
-The beginnings of a meta distribution
-
-Here are some SEO keywords:
-
-Gentoo, ebuild
-Orchestration: kubernetes, kubectl, kubelet
-Load balancing: [seesaw](https://github.com/google/seesaw), google seesaw
-Monitoring: [bolo](https://github.com/bolo)
-Configuration Management: clockwork
-libs: libmill, libconcurrent, libspooky, libvigor
-
+Ebuilds of the future! No really I'm not really sure why I put so much work into maintaining all of these. But they are here for anyone to use and enjoy. Please report any breakage imediatly using Github issues.
 
 
 ## Installation
@@ -50,8 +41,6 @@ For Portage >= 2.3.8:
     A set of libraries and drivers for fast packet processing
   - [frr](https://frrouting.org/)
     an IP routing protocol suite for BGP, IS-IS, LDP, OSPF, PIM, and RIP
-  - [glusterfs](http://www.gluster.org/)
-    GlusterFS is a powerful network/cluster filesystem
   - [heketi](https://github.com/heketi/heketi)
     RESTful based volume management framework for GlusterFS
   - [hypopg](http://dalibo.github.io/hypopg/)

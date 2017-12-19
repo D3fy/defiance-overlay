@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>perl@gentoo.org</email>
+	</maintainer>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		Authen::Krb5 is an object oriented interface to the Kerberos 5 API. Both the
+		implementation and documentation are nowhere near complete, and may require
+		previous experience with Kerberos 5 programming. Most of the functions here
+		are documented in detail in the Kerberos 5 API documentation.
+	</longdescription>
+</pkgmetadata>
