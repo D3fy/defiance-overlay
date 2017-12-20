@@ -47,6 +47,6 @@ src_install() {
 		fowners ${PN}:${PN} "${x}"
 	done
 
-	doman  "${S}/src/${EGO_PN}/doc/man/*"
+	doman  "${S}/src/${EGO_PN}/doc/man/heketi-cli.8"
 	dodoc  "${S}/src/${EGO_PN}/README.md"
 }
