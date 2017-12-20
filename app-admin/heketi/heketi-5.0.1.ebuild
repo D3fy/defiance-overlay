@@ -24,9 +24,19 @@ pkg_setup() {
 	enewuser ${PN} -1 -1 /var/lib/${PN} ${PN}
 }
 
+src_prepare() {
+	eapply_user
+
+	sed -e 's/^BRANCH\ :=.*/BRANCH\ =\ master/' \
+		-e "s/^VER\ :=.*/VER\ = ${PV}-gentoo/" \
+		-e 's/^SHA\ :=.*//' \
+		-e 's/TAG\ := //' \
+		-i src/${EGO_PN}/{Makefile,client/cli/go/Makefile}
+}
+
 src_compile() {
 	pushd src/${EGO_PN} || die
-	GOPATH=${S} APP_SUFFIX="${PV}-gentoo" emake
+	GOPATH=${S} emake
 }
 
 src_install() {
