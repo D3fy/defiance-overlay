@@ -38,5 +38,7 @@ src_compile() {
 
 src_install() {
 	exeinto /usr/libexec/cni
-	doexe "${S}/bin/{bridge,dhcp,flannel,host-local,ipvlan,loopback,macvlan,portmap,ptp,sample,tuning,vlan}"
+	for p in bridge dhcp flannel host-local ipvlan loopback macvlan portmap ptp sample tuning vlan; do
+		doexe "${S}/bin/${p}"
+	done
 }
