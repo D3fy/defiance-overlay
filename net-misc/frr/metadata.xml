@@ -63,6 +63,10 @@
 			Enable support for <pkg>sys-libs/readline</pkg> to provide the Quagga Virtual Terminal
 			Interface Shell (vtysh)
 		</flag>
+		<flag name="rpki">
+			Enable support for Resource Public Key Infrastructure (RPKI) using the
+			<pkg>net-libs/rtrlib</pkg> library rpki is primarily used to validate routes.
+		</flag>
 		<flag name="ssh">
 			Enable support for secure remote shell access
 		</flag>
