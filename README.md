@@ -23,6 +23,8 @@ For Portage >= 2.3.8:
     Desktop Suite for Xfce
   - [bind-dyndb-ldap](https://fedorahosted.org/bind-dyndb-ldap/)
     Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)
+  - [bird](http://bird.network.cz)
+    A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 or IPv6
   - [bolo](https://github.com/bolo/bolo-collectors)
     Collector Scripts for bolo
   - [bolo-collectors](https://github.com/bolo/bolo-collectors)
@@ -62,9 +64,9 @@ For Portage >= 2.3.8:
   - [ostree](https://ostree.readthedocs.io/en/latest/)
     Operating system and container binary deployment and upgrades
   - [pg_qualstats](https://github.com/dalibo/pg_qualstats)
-    A PostgreSQL extension for collecting statistics about predicates, helping find what indices are missing
+    A Postgres extension for collecting statistics about predicate
   - [pg_stat_kcache](https://github.com/dalibo/pg_stat_kcache)
-    Gather statistics about physical disk access and CPU consumption done by backends
+    Gather statistics about disk access and CPU consumption done by backends
   - [postgresql-hll](https://github.com/citusdata/postgresql-hll)
     PostgreSQL extension adding HyperLogLog data structures as a native data type
   - [powa](http://dalibo.github.io/powa/)
@@ -73,8 +75,12 @@ For Portage >= 2.3.8:
     The PostgreSQL Workload Analyzer web frontend
   - [ragel](http://www.colm.net/open-source/ragel/)
     Compiles finite state machines from regular languages into executable code
+  - [rtrlib](http://rtrlib.realmv6.org/)
+    An open-source C implementation of the RPKI/Router Protocol client
   - [seesaw](https://github.com/google/seesaw)
     Seesaw v2 is a Linux Virtual Server (LVS) based load balancing platform
+  - [strongswan](http://www.strongswan.org/)
+    IPsec-based VPN solution focused on security and ease of use, supporting IKEv1/IKEv2 and MOBIKE
   - [timescaledb](http://www.timescale.com/)
     A time-series database optimized for fast ingest and complex queries
   - [ztk](https://github.com/jhunt/ztk)
