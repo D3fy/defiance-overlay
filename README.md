@@ -63,6 +63,12 @@ For Portage >= 2.3.8:
     Production quality, multilayer virtual switch
   - [ostree](https://ostree.readthedocs.io/en/latest/)
     Operating system and container binary deployment and upgrades
+  - [pg_jobmon](https://github.com/omniti-labs/pg_jobmon)
+    PostgreSQL Extension for logging and monitoring automated jobs
+  - [pg_partman](https://github.com/keithf4/pg_partman)
+    Postgres time and serial partitioner
+  - [pg_pathman](https://github.com/postgrespro/pg_pathman)
+    Partitioning tool for PostgreSQL
   - [pg_qualstats](https://github.com/dalibo/pg_qualstats)
     A Postgres extension for collecting statistics about predicate
   - [pg_stat_kcache](https://github.com/dalibo/pg_stat_kcache)
@@ -73,8 +79,6 @@ For Portage >= 2.3.8:
     PostgreSQL Workload Analyzer
   - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html)
     The PostgreSQL Workload Analyzer web frontend
-  - [ragel](http://www.colm.net/open-source/ragel/)
-    Compiles finite state machines from regular languages into executable code
   - [rtrlib](http://rtrlib.realmv6.org/)
     An open-source C implementation of the RPKI/Router Protocol client
   - [seesaw](https://github.com/google/seesaw)
