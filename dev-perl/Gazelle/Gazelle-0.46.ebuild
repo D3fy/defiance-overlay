@@ -24,5 +24,10 @@ RDEPEND="
 	dev-perl/Devel-CheckCompiler
 "
 DEPEND="${RDEPEND}"
+src_unpack() {
+	perl-module_src_unpack
+	cd ${S}
+	epatch "${FILESDIR}/build.patch"
 
+}
 SRC_TEST="do"
