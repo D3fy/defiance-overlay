@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>perl@gentoo.org</email>
+	</maintainer>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		Client/server WebSocket message and frame parser/constructor. This module
+		does not provide a WebSocket server or client, but is made for using in
+		http servers or clients to provide WebSocket support.
+
+		Protocol::WebSocket supports the following WebSocket protocol versions:
+
+			draft-ietf-hybi-17 (latest)
+			draft-ietf-hybi-10
+			draft-ietf-hybi-00 (with HAProxy support)
+			draft-hixie-75
+	</longdescription>
+</pkgmetadata>
