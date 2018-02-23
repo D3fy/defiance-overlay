@@ -1,0 +1,11 @@
+--- Build.PL	2018-01-30 15:37:32.959015947 -0500
++++ Build.PL	2018-01-30 15:37:20.681016676 -0500
+@@ -8,7 +8,7 @@
+ use strict;
+ use warnings;
+ use utf8;
+-
++use lib './';
+ use builder::MyBuilder;
+ use File::Basename;
+ use File::Spec;
