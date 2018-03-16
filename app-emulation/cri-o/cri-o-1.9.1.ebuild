@@ -19,14 +19,19 @@ SRC_URI="${ARCHIVE_URI}"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="btrfs device-mapper ostree seccomp selinux"
 
-DEPEND="
+RDEPEND="
 	net-misc/cni-plugins
-	dev-go/go-md2man
 	app-emulation/runc
-	dev-util/ostree"
-RDEPEND="${DEPEND}"
+	btrfs? ( sys-fs/btrfs-progs )
+	device-mapper? ( sys-fs/lvm2 )
+	ostree? ( dev-util/ostree )
+	seccomp? ( sys-libs/libseccomp )
+	selinux? ( sys-libs/libselinux )"
+DEPEND="
+	${RDEPEND}
+	dev-go/go-md2man"
 
 src_prepare() {
 	default
@@ -40,7 +45,13 @@ src_compile() {
 	pushd src/${EGO_PN} || die
 	GOPATH="${S}" GOBIN="${S}/bin" \
 		BASE_LDFLAGS=" -s -w -X main.gitCommit=${GIT_COMMIT} -X main.buildInfo=Gentoo" \
-		emake -j1 # -C "${S}/src/${EGO_PN}" dev
+		BUILDTAGS=""
+		if ! use btrfs; then BUILDTAGS="${BUILDTAGS} exclude_graphdriver_btrfs"; fi
+		if ! use device-mapper; then BUILDTAGS="${BUILDTAGS} exclude_graphdriver_devicemapper"; fi
+		if ! use ostree; then BUILDTAGS="${BUILDTAGS} containers_image_ostree_stub"; fi
+		if use seccomp; then BUILDTAGS="${BUILDTAGS} seccomp"; fi
+		if use selinux; then BUILDTAGS="${BUILDTAGS} selinux"; fi
+		emake -j1 BUILDTAGS="${BUILDTAGS}"
 }
 
 src_install() {
@@ -51,7 +62,7 @@ src_install() {
 	dodir   /etc/crio
 	insinto /etc/crio
 	doins   "${FILESDIR}/crio.conf"
-	doins   "${FILESDIR}/seccomp.json"
+	use seccomp && doins "${FILESDIR}/seccomp.json"
 	dodir   /etc/crio/net.d
 	insinto /etc/crio/net.d
 	doins   "${FILESDIR}/99-loopback.conf"
