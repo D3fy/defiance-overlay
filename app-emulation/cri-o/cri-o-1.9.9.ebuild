@@ -51,7 +51,7 @@ src_compile() {
 	if use selinux; then BUILDTAGS="${BUILDTAGS} selinux"; fi
 	GOPATH="${S}" GOBIN="${S}/bin" \
 		BASE_LDFLAGS=" -s -w -X main.gitCommit=${GIT_COMMIT} -X main.buildInfo=Gentoo" \
-		emake -j1 BUILDTAGS="${BUILDTAGS}"
+		emake BUILDTAGS="${BUILDTAGS}"
 }
 
 src_install() {
