@@ -25,10 +25,6 @@ For Portage >= 2.3.8:
     Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)
   - [bird](http://bird.network.cz)
     A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 or IPv6
-  - [bolo](https://github.com/bolo/bolo-collectors)
-    Collector Scripts for bolo
-  - [bolo-collectors](https://github.com/bolo/bolo-collectors)
-    Collector Scripts for bolo
   - [citus](https://www.citusdata.com/)
     Scalable PostgreSQL for multi-tenant and real-time workloads
   - [clockwork](http://clockwork.niftylogic.com/)
