@@ -21,12 +21,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	net-misc/cni-plugins
-	dev-go/go-md2man
 	app-emulation/runc
 	dev-util/ostree"
-RDEPEND="${DEPEND}"
+DEPEND="
+	${RDEPEND}
+	dev-go/go-md2man"
 
 src_prepare() {
 	default
