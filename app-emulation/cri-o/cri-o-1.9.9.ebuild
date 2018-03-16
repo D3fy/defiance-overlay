@@ -43,14 +43,14 @@ src_prepare() {
 
 src_compile() {
 	pushd src/${EGO_PN} || die
+	BUILDTAGS=""
+	if ! use btrfs; then BUILDTAGS="${BUILDTAGS} exclude_graphdriver_btrfs"; fi
+	if ! use device-mapper; then BUILDTAGS="${BUILDTAGS} exclude_graphdriver_devicemapper"; fi
+	if ! use ostree; then BUILDTAGS="${BUILDTAGS} containers_image_ostree_stub"; fi
+	if use seccomp; then BUILDTAGS="${BUILDTAGS} seccomp"; fi
+	if use selinux; then BUILDTAGS="${BUILDTAGS} selinux"; fi
 	GOPATH="${S}" GOBIN="${S}/bin" \
 		BASE_LDFLAGS=" -s -w -X main.gitCommit=${GIT_COMMIT} -X main.buildInfo=Gentoo" \
-		BUILDTAGS=""
-		if ! use btrfs; then BUILDTAGS="${BUILDTAGS} exclude_graphdriver_btrfs"; fi
-		if ! use device-mapper; then BUILDTAGS="${BUILDTAGS} exclude_graphdriver_devicemapper"; fi
-		if ! use ostree; then BUILDTAGS="${BUILDTAGS} containers_image_ostree_stub"; fi
-		if use seccomp; then BUILDTAGS="${BUILDTAGS} seccomp"; fi
-		if use selinux; then BUILDTAGS="${BUILDTAGS} selinux"; fi
 		emake -j1 BUILDTAGS="${BUILDTAGS}"
 }
 
