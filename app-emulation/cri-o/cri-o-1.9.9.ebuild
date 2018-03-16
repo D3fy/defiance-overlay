@@ -49,6 +49,7 @@ src_compile() {
 	if ! use ostree; then BUILDTAGS="${BUILDTAGS} containers_image_ostree_stub"; fi
 	if use seccomp; then BUILDTAGS="${BUILDTAGS} seccomp"; fi
 	if use selinux; then BUILDTAGS="${BUILDTAGS} selinux"; fi
+	mkdir -p bin || die "failed to create bin"  # https://github.com/kubernetes-incubator/cri-o/pull/1459
 	GOPATH="${S}" GOBIN="${S}/bin" \
 		BASE_LDFLAGS=" -s -w -X main.gitCommit=${GIT_COMMIT} -X main.buildInfo=Gentoo" \
 		emake BUILDTAGS="${BUILDTAGS}" binaries
