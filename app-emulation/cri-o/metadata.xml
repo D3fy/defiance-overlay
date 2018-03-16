@@ -21,4 +21,9 @@
 		Monitoring and logging required to satisfy the CRI
 		Resource isolation as required by the CRI
 	</longdescription>
+	<use>
+		<flag name="btrfs">Include Btrfs support <pkg>sys-fs/btrfs-progs</pkg></flag>
+		<flag name="device-mapper">Include device-mapper support <pkg>sys-fs/lvm2</pkg></flag>
+		<flag name="ostree">Include OSTree support <pkg>dev-util/ostree</pkg></flag>
+	</use>
 </pkgmetadata>
