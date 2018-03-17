@@ -7,8 +7,6 @@ EGO_PN="github.com/kubernetes-incubator/${PN}"
 
 inherit golang-vcs-snapshot bash-completion-r1
 
-GIT_COMMIT="b97b9a3c7573d88d8616fe2d52aaade77b1690bd"
-
 ARCHIVE_URI="https://github.com/kubernetes-incubator/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_VENDOR_URI}"
 
@@ -24,6 +22,9 @@ IUSE="btrfs device-mapper doc ostree seccomp selinux"
 RDEPEND="
 	net-misc/cni-plugins
 	app-emulation/runc
+	net-misc/socat
+	sys-apps/iproute2
+	net-firewall/iptables
 	btrfs? ( sys-fs/btrfs-progs )
 	device-mapper? ( sys-fs/lvm2 )
 	ostree? ( dev-util/ostree )
@@ -44,11 +45,11 @@ src_prepare() {
 src_compile() {
 	pushd src/${EGO_PN} || die
 	BUILDTAGS=""
-	if ! use btrfs; then BUILDTAGS="${BUILDTAGS} exclude_graphdriver_btrfs"; fi
-	if ! use device-mapper; then BUILDTAGS="${BUILDTAGS} exclude_graphdriver_devicemapper"; fi
-	if ! use ostree; then BUILDTAGS="${BUILDTAGS} containers_image_ostree_stub"; fi
-	if use seccomp; then BUILDTAGS="${BUILDTAGS} seccomp"; fi
-	if use selinux; then BUILDTAGS="${BUILDTAGS} selinux"; fi
+	use btrfs         || BUILDTAGS="${BUILDTAGS} exclude_graphdriver_btrfs"
+	use device-mapper || BUILDTAGS="${BUILDTAGS} exclude_graphdriver_devicemapper"
+	use ostree        || BUILDTAGS="${BUILDTAGS} containers_image_ostree_stub"
+	use seccomp       && BUILDTAGS="${BUILDTAGS} seccomp"
+	use selinux       && BUILDTAGS="${BUILDTAGS} selinux"
 	mkdir -p bin || die "failed to create bin"  # https://github.com/kubernetes-incubator/cri-o/pull/1459
 	GOPATH="${S}" GOBIN="${S}/bin" \
 		BASE_LDFLAGS=" -s -w -X main.gitCommit=${GIT_COMMIT} -X main.buildInfo=Gentoo" \
@@ -60,7 +61,7 @@ src_install() {
 	pushd src/${EGO_PN} || die
 
 	emake DESTDIR="${D}" PREFIX="${D}${EPREFIX}/usr" install.bin
-	if use doc; then emake DESTDIR="${D}" PREFIX="${D}${EPREFIX}/usr" install.man; fi
+	use doc && emake DESTDIR="${D}" PREFIX="${D}${EPREFIX}/usr" install.man
 
 	dodir   /etc/crio
 	insinto /etc/crio
@@ -76,6 +77,7 @@ src_install() {
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
 	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
 
-	dodir /usr/share/containers/oci/hooks.d
-	dodir /var/lib/containers/storage
+	dodir   /usr/share/containers/oci/hooks.d
+	dodir   /var/lib/containers/storage
+	keepdir /var/lib/containers/storage
 }
