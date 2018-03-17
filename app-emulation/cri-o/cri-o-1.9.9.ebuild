@@ -19,7 +19,7 @@ SRC_URI="${ARCHIVE_URI}"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="btrfs device-mapper ostree seccomp selinux"
+IUSE="btrfs device-mapper doc ostree seccomp selinux"
 
 RDEPEND="
 	net-misc/cni-plugins
@@ -31,7 +31,7 @@ RDEPEND="
 	selinux? ( sys-libs/libselinux )"
 DEPEND="
 	${RDEPEND}
-	dev-go/go-md2man"
+	doc? ( dev-go/go-md2man )"
 
 src_prepare() {
 	default
@@ -43,21 +43,24 @@ src_prepare() {
 
 src_compile() {
 	pushd src/${EGO_PN} || die
+	BUILDTAGS=""
+	if ! use btrfs; then BUILDTAGS="${BUILDTAGS} exclude_graphdriver_btrfs"; fi
+	if ! use device-mapper; then BUILDTAGS="${BUILDTAGS} exclude_graphdriver_devicemapper"; fi
+	if ! use ostree; then BUILDTAGS="${BUILDTAGS} containers_image_ostree_stub"; fi
+	if use seccomp; then BUILDTAGS="${BUILDTAGS} seccomp"; fi
+	if use selinux; then BUILDTAGS="${BUILDTAGS} selinux"; fi
+	mkdir -p bin || die "failed to create bin"  # https://github.com/kubernetes-incubator/cri-o/pull/1459
 	GOPATH="${S}" GOBIN="${S}/bin" \
 		BASE_LDFLAGS=" -s -w -X main.gitCommit=${GIT_COMMIT} -X main.buildInfo=Gentoo" \
-		BUILDTAGS=""
-		if ! use btrfs; then BUILDTAGS="${BUILDTAGS} exclude_graphdriver_btrfs"; fi
-		if ! use device-mapper; then BUILDTAGS="${BUILDTAGS} exclude_graphdriver_devicemapper"; fi
-		if ! use ostree; then BUILDTAGS="${BUILDTAGS} containers_image_ostree_stub"; fi
-		if use seccomp; then BUILDTAGS="${BUILDTAGS} seccomp"; fi
-		if use selinux; then BUILDTAGS="${BUILDTAGS} selinux"; fi
-		emake -j1 BUILDTAGS="${BUILDTAGS}"
+		emake BUILDTAGS="${BUILDTAGS}" binaries
+	if use doc; then emake docs; fi
 }
 
 src_install() {
 	pushd src/${EGO_PN} || die
 
-	emake DESTDIR="${D}" PREFIX="${D}${EPREFIX}/usr" install
+	emake DESTDIR="${D}" PREFIX="${D}${EPREFIX}/usr" install.bin
+	if use doc; then emake DESTDIR="${D}" PREFIX="${D}${EPREFIX}/usr" install.man; fi
 
 	dodir   /etc/crio
 	insinto /etc/crio
