@@ -4,23 +4,27 @@
 extra_commands="reload"
 
 command=/usr/sbin/cogd
-COGD_CONF=${COGD_CONF:-/etc/clockwork/meshd.conf}
+COGD_CONF=${COGD_CONF:-/etc/clockwork/cogd.conf}
 commad_args="-c \"${COGD_CONF}\""
-pidfile=${COGD_PIDFILE:-/run/meshd.pid}
+pidfile=${COGD_PIDFILE:-/run/cogd.pid}
 
 depend() {
 	need net
 	use  dns logger
 }
 
-ckconfig() {
+checkconfig() {
 	if [ ! -f "/etc/gshadow" ]; then
 		einfo "Creating /etc/gshadow"
 		/usr/sbin/grpconv
 	fi
 	checkpath --directory --owner root:root --mode 0770 \
-		/var/lock/cogd
+		/run/lock/cogd
 
+}
+
+start_pre() {
+	checkconfig
 }
 
 reload() {
