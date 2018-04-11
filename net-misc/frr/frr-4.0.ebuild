@@ -82,7 +82,7 @@ src_configure() {
 		$(usex datacenter '--enable-cumulus --enable-datacenter' '' '' '') \
 		$(use_enable doc) \
 		$(usex multipath $(use_enable multipath) '' '=0' '') \
-		$(usex ospf '--enable-ospfd --enable-ospfapi --enable-ospfclient' '--enable-ospfd --enable-ospfapi --enable-ospfclient' '' '') \
+		$(usex ospf '--disable-ospfd --enable-ospfapi --enable-ospfclient' '--enable-ospfd --enable-ospfapi --enable-ospfclient' '' '') \
 		$(use_enable readline vtysh) \
 		$(use_with pam libpam) \
 		$(use_enable nhrpd) \

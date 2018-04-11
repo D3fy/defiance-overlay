@@ -47,10 +47,7 @@
 			Build Next Hop Resolution Protocol daemon
 		</flag>
 		<flag name="ospf">
-			Enable OSPF support on a whole
-		</flag>
-		<flag name="ospfapi">
-			Enable OSPFAPI support for client applications accessing the OSPF link state database
+			Enable OSPF support on a whole including the API
 		</flag>
 		<flag name="pam">
 			Add support for PAM (via <pkg>sys-libs/pam</pkg>) to the Quagga Virtual Terminal Interface
