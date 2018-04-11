@@ -88,7 +88,6 @@ src_configure() {
 		$(use_enable nhrpd) \
 		$(use_enable eigrpd) \
 		$(use_enable ldpd) \
-		$(use_enable pcre pcreposix) \
 		$(use_enable protobuf) \
 		$(use_enable rpki) \
 		$(use_enable ipv6 ripngd) \
@@ -96,10 +95,6 @@ src_configure() {
 		$(use_enable ipv6 rtadv) \
 		$(use_enable ssh shell-access) \
 		$(use_enable zeromq)
-}
-
-src_compile() {
-	emake -j1
 }
 
 src_install() {
