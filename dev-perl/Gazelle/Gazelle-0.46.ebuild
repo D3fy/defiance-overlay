@@ -24,7 +24,7 @@ RDEPEND="
 	dev-perl/Devel-CheckCompiler
 "
 DEPEND="${RDEPEND}"
-PATCHES="${FILESDIR}/build.patch"
+PATCHES=( "${FILESDIR}/build.patch" )
 src_unpack() {
 	perl-module_src_unpack
 }
