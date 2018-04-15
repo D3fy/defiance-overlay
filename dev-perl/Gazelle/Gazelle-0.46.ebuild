@@ -26,7 +26,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 src_unpack() {
 	perl-module_src_unpack
-	cd ${S}
 }
 src_prepare() {
 	eapply_user
