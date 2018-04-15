@@ -74,8 +74,8 @@ src_install() {
 	insinto /etc
 	doins   "${FILESDIR}/crictl.yaml"
 
-	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
-	newconfd "${FILESDIR}/${PN}.confd" "${PN}"
+	newinitd "${FILESDIR}/${PN}.initd" crio
+	newconfd "${FILESDIR}/${PN}.confd" crio
 
 	dodir   /usr/share/containers/oci/hooks.d
 	dodir   /var/lib/containers/storage
