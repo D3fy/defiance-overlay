@@ -21,6 +21,15 @@ src_compile() {
 
 src_install() {
 	dodir /usr/include
-	emake DESTDIR="${D}" PREFIX="${D}${EPREFIX}usr" install
+	emake \
+		DESTDIR="${D}" PREFIX="${D}${EPREFIX}usr" \
+		LIB_INSTALL_DIR="${D}${EPREFIX}usr/$(get_libdir)" \
+		MAN_DIR="${D}${EPREFIX}usr/share/man" \
+		NOLDCONFIG=y install
+	use static-libs && \
+		emake DESTDIR="${D}" PREFIX="${D}${EPREFIX}usr" \
+		LIB_INSTALL_DIR="${D}${EPREFIX}usr/$(get_libdir)" \
+		MAN_DIR="${D}${EPREFIX}usr/share/man" \
+		NOLDCONFIG=y SHARED=n install
 	dodoc    {LICENSE,README}
 }
