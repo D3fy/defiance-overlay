@@ -7,7 +7,4 @@
 	</maintainer>
 	<longdescription lang="en">
 	</longdescription>
-	<use>
-		<flag name="shared">Build the shared object libraries instead of the static libraries</flag>
-	</use>
 </pkgmetadata>

@@ -12,7 +12,7 @@ SRC_URI="http://fast.${PN}.org/rel/${P}.tar.xz"
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="shared ssl"
+IUSE="ssl static-libs"
 
 DEPEND="
 	sys-process/numactl
@@ -48,7 +48,12 @@ src_compile() {
 	cd "${S}/build" || die
 	ARCH=$(ctarget) emake \
 		RTE_DEVEL_BUILD=n \
-		CONFIG_RTE_BUILD_SHARED_LIB=$(use shared && echo 'y' || echo 'n') \
+		CONFIG_RTE_BUILD_SHARED_LIB=y \
+		CONFIG_RTE_LIBRTE_PMD_OPENSSL=$(use ssl && echo 'y' || echo 'n') \
+		EXTRA_CFLAGS="${CFLAGS}"
+	use static-libs && ARCH=$(ctarget) emake \
+		RTE_DEVEL_BUILD=n \
+		CONFIG_RTE_BUILD_SHARED_LIB=n \
 		CONFIG_RTE_LIBRTE_PMD_OPENSSL=$(use ssl && echo 'y' || echo 'n') \
 		EXTRA_CFLAGS="${CFLAGS}"
 }
