@@ -47,6 +47,6 @@ src_compile() {
 
 src_install() {
 	dobin lkvm vm || die
-	dodoc README COPYING || die
+	dodoc README || die
 	doman Documentation/${PN}.1
 }

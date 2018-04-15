@@ -60,17 +60,17 @@ src_install() {
 	dodir /usr/lib/clockwork/state
 
 	insinto /etc/clockwork
-	newinitd "${FILESDIR}"/cogd.initd   cogd
-	doins   "${FILESDIR}"/cogd.conf
+	newinitd "${FILESDIR}"/cogd.initd cogd
+	doins    "${FILESDIR}"/cogd.conf
 
 	if use clockd; then
-		dosym /etc/init.d/cogd /etc/init.d/clockd
-		doins "${FILESDIR}"/clockd.conf
+		newinitd "${FILESDIR}"/cogd.initd clockd
+		doins    "${FILESDIR}"/clockd.conf
 	fi
 
 	if use meshd; then
-		dosym /etc/init.d/cogd /etc/init.d/meshd
-		doins "${FILESDIR}"/meshd.conf
+		newinitd "${FILESDIR}"/cogd.initd meshd
+		doins    "${FILESDIR}"/meshd.conf
 	fi
 
 	if use vim-syntax; then
