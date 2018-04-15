@@ -10,10 +10,9 @@ SRC_URI="https://github.com/ostreedev/${PN}/releases/download/v${PV}/lib${P}.tar
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="curl gjs grub selinux soup systemd zeroconf"
+IUSE="curl doc gjs grub selinux soup systemd zeroconf"
 
 S="${WORKDIR}/lib${P}"
-REQUIRED_USE="curl? ( soup )"
 DEPEND="
 	dev-libs/glib
 
@@ -47,6 +46,7 @@ src_configure() {
 		OT_DEP_CRYPTO_CFLAGS=' ' \
 		OT_DEP_CURL_CFLAGS=' ' \
 		$(use_with curl) \
+		$(use_enable doc man) \
 		$(use_with soup) \
 		--with-crypto=openssl \
 		--with-openssl \
