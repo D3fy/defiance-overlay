@@ -64,13 +64,13 @@ src_install() {
 	doins   "${FILESDIR}"/cogd.conf
 
 	if use clockd; then
-		newinitd "${FILESDIR}"/clockd.initd clockd
-		doins   "${FILESDIR}"/clockd.conf
+		dosym /etc/init.d/cogd /etc/init.d/clockd
+		doins "${FILESDIR}"/clockd.conf
 	fi
 
 	if use meshd; then
-		newinitd "${FILESDIR}"/meshd.initd  meshd
-		doins   "${FILESDIR}"/meshd.conf
+		dosym /etc/init.d/cogd /etc/init.d/meshd
+		doins "${FILESDIR}"/meshd.conf
 	fi
 
 	if use vim-syntax; then
