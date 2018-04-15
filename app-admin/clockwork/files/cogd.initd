@@ -3,10 +3,10 @@
 
 extra_commands="reload"
 
-command=/usr/sbin/cogd
-COGD_CONF=${COGD_CONF:-/etc/clockwork/cogd.conf}
+command=/usr/sbin/${RC_SERVICE}
+COGD_CONF=${COGD_CONF:-/etc/clockwork/${RC_SERVICE}.conf}
 commad_args="-c \"${COGD_CONF}\""
-pidfile=${COGD_PIDFILE:-/run/cogd.pid}
+pidfile=${COGD_PIDFILE:-/run/${RC_SERVICE}.pid}
 
 depend() {
 	need net
@@ -19,7 +19,7 @@ checkconfig() {
 		/usr/sbin/grpconv
 	fi
 	checkpath --directory --owner root:root --mode 0770 \
-		/run/lock/cogd
+		/run/lock/${RC_SERVICES}
 
 }
 
