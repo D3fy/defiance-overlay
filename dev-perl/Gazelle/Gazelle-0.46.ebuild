@@ -24,11 +24,8 @@ RDEPEND="
 	dev-perl/Devel-CheckCompiler
 "
 DEPEND="${RDEPEND}"
+PATCHES="${FILESDIR}/build.patch"
 src_unpack() {
 	perl-module_src_unpack
-}
-src_prepare() {
-	eapply_user
-	epatch "${FILESDIR}/build.patch"
 }
 SRC_TEST="do"
