@@ -31,7 +31,7 @@ RDEPEND="
 	)
 	dev-python/zope-interface[${PYTHON_USEDEP}]
 	debug? ( dev-lang/perl )
-	dpdk? ( net-libs/dpdk:*[shared] )"
+	dpdk? ( net-libs/dpdk:* )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
