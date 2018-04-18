@@ -146,8 +146,8 @@ HTTP_MEMC_MODULE_WD="${WORKDIR}/memc-nginx-module-${HTTP_MEMC_MODULE_PV}"
 # ngx-http-auth-spnego-module (https://github.com/graytshirt/ngx_http_auth_spnego, BSD-2)
 HTTP_SPNEGO_MODULE_PV="0.9.0"
 HTTP_SPNEGO_MODULE_P="ngx_http_auth_spnego-${HTTP_SPNEGO_MODULE_PV}"
-HTTP_SPENGO_MODULE_URI="https://github.com/graytshirt/ngx_http_auth_spnego/archive/${HTTP_SPNEGO_MODULE_PV}.tar.gz"
-HTTP_SPNEGO_MODULE_WD="${WORKDIR}/ngx_http_auth_spnego-${HTTP_LDAP_MODULE_PV}"
+HTTP_SPNEGO_MODULE_URI="https://github.com/graytshirt/ngx_http_auth_spnego/archive/v${HTTP_SPNEGO_MODULE_PV}.tar.gz"
+HTTP_SPNEGO_MODULE_WD="${WORKDIR}/ngx_http_auth_spnego-${HTTP_SPNEGO_MODULE_PV}"
 
 # nginx-ldap-auth-module (https://github.com/kvspb/nginx-auth-ldap, BSD-2)
 HTTP_LDAP_MODULE_PV="42d195d7a7575ebab1c369ad3fc5d78dc2c2669c"
