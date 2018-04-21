@@ -825,6 +825,11 @@ src_install() {
 		docinto ${HTTP_LDAP_MODULE_P}
 		dodoc "${HTTP_LDAP_MODULE_WD}"/example.conf
 	fi
+
+	if use nginx_modules_http_auth_spnego; then
+		docinto ${HTTP_SPNEGO_MODULE_P}
+		dodoc "${HTTP_SPNEGO_MODULE_WD}"/README.md
+	fi
 }
 
 pkg_postinst() {
