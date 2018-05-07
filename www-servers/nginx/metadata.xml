@@ -19,6 +19,7 @@
     <flag name="pcre-jit">Enable JIT for pcre</flag>
     <flag name="ssl">Enable HTTPS module for http. Enable SSL/TLS support for POP3/IMAP/SMTP for mail.</flag>
     <flag name="rtmp">NGINX-based Media Streaming Server</flag>
+    <flag name="nginx_modules_http_auth_spnego">Enable Kerberos/SPNEGO authentication</flag>
   </use>
   <upstream>
     <changelog>http://nginx.org/en/CHANGES</changelog>
