@@ -1,10 +1,9 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-AUTOTOOLS_AUTORECONF=yes
 
-inherit autotools eutils user
+inherit eutils user
 
 SLOT="0"
 
@@ -12,18 +11,15 @@ LICENSE="GPL-3"
 DESCRIPTION="The nifty configuration managment system"
 HOMEPAGE="http://clockwork.niftylogic.com/"
 
-SRC_URI="https://github.com/jhunt/clockwork/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/GrayTShirt/${PN}/releases/download/v${PV}/${P}.tar.xz"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="clockd meshd vim-syntax test"
 
 DEPEND="
-	>=sys-devel/bison-3.0.0
-	sys-devel/flex
 	dev-libs/libpcre
 	app-admin/augeas
 	sys-libs/readline:*
-	>=dev-libs/libvigor-1.2.6
 	sys-apps/util-linux
 	test? (
 		dev-perl/Text-Diff
@@ -35,16 +31,10 @@ RDEPEND="
 	dev-libs/libpcre
 	app-admin/augeas
 	sys-libs/readline:*
-	>=dev-libs/libvigor-1.2.6
 	dev-util/ccache
 	app-portage/eix
 	sys-apps/util-linux
 "
-
-src_prepare() {
-	eapply_user
-	eautoreconf
-}
 
 pkg_setup() {
 	enewgroup clock
