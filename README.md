@@ -45,14 +45,16 @@ For Portage >= 2.3.8:
     Hypothetical Indexes for PostgreSQL
   - [intel-ipsec-mb](https://github.com/intel/intel-ipsec-mb)
     Multi-Buffer Crypto for IPsec Library
+  - [kvmtool](https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/)
+    A lightweight tool for hosting KVM guests
   - [libcurve](http://curvezmq.org)
     An encryption and authentication library for ZeroMQ applications
   - [libmill](http://libmill.org/)
     Go-style concurrency for C
   - [libspooky](https://github.com/graytshirt/libspooky)
     Spooky hash lib
-  - [libvigor](https://github.com/jhunt/libvigor)
-    The missing bits of C
+  - [nginx](https://nginx.org)
+    Robust, small and high performance http and reverse proxy server
   - [nomad](http://www.nomadproject.io)
     The cluster manager from Hashicorp
   - [openvswitch](http://openvswitch.org)
