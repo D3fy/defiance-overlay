@@ -87,5 +87,3 @@ For Portage >= 2.3.8:
     IPsec-based VPN solution focused on security and ease of use, supporting IKEv1/IKEv2 and MOBIKE
   - [timescaledb](http://www.timescale.com/)
     A time-series database optimized for fast ingest and complex queries
-  - [ztk](https://github.com/jhunt/ztk)
-    ZeroMQ Toolkit
