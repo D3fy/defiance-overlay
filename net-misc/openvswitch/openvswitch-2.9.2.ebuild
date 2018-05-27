@@ -29,6 +29,7 @@ RDEPEND="
 		dev-python/twisted[conch,${PYTHON_USEDEP}]
 		dev-python/twisted-web[${PYTHON_USEDEP}]
 	)
+	dev-python/six[${PYTHON_USEDEP}]
 	dev-python/zope-interface[${PYTHON_USEDEP}]
 	debug? ( dev-lang/perl )
 	dpdk? ( net-libs/dpdk:* )"
