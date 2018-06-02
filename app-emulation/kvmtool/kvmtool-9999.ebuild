@@ -47,6 +47,6 @@ src_compile() {
 
 src_install() {
 	dobin lkvm vm || die
-	dodoc README || die
+	dodoc COPYING README Documentation/virtio-console.txt || die
 	doman Documentation/${PN}.1
 }
