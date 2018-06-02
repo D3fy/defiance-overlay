@@ -42,7 +42,7 @@ src_prepare() {
 }
 
 src_compile() {
-	ARCH=$(ctarget) emake
+	V=1 ARCH=$(ctarget) emake
 }
 
 src_install() {
