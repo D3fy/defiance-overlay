@@ -42,11 +42,11 @@ src_prepare() {
 }
 
 src_compile() {
-	ARCH=$(ctarget) emake
+	V=1 ARCH=$(ctarget) emake
 }
 
 src_install() {
 	dobin lkvm vm || die
-	dodoc README || die
+	dodoc COPYING README Documentation/virtio-console.txt || die
 	doman Documentation/${PN}.1
 }
