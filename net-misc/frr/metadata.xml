@@ -53,6 +53,9 @@
 			Add support for PAM (via <pkg>sys-libs/pam</pkg>) to the Quagga Virtual Terminal Interface
 			Shell (vtysh); if the readline USE flag is disabled, this flag is ignored
 		</flag>
+		<flag name="pbrd">
+			Enable the policy based routing daemon
+		</flag>
 		<flag name="protobuf">
 			Enable support for <pkg>dev-libs/protobuf</pkg>
 		</flag>
@@ -63,6 +66,9 @@
 		<flag name="rpki">
 			Enable support for Resource Public Key Infrastructure (RPKI) using the
 			<pkg>net-libs/rtrlib</pkg> library rpki is primarily used to validate routes.
+		</flag>
+		<flag name="sharpd">
+			Enable Sharp support
 		</flag>
 		<flag name="ssh">
 			Enable support for secure remote shell access

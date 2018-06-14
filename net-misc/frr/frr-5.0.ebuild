@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="caps datacenter doc eigrpd elibc_glibc fpm ipv6 ldpd multipath nhrpd ospf pcre pam protobuf +readline rpki ssh snmp static zeromq"
+IUSE="caps datacenter doc eigrpd elibc_glibc fpm ipv6 ldpd multipath nhrpd ospf pbrd pcre pam protobuf +readline rpki sharpd ssh snmp static zeromq"
 
 COMMON_DEPEND="
 	dev-libs/json-c
@@ -89,6 +89,8 @@ src_configure() {
 		$(use_enable eigrpd) \
 		$(use_enable ldpd) \
 		$(use_enable protobuf) \
+		$(use_enable pbrd) \
+		$(use_enable sharpd) \
 		$(use_enable rpki) \
 		$(use_enable ipv6 ripngd) \
 		$(use_enable ipv6 ospf6d) \
