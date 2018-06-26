@@ -21,6 +21,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 DEPEND="
 	${DEPEND}
+	!net-libs/dpdk:0
 	dev-lang/nasm
 "
 
