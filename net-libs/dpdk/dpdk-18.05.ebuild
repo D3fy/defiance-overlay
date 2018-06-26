@@ -34,7 +34,6 @@ CONFIG_CHECK="~IOMMU_SUPPORT ~AMD_IOMMU ~VFIO ~VFIO_PCI ~UIO ~UIO_PDRV_GENIRQ ~U
 if [ "$SLOT" != "0" ] ; then
 	S=${WORKDIR}/${PN}-${SLOT#0/}-${PV}
 fi
-S=${WORKDIR}/${PN}-stable-${PV}
 
 pkg_setup() {
 	linux-mod_pkg_setup
