@@ -11,8 +11,8 @@ inherit eutils postgres-multi versionator
 SLOT="0"
 
 DESCRIPTION="Hypothetical Indexes for PostgreSQL"
-HOMEPAGE="http://dalibo.github.io/hypopg/"
-SRC_URI="https://github.com/dalibo/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="http://hypopg.github.io/hypopg/"
+SRC_URI="https://github.com/hypopg/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
