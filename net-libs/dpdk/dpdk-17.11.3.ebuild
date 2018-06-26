@@ -10,7 +10,7 @@ HOMEPAGE="http://dpdk.org/"
 SRC_URI="http://fast.${PN}.org/rel/${P}.tar.xz"
 
 LICENSE="BSD-2"
-SLOT="0/stable"
+SLOT="stable"
 KEYWORDS="~amd64 ~x86"
 IUSE="ssl static-libs"
 
@@ -32,7 +32,7 @@ function ctarget() {
 
 CONFIG_CHECK="~IOMMU_SUPPORT ~AMD_IOMMU ~VFIO ~VFIO_PCI ~UIO ~UIO_PDRV_GENIRQ ~UIO_DMEM_GENIRQ"
 if [ "$SLOT" != "0" ] ; then
-	S=${WORKDIR}/${PN}-${SLOT#0/}-${PV}
+	S=${WORKDIR}/${PN}-${SLOT}-${PV}
 fi
 
 pkg_setup() {
