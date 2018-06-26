@@ -32,7 +32,7 @@ RDEPEND="
 	dev-python/six[${PYTHON_USEDEP}]
 	dev-python/zope-interface[${PYTHON_USEDEP}]
 	debug? ( dev-lang/perl )
-	dpdk? ( net-libs/dpdk:* )"
+	dpdk? ( net-libs/dpdk:stable )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
