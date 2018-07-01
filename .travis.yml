@@ -21,6 +21,10 @@ before_script:
   - wget "https://www.gentoo.org/dtd/metadata.dtd" -O /usr/portage/distfiles/metadata.dtd
   - ln -s $TRAVIS_BUILD_DIR/portage-${PORTAGE_VER}/cnf/repos.conf /etc/portage/repos.conf
   - echo -e "[defiance]\nlocation = $TRAVIS_BUILD_DIR\nsync-type = git\nsync-uri  = https://github.com/d3fy/defiance-overlay.git\nauto-sync = true" >> $TRAVIS_BUILD_DIR/portage-${PORTAGE_VER}/cnf/repos.conf
+  - mkdir -p /usr/share/repoman
+  - ln -s $TRAVIS_BUILD_DIR/cnf/linechecks /usr/share/repoman/linechecks
+  - ln -s $TRAVIS_BUILD_DIR/cnf/qa_data    /usr/share/repoman/qa_data
+  - ln -s $TRAVIS_BUILD_DIR/cnf/repository /usr/share/repoman/repository
   - ln -s /usr/portage/profiles/default/linux/amd64/17.0 /etc/portage/make.profile
 script:
   - python $TRAVIS_BUILD_DIR/portage-${PORTAGE_VER}/bin/repoman full -d
