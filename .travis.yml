@@ -6,7 +6,6 @@ language: python
 env:
   global:
     - PORTAGE_VER="2.3.41"
-    - REPOMAN_VER="2.3.9"
 before_install:
   - sudo apt-get -qq update
   - pip install lxml pyyaml
@@ -14,17 +13,11 @@ before_script:
   - sudo chmod a+rwX /etc/passwd /etc/group /etc /usr
   - mkdir -p /etc/portage /usr/portage/distfiles
   - wget -qO - https://github.com/gentoo-mirror/gentoo/archive/master.tar.gz | tar xz -C /usr/portage --strip-components=1
-  - wget -qO - http://distfiles.gentoo.org/distfiles/portage-${PORTAGE_VER}.tar.bz2 | tar xj
-  - wget -qO - http://distfiles.gentoo.org/distfiles/repoman-${REPOMAN_VER}.tar.bz2 | tar xj --strip-component=1 -C portage-${PORTAGE_VER}
+  - wget -qO - https://gitweb.gentoo.org/proj/portage.git/snapshot/portage-${PORTAGE_VER}.tar.bz2 | tar xj
   - echo "portage:x:250:250:portage:/var/tmp/portage:/bin/false" >> /etc/passwd
   - echo "portage::250:portage,travis" >> /etc/group
   - wget "https://www.gentoo.org/dtd/metadata.dtd" -O /usr/portage/distfiles/metadata.dtd
   - ln -s $TRAVIS_BUILD_DIR/portage-${PORTAGE_VER}/cnf/repos.conf /etc/portage/repos.conf
-  - echo -e "[defiance]\nlocation = $TRAVIS_BUILD_DIR\nsync-type = git\nsync-uri  = https://github.com/d3fy/defiance-overlay.git\nauto-sync = true" >> $TRAVIS_BUILD_DIR/portage-${PORTAGE_VER}/cnf/repos.conf
-  - sudo mkdir -p /usr/share/repoman
-  - sudo ln -s $TRAVIS_BUILD_DIR/cnf/linechecks /usr/share/repoman/linechecks
-  - sudo ln -s $TRAVIS_BUILD_DIR/cnf/qa_data    /usr/share/repoman/qa_data
-  - sudo ln -s $TRAVIS_BUILD_DIR/cnf/repository /usr/share/repoman/repository
   - sudo ln -s /usr/portage/profiles/default/linux/amd64/17.0 /etc/portage/make.profile
 script:
   - python $TRAVIS_BUILD_DIR/portage-${PORTAGE_VER}/bin/repoman full -d
