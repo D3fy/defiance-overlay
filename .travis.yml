@@ -5,6 +5,7 @@
 language: python
 env:
   - PORTAGE_VER="2.3.41"
+  - REPOMAN_VER="2.3.9"
 before_install:
   - sudo apt-get -qq update
   - pip install lxml
@@ -13,10 +14,11 @@ before_script:
   - mkdir -p /etc/portage /usr/portage/distfiles
   - wget -qO - https://github.com/gentoo-mirror/gentoo/archive/master.tar.gz | tar xz -C /usr/portage --strip-components=1
   - wget -qO - http://distfiles.gentoo.org/distfiles/portage-${PORTAGE_VER}.tar.bz2 | tar xj
+  - wget -qO - http://distfiles.gentoo.org/distfiles/repoman-${REPOMAN_VER}.tar.bz2 | tar xj
   - echo "portage:x:250:250:portage:/var/tmp/portage:/bin/false" >> /etc/passwd
   - echo "portage::250:portage,travis" >> /etc/group
   - wget "https://www.gentoo.org/dtd/metadata.dtd" -O /usr/portage/distfiles/metadata.dtd
-  - ln -s $TRAVIS_BUILD_DIR/portage-portage-${PORTAGE_VER}/cnf/repos.conf /etc/portage/repos.conf
+  - ln -s $TRAVIS_BUILD_DIR/repoman-${REPOMAN_VER}/cnf/repos.conf /etc/portage/repos.conf
   - ln -s /usr/portage/profiles/default/linux/amd64/17.0 /etc/portage/make.profile
 script:
-    - python $TRAVIS_BUILD_DIR/portage-${PORTAGE_VER}/repoman/bin/repoman full -d
+    - python $TRAVIS_BUILD_DIR/repoman-${PORTAGE_VER}/repoman/bin/repoman full -d
