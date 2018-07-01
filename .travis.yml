@@ -9,8 +9,7 @@ env:
     - REPOMAN_VER="2.3.9"
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get install -y python-yaml
-  - pip install lxml
+  - pip install lxml pyyaml
 before_script:
   - sudo chmod a+rwX /etc/passwd /etc/group /etc /usr
   - mkdir -p /etc/portage /usr/portage/distfiles
