@@ -39,9 +39,11 @@ For Portage >= 2.3.8:
     A set of libraries and drivers for fast packet processing
   - [frr](https://frrouting.org/)
     an IP routing protocol suite for BGP, IS-IS, LDP, OSPF, PIM, and RIP
+  - [gitea](https://github.com/go-gitea/gitea)
+    A painless self-hosted Git service, written in Go
   - [heketi](https://github.com/heketi/heketi)
     RESTful based volume management framework for GlusterFS
-  - [hypopg](http://dalibo.github.io/hypopg/)
+  - [hypopg](http://hypopg.github.io/hypopg/)
     Hypothetical Indexes for PostgreSQL
   - [intel-ipsec-mb](https://github.com/intel/intel-ipsec-mb)
     Multi-Buffer Crypto for IPsec Library
@@ -61,19 +63,21 @@ For Portage >= 2.3.8:
     Production quality, multilayer virtual switch
   - [ostree](https://ostree.readthedocs.io/en/latest/)
     Operating system and container binary deployment and upgrades
+  - [packer](http://www.packer.io)
+    Packer is a tool for creating identical machine images for multiple platforms
   - [pg_jobmon](https://github.com/omniti-labs/pg_jobmon)
     PostgreSQL Extension for logging and monitoring automated jobs
   - [pg_partman](https://github.com/keithf4/pg_partman)
     Postgres time and serial partitioner
   - [pg_pathman](https://github.com/postgrespro/pg_pathman)
     Partitioning tool for PostgreSQL
-  - [pg_qualstats](https://github.com/dalibo/pg_qualstats)
+  - [pg_qualstats](https://github.com/powa-team/pg_qualstats)
     A Postgres extension for collecting statistics about predicate
-  - [pg_stat_kcache](https://github.com/dalibo/pg_stat_kcache)
+  - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache)
     Gather statistics about disk access and CPU consumption done by backends
   - [postgresql-hll](https://github.com/citusdata/postgresql-hll)
     PostgreSQL extension adding HyperLogLog data structures as a native data type
-  - [powa](http://dalibo.github.io/powa/)
+  - [powa](http://powa-team.github.io/powa/)
     PostgreSQL Workload Analyzer
   - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html)
     The PostgreSQL Workload Analyzer web frontend
@@ -85,5 +89,7 @@ For Portage >= 2.3.8:
     Seesaw v2 is a Linux Virtual Server (LVS) based load balancing platform
   - [strongswan](http://www.strongswan.org/)
     IPsec-based VPN solution focused on security and ease of use, supporting IKEv1/IKEv2 and MOBIKE
+  - [terraform](https://www.terraform.io/)
+    Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.
   - [timescaledb](http://www.timescale.com/)
     A time-series database optimized for fast ingest and complex queries
