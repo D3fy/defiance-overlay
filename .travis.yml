@@ -4,8 +4,9 @@
 
 language: python
 env:
-  - PORTAGE_VER="2.3.41"
-  - REPOMAN_VER="2.3.9"
+  global:
+    - PORTAGE_VER="2.3.41"
+    - REPOMAN_VER="2.3.9"
 before_install:
   - sudo apt-get -qq update
   - pip install lxml
