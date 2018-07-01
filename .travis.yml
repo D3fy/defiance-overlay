@@ -22,4 +22,4 @@ before_script:
   - ln -s $TRAVIS_BUILD_DIR/repoman-${REPOMAN_VER}/cnf/repos.conf /etc/portage/repos.conf
   - ln -s /usr/portage/profiles/default/linux/amd64/17.0 /etc/portage/make.profile
 script:
-    - python $TRAVIS_BUILD_DIR/repoman-${PORTAGE_VER}/repoman/bin/repoman full -d
+    - python $TRAVIS_BUILD_DIR/repoman-${REPOMAN_VER}/bin/repoman full -d
