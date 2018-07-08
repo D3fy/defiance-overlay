@@ -4,6 +4,9 @@ sed -i -e '/##\ List of Ebuilds/,$d' README.md
 
 echo -e "## List of Ebuilds\n" >> README.md
 
+# Prep for printing versions
+# for i in $(find -name \*ebuild) ; do echo -en "${${${i##*\/}%.ebuild}##*-} : ";  echo ${${${i##*\/}%.ebuild}%-*}; done
+
 for i in $(find  -name \*ebuild|sort|sed -e 's/\-[0-9\.r\-]\+\.ebuild//'|uniq|sed -e 's/^\.\/\S\+-\S\+\///'|sort) ; do
 	ebuild=$(find -name \*$i\*ebuild|tail -n1)
 	if [[ $ebuild =~ "dev-perl" ]] ; then
