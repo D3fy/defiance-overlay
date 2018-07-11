@@ -26,7 +26,7 @@ for p in $(find -maxdepth 2 -mindepth 2 -type d -not -path ./.git/\* -not -path 
 	done
 	echo -en "    - [${NAME}]($site) - " >> README.md
 	for v in ${VERSIONS[@]} ; do
-		echo -en " [${v}](/${CATEGORY}/${NAME}-${v}.ebuild" >> README.md
+		echo -en " [${v}](/${CATEGORY}/${NAME}-${v}.ebuild)" >> README.md
 	done
 	echo " -" >> README.md
 	echo "      ${desc}" >> README.md
