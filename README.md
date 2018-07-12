@@ -22,7 +22,7 @@ For Portage >= 2.3.8:
   - [app-admin](https://packages.gentoo.org/categories/app-admin)
     - [clockwork](http://clockwork.niftylogic.com/) -  [3.3.2](/app-admin/clockwork/clockwork-3.3.2.ebuild) -
       The nifty configuration managment system
-    - [heketi](https://github.com/heketi/heketi) -  [5.0.1](/app-admin/heketi/heketi-5.0.1.ebuild) -
+    - [heketi](https://${EGO_PN}) -  [7.0.0](/app-admin/heketi/heketi-7.0.0.ebuild) -
       RESTful based volume management framework for GlusterFS
     - [terraform](https://www.terraform.io/) -  [0.11.7](/app-admin/terraform/terraform-0.11.7.ebuild) -
       Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.
@@ -99,7 +99,7 @@ For Portage >= 2.3.8:
     - [nomad](http://www.nomadproject.io) -  [0.8.0](/sys-cluster/nomad/nomad-0.8.0.ebuild) -
       The cluster manager from Hashicorp
   - [www-apps](https://packages.gentoo.org/categories/www-apps)
-    - [gitea](https://github.com/go-gitea/gitea) -  [1.4.3](/www-apps/gitea/gitea-1.4.3.ebuild) -
+    - [gitea](https://gitea.io/en-us/) -  [1.4.3](/www-apps/gitea/gitea-1.4.3.ebuild) -
       A painless self-hosted Git service, written in Go
   - [www-servers](https://packages.gentoo.org/categories/www-servers)
     - [nginx](https://nginx.org) -  [1.14.0](/www-servers/nginx/nginx-1.14.0.ebuild) -
