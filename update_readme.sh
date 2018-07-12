@@ -13,7 +13,7 @@ for p in $(find -maxdepth 2 -mindepth 2 -type d -not -path ./.git/\* -not -path 
 	CATEGORY=${CATEGORY%%\/*}
 
 	if [ "${PREVIOUS_CATEGORY}" != "${CATEGORY}" ] ; then
-		echo "  - [$CATEGORY](/$CATEGORY)" >> README.md
+		echo "  - [$CATEGORY](https://packages.gentoo.org/categories/${CATEGORY})" >> README.md
 	fi
 	for e in $(find $p -name \*.ebuild|sort) ; do
 		NAME=${e##*\/}
