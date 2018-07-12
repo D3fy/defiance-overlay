@@ -22,7 +22,7 @@ For Portage >= 2.3.8:
   - [app-admin](https://packages.gentoo.org/categories/app-admin)
     - [clockwork](http://clockwork.niftylogic.com/) -  [3.3.2](/app-admin/clockwork/clockwork-3.3.2.ebuild) -
       The nifty configuration managment system
-    - [heketi](https://${EGO_PN}) -  [7.0.0](/app-admin/heketi/heketi-7.0.0.ebuild) -
+    - [heketi](https://github.com/heketi/heketi) -  [7.0.0](/app-admin/heketi/heketi-7.0.0.ebuild) -
       RESTful based volume management framework for GlusterFS
     - [terraform](https://www.terraform.io/) -  [0.11.7](/app-admin/terraform/terraform-0.11.7.ebuild) -
       Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.

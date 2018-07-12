@@ -8,4 +8,4 @@ LICENSE=LGPL-3 GPL-2
 SLOT=0
 SRC_URI=https://github.com/heketi/heketi/archive/v7.0.0.tar.gz -> heketi-7.0.0.tar.gz https://github.com/heketi/heketi/archive/releases/download/vheketi/heketi-deps-v7.0.0.tar.gz
 _eclasses_=golang-base	d4e3a3f895016e5c9d7afb1a33e7cf3c	golang-vcs-snapshot	913580335becddd3ebecefe852e47536	user	8bc2845510e2109af75e3eeac607ec81
-_md5_=a6dd424e7116103f94beed49adf25e66
+_md5_=1d32108387fb27dd3182f9f945528265

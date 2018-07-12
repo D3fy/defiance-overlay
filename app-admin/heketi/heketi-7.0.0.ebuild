@@ -8,7 +8,7 @@ EGO_PN="github.com/${PN}/${PN}"
 inherit golang-vcs-snapshot user
 
 DESCRIPTION="RESTful based volume management framework for GlusterFS"
-HOMEPAGE="https://${EGO_PN}"
+HOMEPAGE="https://github.com/heketi/heketi"
 SRC_URI="https://${EGO_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://${EGO_PN}/archive/releases/download/v${PN}/${PN}-deps-v${PV}.tar.gz"
 
