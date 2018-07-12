@@ -8,20 +8,24 @@ EGO_PN="github.com/${PN}/${PN}"
 inherit golang-vcs-snapshot user
 
 DESCRIPTION="RESTful based volume management framework for GlusterFS"
-HOMEPAGE="https://github.com/heketi/heketi"
-SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz"
+HOMEPAGE="https://${EGO_PN}"
+SRC_URI="https://${EGO_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://${EGO_PN}/archive/releases/download/v${PN}/${PN}-deps-v${PV}.tar.gz"
 
 LICENSE="LGPL-3 GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="dev-go/glide"
-RDEPEND="${DEPEND}"
-
 pkg_setup() {
 	enewgroup ${PN}
 	enewuser ${PN} -1 -1 /var/lib/${PN} ${PN}
+}
+
+src_unpack() {
+	golang-vcs-snapshot_src_unpack
+	mkdir -p ${S}/src/${EGO_PN}/vendor
+	tar xf ${DISTDIR}/${PN}-deps-v${PV}.tar.gz -C ${S}/src/${EGO_PN}/vendor --strip 1
 }
 
 src_prepare() {
@@ -57,6 +61,6 @@ src_install() {
 		fowners ${PN}:${PN} "${x}"
 	done
 
-	doman  "${S}/src/${EGO_PN}/doc/man/heketi-cli.8"
+	doman  "${S}/src/${EGO_PN}/docs/man/heketi-cli.8"
 	dodoc  "${S}/src/${EGO_PN}/README.md"
 }
