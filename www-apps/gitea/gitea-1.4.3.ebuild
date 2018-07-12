@@ -10,7 +10,7 @@ ARCHIVE_URI="https://github.com/go-gitea/gitea/archive/v${PV}.tar.gz -> ${P}.tar
 KEYWORDS="~amd64 ~arm"
 
 DESCRIPTION="A painless self-hosted Git service, written in Go"
-HOMEPAGE="https://github.com/go-gitea/gitea"
+HOMEPAGE="https://gitea.io/en-us/"
 SRC_URI="${ARCHIVE_URI}"
 
 LICENSE="MIT"

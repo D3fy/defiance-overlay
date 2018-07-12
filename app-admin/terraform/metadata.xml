@@ -32,4 +32,8 @@ Change Automation
 
 Complex changesets can be applied to your infrastructure with minimal human interaction. With the previously mentioned execution plan and resource graph, you know exactly what Terraform will change and in what order, avoiding many possible human errors.
 	</longdescription>
+	<upstream>
+		<changelog>https://github.com/hashicorp/terraform/blob/master/CHANGELOG.md</changelog>
+		<remote-id type="github">hashicorp/terraform</remote-id>
+	</upstream>
 </pkgmetadata>

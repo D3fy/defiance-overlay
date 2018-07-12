@@ -26,4 +26,8 @@
 		<flag name="device-mapper">Include device-mapper support <pkg>sys-fs/lvm2</pkg></flag>
 		<flag name="ostree">Include OSTree support <pkg>dev-util/ostree</pkg></flag>
 	</use>
+	<upstream>
+		<changelog>https://github.com/kubernetes-incubator/cri-o/releases</changelog>
+		<remote-id type="github">kubernetes-incubator/cri-o</remote-id>
+	</upstream>
 </pkgmetadata>

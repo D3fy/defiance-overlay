@@ -5,7 +5,12 @@
 		<email>mrueg@gentoo.org</email>
 		<name>Manuel Rüger</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
 	<upstream>
+		<changelog>https://github.com/go-gitea/gitea/blob/master/CHANGELOG.md</changelog>
 		<remote-id type="github">go-gitea/gitea</remote-id>
 	</upstream>
 </pkgmetadata>

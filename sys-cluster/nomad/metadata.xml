@@ -16,4 +16,7 @@
 	<use>
 		<flag name="lxc">Use LXC as a container manager</flag>
 	</use>
+	<upstream>
+		<changelog>https://github.com/hashicorp/nomad/blob/master/CHANGELOG.md</changelog>
+	</upstream>
 </pkgmetadata>
