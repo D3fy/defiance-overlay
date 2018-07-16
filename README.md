@@ -27,7 +27,7 @@ For Portage >= 2.3.8:
     - [terraform](https://www.terraform.io/) -  [0.11.7](/app-admin/terraform/terraform-0.11.7.ebuild) -
       Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
-    - [cri-o](http://cri-o.io/) -  [1.10.4](/app-emulation/cri-o/cri-o-1.10.4.ebuild) -
+    - [cri-o](http://cri-o.io/) -  [1.11.1](/app-emulation/cri-o/cri-o-1.11.1.ebuild) -
       Lightweight container runtime for Kubernetes
     - [kvmtool](https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/) -  [9999](/app-emulation/kvmtool/kvmtool-9999.ebuild) -
       A lightweight tool for hosting KVM guests
@@ -54,7 +54,7 @@ For Portage >= 2.3.8:
       PostgreSQL Workload Analyzer
     - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [3.1.4](/dev-db/powa-web/powa-web-3.1.4.ebuild) -
       The PostgreSQL Workload Analyzer web frontend
-    - [timescaledb](http://www.timescale.com/) -  [0.10.0](/dev-db/timescaledb/timescaledb-0.10.0.ebuild) [9999](/dev-db/timescaledb/timescaledb-9999.ebuild) -
+    - [timescaledb](http://www.timescale.com/) -  [0.10.1](/dev-db/timescaledb/timescaledb-0.10.1.ebuild) [9999](/dev-db/timescaledb/timescaledb-9999.ebuild) -
       A time-series database optimized for fast ingest and complex queries
   - [dev-libs](https://packages.gentoo.org/categories/dev-libs)
     - [ctap](https://github.com/jhunt/ctap/) -  [2.0.0](/dev-libs/ctap/ctap-2.0.0.ebuild) -
@@ -85,7 +85,7 @@ For Portage >= 2.3.8:
       A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 or IPv6
     - [cni-plugins](https://github.com/containernetworking/plugins) -  [0.7.1](/net-misc/cni-plugins/cni-plugins-0.7.1.ebuild) -
       Some standard networking plugins, maintained by the CNI team
-    - [frr](https://frrouting.org/) -  [5.0](/net-misc/frr/frr-5.0.ebuild) -
+    - [frr](https://frrouting.org/) -  [5.0.1](/net-misc/frr/frr-5.0.1.ebuild) -
       an IP routing protocol suite for BGP, IS-IS, LDP, OSPF, PIM, and RIP
     - [openvswitch](http://openvswitch.org) -  [2.9.2](/net-misc/openvswitch/openvswitch-2.9.2.ebuild) -
       Production quality, multilayer virtual switch
