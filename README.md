@@ -66,7 +66,7 @@ For Portage >= 2.3.8:
     - [libspooky](https://github.com/graytshirt/libspooky) -  [1.0.0](/dev-libs/libspooky/libspooky-1.0.0.ebuild) -
       Spooky hash lib
   - [dev-util](https://packages.gentoo.org/categories/dev-util)
-    - [ostree](https://ostree.readthedocs.io/en/latest/) -  [2018.6](/dev-util/ostree/ostree-2018.6.ebuild) -
+    - [ostree](https://ostree.readthedocs.io/en/latest/) -  [2018.7](/dev-util/ostree/ostree-2018.7.ebuild) -
       Operating system and container binary deployment and upgrades
     - [packer](http://www.packer.io) -  [1.2.4](/dev-util/packer/packer-1.2.4.ebuild) -
       Packer is a tool for creating identical machine images for multiple platforms
