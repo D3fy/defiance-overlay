@@ -47,12 +47,12 @@ src_configure() {
 
 src_compile() {
 	cd "${S}/build" || die
-	ARCH=$(ctarget) emake \
+	ARCH=$(ctarget) V=1 emake \
 		RTE_DEVEL_BUILD=n \
 		CONFIG_RTE_BUILD_SHARED_LIB=y \
 		CONFIG_RTE_LIBRTE_PMD_OPENSSL=$(use ssl && echo 'y' || echo 'n') \
 		EXTRA_CFLAGS="${CFLAGS}"
-	use static-libs && ARCH=$(ctarget) emake \
+	use static-libs && ARCH=$(ctarget) V=1 emake \
 		RTE_DEVEL_BUILD=n \
 		CONFIG_RTE_BUILD_SHARED_LIB=n \
 		CONFIG_RTE_LIBRTE_PMD_OPENSSL=$(use ssl && echo 'y' || echo 'n') \
@@ -62,7 +62,7 @@ src_compile() {
 src_install() {
 	pushd "${S}/build" > /dev/null || die
 	sed -i -e 's/^ifdef\ T/ifdef\ TMPL/' ../mk/rte.sdkinstall.mk
-	ARCH=$(ctarget) emake install \
+	ARCH=$(ctarget) V=1 emake install \
 			DESTDIR=${D} \
 			libdir="${EPREFIX}/usr/$(get_libdir)" \
 			prefix="${EPREFIX}/usr"
