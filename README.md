@@ -24,7 +24,7 @@ For Portage >= 2.3.8:
       The nifty configuration managment system
     - [heketi](https://github.com/heketi/heketi) -  [7.0.0](/app-admin/heketi/heketi-7.0.0.ebuild) -
       RESTful based volume management framework for GlusterFS
-    - [terraform](https://www.terraform.io/) -  [0.11.7](/app-admin/terraform/terraform-0.11.7.ebuild) -
+    - [terraform](https://www.terraform.io/) -  [0.11.8](/app-admin/terraform/terraform-0.11.8.ebuild) -
       Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
     - [cri-o](http://cri-o.io/) -  [1.11.1](/app-emulation/cri-o/cri-o-1.11.1.ebuild) -
