@@ -22,19 +22,19 @@ For Portage >= 2.3.8:
   - [app-admin](https://packages.gentoo.org/categories/app-admin)
     - [clockwork](http://clockwork.niftylogic.com/) -  [3.3.2](/app-admin/clockwork/clockwork-3.3.2.ebuild) -
       The nifty configuration managment system
-    - [heketi](https://github.com/heketi/heketi) -  [7.0.0](/app-admin/heketi/heketi-7.0.0.ebuild) -
+    - [heketi](https://github.com/heketi/heketi) -  [8.0.0](/app-admin/heketi/heketi-8.0.0.ebuild) -
       RESTful based volume management framework for GlusterFS
     - [terraform](https://www.terraform.io/) -  [0.11.8](/app-admin/terraform/terraform-0.11.8.ebuild) -
       Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
-    - [cri-o](http://cri-o.io/) -  [1.11.1](/app-emulation/cri-o/cri-o-1.11.1.ebuild) -
+    - [cri-o](http://cri-o.io/) -  [1.11.4](/app-emulation/cri-o/cri-o-1.11.4.ebuild) -
       Lightweight container runtime for Kubernetes
     - [kvmtool](https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/) -  [9999](/app-emulation/kvmtool/kvmtool-9999.ebuild) -
       A lightweight tool for hosting KVM guests
     - [runv](https://github.com/hyperhq/runv) -  [1.0.0](/app-emulation/runv/runv-1.0.0.ebuild) -
       Hypervisor-based Runtime for OCI
   - [dev-db](https://packages.gentoo.org/categories/dev-db)
-    - [citus](https://www.citusdata.com/) -  [7.5.0](/dev-db/citus/citus-7.5.0.ebuild) -
+    - [citus](https://www.citusdata.com/) -  [7.5.1](/dev-db/citus/citus-7.5.1.ebuild) -
       Scalable PostgreSQL for multi-tenant and real-time workloads
     - [hypopg](http://hypopg.github.io/hypopg/) -  [1.1.2](/dev-db/hypopg/hypopg-1.1.2.ebuild) -
       Hypothetical Indexes for PostgreSQL
@@ -54,7 +54,7 @@ For Portage >= 2.3.8:
       PostgreSQL Workload Analyzer
     - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [3.1.4](/dev-db/powa-web/powa-web-3.1.4.ebuild) -
       The PostgreSQL Workload Analyzer web frontend
-    - [timescaledb](http://www.timescale.com/) -  [0.10.1](/dev-db/timescaledb/timescaledb-0.10.1.ebuild) [9999](/dev-db/timescaledb/timescaledb-9999.ebuild) -
+    - [timescaledb](http://www.timescale.com/) -  [0.12.0](/dev-db/timescaledb/timescaledb-0.12.0.ebuild) [9999](/dev-db/timescaledb/timescaledb-9999.ebuild) -
       A time-series database optimized for fast ingest and complex queries
   - [dev-libs](https://packages.gentoo.org/categories/dev-libs)
     - [ctap](https://github.com/jhunt/ctap/) -  [2.0.0](/dev-libs/ctap/ctap-2.0.0.ebuild) -
@@ -66,9 +66,9 @@ For Portage >= 2.3.8:
     - [libspooky](https://github.com/graytshirt/libspooky) -  [1.0.0](/dev-libs/libspooky/libspooky-1.0.0.ebuild) -
       Spooky hash lib
   - [dev-util](https://packages.gentoo.org/categories/dev-util)
-    - [ostree](https://ostree.readthedocs.io/en/latest/) -  [2018.7](/dev-util/ostree/ostree-2018.7.ebuild) -
+    - [ostree](https://ostree.readthedocs.io/en/latest/) -  [2018.8](/dev-util/ostree/ostree-2018.8.ebuild) -
       Operating system and container binary deployment and upgrades
-    - [packer](http://www.packer.io) -  [1.2.4](/dev-util/packer/packer-1.2.4.ebuild) [1.2.5](/dev-util/packer/packer-1.2.5.ebuild) -
+    - [packer](http://www.packer.io) -  [1.3.1](/dev-util/packer/packer-1.3.1.ebuild) -
       Packer is a tool for creating identical machine images for multiple platforms
   - [net-dns](https://packages.gentoo.org/categories/net-dns)
     - [bind-dyndb-ldap](https://fedorahosted.org/bind-dyndb-ldap/) -  [11.1](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-11.1.ebuild) [9999](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-9999.ebuild) -

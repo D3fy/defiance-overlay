@@ -3,11 +3,11 @@
 
 EAPI=6
 
-EGO_PN="github.com/kubernetes-incubator/${PN}"
+EGO_PN="github.com/kubernetes-sigs/${PN}"
 
 inherit golang-vcs-snapshot bash-completion-r1
 
-ARCHIVE_URI="https://github.com/kubernetes-incubator/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+ARCHIVE_URI="https://github.com/kubernetes-sigs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_VENDOR_URI}"
 
 DESCRIPTION="Lightweight container runtime for Kubernetes"
@@ -50,7 +50,7 @@ src_compile() {
 	use ostree        || BUILDTAGS="${BUILDTAGS} containers_image_ostree_stub"
 	use seccomp       && BUILDTAGS="${BUILDTAGS} seccomp"
 	use selinux       && BUILDTAGS="${BUILDTAGS} selinux"
-	mkdir -p bin || die "failed to create bin"  # https://github.com/kubernetes-incubator/cri-o/pull/1459
+	mkdir -p bin || die "failed to create bin"
 	GOPATH="${S}" GOBIN="${S}/bin" \
 		BASE_LDFLAGS=" -s -w -X main.gitCommit=${GIT_COMMIT} -X main.buildInfo=Gentoo" \
 		emake BUILDTAGS="${BUILDTAGS}" binaries
