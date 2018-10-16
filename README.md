@@ -85,7 +85,7 @@ For Portage >= 2.3.8:
       A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 or IPv6
     - [cni-plugins](https://github.com/containernetworking/plugins) -  [0.7.2](/net-misc/cni-plugins/cni-plugins-0.7.2.ebuild) -
       Some standard networking plugins, maintained by the CNI team
-    - [frr](https://frrouting.org/) -  [5.0.1](/net-misc/frr/frr-5.0.1.ebuild) -
+    - [frr](https://frrouting.org/) -  [6.0](/net-misc/frr/frr-6.0.ebuild) -
       an IP routing protocol suite for BGP, IS-IS, LDP, OSPF, PIM, and RIP
     - [openvswitch](http://openvswitch.org) -  [2.9.2](/net-misc/openvswitch/openvswitch-2.9.2.ebuild) -
       Production quality, multilayer virtual switch
