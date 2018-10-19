@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="caps datacenter doc eigrpd elibc_glibc fpm ipv6 ldpd multipath nhrpd ospf pbrd pcre pam protobuf +readline rpki sharpd ssh snmp static zeromq"
+IUSE="bfdd caps datacenter doc eigrpd elibc_glibc fpm ipv6 ldpd multipath nhrpd ospf pbrd pcre pam protobuf realms +readline rpki sharpd ssh snmp static staticd zeromq"
 
 COMMON_DEPEND="
 	dev-libs/json-c
@@ -85,12 +85,15 @@ src_configure() {
 		$(usex ospf '--disable-ospfd --enable-ospfapi --enable-ospfclient' '--enable-ospfd --enable-ospfapi --enable-ospfclient' '' '') \
 		$(use_enable readline vtysh) \
 		$(use_with pam libpam) \
+		$(use_enable bfdd) \
 		$(use_enable nhrpd) \
 		$(use_enable eigrpd) \
 		$(use_enable ldpd) \
 		$(use_enable protobuf) \
 		$(use_enable pbrd) \
+		$(use_enable realms) \
 		$(use_enable sharpd) \
+		$(use_enable staticd) \
 		$(use_enable rpki) \
 		$(use_enable ipv6 ripngd) \
 		$(use_enable ipv6 ospf6d) \

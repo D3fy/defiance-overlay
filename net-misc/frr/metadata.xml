@@ -28,6 +28,9 @@
 		web 2.0 businesses, hyperscale services, and Fortune 500 private clouds.
 	</longdescription>
 	<use>
+		<flag name="bfdd">
+			Enable the Bi-Directional Forwarding detection daemon
+		</flag>
 		<flag name="datacenter">
 			Enable Cumulus Switch and Data Center Extensions
 		</flag>
@@ -63,9 +66,15 @@
 			Enable support for <pkg>sys-libs/readline</pkg> to provide the Quagga Virtual Terminal
 			Interface Shell (vtysh)
 		</flag>
+		<flag name="realms">
+			Enable realms support
+		</flag>
 		<flag name="rpki">
 			Enable support for Resource Public Key Infrastructure (RPKI) using the
 			<pkg>net-libs/rtrlib</pkg> library rpki is primarily used to validate routes.
+		</flag>
+		<flag name="staticd">
+			Enable the static route daemon
 		</flag>
 		<flag name="sharpd">
 			Enable Sharp support
