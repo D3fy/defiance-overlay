@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEPEND=postgres_targets_postgres10? ( dev-db/postgresql:10=[server] ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DESCRIPTION=Scalable PostgreSQL for multi-tenant and real-time workloads
 EAPI=6
 HOMEPAGE=https://www.citusdata.com/
-IUSE=static-libs postgres_targets_postgres11 postgres_targets_postgres10
+IUSE=static-libs postgres_targets_postgres10
 KEYWORDS=~amd64 ~x86
 LICENSE=AGPL-3
-RDEPEND=postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
-REQUIRED_USE=|| ( postgres_targets_postgres11 postgres_targets_postgres10 )
+RDEPEND=postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
+REQUIRED_USE=|| ( postgres_targets_postgres10 )
 SLOT=0
 SRC_URI=https://github.com/citusdata/citus/archive/v7.5.1.tar.gz -> citus-7.5.1.tar.gz
 _eclasses_=autotools	1bf086cdd7356f5c9a4acd9727bd2065	desktop	b1d22ac8bdd4679ab79c71aca235009d	epatch	a1bf4756dba418a7238f3be0cb010c54	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	libtool	f143db5a74ccd9ca28c1234deffede96	ltprune	08f9e1d9ee0af8f5d9a7854efbcd8c0e	multibuild	40fe59465edacd730c644ec2bc197809	multilib	b2f01ad412baf81650c23fcf0975fa33	postgres	1d395ef92a41175c81bf7da2cb7fb8cb	postgres-multi	fba0b36e29a3e019a9529049008ebcc6	preserve-libs	ef207dc62baddfddfd39a164d9797648	toolchain-funcs	f164325a2cdb5b3ea39311d483988861	user	8bc2845510e2109af75e3eeac607ec81	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf	versionator	2352c3fc97241f6a02042773c8287748
-_md5_=2242b6a383831b10a2b7f519a459cf1c
+_md5_=5307ba49e361844d813b6d4627d1f6d1

@@ -3,7 +3,7 @@
 
 EAPI=6
 
-POSTGRES_COMPAT=( 10 11 )
+POSTGRES_COMPAT=( 10 )
 POSTGRES_USEDEP="server"
 
 inherit autotools eutils postgres-multi versionator

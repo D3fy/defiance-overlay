@@ -44,13 +44,13 @@ For Portage >= 2.3.8:
       Postgres time and serial partitioner
     - [pg_pathman](https://github.com/postgrespro/pg_pathman) -  [1.4.9](/dev-db/pg_pathman/pg_pathman-1.4.9.ebuild) -
       Partitioning tool for PostgreSQL
-    - [pg_qualstats](https://github.com/powa-team/pg_qualstats) -  [1.0.4](/dev-db/pg_qualstats/pg_qualstats-1.0.4.ebuild) -
+    - [pg_qualstats](https://github.com/powa-team/pg_qualstats) -  [1.0.5](/dev-db/pg_qualstats/pg_qualstats-1.0.5.ebuild) -
       A Postgres extension for collecting statistics about predicate
-    - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.0.3](/dev-db/pg_stat_kcache/pg_stat_kcache-2.0.3.ebuild) -
+    - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.1.1](/dev-db/pg_stat_kcache/pg_stat_kcache-2.1.1.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
     - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.10.2](/dev-db/postgresql-hll/postgresql-hll-2.10.2.ebuild) -
       PostgreSQL extension adding HyperLogLog data structures as a native data type
-    - [powa](http://powa-team.github.io/powa/) -  [3.1.1](/dev-db/powa/powa-3.1.1.ebuild) -
+    - [powa](http://powa-team.github.io/powa/) -  [3.1.2](/dev-db/powa/powa-3.1.2.ebuild) -
       PostgreSQL Workload Analyzer
     - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [3.1.4](/dev-db/powa-web/powa-web-3.1.4.ebuild) -
       The PostgreSQL Workload Analyzer web frontend

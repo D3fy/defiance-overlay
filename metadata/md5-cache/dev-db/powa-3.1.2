@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile install prepare setup test
-DEPEND=postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
-DESCRIPTION=Gather statistics about disk access and CPU consumption done by backends
+DEPEND=postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
+DESCRIPTION=PostgreSQL Workload Analyzer
 EAPI=6
-HOMEPAGE=https://github.com/powa-team/pg_stat_kcache
-IUSE=static-libs postgres_targets_postgres10
+HOMEPAGE=http://powa-team.github.io/powa/
+IUSE=static-libs postgres_targets_postgres11 postgres_targets_postgres10
 KEYWORDS=~amd64 ~x86
 LICENSE=CC0-1.0
-RDEPEND=postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
-REQUIRED_USE=|| ( postgres_targets_postgres10 )
+RDEPEND=dev-db/pg_stat_kcache dev-db/pg_qualstats dev-db/hypopg postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
+REQUIRED_USE=|| ( postgres_targets_postgres11 postgres_targets_postgres10 )
 SLOT=0
-SRC_URI=https://github.com/powa-team/pg_stat_kcache/archive/REL2_0_3.tar.gz -> pg_stat_kcache-2.0.3.tar.gz
+SRC_URI=https://github.com/powa-team/powa-archivist/archive/REL_3_1_2.tar.gz -> powa-3.1.2.tar.gz
 _eclasses_=desktop	b1d22ac8bdd4679ab79c71aca235009d	epatch	a1bf4756dba418a7238f3be0cb010c54	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	ltprune	08f9e1d9ee0af8f5d9a7854efbcd8c0e	multibuild	40fe59465edacd730c644ec2bc197809	multilib	b2f01ad412baf81650c23fcf0975fa33	postgres	1d395ef92a41175c81bf7da2cb7fb8cb	postgres-multi	fba0b36e29a3e019a9529049008ebcc6	preserve-libs	ef207dc62baddfddfd39a164d9797648	toolchain-funcs	f164325a2cdb5b3ea39311d483988861	user	8bc2845510e2109af75e3eeac607ec81	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf	versionator	2352c3fc97241f6a02042773c8287748
-_md5_=514fbcb4ba4120ecd497d2c3cd6c6d4b
+_md5_=0426426e778ca139d0a0517bc0ba62ca
