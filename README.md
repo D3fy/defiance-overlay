@@ -48,7 +48,7 @@ For Portage >= 2.3.8:
       A Postgres extension for collecting statistics about predicate
     - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.1.1](/dev-db/pg_stat_kcache/pg_stat_kcache-2.1.1.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
-    - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.10.2](/dev-db/postgresql-hll/postgresql-hll-2.10.2.ebuild) -
+    - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.11](/dev-db/postgresql-hll/postgresql-hll-2.11.ebuild) -
       PostgreSQL extension adding HyperLogLog data structures as a native data type
     - [powa](http://powa-team.github.io/powa/) -  [3.1.2](/dev-db/powa/powa-3.1.2.ebuild) -
       PostgreSQL Workload Analyzer
