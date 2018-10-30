@@ -6,6 +6,6 @@ HOMEPAGE=https://www.terraform.io/
 KEYWORDS=amd64 x86 arm
 LICENSE=MPL-2.0
 SLOT=0
-SRC_URI=https://github.com/hashicorp/terraform/archive/v0.11.8.tar.gz -> terraform-0.11.8.tar.gz
+SRC_URI=https://github.com/hashicorp/terraform/archive/v0.11.10.tar.gz -> terraform-0.11.10.tar.gz
 _eclasses_=golang-base	8e4d7f712ec0e170e2c190c1e3da6501	golang-vcs-snapshot	6f66975a5b570c5e05ed96910c574abc
 _md5_=3340037531245e14bcd671736cb36c06
