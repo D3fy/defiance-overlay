@@ -34,7 +34,7 @@ For Portage >= 2.3.8:
     - [runv](https://github.com/hyperhq/runv) -  [1.0.0](/app-emulation/runv/runv-1.0.0.ebuild) -
       Hypervisor-based Runtime for OCI
   - [dev-db](https://packages.gentoo.org/categories/dev-db)
-    - [citus](https://www.citusdata.com/) -  [7.5.1](/dev-db/citus/citus-7.5.1.ebuild) -
+    - [citus](https://www.citusdata.com/) -  [8.0.0](/dev-db/citus/citus-8.0.0.ebuild) -
       Scalable PostgreSQL for multi-tenant and real-time workloads
     - [hypopg](http://hypopg.github.io/hypopg/) -  [1.1.2](/dev-db/hypopg/hypopg-1.1.2.ebuild) -
       Hypothetical Indexes for PostgreSQL
