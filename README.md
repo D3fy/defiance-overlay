@@ -27,7 +27,7 @@ For Portage >= 2.3.8:
     - [terraform](https://www.terraform.io/) -  [0.11.10](/app-admin/terraform/terraform-0.11.10.ebuild) -
       Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
-    - [cri-o](http://cri-o.io/) -  [1.12.1](/app-emulation/cri-o/cri-o-1.12.1.ebuild) -
+    - [cri-o](http://cri-o.io/) -  [1.12.3](/app-emulation/cri-o/cri-o-1.12.3.ebuild) -
       Lightweight container runtime for Kubernetes
     - [kvmtool](https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/) -  [9999](/app-emulation/kvmtool/kvmtool-9999.ebuild) -
       A lightweight tool for hosting KVM guests
