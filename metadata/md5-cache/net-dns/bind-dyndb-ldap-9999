@@ -7,4 +7,4 @@ LICENSE=GPL-2
 RDEPEND=>=net-dns/bind-9.11[dlz]
 SLOT=0
 _eclasses_=autotools	1bf086cdd7356f5c9a4acd9727bd2065	git-r3	0d4635eeb5a96cd5315597a47eba25c9	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	b2f01ad412baf81650c23fcf0975fa33	toolchain-funcs	f164325a2cdb5b3ea39311d483988861
-_md5_=026e5f2ebfddac138f50273037bab062
+_md5_=d8d9ce3d374c91a3c83f56aee54351f2
