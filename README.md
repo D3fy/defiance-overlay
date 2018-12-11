@@ -78,7 +78,7 @@ For Portage >= 2.3.8:
       A set of libraries and drivers for fast packet processing
     - [libcurve](http://curvezmq.org) -  [9999](/net-libs/libcurve/libcurve-9999.ebuild) -
       An encryption and authentication library for ZeroMQ applications
-    - [rtrlib](http://rtrlib.realmv6.org/) -  [0.5.0](/net-libs/rtrlib/rtrlib-0.5.0.ebuild) -
+    - [rtrlib](http://rtrlib.realmv6.org/) -  [0.6.3](/net-libs/rtrlib/rtrlib-0.6.3.ebuild) -
       An open-source C implementation of the RPKI/Router Protocol client
   - [net-misc](https://packages.gentoo.org/categories/net-misc)
     - [bird](http://bird.network.cz) -  [2.0.1](/net-misc/bird/bird-2.0.1.ebuild) -
