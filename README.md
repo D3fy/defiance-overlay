@@ -24,7 +24,7 @@ For Portage >= 2.3.8:
       The nifty configuration managment system
     - [heketi](https://github.com/heketi/heketi) -  [8.0.0](/app-admin/heketi/heketi-8.0.0.ebuild) -
       RESTful based volume management framework for GlusterFS
-    - [terraform](https://www.terraform.io/) -  [0.11.10](/app-admin/terraform/terraform-0.11.10.ebuild) -
+    - [terraform](https://www.terraform.io/) -  [0.11.11](/app-admin/terraform/terraform-0.11.11.ebuild) -
       Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
     - [cri-o](http://cri-o.io/) -  [1.13.0](/app-emulation/cri-o/cri-o-1.13.0.ebuild) -
@@ -54,7 +54,7 @@ For Portage >= 2.3.8:
       PostgreSQL Workload Analyzer
     - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [3.1.4](/dev-db/powa-web/powa-web-3.1.4.ebuild) -
       The PostgreSQL Workload Analyzer web frontend
-    - [timescaledb](http://www.timescale.com/) -  [1.0.1](/dev-db/timescaledb/timescaledb-1.0.1.ebuild) -
+    - [timescaledb](http://www.timescale.com/) -  [1.1.0](/dev-db/timescaledb/timescaledb-1.1.0.ebuild) -
       A time-series database optimized for fast ingest and complex queries
   - [dev-libs](https://packages.gentoo.org/categories/dev-libs)
     - [ctap](https://github.com/jhunt/ctap/) -  [2.0.0](/dev-libs/ctap/ctap-2.0.0.ebuild) -
