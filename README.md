@@ -96,6 +96,8 @@ For Portage >= 2.3.8:
     - [strongswan](http://www.strongswan.org/) -  [5.7.1](/net-vpn/strongswan/strongswan-5.7.1.ebuild) -
       IPsec-based VPN solution focused on security and ease of use, supporting IKEv1/IKEv2 and MOBIKE
   - [sys-cluster](https://packages.gentoo.org/categories/sys-cluster)
+    - [kubeadm](https://github.com/kubernetes/kubernetes https://kubernetes.io) -  [1.13.1](/sys-cluster/kubeadm/kubeadm-1.13.1.ebuild) -
+      Kubernetes Cluster Manager
     - [kubelet](https://github.com/kubernetes/kubernetes https://kubernetes.io) -  [1.13.1](/sys-cluster/kubelet/kubelet-1.13.1.ebuild) -
       Kubernetes Node Agent
     - [nomad](http://www.nomadproject.io) -  [0.8.0](/sys-cluster/nomad/nomad-0.8.0.ebuild) -
