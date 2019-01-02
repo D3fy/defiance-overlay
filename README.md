@@ -103,7 +103,7 @@ For Portage >= 2.3.8:
     - [nomad](http://www.nomadproject.io) -  [0.8.0](/sys-cluster/nomad/nomad-0.8.0.ebuild) -
       The cluster manager from Hashicorp
   - [www-apps](https://packages.gentoo.org/categories/www-apps)
-    - [gitea](https://gitea.io/en-us/) -  [1.5.1](/www-apps/gitea/gitea-1.5.1.ebuild) -
+    - [gitea](https://gitea.io/en-us/) -  [1.6.2](/www-apps/gitea/gitea-1.6.2.ebuild) -
       A painless self-hosted Git service, written in Go
   - [www-servers](https://packages.gentoo.org/categories/www-servers)
     - [nginx](https://nginx.org) -  [1.14.1](/www-servers/nginx/nginx-1.14.1.ebuild) [1.15.7](/www-servers/nginx/nginx-1.15.7.ebuild) -
