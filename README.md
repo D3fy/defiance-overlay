@@ -106,7 +106,7 @@ For Portage >= 2.3.8:
     - [gitea](https://gitea.io/en-us/) -  [1.6.2](/www-apps/gitea/gitea-1.6.2.ebuild) -
       A painless self-hosted Git service, written in Go
   - [www-servers](https://packages.gentoo.org/categories/www-servers)
-    - [nginx](https://nginx.org) -  [1.14.1](/www-servers/nginx/nginx-1.14.1.ebuild) [1.15.7](/www-servers/nginx/nginx-1.15.7.ebuild) -
+    - [nginx-1.15.8](https://nginx.org) -  [1.14.1](/www-servers/nginx-1.15.8/nginx-1.15.8-1.14.1.ebuild) [r1](/www-servers/nginx-1.15.8/nginx-1.15.8-r1.ebuild) -
       Robust, small and high performance http and reverse proxy server
   - [x11-themes](https://packages.gentoo.org/categories/x11-themes)
     - [albatross](http://shimmerproject.org/projects/albatross/) -  [1.7.4](/x11-themes/albatross/albatross-1.7.4.ebuild) -
