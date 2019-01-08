@@ -24,8 +24,6 @@ For Portage >= 2.3.8:
       The nifty configuration managment system
     - [heketi](https://github.com/heketi/heketi) -  [8.0.0](/app-admin/heketi/heketi-8.0.0.ebuild) -
       RESTful based volume management framework for GlusterFS
-    - [terraform](https://www.terraform.io/) -  [0.11.11](/app-admin/terraform/terraform-0.11.11.ebuild) -
-      Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
     - [cri-o](http://cri-o.io/) -  [1.13.0](/app-emulation/cri-o/cri-o-1.13.0.ebuild) -
       Lightweight container runtime for Kubernetes
@@ -68,8 +66,6 @@ For Portage >= 2.3.8:
   - [dev-util](https://packages.gentoo.org/categories/dev-util)
     - [ostree](https://ostree.readthedocs.io/en/latest/) -  [2018.9](/dev-util/ostree/ostree-2018.9.ebuild) -
       Operating system and container binary deployment and upgrades
-    - [packer](http://www.packer.io) -  [1.3.2](/dev-util/packer/packer-1.3.2.ebuild) -
-      Packer is a tool for creating identical machine images for multiple platforms
   - [net-dns](https://packages.gentoo.org/categories/net-dns)
     - [bind-dyndb-ldap](https://fedorahosted.org/bind-dyndb-ldap/) -  [11.1](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-11.1.ebuild) [9999](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-9999.ebuild) -
       Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)
