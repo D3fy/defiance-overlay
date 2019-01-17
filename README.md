@@ -97,7 +97,7 @@ For Portage >= 2.3.8:
   - [sys-cluster](https://packages.gentoo.org/categories/sys-cluster)
     - [kubeadm](https://github.com/kubernetes/kubernetes https://kubernetes.io) -  [1.13.1](/sys-cluster/kubeadm/kubeadm-1.13.1.ebuild) -
       Kubernetes Cluster Manager
-    - [kubelet](https://github.com/kubernetes/kubernetes https://kubernetes.io) -  [1.13.1](/sys-cluster/kubelet/kubelet-1.13.1.ebuild) -
+    - [kubelet](https://github.com/kubernetes/kubernetes https://kubernetes.io) -  [1.13.2](/sys-cluster/kubelet/kubelet-1.13.2.ebuild) -
       Kubernetes Node Agent
     - [nomad](http://www.nomadproject.io) -  [0.8.0](/sys-cluster/nomad/nomad-0.8.0.ebuild) -
       The cluster manager from Hashicorp
