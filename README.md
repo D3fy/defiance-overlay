@@ -85,6 +85,9 @@ For Portage >= 2.3.8:
       an IP routing protocol suite for BGP, IS-IS, LDP, OSPF, PIM, and RIP
     - [openvswitch](http://openvswitch.org) -  [2.9.2](/net-misc/openvswitch/openvswitch-2.9.2.ebuild) -
       Production quality, multilayer virtual switch
+  - [net-nds](https://packages.gentoo.org/categories/net-nds)
+    - [openldap](http://www.OpenLDAP.org/) -  [2.4.47](/net-nds/openldap/openldap-2.4.47.ebuild) -
+      LDAP suite of application and development tools
   - [net-proxy](https://packages.gentoo.org/categories/net-proxy)
     - [seesaw](https://github.com/google/seesaw) -  [9999](/net-proxy/seesaw/seesaw-9999.ebuild) -
       Seesaw v2 is a Linux Virtual Server (LVS) based load balancing platform
