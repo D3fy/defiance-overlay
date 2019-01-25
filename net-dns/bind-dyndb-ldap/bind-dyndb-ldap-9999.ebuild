@@ -7,7 +7,7 @@ inherit autotools git-r3 toolchain-funcs
 
 DESCRIPTION="Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)"
 HOMEPAGE="https://fedorahosted.org/bind-dyndb-ldap/"
-EGIT_REPO_URI="https://github.com/mingzym/bind-dyndb-ldap"
+EGIT_REPO_URI="https://github.com/dmolik/bind-dyndb-ldap"
 
 LICENSE="GPL-2"
 SLOT="0"
