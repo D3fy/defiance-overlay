@@ -52,7 +52,7 @@ For Portage >= 2.3.8:
       PostgreSQL Workload Analyzer
     - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [3.1.4](/dev-db/powa-web/powa-web-3.1.4.ebuild) -
       The PostgreSQL Workload Analyzer web frontend
-    - [timescaledb](http://www.timescale.com/) -  [1.1.1](/dev-db/timescaledb/timescaledb-1.1.1.ebuild) -
+    - [timescaledb](http://www.timescale.com/) -  [1.2.0](/dev-db/timescaledb/timescaledb-1.2.0.ebuild) -
       A time-series database optimized for fast ingest and complex queries
   - [dev-libs](https://packages.gentoo.org/categories/dev-libs)
     - [ctap](https://github.com/jhunt/ctap/) -  [2.0.0](/dev-libs/ctap/ctap-2.0.0.ebuild) -
@@ -102,7 +102,7 @@ For Portage >= 2.3.8:
     - [nomad](http://www.nomadproject.io) -  [0.8.0](/sys-cluster/nomad/nomad-0.8.0.ebuild) -
       The cluster manager from Hashicorp
   - [www-apps](https://packages.gentoo.org/categories/www-apps)
-    - [gitea](https://gitea.io/en-us/) -  [1.6.2](/www-apps/gitea/gitea-1.6.2.ebuild) -
+    - [gitea](https://gitea.io/en-us/) -  [1.7.0](/www-apps/gitea/gitea-1.7.0.ebuild) -
       A painless self-hosted Git service, written in Go
   - [www-servers](https://packages.gentoo.org/categories/www-servers)
     - [nginx-1.15.8](https://nginx.org) -  [1.14.1](/www-servers/nginx-1.15.8/nginx-1.15.8-1.14.1.ebuild) [r1](/www-servers/nginx-1.15.8/nginx-1.15.8-r1.ebuild) -
