@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install prepare setup unpack
-DEPEND=lxc? ( app-emulation/lxc ) dev-go/gox >=dev-lang/go-1.7.5:= >=dev-go/go-tools-0_pre20160121 >=dev-lang/go-1.9
+DEPEND=lxc? ( app-emulation/lxc ) dev-go/gox >=dev-lang/go-1.7.5:= >=dev-go/go-tools-0_pre20160121 >=dev-lang/go-1.10
 DESCRIPTION=The cluster manager from Hashicorp
 EAPI=6
 HOMEPAGE=http://www.nomadproject.io
@@ -9,5 +9,5 @@ LICENSE=MPL-2.0
 RESTRICT=strip test
 SLOT=0
 SRC_URI=https://github.com/hashicorp/nomad/archive/v0.8.0.tar.gz -> nomad-0.8.0.tar.gz
-_eclasses_=golang-base	8e4d7f712ec0e170e2c190c1e3da6501	golang-vcs-snapshot	6f66975a5b570c5e05ed96910c574abc	user	8bc2845510e2109af75e3eeac607ec81
+_eclasses_=golang-base	c57d2c3f9e1a02d0feb8b87c7b689892	golang-vcs-snapshot	12177e83bede6f7fb87eae383864b40b	user	8bc2845510e2109af75e3eeac607ec81
 _md5_=d9363ddf20825b49fe88c4cb13572e39
