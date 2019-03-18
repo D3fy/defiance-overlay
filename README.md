@@ -25,7 +25,7 @@ For Portage >= 2.3.8:
     - [heketi](https://github.com/heketi/heketi) -  [8.0.0](/app-admin/heketi/heketi-8.0.0.ebuild) -
       RESTful based volume management framework for GlusterFS
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
-    - [cri-o](http://cri-o.io/) -  [1.13.1](/app-emulation/cri-o/cri-o-1.13.1.ebuild) -
+    - [cri-o](http://cri-o.io/) -  [1.13.3](/app-emulation/cri-o/cri-o-1.13.3.ebuild) -
       Lightweight container runtime for Kubernetes
     - [kvmtool](https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/) -  [9999](/app-emulation/kvmtool/kvmtool-9999.ebuild) -
       A lightweight tool for hosting KVM guests
