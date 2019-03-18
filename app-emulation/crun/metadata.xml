@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		While most of the tools used in the Linux containers ecosystem are written in
+		Go, I believe C is a better fit for a lower level tool like a container
+		runtime. runc, the most used implementation of the OCI runtime specs written
+		in Go, re-execs itself and use a module written in C for setting up the
+		environment before the container process starts.
+
+		crun aims to be also usable as a library that can be easily included in
+		programs without requiring an external process for managing OCI containers.
+	</longdescription>
+</pkgmetadata>
