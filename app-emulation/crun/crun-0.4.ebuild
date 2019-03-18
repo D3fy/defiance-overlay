@@ -15,6 +15,7 @@ IUSE="selinux systemd static-libs"
 
 DEPEND="
 	dev-libs/yajl
+	sys-libs/libseccomp
 	selinux? ( sys-libs/libselinux )
 	systemd? ( sys-apps/systemd )
 	"
@@ -23,5 +24,5 @@ BDEPEND=""
 
 src_configure() {
 	econf \
-		$(usex static-libs '--enable-static --enabled-shared' '--enable-shared --disable-static' '' '')
+		$(usex static-libs '--enabled-shared  --enabled-static' '--enable-shared --disable-static' '' '')
 }
