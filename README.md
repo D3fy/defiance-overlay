@@ -25,7 +25,7 @@ For Portage >= 2.3.8:
     - [heketi](https://github.com/heketi/heketi) -  [8.0.0](/app-admin/heketi/heketi-8.0.0.ebuild) -
       RESTful based volume management framework for GlusterFS
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
-    - [cri-o](http://cri-o.io/) -  [1.13.3](/app-emulation/cri-o/cri-o-1.13.3.ebuild) -
+    - [cri-o](http://cri-o.io/) -  [1.14.0](/app-emulation/cri-o/cri-o-1.14.0.ebuild) -
       Lightweight container runtime for Kubernetes
     - [crun](https://github.com/giuseppe/crun) -  [0.4](/app-emulation/crun/crun-0.4.ebuild) -
       A fast and low-memory footprint OCI Container Runtime fully written in C
