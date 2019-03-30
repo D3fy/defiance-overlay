@@ -51,9 +51,15 @@ src_compile() {
 	use seccomp       && BUILDTAGS="${BUILDTAGS} seccomp"
 	use selinux       && BUILDTAGS="${BUILDTAGS} selinux"
 	mkdir -p bin || die "failed to create bin"
-	GOPATH="${S}" GOBIN="${S}/bin" \
-		BASE_LDFLAGS=" -s -w -X main.gitCommit=${GIT_COMMIT} -X main.buildInfo=Gentoo" \
+	#GOPATH="${S}" GOBIN="${S}/bin" \
+	GOPATH="${GOPATH}:${S}" BASE_LDFLAGS=" -s -w -X main.gitCommit=${GIT_COMMIT} -X main.buildInfo=Gentoo" \
+		emake BUILDTAGS="${BUILDTAGS}" bin/crio
+	GOPATH="${GOPATH}:${S}" go build -v -i -ldflags '-s -w -X main.gitCommit=${GIT_COMMIT} -X main.buildInfo=Gentoo' \
+		-o bin/crio-config ./cmd/crio-config
+	./bin/crio-config && mv config.h conmon/
+	BASE_LDFLAGS=" -s -w -X main.gitCommit=${GIT_COMMIT} -X main.buildInfo=Gentoo" \
 		emake BUILDTAGS="${BUILDTAGS}" binaries
+
 	if use doc; then emake docs; fi
 }
 
