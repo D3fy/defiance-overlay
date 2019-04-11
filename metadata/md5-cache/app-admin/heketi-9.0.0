@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile install prepare setup unpack
+DEPEND=>=dev-lang/go-1.10
+DESCRIPTION=RESTful based volume management framework for GlusterFS
+EAPI=6
+HOMEPAGE=https://github.com/heketi/heketi
+KEYWORDS=~amd64
+LICENSE=LGPL-3 GPL-2
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/heketi/heketi/archive/v9.0.0.tar.gz -> heketi-9.0.0.tar.gz https://github.com/heketi/heketi/releases/download/v9.0.0/heketi-deps-v9.0.0.tar.gz
+_eclasses_=golang-base	c57d2c3f9e1a02d0feb8b87c7b689892	golang-vcs-snapshot	12177e83bede6f7fb87eae383864b40b	user	8bd74731cafdcdad8f7a63637302e073
+_md5_=a23c45430db4411c362b77aae54dd1e8
