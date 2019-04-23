@@ -22,12 +22,12 @@ For Portage >= 2.3.8:
   - [app-admin](https://packages.gentoo.org/categories/app-admin)
     - [clockwork](http://clockwork.niftylogic.com/) -  [3.3.2](/app-admin/clockwork/clockwork-3.3.2.ebuild) -
       The nifty configuration managment system
-    - [heketi](https://github.com/heketi/heketi) -  [8.0.0](/app-admin/heketi/heketi-8.0.0.ebuild) -
+    - [heketi](https://github.com/heketi/heketi) -  [8.0.0](/app-admin/heketi/heketi-8.0.0.ebuild) [9.0.0](/app-admin/heketi/heketi-9.0.0.ebuild) -
       RESTful based volume management framework for GlusterFS
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
     - [cri-o](http://cri-o.io/) -  [1.14.0](/app-emulation/cri-o/cri-o-1.14.0.ebuild) -
       Lightweight container runtime for Kubernetes
-    - [crun](https://github.com/giuseppe/crun) -  [0.4](/app-emulation/crun/crun-0.4.ebuild) -
+    - [crun](https://github.com/giuseppe/crun) -  [0.4](/app-emulation/crun/crun-0.4.ebuild) [0.5](/app-emulation/crun/crun-0.5.ebuild) -
       A fast and low-memory footprint OCI Container Runtime fully written in C
     - [kvmtool](https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/) -  [9999](/app-emulation/kvmtool/kvmtool-9999.ebuild) -
       A lightweight tool for hosting KVM guests

@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure
+DEPEND=dev-libs/yajl sys-libs/libseccomp selinux? ( sys-libs/libselinux ) systemd? ( sys-apps/systemd )
+DESCRIPTION=A fast and low-memory footprint OCI Container Runtime fully written in C
+EAPI=7
+HOMEPAGE=https://github.com/giuseppe/crun
+IUSE=selinux systemd static-libs
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=dev-libs/yajl sys-libs/libseccomp selinux? ( sys-libs/libselinux ) systemd? ( sys-apps/systemd )
+SLOT=0
+SRC_URI=https://github.com/giuseppe/crun/releases/download/0.5/crun-0.5.tar.gz
+_eclasses_=eutils	6e6c2737b59a4b982de6fb3ecefd87f8
+_md5_=9c2ada259e2c5454450dd44d23900d5c
