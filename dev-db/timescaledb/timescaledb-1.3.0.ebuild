@@ -10,7 +10,7 @@ inherit cmake-multilib eutils postgres-multi versionator
 
 DESCRIPTION="A time-series database optimized for fast ingest and complex queries"
 HOMEPAGE="http://www.timescale.com/"
-SRC_URI="https://github.com/timescale/${PN}/releases/download/${PV}/${P}.tar.gz"
+SRC_URI="https://github.com/timescale/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
