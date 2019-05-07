@@ -22,8 +22,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-S=${WORKDIR}/${PN}
-
 src_prepare() {
 	eapply_user
 	postgres-multi_src_prepare
