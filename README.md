@@ -88,7 +88,7 @@ For Portage >= 2.3.8:
     - [openvswitch](http://openvswitch.org) -  [2.9.2](/net-misc/openvswitch/openvswitch-2.9.2.ebuild) -
       Production quality, multilayer virtual switch
   - [net-nds](https://packages.gentoo.org/categories/net-nds)
-    - [openldap](http://www.OpenLDAP.org/) -  [2.4.47](/net-nds/openldap/openldap-2.4.47.ebuild) -
+    - [openldap-2.4.47](http://www.OpenLDAP.org/) -  [2.4.47](/net-nds/openldap-2.4.47/openldap-2.4.47-2.4.47.ebuild) [r1](/net-nds/openldap-2.4.47/openldap-2.4.47-r1.ebuild) -
       LDAP suite of application and development tools
   - [net-proxy](https://packages.gentoo.org/categories/net-proxy)
     - [seesaw](https://github.com/google/seesaw) -  [9999](/net-proxy/seesaw/seesaw-9999.ebuild) -
@@ -97,12 +97,6 @@ For Portage >= 2.3.8:
     - [strongswan](http://www.strongswan.org/) -  [5.7.2](/net-vpn/strongswan/strongswan-5.7.2.ebuild) -
       IPsec-based VPN solution focused on security and ease of use, supporting IKEv1/IKEv2 and MOBIKE
   - [sys-cluster](https://packages.gentoo.org/categories/sys-cluster)
-    - [kubeadm](https://github.com/kubernetes/kubernetes https://kubernetes.io) -  [1.13.3](/sys-cluster/kubeadm/kubeadm-1.13.3.ebuild) -
-      Kubernetes Cluster Manager
-    - [kubectl](https://github.com/kubernetes/kubernetes https://kubernetes.io) -  [1.13.3](/sys-cluster/kubectl/kubectl-1.13.3.ebuild) -
-      CLI to run commands against Kubernetes clusters
-    - [kubelet](https://github.com/kubernetes/kubernetes https://kubernetes.io) -  [1.13.3](/sys-cluster/kubelet/kubelet-1.13.3.ebuild) -
-      Kubernetes Node Agent
     - [nomad](http://www.nomadproject.io) -  [0.8.0](/sys-cluster/nomad/nomad-0.8.0.ebuild) -
       The cluster manager from Hashicorp
   - [www-apps](https://packages.gentoo.org/categories/www-apps)
