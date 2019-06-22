@@ -27,7 +27,7 @@ For Portage >= 2.3.8:
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
     - [cri-o](http://cri-o.io/) -  [1.14.0](/app-emulation/cri-o/cri-o-1.14.0.ebuild) -
       Lightweight container runtime for Kubernetes
-    - [crun](https://github.com/giuseppe/crun) -  [0.4](/app-emulation/crun/crun-0.4.ebuild) [0.5](/app-emulation/crun/crun-0.5.ebuild) -
+    - [crun](https://github.com/giuseppe/crun) -  [0.4](/app-emulation/crun/crun-0.4.ebuild) [0.5](/app-emulation/crun/crun-0.5.ebuild) [0.6](/app-emulation/crun/crun-0.6.ebuild) -
       A fast and low-memory footprint OCI Container Runtime fully written in C
     - [kvmtool](https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/) -  [9999](/app-emulation/kvmtool/kvmtool-9999.ebuild) -
       A lightweight tool for hosting KVM guests
