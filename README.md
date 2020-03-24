@@ -50,9 +50,9 @@ For Portage >= 2.3.8:
       Gather statistics about disk access and CPU consumption done by backends
     - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.11](/dev-db/postgresql-hll/postgresql-hll-2.11.ebuild) -
       PostgreSQL extension adding HyperLogLog data structures as a native data type
-    - [powa](http://powa-team.github.io/powa/) -  [3.1.2](/dev-db/powa/powa-3.1.2.ebuild) -
+    - [powa](http://powa-team.github.io/powa/) -  [3.2.0](/dev-db/powa/powa-3.2.0.ebuild) -
       PostgreSQL Workload Analyzer
-    - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [3.1.4](/dev-db/powa-web/powa-web-3.1.4.ebuild) -
+    - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [3.2.1](/dev-db/powa-web/powa-web-3.2.1.ebuild) -
       The PostgreSQL Workload Analyzer web frontend
     - [timescaledb](http://www.timescale.com/) -  [1.3.0](/dev-db/timescaledb/timescaledb-1.3.0.ebuild) -
       A time-series database optimized for fast ingest and complex queries
