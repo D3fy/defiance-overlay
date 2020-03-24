@@ -34,7 +34,7 @@ For Portage >= 2.3.8:
     - [runv](https://github.com/hyperhq/runv) -  [1.0.0](/app-emulation/runv/runv-1.0.0.ebuild) -
       Hypervisor-based Runtime for OCI
   - [dev-db](https://packages.gentoo.org/categories/dev-db)
-    - [citus](https://www.citusdata.com/) -  [8.0.0](/dev-db/citus/citus-8.0.0.ebuild) -
+    - [citus](https://www.citusdata.com/) -  [9.0.2](/dev-db/citus/citus-9.0.2.ebuild) -
       Scalable PostgreSQL for multi-tenant and real-time workloads
     - [hypopg](http://hypopg.github.io/hypopg/) -  [1.1.2](/dev-db/hypopg/hypopg-1.1.2.ebuild) -
       Hypothetical Indexes for PostgreSQL
@@ -103,7 +103,7 @@ For Portage >= 2.3.8:
     - [gitea](https://gitea.io/en-us/) -  [1.7.0](/www-apps/gitea/gitea-1.7.0.ebuild) -
       A painless self-hosted Git service, written in Go
   - [www-servers](https://packages.gentoo.org/categories/www-servers)
-    - [nginx](https://nginx.org) -  [1.14.1](/www-servers/nginx/nginx-1.14.1.ebuild) [1.15.9](/www-servers/nginx/nginx-1.15.9.ebuild) [1.17.0](/www-servers/nginx/nginx-1.17.0.ebuild) -
+    - [nginx](https://nginx.org) -  [1.14.1](/www-servers/nginx/nginx-1.14.1.ebuild) [1.15.9](/www-servers/nginx/nginx-1.15.9.ebuild) [1.17.0](/www-servers/nginx/nginx-1.17.0.ebuild) [1.17.1](/www-servers/nginx/nginx-1.17.1.ebuild) -
       Robust, small and high performance http and reverse proxy server
   - [x11-themes](https://packages.gentoo.org/categories/x11-themes)
     - [albatross](http://shimmerproject.org/projects/albatross/) -  [1.7.4](/x11-themes/albatross/albatross-1.7.4.ebuild) -
