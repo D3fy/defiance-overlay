@@ -27,14 +27,14 @@ For Portage >= 2.3.8:
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
     - [cri-o](http://cri-o.io/) -  [1.14.0](/app-emulation/cri-o/cri-o-1.14.0.ebuild) -
       Lightweight container runtime for Kubernetes
-    - [crun](https://github.com/giuseppe/crun) -  [0.4](/app-emulation/crun/crun-0.4.ebuild) [0.5](/app-emulation/crun/crun-0.5.ebuild) [0.6](/app-emulation/crun/crun-0.6.ebuild) -
+    - [crun](https://github.com/containers/crun) -  [0.13](/app-emulation/crun/crun-0.13.ebuild) -
       A fast and low-memory footprint OCI Container Runtime fully written in C
     - [kvmtool](https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/) -  [9999](/app-emulation/kvmtool/kvmtool-9999.ebuild) -
       A lightweight tool for hosting KVM guests
     - [runv](https://github.com/hyperhq/runv) -  [1.0.0](/app-emulation/runv/runv-1.0.0.ebuild) -
       Hypervisor-based Runtime for OCI
   - [dev-db](https://packages.gentoo.org/categories/dev-db)
-    - [citus](https://www.citusdata.com/) -  [9.0.2](/dev-db/citus/citus-9.0.2.ebuild) -
+    - [citus](https://www.citusdata.com/) -  [9.2.4](/dev-db/citus/citus-9.2.4.ebuild) -
       Scalable PostgreSQL for multi-tenant and real-time workloads
     - [hypopg](http://hypopg.github.io/hypopg/) -  [1.1.3](/dev-db/hypopg/hypopg-1.1.3.ebuild) -
       Hypothetical Indexes for PostgreSQL
@@ -48,7 +48,7 @@ For Portage >= 2.3.8:
       A Postgres extension for collecting statistics about predicate
     - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.1.1](/dev-db/pg_stat_kcache/pg_stat_kcache-2.1.1.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
-    - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.11](/dev-db/postgresql-hll/postgresql-hll-2.11.ebuild) -
+    - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.14](/dev-db/postgresql-hll/postgresql-hll-2.14.ebuild) -
       PostgreSQL extension adding HyperLogLog data structures as a native data type
     - [powa](http://powa-team.github.io/powa/) -  [3.2.0](/dev-db/powa/powa-3.2.0.ebuild) -
       PostgreSQL Workload Analyzer
@@ -88,7 +88,7 @@ For Portage >= 2.3.8:
     - [openvswitch](http://openvswitch.org) -  [2.9.2](/net-misc/openvswitch/openvswitch-2.9.2.ebuild) -
       Production quality, multilayer virtual switch
   - [net-nds](https://packages.gentoo.org/categories/net-nds)
-    - [openldap-2.4.47](http://www.OpenLDAP.org/) -  [2.4.47](/net-nds/openldap-2.4.47/openldap-2.4.47-2.4.47.ebuild) [r1](/net-nds/openldap-2.4.47/openldap-2.4.47-r1.ebuild) -
+    - [openldap](http://www.OpenLDAP.org/) -  [r1](/net-nds/openldap/openldap-r1.ebuild) [2.4.47](/net-nds/openldap/openldap-2.4.47.ebuild) -
       LDAP suite of application and development tools
   - [net-proxy](https://packages.gentoo.org/categories/net-proxy)
     - [seesaw](https://github.com/google/seesaw) -  [9999](/net-proxy/seesaw/seesaw-9999.ebuild) -

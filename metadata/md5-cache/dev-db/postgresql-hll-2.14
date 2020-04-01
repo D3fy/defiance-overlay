@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile install prepare setup test
-DEPEND=postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
+DEPEND=postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
 DESCRIPTION=PostgreSQL extension adding HyperLogLog data structures as a native data type
 EAPI=6
 HOMEPAGE=https://github.com/citusdata/postgresql-hll
-IUSE=static-libs postgres_targets_postgres11 postgres_targets_postgres10
+IUSE=static-libs postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10
 KEYWORDS=~amd64 ~x86
 LICENSE=Apache-2.0
-RDEPEND=postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
-REQUIRED_USE=|| ( postgres_targets_postgres11 postgres_targets_postgres10 )
+RDEPEND=postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
+REQUIRED_USE=|| ( postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10 )
 SLOT=0
-SRC_URI=https://github.com/citusdata/postgresql-hll/archive/v2.11.tar.gz -> postgresql-hll-2.11.tar.gz
+SRC_URI=https://github.com/citusdata/postgresql-hll/archive/v2.14.tar.gz -> postgresql-hll-2.14.tar.gz
 _eclasses_=desktop	7fd20552ce4cc97e8acb132a499a7dd8	epatch	ed88001f77c6dd0d5f09e45c1a5b480e	estack	686eaab303305a908fd57b2fd7617800	eutils	fcb2aa98e1948b835b5ae66ca52868c5	ltprune	2729691420b6deeda2a90b1f1183fb55	multibuild	40fe59465edacd730c644ec2bc197809	multilib	318e8ae683e57fd3ccd0d31a769d8ee8	postgres	0f69f5b2817c4dbd525e67890fdc86e2	postgres-multi	b784ac6c30437f2ded3f16482b56374c	preserve-libs	ef207dc62baddfddfd39a164d9797648	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c	user	7b7fc6ec5eb1c1eee55b0609f01e7362	user-info	a2abd4e2f4c3b9b06d64bf1329359a02	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf	versionator	2352c3fc97241f6a02042773c8287748
-_md5_=5958973a8ec6c23f21598538924aca32
+_md5_=6862de400a400f159cf7bd250d69a6ec
