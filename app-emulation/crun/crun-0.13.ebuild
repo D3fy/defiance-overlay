@@ -41,8 +41,7 @@ src_configure() {
 		$(use_enable bpf) \
 		$(use_enable caps) \
 		$(use_enable seccomp) \
-		$(use_enable systemd) \
-		$(usex static-libs '--enabled-shared  --enabled-static' '--enable-shared --disable-static' '' '')
+		$(use_enable systemd)
 }
 
 src_compile() {
