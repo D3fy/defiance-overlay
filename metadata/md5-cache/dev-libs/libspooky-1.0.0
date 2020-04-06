@@ -8,4 +8,4 @@ LICENSE=GPL-3
 SLOT=0
 SRC_URI=https://github.com/graytshirt/libspooky/archive/v1.0.0.tar.gz -> libspooky-1.0.0.tar.gz
 _eclasses_=autotools	7d999b62b8749fad43fff00620cedf47	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	318e8ae683e57fd3ccd0d31a769d8ee8	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c
-_md5_=31539341f057a6980b9819d3a1c22fd6
+_md5_=b1d5ca4bab9e542d794faa1679cfe97c

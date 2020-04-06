@@ -1,4 +1,4 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2020 Defiance Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -11,16 +11,16 @@ DESCRIPTION="A fast and low-memory footprint OCI Container Runtime fully written
 HOMEPAGE="https://github.com/containers/crun"
 SRC_URI="https://github.com/containers/${PN}/releases/download/${PV}/${P}.tar.gz"
 
-LICENSE="GPL-3 LGPL-3+"
+LICENSE="GPL-2 LGPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bpf +caps doc seccomp systemd static-libs"
+IUSE="bpf +caps criu doc systemd"
 
 DEPEND="
 	dev-libs/yajl
 	sys-libs/libseccomp
 	caps? ( sys-libs/libcap )
-	seccomp? ( sys-libs/libseccomp )
+	criu? ( sys-process/criu )
 	systemd? ( sys-apps/systemd:= )
 "
 RDEPEND="${DEPEND}"
@@ -40,7 +40,7 @@ src_configure() {
 	econf \
 		$(use_enable bpf) \
 		$(use_enable caps) \
-		$(use_enable seccomp) \
+		$(use_enable criu) \
 		$(use_enable systemd)
 }
 
@@ -62,10 +62,6 @@ src_install() {
 	if use doc ; then
 		emake "DESTDIR=${D}" install-man
 	fi
-
-	# there is currently a bug in upstream autotooling that continues to build static libraries despite
-	# explicit configure options
-	use static-libs || find "${ED}"/usr -name '*.la' -delete
 
 	einstalldocs
 }

@@ -9,4 +9,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/heketi/heketi/archive/v8.0.0.tar.gz -> heketi-8.0.0.tar.gz https://github.com/heketi/heketi/releases/download/v8.0.0/heketi-deps-v8.0.0.tar.gz
 _eclasses_=golang-base	c57d2c3f9e1a02d0feb8b87c7b689892	golang-vcs-snapshot	12177e83bede6f7fb87eae383864b40b	user	7b7fc6ec5eb1c1eee55b0609f01e7362	user-info	a2abd4e2f4c3b9b06d64bf1329359a02
-_md5_=a23c45430db4411c362b77aae54dd1e8
+_md5_=6e880bfdc6dc5c38b3aff6fdbb8ac899

@@ -8,4 +8,4 @@ KEYWORDS=~amd64 ~x86
 LICENSE=BSD-2
 SLOT=0
 SRC_URI=https://github.com/intel/intel-ipsec-mb/archive/v0.49.tar.gz -> intel-ipsec-mb-0.49.tar.gz
-_md5_=11a7b42fc5b513dd11ebf2f1f3ce92ca
+_md5_=cfbafcb6b775d178abbba41d93d11deb
