@@ -105,6 +105,9 @@ For Portage >= 2.3.8:
   - [www-servers](https://packages.gentoo.org/categories/www-servers)
     - [nginx](https://nginx.org) -  [1.14.1](/www-servers/nginx/nginx-1.14.1.ebuild) [1.15.9](/www-servers/nginx/nginx-1.15.9.ebuild) [1.17.0](/www-servers/nginx/nginx-1.17.0.ebuild) [1.17.1](/www-servers/nginx/nginx-1.17.1.ebuild) -
       Robust, small and high performance http and reverse proxy server
+  - [x11-libs](https://packages.gentoo.org/categories/x11-libs)
+    - [libva-intel-media-driver](https://github.com/intel/media-driver) -  [18.3.0](/x11-libs/libva-intel-media-driver/libva-intel-media-driver-18.3.0.ebuild) [18.4.1](/x11-libs/libva-intel-media-driver/libva-intel-media-driver-18.4.1.ebuild) [9999](/x11-libs/libva-intel-media-driver/libva-intel-media-driver-9999.ebuild) -
+      Intel Media Driver for VAAPI (iHD)
   - [x11-themes](https://packages.gentoo.org/categories/x11-themes)
     - [albatross](http://shimmerproject.org/projects/albatross/) -  [1.7.4](/x11-themes/albatross/albatross-1.7.4.ebuild) -
       Desktop Suite for Xfce
