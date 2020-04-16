@@ -68,6 +68,9 @@ For Portage >= 2.3.8:
   - [dev-util](https://packages.gentoo.org/categories/dev-util)
     - [ostree](https://ostree.readthedocs.io/en/latest/) -  [2019.1](/dev-util/ostree/ostree-2019.1.ebuild) [2019.2](/dev-util/ostree/ostree-2019.2.ebuild) -
       Operating system and container binary deployment and upgrades
+  - [media-libs](https://packages.gentoo.org/categories/media-libs)
+    - [gmmlib](https://github.com/intel/gmmlib) -  [19.3.4](/media-libs/gmmlib/gmmlib-19.3.4.ebuild) [19.4.1](/media-libs/gmmlib/gmmlib-19.4.1.ebuild) [20.1.1](/media-libs/gmmlib/gmmlib-20.1.1.ebuild) [9999](/media-libs/gmmlib/gmmlib-9999.ebuild) -
+      Intel Graphics Memory Management Library
   - [net-dns](https://packages.gentoo.org/categories/net-dns)
     - [bind-dyndb-ldap](https://fedorahosted.org/bind-dyndb-ldap/) -  [11.1](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-11.1.ebuild) [9999](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-9999.ebuild) -
       Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)
@@ -106,7 +109,7 @@ For Portage >= 2.3.8:
     - [nginx](https://nginx.org) -  [1.14.1](/www-servers/nginx/nginx-1.14.1.ebuild) [1.15.9](/www-servers/nginx/nginx-1.15.9.ebuild) [1.17.0](/www-servers/nginx/nginx-1.17.0.ebuild) [1.17.1](/www-servers/nginx/nginx-1.17.1.ebuild) -
       Robust, small and high performance http and reverse proxy server
   - [x11-libs](https://packages.gentoo.org/categories/x11-libs)
-    - [libva-intel-media-driver](https://github.com/intel/media-driver) -  [18.3.0](/x11-libs/libva-intel-media-driver/libva-intel-media-driver-18.3.0.ebuild) [18.4.1](/x11-libs/libva-intel-media-driver/libva-intel-media-driver-18.4.1.ebuild) [9999](/x11-libs/libva-intel-media-driver/libva-intel-media-driver-9999.ebuild) -
+    - [libva-intel-media-driver](https://github.com/intel/media-driver) -  [18.3.0](/x11-libs/libva-intel-media-driver/libva-intel-media-driver-18.3.0.ebuild) [18.4.1](/x11-libs/libva-intel-media-driver/libva-intel-media-driver-18.4.1.ebuild) [20.1.1](/x11-libs/libva-intel-media-driver/libva-intel-media-driver-20.1.1.ebuild) [9999](/x11-libs/libva-intel-media-driver/libva-intel-media-driver-9999.ebuild) -
       Intel Media Driver for VAAPI (iHD)
   - [x11-themes](https://packages.gentoo.org/categories/x11-themes)
     - [albatross](http://shimmerproject.org/projects/albatross/) -  [1.7.4](/x11-themes/albatross/albatross-1.7.4.ebuild) -
