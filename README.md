@@ -99,6 +99,8 @@ For Portage >= 2.3.8:
     - [seesaw](https://github.com/google/seesaw) -  [9999](/net-proxy/seesaw/seesaw-9999.ebuild) -
       Seesaw v2 is a Linux Virtual Server (LVS) based load balancing platform
   - [net-vpn](https://packages.gentoo.org/categories/net-vpn)
+    - [networkmanager-strongswan](https://www.strongswan.org/) -  [1.5.0](/net-vpn/networkmanager-strongswan/networkmanager-strongswan-1.5.0.ebuild) -
+      NetworkManager StrongSwan plugin
     - [strongswan](https://www.strongswan.org/) -  [5.8.4](/net-vpn/strongswan/strongswan-5.8.4.ebuild) -
       IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
   - [sys-cluster](https://packages.gentoo.org/categories/sys-cluster)
