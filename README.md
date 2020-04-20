@@ -68,6 +68,8 @@ For Portage >= 2.3.8:
   - [dev-util](https://packages.gentoo.org/categories/dev-util)
     - [ostree](https://ostree.readthedocs.io/en/latest/) -  [2019.1](/dev-util/ostree/ostree-2019.1.ebuild) [2019.2](/dev-util/ostree/ostree-2019.2.ebuild) -
       Operating system and container binary deployment and upgrades
+    - [packer](https://www.packer.io) -  [1.5.5](/dev-util/packer/packer-1.5.5.ebuild) -
+      A tool to create identical machine images for multiple platforms
   - [media-libs](https://packages.gentoo.org/categories/media-libs)
     - [gmmlib](https://github.com/intel/gmmlib) -  [20.1.1](/media-libs/gmmlib/gmmlib-20.1.1.ebuild) [9999](/media-libs/gmmlib/gmmlib-9999.ebuild) -
       Intel Graphics Memory Management Library
@@ -97,8 +99,8 @@ For Portage >= 2.3.8:
     - [seesaw](https://github.com/google/seesaw) -  [9999](/net-proxy/seesaw/seesaw-9999.ebuild) -
       Seesaw v2 is a Linux Virtual Server (LVS) based load balancing platform
   - [net-vpn](https://packages.gentoo.org/categories/net-vpn)
-    - [strongswan](http://www.strongswan.org/) -  [5.7.2](/net-vpn/strongswan/strongswan-5.7.2.ebuild) [5.8.0](/net-vpn/strongswan/strongswan-5.8.0.ebuild) -
-      IPsec-based VPN solution focused on security and ease of use, supporting IKEv1/IKEv2 and MOBIKE
+    - [strongswan](https://www.strongswan.org/) -  [5.8.4](/net-vpn/strongswan/strongswan-5.8.4.ebuild) -
+      IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
   - [sys-cluster](https://packages.gentoo.org/categories/sys-cluster)
     - [nomad](http://www.nomadproject.io) -  [0.8.0](/sys-cluster/nomad/nomad-0.8.0.ebuild) -
       The cluster manager from Hashicorp
