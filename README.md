@@ -68,11 +68,14 @@ For Portage >= 2.3.8:
   - [dev-util](https://packages.gentoo.org/categories/dev-util)
     - [ostree](https://ostree.readthedocs.io/en/latest/) -  [2019.1](/dev-util/ostree/ostree-2019.1.ebuild) [2019.2](/dev-util/ostree/ostree-2019.2.ebuild) -
       Operating system and container binary deployment and upgrades
-    - [packer](https://www.packer.io) -  [1.5.5](/dev-util/packer/packer-1.5.5.ebuild) -
+    - [packer](https://www.packer.io) -  [1.6.0](/dev-util/packer/packer-1.6.0.ebuild) -
       A tool to create identical machine images for multiple platforms
   - [media-libs](https://packages.gentoo.org/categories/media-libs)
     - [gmmlib](https://github.com/intel/gmmlib) -  [20.1.1](/media-libs/gmmlib/gmmlib-20.1.1.ebuild) [9999](/media-libs/gmmlib/gmmlib-9999.ebuild) -
       Intel Graphics Memory Management Library
+  - [media-plugins](https://packages.gentoo.org/categories/media-plugins)
+    - [gst-plugins-vaapi](https://cgit.freedesktop.org/gstreamer/gstreamer-vaapi) -  [1.16.2](/media-plugins/gst-plugins-vaapi/gst-plugins-vaapi-1.16.2.ebuild) -
+      Hardware accelerated video decoding through VA-API plugin for GStreamer
   - [net-dns](https://packages.gentoo.org/categories/net-dns)
     - [bind-dyndb-ldap](https://fedorahosted.org/bind-dyndb-ldap/) -  [11.1](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-11.1.ebuild) [9999](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-9999.ebuild) -
       Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)
