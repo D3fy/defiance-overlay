@@ -2,7 +2,7 @@
 
 EAPI=6
 
-POSTGRES_COMPAT=( 10 11 )
+POSTGRES_COMPAT=( 12 )
 POSTGRES_USEDEP="server"
 
 inherit cmake-multilib eutils postgres-multi versionator
@@ -24,8 +24,12 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	eapply_user
 	postgres-multi_src_prepare
+	postgres-multi_foreach cmake-utils_src_prepare
 }
 src_configure() {
+	local mycmakeargs=(
+		-DREGRESS_CHECKS=OFF
+	)
 	postgres-multi_foreach cmake-utils_src_configure
 }
 
