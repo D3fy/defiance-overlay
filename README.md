@@ -27,15 +27,17 @@ For Portage >= 2.3.8:
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
     - [cri-o](http://cri-o.io/) -  [1.14.0](/app-emulation/cri-o/cri-o-1.14.0.ebuild) -
       Lightweight container runtime for Kubernetes
-    - [crun](https://github.com/containers/crun) -  [0.14](/app-emulation/crun/crun-0.14.ebuild) -
+    - [crun](https://github.com/containers/crun) -  [0.14.1](/app-emulation/crun/crun-0.14.1.ebuild) -
       A fast and low-memory footprint OCI Container Runtime fully written in C
     - [kvmtool](https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/) -  [9999](/app-emulation/kvmtool/kvmtool-9999.ebuild) -
       A lightweight tool for hosting KVM guests
     - [runv](https://github.com/hyperhq/runv) -  [1.0.0](/app-emulation/runv/runv-1.0.0.ebuild) -
       Hypervisor-based Runtime for OCI
   - [dev-db](https://packages.gentoo.org/categories/dev-db)
-    - [citus](https://www.citusdata.com/) -  [9.2.4](/dev-db/citus/citus-9.2.4.ebuild) -
+    - [citus](https://www.citusdata.com/) -  [9.4.0](/dev-db/citus/citus-9.4.0.ebuild) -
       Scalable PostgreSQL for multi-tenant and real-time workloads
+    - [cstore_fdw](https://www.citusdata.com/) -  [1.7.0](/dev-db/cstore_fdw/cstore_fdw-1.7.0.ebuild) -
+      Columnar store for analytics with Postgres
     - [hypopg](http://hypopg.github.io/hypopg/) -  [1.1.3](/dev-db/hypopg/hypopg-1.1.3.ebuild) -
       Hypothetical Indexes for PostgreSQL
     - [pg_jobmon](https://github.com/omniti-labs/pg_jobmon) -  [1.3.3](/dev-db/pg_jobmon/pg_jobmon-1.3.3.ebuild) -
@@ -68,11 +70,14 @@ For Portage >= 2.3.8:
   - [dev-util](https://packages.gentoo.org/categories/dev-util)
     - [ostree](https://ostree.readthedocs.io/en/latest/) -  [2019.1](/dev-util/ostree/ostree-2019.1.ebuild) [2019.2](/dev-util/ostree/ostree-2019.2.ebuild) -
       Operating system and container binary deployment and upgrades
-    - [packer](https://www.packer.io) -  [1.6.0](/dev-util/packer/packer-1.6.0.ebuild) -
+    - [packer](https://www.packer.io) -  [1.6.1](/dev-util/packer/packer-1.6.1.ebuild) -
       A tool to create identical machine images for multiple platforms
   - [media-libs](https://packages.gentoo.org/categories/media-libs)
     - [gmmlib](https://github.com/intel/gmmlib) -  [20.1.1](/media-libs/gmmlib/gmmlib-20.1.1.ebuild) [9999](/media-libs/gmmlib/gmmlib-9999.ebuild) -
       Intel Graphics Memory Management Library
+  - [media-plugins](https://packages.gentoo.org/categories/media-plugins)
+    - [gst-plugins-vaapi](https://cgit.freedesktop.org/gstreamer/gstreamer-vaapi) -  [1.16.2](/media-plugins/gst-plugins-vaapi/gst-plugins-vaapi-1.16.2.ebuild) -
+      Hardware accelerated video decoding through VA-API plugin for GStreamer
   - [net-dns](https://packages.gentoo.org/categories/net-dns)
     - [bind-dyndb-ldap](https://fedorahosted.org/bind-dyndb-ldap/) -  [11.1](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-11.1.ebuild) [9999](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-9999.ebuild) -
       Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)
@@ -93,7 +98,7 @@ For Portage >= 2.3.8:
     - [openvswitch](http://openvswitch.org) -  [2.9.2](/net-misc/openvswitch/openvswitch-2.9.2.ebuild) -
       Production quality, multilayer virtual switch
   - [net-nds](https://packages.gentoo.org/categories/net-nds)
-    - [openldap-2.4.47](http://www.OpenLDAP.org/) -  [2.4.47](/net-nds/openldap-2.4.47/openldap-2.4.47-2.4.47.ebuild) [r1](/net-nds/openldap-2.4.47/openldap-2.4.47-r1.ebuild) -
+    - [openldap](http://www.OpenLDAP.org/) -  [r1](/net-nds/openldap/openldap-r1.ebuild) [2.4.47](/net-nds/openldap/openldap-2.4.47.ebuild) -
       LDAP suite of application and development tools
   - [net-proxy](https://packages.gentoo.org/categories/net-proxy)
     - [seesaw](https://github.com/google/seesaw) -  [9999](/net-proxy/seesaw/seesaw-9999.ebuild) -

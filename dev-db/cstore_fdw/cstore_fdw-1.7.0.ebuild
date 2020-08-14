@@ -1,15 +1,14 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 POSTGRES_COMPAT=( 10 11 12 )
 POSTGRES_USEDEP="server"
-
-inherit autotools eutils postgres-multi versionator
+inherit eutils postgres-multi
 
 SLOT="0"
 
-DESCRIPTION="Scalable PostgreSQL for multi-tenant and real-time workloads"
+DESCRIPTION="Columnar store for analytics with Postgres"
 HOMEPAGE="https://www.citusdata.com/"
 SRC_URI="https://github.com/citusdata/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -19,6 +18,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="static-libs"
 REQUIRED_USE="${POSTGRES_REQ_USE}"
 
+BDEPEND="dev-libs/protobuf-c"
 DEPEND="
 	${POSTGRES_DEP}
 "
@@ -26,15 +26,11 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	eapply_user
-	eautoreconf
 	postgres-multi_src_prepare
-}
-src_configure() {
-	postgres-multi_foreach econf
 }
 
 src_compile() {
-	postgres-multi_foreach emake
+	postgres-multi_foreach emake -C "${WORKDIR}/${P}"
 }
 
 src_install() {
