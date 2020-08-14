@@ -56,7 +56,9 @@ For Portage >= 2.3.8:
       PostgreSQL Workload Analyzer
     - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [3.2.1](/dev-db/powa-web/powa-web-3.2.1.ebuild) -
       The PostgreSQL Workload Analyzer web frontend
-    - [timescaledb](http://www.timescale.com/) -  [1.3.0](/dev-db/timescaledb/timescaledb-1.3.0.ebuild) -
+    - [redis_fdw](https://github.com/pg-redis-fdw/redis_fdw) -  [9999](/dev-db/redis_fdw/redis_fdw-9999.ebuild) -
+      A PostgreSQL foreign data wrapper for Redis
+    - [timescaledb](http://www.timescale.com/) -  [1.7.2](/dev-db/timescaledb/timescaledb-1.7.2.ebuild) -
       A time-series database optimized for fast ingest and complex queries
   - [dev-libs](https://packages.gentoo.org/categories/dev-libs)
     - [ctap](https://github.com/jhunt/ctap/) -  [2.0.0](/dev-libs/ctap/ctap-2.0.0.ebuild) -
