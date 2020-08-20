@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dan@d3fy.net</email>
+		<name>Dan Molik</name>
+	</maintainer>
+	<longdescription lang="en">
+		At this point the project is not yet production ready. Use with care. Pull requests welcome
+		A simple foreign data wrapper for Kafka which allows it to be treated as a table.
+		Currently kafka_fdw allows message parsing in csv and json format. More might come in a future release.
+	</longdescription>
+</pkgmetadata>
