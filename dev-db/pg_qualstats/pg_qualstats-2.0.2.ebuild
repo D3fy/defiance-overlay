@@ -1,11 +1,11 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 POSTGRES_COMPAT=( 10 11 12 )
 POSTGRES_USEDEP="server"
 
-inherit eutils postgres-multi versionator
+inherit eutils postgres-multi
 
 SLOT="0"
 

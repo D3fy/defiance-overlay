@@ -1,19 +1,21 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 POSTGRES_COMPAT=( 10 11 12 )
 POSTGRES_USEDEP="server"
 
-inherit eutils postgres-multi versionator
+PSRC="REL_${PV//./_}"
+S="${WORKDIR}/${PN}-archivist-${PSRC}"
+inherit eutils postgres-multi
 
 SLOT="0"
 
-DESCRIPTION="Hypothetical Indexes for PostgreSQL"
-HOMEPAGE="http://hypopg.github.io/hypopg/"
-SRC_URI="https://github.com/hypopg/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="PostgreSQL Workload Analyzer"
+HOMEPAGE="http://powa-team.github.io/powa/"
+SRC_URI="https://github.com/powa-team/${PN}-archivist/archive/${PSRC}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="Apache-2.0"
+LICENSE="CC0-1.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="static-libs"
@@ -22,7 +24,12 @@ REQUIRED_USE="${POSTGRES_REQ_USE}"
 DEPEND="
 	${POSTGRES_DEP}
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	dev-db/pg_stat_kcache
+	dev-db/pg_qualstats
+	dev-db/hypopg
+	${DEPEND}
+"
 
 src_prepare() {
 	eapply_user
