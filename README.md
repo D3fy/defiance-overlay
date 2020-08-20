@@ -38,8 +38,12 @@ For Portage >= 2.3.8:
       Scalable PostgreSQL for multi-tenant and real-time workloads
     - [cstore_fdw](https://www.citusdata.com/) -  [1.7.0](/dev-db/cstore_fdw/cstore_fdw-1.7.0.ebuild) -
       Columnar store for analytics with Postgres
+    - [git_fdw](https://github.com/franckverrot/git_fdw) -  [9999](/dev-db/git_fdw/git_fdw-9999.ebuild) -
+      A PostgreSQL foreign data wrapper for git
     - [hypopg](http://hypopg.github.io/hypopg/) -  [1.1.4](/dev-db/hypopg/hypopg-1.1.4.ebuild) -
       Hypothetical Indexes for PostgreSQL
+    - [kafka_fdw](https://github.com/adjust/kafka_fdw) -  [9999](/dev-db/kafka_fdw/kafka_fdw-9999.ebuild) -
+      kafka foreign database wrapper for postresql
     - [pg_jobmon](https://github.com/omniti-labs/pg_jobmon) -  [1.3.3](/dev-db/pg_jobmon/pg_jobmon-1.3.3.ebuild) -
       PostgreSQL Extension for logging and monitoring automated jobs
     - [pg_partman](https://github.com/keithf4/pg_partman) -  [3.1.1](/dev-db/pg_partman/pg_partman-3.1.1.ebuild) -
