@@ -22,6 +22,7 @@ REQUIRED_USE="${POSTGRES_REQ_USE}"
 
 DEPEND="
 	${POSTGRES_DEP}
+	dev-libs/hiredis
 "
 RDEPEND="${DEPEND}"
 
