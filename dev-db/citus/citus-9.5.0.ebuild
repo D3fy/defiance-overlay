@@ -2,7 +2,7 @@
 
 EAPI=7
 
-POSTGRES_COMPAT=( 12 )
+POSTGRES_COMPAT=( 12 13 )
 POSTGRES_USEDEP="server"
 
 inherit autotools eutils postgres-multi

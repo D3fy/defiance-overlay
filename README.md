@@ -34,7 +34,7 @@ For Portage >= 2.3.8:
     - [runv](https://github.com/hyperhq/runv) -  [1.0.0](/app-emulation/runv/runv-1.0.0.ebuild) -
       Hypervisor-based Runtime for OCI
   - [dev-db](https://packages.gentoo.org/categories/dev-db)
-    - [citus](https://www.citusdata.com/) -  [9.4.0](/dev-db/citus/citus-9.4.0.ebuild) -
+    - [citus](https://www.citusdata.com/) -  [9.5.0](/dev-db/citus/citus-9.5.0.ebuild) -
       Scalable PostgreSQL for multi-tenant and real-time workloads
     - [cstore_fdw](https://www.citusdata.com/) -  [1.7.0](/dev-db/cstore_fdw/cstore_fdw-1.7.0.ebuild) -
       Columnar store for analytics with Postgres
@@ -76,7 +76,7 @@ For Portage >= 2.3.8:
   - [dev-util](https://packages.gentoo.org/categories/dev-util)
     - [ostree](https://ostree.readthedocs.io/en/latest/) -  [2019.1](/dev-util/ostree/ostree-2019.1.ebuild) [2019.2](/dev-util/ostree/ostree-2019.2.ebuild) -
       Operating system and container binary deployment and upgrades
-    - [packer](https://www.packer.io) -  [1.6.1](/dev-util/packer/packer-1.6.1.ebuild) -
+    - [packer](https://www.packer.io) -  [1.6.5](/dev-util/packer/packer-1.6.5.ebuild) -
       A tool to create identical machine images for multiple platforms
   - [media-libs](https://packages.gentoo.org/categories/media-libs)
     - [gmmlib](https://github.com/intel/gmmlib) -  [20.1.1](/media-libs/gmmlib/gmmlib-20.1.1.ebuild) [9999](/media-libs/gmmlib/gmmlib-9999.ebuild) -
