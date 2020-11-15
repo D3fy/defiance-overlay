@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile install prepare setup test
-DEPEND=postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
+DEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] )
 DESCRIPTION=Gather statistics about disk access and CPU consumption done by backends
 EAPI=7
 HOMEPAGE=https://github.com/powa-team/pg_stat_kcache
-IUSE=static-libs postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10
+IUSE=static-libs postgres_targets_postgres13 postgres_targets_postgres12
 KEYWORDS=~amd64 ~x86
 LICENSE=CC0-1.0
-RDEPEND=postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
-REQUIRED_USE=|| ( postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10 )
+RDEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] )
+REQUIRED_USE=|| ( postgres_targets_postgres13 postgres_targets_postgres12 )
 SLOT=0
 SRC_URI=https://github.com/powa-team/pg_stat_kcache/archive/REL2_1_3.tar.gz -> pg_stat_kcache-2.1.3.tar.gz
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	2d5b3f4b315094768576b6799e4f926e	l10n	8cdd85e169b835d518bc2fd59f780d8e	multibuild	b2c915190b051f55a23b9354b9849847	postgres	9613fb90112e2a521b6a8315187c2966	postgres-multi	b784ac6c30437f2ded3f16482b56374c	user	b0a0d4ca9e3f79c38f8f4143b8d5a2d8	user-info	a2abd4e2f4c3b9b06d64bf1329359a02	wrapper	4251d4c84c25f59094fd557e0063a974
-_md5_=99010c7c95a81685b51a0c7747c8eddc
+_md5_=13701fbc37ca64c1ecae4da3fc433461

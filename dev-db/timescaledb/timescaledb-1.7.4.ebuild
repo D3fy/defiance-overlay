@@ -1,23 +1,20 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=6
 
 POSTGRES_COMPAT=( 12 13 )
 POSTGRES_USEDEP="server"
 
-inherit eutils postgres-multi
+inherit cmake-multilib eutils postgres-multi versionator
 
-SLOT="0"
-
-DESCRIPTION="Hypothetical Indexes for PostgreSQL"
-HOMEPAGE="http://hypopg.github.io/hypopg/"
-SRC_URI="https://github.com/hypopg/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="A time-series database optimized for fast ingest and complex queries"
+HOMEPAGE="http://www.timescale.com/"
+SRC_URI="https://github.com/timescale/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 IUSE="static-libs"
-REQUIRED_USE="${POSTGRES_REQ_USE}"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	${POSTGRES_DEP}
@@ -27,6 +24,13 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	eapply_user
 	postgres-multi_src_prepare
+	postgres-multi_foreach cmake-utils_src_prepare
+}
+src_configure() {
+	local mycmakeargs=(
+		-DREGRESS_CHECKS=OFF
+	)
+	postgres-multi_foreach cmake-utils_src_configure
 }
 
 src_compile() {
