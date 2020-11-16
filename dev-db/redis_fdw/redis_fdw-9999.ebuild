@@ -12,7 +12,7 @@ SLOT="0"
 DESCRIPTION="A PostgreSQL foreign data wrapper for Redis"
 HOMEPAGE="https://github.com/pg-redis-fdw/redis_fdw"
 EGIT_REPO_URI="https://github.com/pg-redis-fdw/redis_fdw"
-EGIT_BRANCH="REL_12_STABLE"
+EGIT_BRANCH="REL_13_STABLE"
 
 LICENSE="AGPL-3"
 SLOT="0"
