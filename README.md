@@ -54,15 +54,15 @@ For Portage >= 2.3.8:
       A Postgres extension for collecting statistics about predicate
     - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.1.3](/dev-db/pg_stat_kcache/pg_stat_kcache-2.1.3.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
-    - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.14](/dev-db/postgresql-hll/postgresql-hll-2.14.ebuild) -
+    - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.15](/dev-db/postgresql-hll/postgresql-hll-2.15.ebuild) -
       PostgreSQL extension adding HyperLogLog data structures as a native data type
     - [powa](http://powa-team.github.io/powa/) -  [4.0.1](/dev-db/powa/powa-4.0.1.ebuild) -
       PostgreSQL Workload Analyzer
-    - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [4.0.1](/dev-db/powa-web/powa-web-4.0.1.ebuild) -
+    - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [4.0.2](/dev-db/powa-web/powa-web-4.0.2.ebuild) -
       The PostgreSQL Workload Analyzer web frontend
     - [redis_fdw](https://github.com/pg-redis-fdw/redis_fdw) -  [9999](/dev-db/redis_fdw/redis_fdw-9999.ebuild) -
       A PostgreSQL foreign data wrapper for Redis
-    - [timescaledb](http://www.timescale.com/) -  [1.7.2](/dev-db/timescaledb/timescaledb-1.7.2.ebuild) -
+    - [timescaledb](http://www.timescale.com/) -  [1.7.2](/dev-db/timescaledb/timescaledb-1.7.2.ebuild) [1.7.4](/dev-db/timescaledb/timescaledb-1.7.4.ebuild) -
       A time-series database optimized for fast ingest and complex queries
   - [dev-libs](https://packages.gentoo.org/categories/dev-libs)
     - [ctap](https://github.com/jhunt/ctap/) -  [2.0.0](/dev-libs/ctap/ctap-2.0.0.ebuild) -
