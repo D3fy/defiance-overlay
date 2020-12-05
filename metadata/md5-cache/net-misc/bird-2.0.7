@@ -1,12 +1,12 @@
-DEFINED_PHASES=compile configure install prepare
+DEFINED_PHASES=compile configure install
 DEPEND=sys-devel/flex sys-devel/bison sys-devel/m4
 DESCRIPTION=A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 or IPv6
-EAPI=6
+EAPI=7
 HOMEPAGE=http://bird.network.cz
 IUSE=+client debug mpls ssh
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=client? ( sys-libs/ncurses ) client? ( sys-libs/readline ) ssh? ( net-libs/libssh )
 SLOT=0
-SRC_URI=ftp://bird.network.cz/pub/bird/bird-2.0.1.tar.gz
-_md5_=3bef13702dfa525e15d6c5284fc2a370
+SRC_URI=ftp://bird.network.cz/pub/bird/bird-2.0.7.tar.gz
+_md5_=435f23d7a35e4ccf3c8c8872a71565b1

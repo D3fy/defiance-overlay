@@ -95,7 +95,7 @@ For Portage >= 2.3.8:
     - [rtrlib](http://rtrlib.realmv6.org/) -  [0.6.3](/net-libs/rtrlib/rtrlib-0.6.3.ebuild) -
       An open-source C implementation of the RPKI/Router Protocol client
   - [net-misc](https://packages.gentoo.org/categories/net-misc)
-    - [bird](http://bird.network.cz) -  [2.0.1](/net-misc/bird/bird-2.0.1.ebuild) -
+    - [bird](http://bird.network.cz) -  [2.0.7](/net-misc/bird/bird-2.0.7.ebuild) -
       A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 or IPv6
     - [cni-plugins](https://github.com/containernetworking/plugins) -  [0.7.2](/net-misc/cni-plugins/cni-plugins-0.7.2.ebuild) -
       Some standard networking plugins, maintained by the CNI team

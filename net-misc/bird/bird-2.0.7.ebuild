@@ -1,6 +1,6 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION="A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 or IPv6"
 HOMEPAGE="http://bird.network.cz"
@@ -18,9 +18,9 @@ DEPEND="sys-devel/flex
 	sys-devel/bison
 	sys-devel/m4"
 
-src_prepare() {
-	eapply_user
-}
+PATCHES=(
+	"${FILESDIR}/${P}-gcc10.patch"
+)
 
 src_configure() {
 	econf \
@@ -41,6 +41,6 @@ src_install() {
 	fi
 	dobin birdcl
 	dosbin bird
-	newinitd "${FILESDIR}/initd-v4-${PN}-1.3.8" bird
+	newinitd "${FILESDIR}/initd-${PN}-2" bird
 	dodoc doc/bird.conf.example
 }
