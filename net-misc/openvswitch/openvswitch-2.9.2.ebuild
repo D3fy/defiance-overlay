@@ -2,7 +2,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_4,3_5} )
+PYTHON_COMPAT=( python{3_7,3_8,3_9} )
 
 inherit toolchain-funcs autotools eutils linux-info linux-mod python-r1 systemd
 
@@ -12,7 +12,7 @@ SRC_URI="http://openvswitch.org/releases/${P}.tar.gz"
 
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="debug dpdk modules monitor +ssl"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
