@@ -62,8 +62,6 @@ For Portage >= 2.3.8:
       The PostgreSQL Workload Analyzer web frontend
     - [redis_fdw](https://github.com/pg-redis-fdw/redis_fdw) -  [9999](/dev-db/redis_fdw/redis_fdw-9999.ebuild) -
       A PostgreSQL foreign data wrapper for Redis
-    - [timescaledb](http://www.timescale.com/) -  [1.7.2](/dev-db/timescaledb/timescaledb-1.7.2.ebuild) [1.7.4](/dev-db/timescaledb/timescaledb-1.7.4.ebuild) -
-      A time-series database optimized for fast ingest and complex queries
   - [dev-libs](https://packages.gentoo.org/categories/dev-libs)
     - [ctap](https://github.com/jhunt/ctap/) -  [2.0.0](/dev-libs/ctap/ctap-2.0.0.ebuild) -
       Test Anything Protocol (tap) for C
@@ -76,7 +74,7 @@ For Portage >= 2.3.8:
   - [dev-util](https://packages.gentoo.org/categories/dev-util)
     - [ostree](https://ostree.readthedocs.io/en/latest/) -  [2019.1](/dev-util/ostree/ostree-2019.1.ebuild) [2019.2](/dev-util/ostree/ostree-2019.2.ebuild) -
       Operating system and container binary deployment and upgrades
-    - [packer](https://www.packer.io) -  [1.6.5](/dev-util/packer/packer-1.6.5.ebuild) -
+    - [packer](https://www.packer.io) -  [1.7.0](/dev-util/packer/packer-1.7.0.ebuild) -
       A tool to create identical machine images for multiple platforms
   - [media-libs](https://packages.gentoo.org/categories/media-libs)
     - [gmmlib](https://github.com/intel/gmmlib) -  [20.1.1](/media-libs/gmmlib/gmmlib-20.1.1.ebuild) [9999](/media-libs/gmmlib/gmmlib-9999.ebuild) -
