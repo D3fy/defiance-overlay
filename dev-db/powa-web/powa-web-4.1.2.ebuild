@@ -2,7 +2,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_{5,6,7} )
+PYTHON_COMPAT=( python3_{8,9} )
 
 inherit distutils-r1 eutils versionator flag-o-matic
 
@@ -12,7 +12,7 @@ SRC_URI="https://pypi.io/packages/source/p/${PN}/${P}.tar.gz"
 
 LICENSE="CC0-1.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND=""
