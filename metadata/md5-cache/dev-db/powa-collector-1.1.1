@@ -1,14 +1,14 @@
-DEFINED_PHASES=install
-DEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] dev-python/psycopg[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
+DEFINED_PHASES=setup
+DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) dev-python/psycopg[python_single_target_python3_8(-)?,python_single_target_python3_9(-)?]
 DESCRIPTION=A multi-threaded program that performs the snapshots for the remote servers configured in a powa repository.
 EAPI=7
 HOMEPAGE=https://powa.readthedocs.io/
-IUSE=python_targets_python3_8 python_targets_python3_9
+IUSE=python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] dev-python/psycopg[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
-REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) dev-python/psycopg[python_single_target_python3_8(-)?,python_single_target_python3_9(-)?]
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/powa-team/powa-collector/archive/refs/tags/1.1.1.tar.gz -> powa-collector-1.1.1.tar.gz
-_eclasses_=multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	multilib	d410501a125f99ffb560b0c523cd3d1e	python-r1	26e4ad0a4190b14f70973dc253e86535	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=2c0db6a62632ba81c40f9b4680606907
+_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_md5_=5c29b1b3bceb09298a011d95bb005d2e
