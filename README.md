@@ -25,22 +25,14 @@ For Portage >= 2.3.8:
     - [heketi](https://github.com/heketi/heketi) -  [8.0.0](/app-admin/heketi/heketi-8.0.0.ebuild) [9.0.0](/app-admin/heketi/heketi-9.0.0.ebuild) -
       RESTful based volume management framework for GlusterFS
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
-    - [cri-o](http://cri-o.io/) -  [1.14.0](/app-emulation/cri-o/cri-o-1.14.0.ebuild) -
-      Lightweight container runtime for Kubernetes
-    - [crun](https://github.com/containers/crun) -  [0.14.1](/app-emulation/crun/crun-0.14.1.ebuild) -
-      A fast and low-memory footprint OCI Container Runtime fully written in C
     - [kvmtool](https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/) -  [9999](/app-emulation/kvmtool/kvmtool-9999.ebuild) -
       A lightweight tool for hosting KVM guests
-    - [runv](https://github.com/hyperhq/runv) -  [1.0.0](/app-emulation/runv/runv-1.0.0.ebuild) -
-      Hypervisor-based Runtime for OCI
   - [dev-db](https://packages.gentoo.org/categories/dev-db)
-    - [citus](https://www.citusdata.com/) -  [9.5.0](/dev-db/citus/citus-9.5.0.ebuild) -
-      Scalable PostgreSQL for multi-tenant and real-time workloads
     - [cstore_fdw](https://www.citusdata.com/) -  [1.7.0](/dev-db/cstore_fdw/cstore_fdw-1.7.0.ebuild) -
       Columnar store for analytics with Postgres
     - [git_fdw](https://github.com/franckverrot/git_fdw) -  [9999](/dev-db/git_fdw/git_fdw-9999.ebuild) -
       A PostgreSQL foreign data wrapper for git
-    - [hypopg](http://hypopg.github.io/hypopg/) -  [1.1.4](/dev-db/hypopg/hypopg-1.1.4.ebuild) -
+    - [hypopg](http://hypopg.github.io/hypopg/) -  [1.2.0](/dev-db/hypopg/hypopg-1.2.0.ebuild) -
       Hypothetical Indexes for PostgreSQL
     - [kafka_fdw](https://github.com/adjust/kafka_fdw) -  [9999](/dev-db/kafka_fdw/kafka_fdw-9999.ebuild) -
       kafka foreign database wrapper for postresql
@@ -52,13 +44,15 @@ For Portage >= 2.3.8:
       Partitioning tool for PostgreSQL
     - [pg_qualstats](https://github.com/powa-team/pg_qualstats) -  [2.0.2](/dev-db/pg_qualstats/pg_qualstats-2.0.2.ebuild) -
       A Postgres extension for collecting statistics about predicate
-    - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.1.3](/dev-db/pg_stat_kcache/pg_stat_kcache-2.1.3.ebuild) -
+    - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.2.0](/dev-db/pg_stat_kcache/pg_stat_kcache-2.2.0.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
     - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.15](/dev-db/postgresql-hll/postgresql-hll-2.15.ebuild) -
       PostgreSQL extension adding HyperLogLog data structures as a native data type
-    - [powa](http://powa-team.github.io/powa/) -  [4.0.1](/dev-db/powa/powa-4.0.1.ebuild) -
+    - [powa](http://powa-team.github.io/powa/) -  [4.1.2](/dev-db/powa/powa-4.1.2.ebuild) -
       PostgreSQL Workload Analyzer
-    - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [4.0.2](/dev-db/powa-web/powa-web-4.0.2.ebuild) -
+    - [powa-collector](https://powa.readthedocs.io/) -  [1.1.1](/dev-db/powa-collector/powa-collector-1.1.1.ebuild) -
+      A multi-threaded program that performs the snapshots for the remote servers configured in a powa repository.
+    - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [4.1.2](/dev-db/powa-web/powa-web-4.1.2.ebuild) -
       The PostgreSQL Workload Analyzer web frontend
     - [redis_fdw](https://github.com/pg-redis-fdw/redis_fdw) -  [9999](/dev-db/redis_fdw/redis_fdw-9999.ebuild) -
       A PostgreSQL foreign data wrapper for Redis
