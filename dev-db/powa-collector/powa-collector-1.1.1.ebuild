@@ -4,7 +4,7 @@
 EAPI=7
 PYTHON_COMPAT=( python3_{8,9} )
 
-inherit python-single-r1
+inherit python-r1
 
 DESCRIPTION="A multi-threaded program that performs the snapshots for the remote servers configured in a powa repository."
 HOMEPAGE="https://powa.readthedocs.io/"
@@ -17,6 +17,6 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 IUSE=""
 
 RDEPEND="${PYTHON_DEPS}
-	dev-python/psycopg[${PYTHON_SINGLE_USEDEP}]
+	dev-python/psycopg[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
