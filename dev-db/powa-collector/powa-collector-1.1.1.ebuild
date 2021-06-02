@@ -19,3 +19,12 @@ RDEPEND="
 	dev-python/psycopg[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
+
+python_install_all() {
+	USE_SETUPTOOLS=1 distutils-r1_python_install_all
+
+	newinitd ${FILESDIR}/${PN}.initd ${PN}
+
+	insinto /etc/
+	doins ${FILESDIR}/${PN}.conf.example
+}
