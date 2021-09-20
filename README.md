@@ -32,7 +32,7 @@ For Portage >= 2.3.8:
       Columnar store for analytics with Postgres
     - [git_fdw](https://github.com/franckverrot/git_fdw) -  [9999](/dev-db/git_fdw/git_fdw-9999.ebuild) -
       A PostgreSQL foreign data wrapper for git
-    - [hypopg](http://hypopg.github.io/hypopg/) -  [1.2.0](/dev-db/hypopg/hypopg-1.2.0.ebuild) -
+    - [hypopg](http://hypopg.github.io/hypopg/) -  [1.3.0](/dev-db/hypopg/hypopg-1.3.0.ebuild) -
       Hypothetical Indexes for PostgreSQL
     - [kafka_fdw](https://github.com/adjust/kafka_fdw) -  [9999](/dev-db/kafka_fdw/kafka_fdw-9999.ebuild) -
       kafka foreign database wrapper for postresql
@@ -42,7 +42,7 @@ For Portage >= 2.3.8:
       Postgres time and serial partitioner
     - [pg_pathman](https://github.com/postgrespro/pg_pathman) -  [1.4.9](/dev-db/pg_pathman/pg_pathman-1.4.9.ebuild) -
       Partitioning tool for PostgreSQL
-    - [pg_qualstats](https://github.com/powa-team/pg_qualstats) -  [2.0.2](/dev-db/pg_qualstats/pg_qualstats-2.0.2.ebuild) -
+    - [pg_qualstats](https://github.com/powa-team/pg_qualstats) -  [2.0.3](/dev-db/pg_qualstats/pg_qualstats-2.0.3.ebuild) -
       A Postgres extension for collecting statistics about predicate
     - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.2.0](/dev-db/pg_stat_kcache/pg_stat_kcache-2.2.0.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
@@ -77,7 +77,7 @@ For Portage >= 2.3.8:
     - [gst-plugins-vaapi](https://cgit.freedesktop.org/gstreamer/gstreamer-vaapi) -  [1.16.2](/media-plugins/gst-plugins-vaapi/gst-plugins-vaapi-1.16.2.ebuild) -
       Hardware accelerated video decoding through VA-API plugin for GStreamer
   - [net-dns](https://packages.gentoo.org/categories/net-dns)
-    - [bind-dyndb-ldap](https://fedorahosted.org/bind-dyndb-ldap/) -  [11.1](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-11.1.ebuild) [9999](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-9999.ebuild) -
+    - [bind-dyndb-ldap](https://pagure.io/bind-dyndb-ldap) -  [11.9](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-11.9.ebuild) [9999](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-9999.ebuild) -
       Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)
   - [net-libs](https://packages.gentoo.org/categories/net-libs)
     - [dpdk](http://dpdk.org/) -  [17.11.3](/net-libs/dpdk/dpdk-17.11.3.ebuild) [18.05](/net-libs/dpdk/dpdk-18.05.ebuild) -
@@ -95,9 +95,6 @@ For Portage >= 2.3.8:
       an IP routing protocol suite for BGP, IS-IS, LDP, OSPF, PIM, and RIP
     - [openvswitch](http://openvswitch.org) -  [2.9.2](/net-misc/openvswitch/openvswitch-2.9.2.ebuild) -
       Production quality, multilayer virtual switch
-  - [net-nds](https://packages.gentoo.org/categories/net-nds)
-    - [openldap](http://www.OpenLDAP.org/) -  [r1](/net-nds/openldap/openldap-r1.ebuild) [2.4.47](/net-nds/openldap/openldap-2.4.47.ebuild) -
-      LDAP suite of application and development tools
   - [net-proxy](https://packages.gentoo.org/categories/net-proxy)
     - [seesaw](https://github.com/google/seesaw) -  [9999](/net-proxy/seesaw/seesaw-9999.ebuild) -
       Seesaw v2 is a Linux Virtual Server (LVS) based load balancing platform
