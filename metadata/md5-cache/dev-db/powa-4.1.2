@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install prepare setup test
-DEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] )
+DEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] )
 DESCRIPTION=PostgreSQL Workload Analyzer
 EAPI=7
 HOMEPAGE=http://powa-team.github.io/powa/
 INHERIT=eutils postgres-multi
-IUSE=static-libs postgres_targets_postgres13 postgres_targets_postgres12
+IUSE=static-libs postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12
 KEYWORDS=~amd64 ~x86
 LICENSE=CC0-1.0
-RDEPEND=dev-db/pg_stat_kcache dev-db/pg_qualstats dev-db/hypopg postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] )
-REQUIRED_USE=|| ( postgres_targets_postgres13 postgres_targets_postgres12 )
+RDEPEND=dev-db/pg_stat_kcache dev-db/pg_qualstats dev-db/hypopg postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] )
+REQUIRED_USE=|| ( postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 )
 SLOT=0
 SRC_URI=https://github.com/powa-team/powa-archivist/archive/REL_4_1_2.tar.gz -> powa-4.1.2.tar.gz
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	dab5d8ec471d025b79c9e6906bcf3bff	multibuild	05a584848db4901c97fcd94ae7cc3a97	postgres	3ff7ea72ed39efa38ebaead171fd5da4	postgres-multi	fb7c39e4a2aced93f5986224677a9070	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	user	1033b6bed7cf367c4507ea9a3ff503d0	user-info	2e75eaea3582b052ec16d9d5aa74ced3	wrapper	4251d4c84c25f59094fd557e0063a974
-_md5_=c8bbb067b9a5a519c03b71ac436ae6a1
+_md5_=834d081ef1133a46a9c0c7492846a827
