@@ -32,7 +32,7 @@ For Portage >= 2.3.8:
       Columnar store for analytics with Postgres
     - [git_fdw](https://github.com/franckverrot/git_fdw) -  [9999](/dev-db/git_fdw/git_fdw-9999.ebuild) -
       A PostgreSQL foreign data wrapper for git
-    - [hypopg](http://hypopg.github.io/hypopg/) -  [1.3.0](/dev-db/hypopg/hypopg-1.3.0.ebuild) -
+    - [hypopg](http://hypopg.github.io/hypopg/) -  [1.3.0](/dev-db/hypopg/hypopg-1.3.0.ebuild) [1.3.1](/dev-db/hypopg/hypopg-1.3.1.ebuild) -
       Hypothetical Indexes for PostgreSQL
     - [kafka_fdw](https://github.com/adjust/kafka_fdw) -  [9999](/dev-db/kafka_fdw/kafka_fdw-9999.ebuild) -
       kafka foreign database wrapper for postresql
