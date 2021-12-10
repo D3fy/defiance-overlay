@@ -1,16 +1,16 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install prepare setup test unpack
-DEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) dev-libs/hiredis
+DEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) dev-libs/hiredis
 DESCRIPTION=A PostgreSQL foreign data wrapper for Redis
 EAPI=7
 HOMEPAGE=https://github.com/pg-redis-fdw/redis_fdw
 INHERIT=eutils git-r3 postgres-multi
-IUSE=static-libs postgres_targets_postgres13 postgres_targets_postgres12
+IUSE=static-libs postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12
 KEYWORDS=~amd64 ~x86
 LICENSE=AGPL-3
 PROPERTIES=live
-RDEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) dev-libs/hiredis
-REQUIRED_USE=|| ( postgres_targets_postgres13 postgres_targets_postgres12 )
+RDEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) dev-libs/hiredis
+REQUIRED_USE=|| ( postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 )
 SLOT=0
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	dab5d8ec471d025b79c9e6906bcf3bff	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	multibuild	05a584848db4901c97fcd94ae7cc3a97	postgres	3ff7ea72ed39efa38ebaead171fd5da4	postgres-multi	fb7c39e4a2aced93f5986224677a9070	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	user	1033b6bed7cf367c4507ea9a3ff503d0	user-info	2e75eaea3582b052ec16d9d5aa74ced3	wrapper	4251d4c84c25f59094fd557e0063a974
-_md5_=0448ca08f384922f27768560c7a41d4d
+_md5_=019f2e399c8a2591df6100756dce5c51
