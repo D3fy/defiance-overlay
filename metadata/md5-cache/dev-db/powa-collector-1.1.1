@@ -1,4 +1,4 @@
-BDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+BDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-python/psycopg[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 DESCRIPTION=A multi-threaded program that performs the snapshots for the remote servers configured in a powa repository.
@@ -8,9 +8,9 @@ INHERIT=distutils-r1
 IUSE=python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=dev-python/psycopg[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+RDEPEND=dev-python/psycopg[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/powa-team/powa-collector/archive/refs/tags/1.1.1.tar.gz -> powa-collector-1.1.1.tar.gz
-_eclasses_=distutils-r1	8041037f74e1f9d149c038c2fe2c97cf	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib	4b66d835ec72e021e359bb81eacfe988	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-r1	e574a3642f886323f18f867ecc4d91c4	python-utils-r1	a8b7938ade305f087865de7e52d079b5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa
+_eclasses_=distutils-r1	f57fddd704fa9e86e732403aaa7ab164	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib	de4beb52bfa93c4c5d96792a6b5e1784	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-r1	4c008ab1e6c02cbead059dfe8b864c26	python-utils-r1	7ec9eb6bbbeccd424c0430368962d272	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8
 _md5_=3e8ca1b439f2cef79d43062fd80118ab
