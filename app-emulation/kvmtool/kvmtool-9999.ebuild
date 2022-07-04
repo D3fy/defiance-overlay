@@ -5,8 +5,8 @@ EAPI=6
 inherit git-r3 toolchain-funcs linux-info linux-mod
 
 DESCRIPTION="A lightweight tool for hosting KVM guests"
-HOMEPAGE="https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/"
-EGIT_REPO_URI="https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git"
+HOMEPAGE="https://github.com/kvmtool/kvmtool"
+EGIT_REPO_URI="https://github.com/kvmtool/kvmtool.git"
 
 LICENSE="GPL-2"
 SLOT="0"
