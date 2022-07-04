@@ -3,10 +3,11 @@ DEPEND=dev-libs/cyrus-sasl dev-perl/Devel-CheckLib dev-perl/Authen-SASL dev-lang
 DESCRIPTION=Code to glue Perl SASL to Cyrus SASL
 EAPI=6
 HOMEPAGE=https://metacpan.org/release/Authen-SASL-XS
+INHERIT=perl-module
 KEYWORDS=~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-lang/perl:=
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/G/GB/GBARR/Authen-SASL-XS-1.00.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	bd9574a79c5f0a347a9ea3db5ad9ca72
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	95b2df43c5f3057b6e77bd00b4d953da	perl-module	f2c1b0dd41761ffc8441cd041e4bb7ec
 _md5_=7a6ace206f95a6fba9e1eb9091ab774a

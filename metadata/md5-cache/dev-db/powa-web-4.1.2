@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+DEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 DESCRIPTION=The PostgreSQL Workload Analyzer web frontend
 EAPI=6
 HOMEPAGE=http://powa.readthedocs.io/en/latest/powa-web/index.html
@@ -7,9 +7,9 @@ INHERIT=distutils-r1 eutils versionator flag-o-matic
 IUSE=python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64
 LICENSE=CC0-1.0
-RDEPEND=dev-python/sqlalchemy[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/psycopg[python_targets_python3_8(-)?,python_targets_python3_9(-)?] www-servers/tornado[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
+RDEPEND=dev-python/sqlalchemy[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/psycopg[python_targets_python3_8(-)?,python_targets_python3_9(-)?] www-servers/tornado[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 SLOT=0
 SRC_URI=https://pypi.io/packages/source/p/powa-web/powa-web-4.1.2.tar.gz
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	distutils-r1	f57fddd704fa9e86e732403aaa7ab164	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	edos2unix	33e347e171066657f91f8b0c72ec8773	epatch	9f813bb3c47cf2e60619a663b87c5f4e	estack	055c42df72f76a4f45ec92b35e83cd56	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	d5e1306543bc457213f68bb18f830d14	ltprune	4f3f2db5ce3ccbeeacdf3f94954043aa	multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib	de4beb52bfa93c4c5d96792a6b5e1784	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	preserve-libs	dbc9f8d2d49c66467bc327fddd8317bd	python-r1	4c008ab1e6c02cbead059dfe8b864c26	python-utils-r1	7ec9eb6bbbeccd424c0430368962d272	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	vcs-clean	b690a7e9b6c497cf59326a7545df4283	versionator	d3fb3ba33acc3bbbdc4d7970227c100d	wrapper	4251d4c84c25f59094fd557e0063a974	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	distutils-r1	64c5b9cc381383c9c1ef74fb199293ea	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	edos2unix	33e347e171066657f91f8b0c72ec8773	epatch	28f0f3c0226306ec5f49e13bf851f171	estack	055c42df72f76a4f45ec92b35e83cd56	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	ltprune	97143780d341cc8d8f1d4c6187a36d29	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib	4fbbbc98f236f1b43acd99476bc3cd85	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	preserve-libs	a8e50acee31b5759b4df1f7707cae54b	python-r1	e2883e4f04f0503cdf7f2954e2bf5e15	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	vcs-clean	d271b7bc7e6a009758d7d4ef749174e3	versionator	d3fb3ba33acc3bbbdc4d7970227c100d	wrapper	4a1902f969e5718126434fc35f3a0d9c	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
 _md5_=4efce783faad833356fb606bb3280285
