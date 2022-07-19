@@ -25,7 +25,7 @@ For Portage >= 2.3.8:
     - [heketi](https://github.com/heketi/heketi) -  [8.0.0](/app-admin/heketi/heketi-8.0.0.ebuild) [9.0.0](/app-admin/heketi/heketi-9.0.0.ebuild) -
       RESTful based volume management framework for GlusterFS
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
-    - [kvmtool](https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/) -  [9999](/app-emulation/kvmtool/kvmtool-9999.ebuild) -
+    - [kvmtool](https://github.com/kvmtool/kvmtool) -  [9999](/app-emulation/kvmtool/kvmtool-9999.ebuild) -
       A lightweight tool for hosting KVM guests
   - [dev-db](https://packages.gentoo.org/categories/dev-db)
     - [cstore_fdw](https://www.citusdata.com/) -  [1.7.0](/dev-db/cstore_fdw/cstore_fdw-1.7.0.ebuild) -
@@ -46,7 +46,7 @@ For Portage >= 2.3.8:
       A Postgres extension for collecting statistics about predicate
     - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.2.0](/dev-db/pg_stat_kcache/pg_stat_kcache-2.2.0.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
-    - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.15](/dev-db/postgresql-hll/postgresql-hll-2.15.ebuild) -
+    - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.15](/dev-db/postgresql-hll/postgresql-hll-2.15.ebuild) [2.16](/dev-db/postgresql-hll/postgresql-hll-2.16.ebuild) -
       PostgreSQL extension adding HyperLogLog data structures as a native data type
     - [powa](http://powa-team.github.io/powa/) -  [4.1.2](/dev-db/powa/powa-4.1.2.ebuild) -
       PostgreSQL Workload Analyzer
@@ -109,9 +109,6 @@ For Portage >= 2.3.8:
   - [www-apps](https://packages.gentoo.org/categories/www-apps)
     - [gitea](https://gitea.io/en-us/) -  [1.7.0](/www-apps/gitea/gitea-1.7.0.ebuild) -
       A painless self-hosted Git service, written in Go
-  - [www-servers](https://packages.gentoo.org/categories/www-servers)
-    - [nginx](https://nginx.org) -  [1.14.1](/www-servers/nginx/nginx-1.14.1.ebuild) [1.15.9](/www-servers/nginx/nginx-1.15.9.ebuild) [1.17.0](/www-servers/nginx/nginx-1.17.0.ebuild) [1.17.1](/www-servers/nginx/nginx-1.17.1.ebuild) -
-      Robust, small and high performance http and reverse proxy server
   - [x11-libs](https://packages.gentoo.org/categories/x11-libs)
     - [libva](https://01.org/linuxmedia/vaapi) -  [2.7.0](/x11-libs/libva/libva-2.7.0.ebuild) [9999](/x11-libs/libva/libva-9999.ebuild) -
       Video Acceleration (VA) API for Linux

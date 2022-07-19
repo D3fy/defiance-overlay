@@ -1,12 +1,13 @@
+BDEPEND=dev-lang/perl
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=virtual/perl-ExtUtils-MakeMaker dev-lang/perl
 DESCRIPTION=Generate a random name for a Perl variable
-EAPI=6
+EAPI=7
 HOMEPAGE=https://metacpan.org/release/String-PerlIdentifier
 INHERIT=perl-module
 KEYWORDS=~arm ~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-lang/perl:=
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	95b2df43c5f3057b6e77bd00b4d953da	perl-module	f2c1b0dd41761ffc8441cd041e4bb7ec
-_md5_=5e3d1bbcc5ca2dbde94310ec1b9af844
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	perl-module	4f80b00fab088c2f6d68edb55a6c4bf4
+_md5_=873bb203b878427d990c791353809c6d

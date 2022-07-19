@@ -1,12 +1,13 @@
+BDEPEND=dev-lang/perl
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-perl/Path-Class >=dev-perl/File-Slurp-9999.190.0 dev-lang/perl
 DESCRIPTION=self-cleaning scratch space for tests
-EAPI=6
+EAPI=7
 HOMEPAGE=https://metacpan.org/release/Directory-Scratch
 INHERIT=perl-module
 KEYWORDS=arm amd64 amd64-linux x86 x86-linux
 LICENSE=|| ( Artistic GPL-1 GPL-2 GPL-3 )
 RDEPEND=dev-lang/perl:=
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	95b2df43c5f3057b6e77bd00b4d953da	perl-module	f2c1b0dd41761ffc8441cd041e4bb7ec
-_md5_=e10bf9f6b3a6c3a91d188a3504b115f9
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	perl-module	4f80b00fab088c2f6d68edb55a6c4bf4
+_md5_=bfb2c4e6fb4abb65563f4cc78a069f1c
