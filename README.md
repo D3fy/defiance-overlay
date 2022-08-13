@@ -109,11 +109,6 @@ For Portage >= 2.3.8:
   - [www-apps](https://packages.gentoo.org/categories/www-apps)
     - [gitea](https://gitea.io/en-us/) -  [1.7.0](/www-apps/gitea/gitea-1.7.0.ebuild) -
       A painless self-hosted Git service, written in Go
-  - [x11-libs](https://packages.gentoo.org/categories/x11-libs)
-    - [libva](https://01.org/linuxmedia/vaapi) -  [2.7.0](/x11-libs/libva/libva-2.7.0.ebuild) [9999](/x11-libs/libva/libva-9999.ebuild) -
-      Video Acceleration (VA) API for Linux
-    - [libva-intel-media-driver](https://github.com/intel/media-driver) -  [20.1.1](/x11-libs/libva-intel-media-driver/libva-intel-media-driver-20.1.1.ebuild) [9999](/x11-libs/libva-intel-media-driver/libva-intel-media-driver-9999.ebuild) -
-      Intel Media Driver for VAAPI (iHD)
   - [x11-themes](https://packages.gentoo.org/categories/x11-themes)
     - [albatross](http://shimmerproject.org/projects/albatross/) -  [1.7.4](/x11-themes/albatross/albatross-1.7.4.ebuild) -
       Desktop Suite for Xfce
