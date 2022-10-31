@@ -19,7 +19,7 @@ DEPEND=""
 RDEPEND="
 	dev-python/sqlalchemy[${PYTHON_USEDEP}]
 	dev-python/psycopg[${PYTHON_USEDEP}]
-	www-servers/tornado[${PYTHON_USEDEP}]
+	dev-python/tornado[${PYTHON_USEDEP}]
 ${DEPEND}"
 
 python_prepare_all() {
