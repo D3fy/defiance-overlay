@@ -10,5 +10,5 @@ LICENSE=MPL-2.0
 RESTRICT=strip test
 SLOT=0
 SRC_URI=https://github.com/hashicorp/nomad/archive/v0.8.0.tar.gz -> nomad-0.8.0.tar.gz
-_eclasses_=golang-base	9f0e420ab37bc55a318d74bab3aae891	golang-vcs-snapshot	6864f899c6843043ba23620fcd4a908c	user	1f6dd43c7e925ba0272de52bcd326972	user-info	69a1ed744ec33cf2c910ff2bd6084d11
+_eclasses_=golang-base	9f0e420ab37bc55a318d74bab3aae891	golang-vcs-snapshot	6864f899c6843043ba23620fcd4a908c	user	ee8b59cbe68b390f981e3ee247ed908f	user-info	69a1ed744ec33cf2c910ff2bd6084d11
 _md5_=47f27edb09b912ff7abb3b5dfdd566f7

@@ -9,5 +9,5 @@ LICENSE=LGPL-3 GPL-2
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/heketi/heketi/archive/v8.0.0.tar.gz -> heketi-8.0.0.tar.gz https://github.com/heketi/heketi/releases/download/v8.0.0/heketi-deps-v8.0.0.tar.gz
-_eclasses_=golang-base	9f0e420ab37bc55a318d74bab3aae891	golang-vcs-snapshot	6864f899c6843043ba23620fcd4a908c	user	1f6dd43c7e925ba0272de52bcd326972	user-info	69a1ed744ec33cf2c910ff2bd6084d11
+_eclasses_=golang-base	9f0e420ab37bc55a318d74bab3aae891	golang-vcs-snapshot	6864f899c6843043ba23620fcd4a908c	user	ee8b59cbe68b390f981e3ee247ed908f	user-info	69a1ed744ec33cf2c910ff2bd6084d11
 _md5_=6e880bfdc6dc5c38b3aff6fdbb8ac899

@@ -2,20 +2,18 @@
 
 EAPI=7
 
-POSTGRES_COMPAT=( 12 13 14 )
+POSTGRES_COMPAT=( 13 14 15 )
 POSTGRES_USEDEP="server"
 
-PSRC="REL${PV//./_}"
-S="${WORKDIR}/${PN}-${PSRC}"
 inherit eutils postgres-multi
 
 SLOT="0"
 
-DESCRIPTION="Gather statistics about disk access and CPU consumption done by backends"
-HOMEPAGE="https://github.com/powa-team/pg_stat_kcache"
-SRC_URI="https://github.com/powa-team/${PN}/archive/${PSRC}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="A Postgres extension for collecting statistics about predicate"
+HOMEPAGE="https://github.com/powa-team/pg_qualstats"
+SRC_URI="https://github.com/powa-team/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="CC0-1.0"
+LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="static-libs"

@@ -32,7 +32,7 @@ For Portage >= 2.3.8:
       Columnar store for analytics with Postgres
     - [git_fdw](https://github.com/franckverrot/git_fdw) -  [9999](/dev-db/git_fdw/git_fdw-9999.ebuild) -
       A PostgreSQL foreign data wrapper for git
-    - [hypopg](http://hypopg.github.io/hypopg/) -  [1.3.0](/dev-db/hypopg/hypopg-1.3.0.ebuild) [1.3.1](/dev-db/hypopg/hypopg-1.3.1.ebuild) -
+    - [hypopg](http://hypopg.github.io/hypopg/) -  [1.3.1](/dev-db/hypopg/hypopg-1.3.1.ebuild) -
       Hypothetical Indexes for PostgreSQL
     - [kafka_fdw](https://github.com/adjust/kafka_fdw) -  [9999](/dev-db/kafka_fdw/kafka_fdw-9999.ebuild) -
       kafka foreign database wrapper for postresql
@@ -42,9 +42,9 @@ For Portage >= 2.3.8:
       Postgres time and serial partitioner
     - [pg_pathman](https://github.com/postgrespro/pg_pathman) -  [1.4.9](/dev-db/pg_pathman/pg_pathman-1.4.9.ebuild) -
       Partitioning tool for PostgreSQL
-    - [pg_qualstats](https://github.com/powa-team/pg_qualstats) -  [2.0.3](/dev-db/pg_qualstats/pg_qualstats-2.0.3.ebuild) -
+    - [pg_qualstats](https://github.com/powa-team/pg_qualstats) -  [2.0.4](/dev-db/pg_qualstats/pg_qualstats-2.0.4.ebuild) -
       A Postgres extension for collecting statistics about predicate
-    - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.2.0](/dev-db/pg_stat_kcache/pg_stat_kcache-2.2.0.ebuild) -
+    - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.2.1](/dev-db/pg_stat_kcache/pg_stat_kcache-2.2.1.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
     - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.15](/dev-db/postgresql-hll/postgresql-hll-2.15.ebuild) [2.16](/dev-db/postgresql-hll/postgresql-hll-2.16.ebuild) -
       PostgreSQL extension adding HyperLogLog data structures as a native data type
@@ -84,8 +84,6 @@ For Portage >= 2.3.8:
       A set of libraries and drivers for fast packet processing
     - [libcurve](http://curvezmq.org) -  [9999](/net-libs/libcurve/libcurve-9999.ebuild) -
       An encryption and authentication library for ZeroMQ applications
-    - [rtrlib](http://rtrlib.realmv6.org/) -  [0.6.3](/net-libs/rtrlib/rtrlib-0.6.3.ebuild) -
-      An open-source C implementation of the RPKI/Router Protocol client
   - [net-misc](https://packages.gentoo.org/categories/net-misc)
     - [bird](http://bird.network.cz) -  [2.0.7](/net-misc/bird/bird-2.0.7.ebuild) -
       A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 or IPv6
