@@ -52,7 +52,7 @@ For Portage >= 2.3.8:
       PostgreSQL Workload Analyzer
     - [powa-collector](https://powa.readthedocs.io/) -  [1.1.1](/dev-db/powa-collector/powa-collector-1.1.1.ebuild) -
       A multi-threaded program that performs the snapshots for the remote servers configured in a powa repository.
-    - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [4.1.2](/dev-db/powa-web/powa-web-4.1.2.ebuild) -
+    - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [4.1.3](/dev-db/powa-web/powa-web-4.1.3.ebuild) -
       The PostgreSQL Workload Analyzer web frontend
     - [redis_fdw](https://github.com/pg-redis-fdw/redis_fdw) -  [9999](/dev-db/redis_fdw/redis_fdw-9999.ebuild) -
       A PostgreSQL foreign data wrapper for Redis
