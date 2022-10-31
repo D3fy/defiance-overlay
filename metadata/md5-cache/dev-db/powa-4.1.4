@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare setup test
+DEPEND=postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] )
+DESCRIPTION=PostgreSQL Workload Analyzer
+EAPI=7
+HOMEPAGE=http://powa-team.github.io/powa/
+INHERIT=eutils postgres-multi
+IUSE=static-libs postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13
+KEYWORDS=~amd64 ~x86
+LICENSE=CC0-1.0
+RDEPEND=dev-db/pg_stat_kcache dev-db/pg_qualstats dev-db/hypopg postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] )
+REQUIRED_USE=|| ( postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13 )
+SLOT=0
+SRC_URI=https://github.com/powa-team/powa-archivist/archive/REL_4_1_4.tar.gz -> powa-4.1.4.tar.gz
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	8f942ebdcf04334697649d4a0bf65a32	multibuild	d26d81f242cb193d899a72bca423d0bd	postgres	b5504cd45a86175e300d6d5c6e309c29	postgres-multi	67d8361b394ded18c2e915e9e493e5f7	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c
+_md5_=95632920a5f76762d8970d2ecc80aee4
