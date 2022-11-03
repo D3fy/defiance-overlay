@@ -74,7 +74,7 @@ For Portage >= 2.3.8:
     - [gst-plugins-vaapi](https://cgit.freedesktop.org/gstreamer/gstreamer-vaapi) -  [1.16.2](/media-plugins/gst-plugins-vaapi/gst-plugins-vaapi-1.16.2.ebuild) -
       Hardware accelerated video decoding through VA-API plugin for GStreamer
   - [net-dns](https://packages.gentoo.org/categories/net-dns)
-    - [bind-dyndb-ldap](https://pagure.io/bind-dyndb-ldap) -  [11.9](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-11.9.ebuild) [9999](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-9999.ebuild) -
+    - [bind-dyndb-ldap](https://pagure.io/bind-dyndb-ldap) -  [11.10](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-11.10.ebuild) [9999](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-9999.ebuild) -
       Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)
   - [net-libs](https://packages.gentoo.org/categories/net-libs)
     - [dpdk](http://dpdk.org/) -  [17.11.3](/net-libs/dpdk/dpdk-17.11.3.ebuild) [18.05](/net-libs/dpdk/dpdk-18.05.ebuild) -
