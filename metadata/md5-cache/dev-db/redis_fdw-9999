@@ -12,5 +12,5 @@ PROPERTIES=live
 RDEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) dev-libs/hiredis
 REQUIRED_USE=|| ( postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 )
 SLOT=0
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	8f942ebdcf04334697649d4a0bf65a32	git-r3	b9ac6f96d2a88edb5b351df634dc5e53	multibuild	d26d81f242cb193d899a72bca423d0bd	postgres	b5504cd45a86175e300d6d5c6e309c29	postgres-multi	67d8361b394ded18c2e915e9e493e5f7	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	8f942ebdcf04334697649d4a0bf65a32	git-r3	2347f8fe2d392b2a091191f94be37e6f	multibuild	d26d81f242cb193d899a72bca423d0bd	postgres	00829a882ceb08121fe57f9e4678f2be	postgres-multi	368b7e2d894a807cecb7d6f515c1495a	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c
 _md5_=019f2e399c8a2591df6100756dce5c51
