@@ -1,10 +1,10 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 PYTHON_COMPAT=( python3_{9,10} )
 
-inherit distutils-r1 eutils versionator flag-o-matic
+inherit distutils-r1 eutils flag-o-matic
 
 DESCRIPTION="The PostgreSQL Workload Analyzer web frontend"
 HOMEPAGE="http://powa.readthedocs.io/en/latest/powa-web/index.html"
