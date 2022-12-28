@@ -1,19 +1,20 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-POSTGRES_COMPAT=( 10 )
+POSTGRES_COMPAT=( 13 14 15 )
 POSTGRES_USEDEP="server"
 
-inherit eutils postgres-multi versionator
+inherit eutils postgres-multi
 
 SLOT="0"
 
-DESCRIPTION="PostgreSQL Extension for logging and monitoring automated jobs"
-HOMEPAGE="https://github.com/omniti-labs/pg_jobmon"
-SRC_URI="https://github.com/omniti-labs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="PostgreSQL extension adding HyperLogLog data structures as a native data type"
+HOMEPAGE="https://github.com/citusdata/postgresql-hll"
+SRC_URI="https://github.com/citusdata/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="BSD"
+LICENSE="Apache-2.0"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="static-libs"
 REQUIRED_USE="${POSTGRES_REQ_USE}"

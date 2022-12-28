@@ -19,11 +19,6 @@ For Portage >= 2.3.8:
 
 ## List of Ebuilds
 
-  - [app-admin](https://packages.gentoo.org/categories/app-admin)
-    - [clockwork](http://clockwork.niftylogic.com/) -  [3.3.2](/app-admin/clockwork/clockwork-3.3.2.ebuild) -
-      The nifty configuration managment system
-    - [heketi](https://github.com/heketi/heketi) -  [8.0.0](/app-admin/heketi/heketi-8.0.0.ebuild) [9.0.0](/app-admin/heketi/heketi-9.0.0.ebuild) -
-      RESTful based volume management framework for GlusterFS
   - [app-emulation](https://packages.gentoo.org/categories/app-emulation)
     - [kvmtool](https://github.com/kvmtool/kvmtool) -  [9999](/app-emulation/kvmtool/kvmtool-9999.ebuild) -
       A lightweight tool for hosting KVM guests
@@ -81,25 +76,6 @@ For Portage >= 2.3.8:
       A set of libraries and drivers for fast packet processing
     - [libcurve](http://curvezmq.org) -  [9999](/net-libs/libcurve/libcurve-9999.ebuild) -
       An encryption and authentication library for ZeroMQ applications
-  - [net-misc](https://packages.gentoo.org/categories/net-misc)
-    - [bird](http://bird.network.cz) -  [2.0.7](/net-misc/bird/bird-2.0.7.ebuild) -
-      A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 or IPv6
-    - [openvswitch](http://openvswitch.org) -  [2.9.2](/net-misc/openvswitch/openvswitch-2.9.2.ebuild) -
-      Production quality, multilayer virtual switch
-  - [net-proxy](https://packages.gentoo.org/categories/net-proxy)
-    - [seesaw](https://github.com/google/seesaw) -  [9999](/net-proxy/seesaw/seesaw-9999.ebuild) -
-      Seesaw v2 is a Linux Virtual Server (LVS) based load balancing platform
-  - [net-vpn](https://packages.gentoo.org/categories/net-vpn)
-    - [networkmanager-strongswan](https://www.strongswan.org/) -  [1.5.0](/net-vpn/networkmanager-strongswan/networkmanager-strongswan-1.5.0.ebuild) -
-      NetworkManager StrongSwan plugin
-    - [strongswan](https://www.strongswan.org/) -  [5.8.4](/net-vpn/strongswan/strongswan-5.8.4.ebuild) -
-      IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
-  - [sys-cluster](https://packages.gentoo.org/categories/sys-cluster)
-    - [nomad](http://www.nomadproject.io) -  [0.8.0](/sys-cluster/nomad/nomad-0.8.0.ebuild) -
-      The cluster manager from Hashicorp
-  - [www-apps](https://packages.gentoo.org/categories/www-apps)
-    - [gitea](https://gitea.io/en-us/) -  [1.7.0](/www-apps/gitea/gitea-1.7.0.ebuild) -
-      A painless self-hosted Git service, written in Go
   - [x11-themes](https://packages.gentoo.org/categories/x11-themes)
     - [albatross](http://shimmerproject.org/projects/albatross/) -  [1.7.4](/x11-themes/albatross/albatross-1.7.4.ebuild) -
       Desktop Suite for Xfce

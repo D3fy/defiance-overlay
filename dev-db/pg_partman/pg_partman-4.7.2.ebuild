@@ -1,17 +1,17 @@
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-POSTGRES_COMPAT=( 10 )
+POSTGRES_COMPAT=( 13 14 15 )
 POSTGRES_USEDEP="server"
 
-inherit eutils postgres-multi versionator
+inherit eutils postgres-multi
 
 SLOT="0"
 
-DESCRIPTION="Partitioning tool for PostgreSQL"
-HOMEPAGE="https://github.com/postgrespro/pg_pathman"
-SRC_URI="https://github.com/postgrespro/${PN}/archive/${PV}.tar.gz"
+DESCRIPTION="Postgres time and serial partitioner"
+HOMEPAGE="https://github.com/keithf4/pg_partman"
+SRC_URI="https://github.com/keithf4/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
@@ -29,11 +29,11 @@ src_prepare() {
 }
 
 src_compile() {
-	postgres-multi_foreach emake USE_PGXS=1
+	postgres-multi_foreach emake
 }
 
 src_install() {
-	postgres-multi_foreach emake DESTDIR="${D}" install USE_PGXS=1
+	postgres-multi_foreach emake DESTDIR="${D}" install
 
 	use static-libs || find "${ED}" -name '*.a' -delete
 }
