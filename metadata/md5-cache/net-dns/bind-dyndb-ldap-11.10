@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RDEPEND=>=net-dns/bind-9.16.0[dlz] dev-libs/cyrus-sasl:= virtual/krb5
 SLOT=0
 SRC_URI=https://pagure.io/bind-dyndb-ldap/archive/v11.10/bind-dyndb-ldap-v11.10.tar.gz
-_eclasses_=autotools	6dcd6b6a486e79928e1243ff9ba41fcc	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	8f942ebdcf04334697649d4a0bf65a32	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	241a8f577b9781a42a7421e53448a44e	multilib	5ca4e49abed8e3a2f7b56920eadee157	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	wrapper	4a1902f969e5718126434fc35f3a0d9c
+_eclasses_=autotools	6ae9a4347149b19a112caa1182d03bde	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	8f942ebdcf04334697649d4a0bf65a32	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b	wrapper	4a1902f969e5718126434fc35f3a0d9c
 _md5_=bd650c8ead49466747c0a8d87a0d63cf

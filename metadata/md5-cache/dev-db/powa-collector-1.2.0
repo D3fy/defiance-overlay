@@ -1,16 +1,16 @@
-BDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) >=dev-python/setuptools-65.5.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+BDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) >=dev-python/setuptools-67.8.0-r1[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-python/psycopg[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+DEPEND=dev-python/psycopg[python_targets_python3_10(-)?,python_targets_python3_11(-)?]
 DESCRIPTION=A multi-threaded program that performs the snapshots for the remote servers configured in a powa repository.
 EAPI=7
 HOMEPAGE=https://powa.readthedocs.io/
 INHERIT=distutils-r1
-IUSE=python_targets_python3_9 python_targets_python3_10
+IUSE=python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=dev-python/psycopg[python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 )
-REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=dev-python/psycopg[python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/powa-team/powa-collector/archive/refs/tags/1.2.0.tar.gz -> powa-collector-1.2.0.tar.gz
-_eclasses_=distutils-r1	9c5f8e35fdc556c29573796aca3e87ea	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib	5ca4e49abed8e3a2f7b56920eadee157	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-r1	ca02b49ab4dd44b606c151aa296ef399	python-utils-r1	1d1b325c00c1d24c564a1b49327ec3c5	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491
-_md5_=626b12c7b861bf00a02b356cf621857e
+_eclasses_=distutils-r1	b7cd5736a595ec0df9b164d5aec6f228	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	flag-o-matic	ad475baa777c9978fa035216c8264a10	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	f3010c780f65d1bb5aea15a9af1adc9c	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	python-r1	b3f874304c1bda6ffc3450ebb4ae5169	python-utils-r1	7f2c0a7465411e0f3a6db30e966155d6	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b
+_md5_=73894f9a182593b732b6e12e816f3998
