@@ -9,5 +9,5 @@ LICENSE=Apache-2.0 BSD-2 BSD-4 ECL-2.0 icu imagemagick ISC JSON MIT MPL-2.0
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/hashicorp/packer/archive/v1.7.0.tar.gz -> packer-1.7.0.tar.gz
-_eclasses_=go-module	8624eede24936fd7666e5298e5332f22	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	0c8a0b0d318eb5d5180d114bd3f6592b
+_eclasses_=go-module	8624eede24936fd7666e5298e5332f22	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	862d337d98edb576796827be2c6b11ca
 _md5_=7d28229bd50269cd1fe26da27a2ff773

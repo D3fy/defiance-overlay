@@ -31,17 +31,15 @@ For Portage >= 2.3.8:
       Hypothetical Indexes for PostgreSQL
     - [kafka_fdw](https://github.com/adjust/kafka_fdw) -  [9999](/dev-db/kafka_fdw/kafka_fdw-9999.ebuild) -
       kafka foreign database wrapper for postresql
-    - [pg_jobmon](https://github.com/omniti-labs/pg_jobmon) -  [1.3.3](/dev-db/pg_jobmon/pg_jobmon-1.3.3.ebuild) -
-      PostgreSQL Extension for logging and monitoring automated jobs
-    - [pg_partman](https://github.com/keithf4/pg_partman) -  [3.1.1](/dev-db/pg_partman/pg_partman-3.1.1.ebuild) -
+    - [pg_partman](https://github.com/keithf4/pg_partman) -  [4.7.2](/dev-db/pg_partman/pg_partman-4.7.2.ebuild) -
       Postgres time and serial partitioner
-    - [pg_pathman](https://github.com/postgrespro/pg_pathman) -  [1.4.9](/dev-db/pg_pathman/pg_pathman-1.4.9.ebuild) -
-      Partitioning tool for PostgreSQL
+    - [pg_partman](https://github.com/keithf4/pg_partman) -  -
+      Postgres time and serial partitioner
     - [pg_qualstats](https://github.com/powa-team/pg_qualstats) -  [2.0.4](/dev-db/pg_qualstats/pg_qualstats-2.0.4.ebuild) -
       A Postgres extension for collecting statistics about predicate
     - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.2.1](/dev-db/pg_stat_kcache/pg_stat_kcache-2.2.1.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
-    - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.15](/dev-db/postgresql-hll/postgresql-hll-2.15.ebuild) [2.16](/dev-db/postgresql-hll/postgresql-hll-2.16.ebuild) -
+    - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.17](/dev-db/postgresql-hll/postgresql-hll-2.17.ebuild) -
       PostgreSQL extension adding HyperLogLog data structures as a native data type
     - [powa](http://powa-team.github.io/powa/) -  [4.1.4](/dev-db/powa/powa-4.1.4.ebuild) -
       PostgreSQL Workload Analyzer
@@ -72,8 +70,6 @@ For Portage >= 2.3.8:
     - [bind-dyndb-ldap](https://pagure.io/bind-dyndb-ldap) -  [11.10](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-11.10.ebuild) [9999](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-9999.ebuild) -
       Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)
   - [net-libs](https://packages.gentoo.org/categories/net-libs)
-    - [dpdk](http://dpdk.org/) -  [17.11.3](/net-libs/dpdk/dpdk-17.11.3.ebuild) [18.05](/net-libs/dpdk/dpdk-18.05.ebuild) -
-      A set of libraries and drivers for fast packet processing
     - [libcurve](http://curvezmq.org) -  [9999](/net-libs/libcurve/libcurve-9999.ebuild) -
       An encryption and authentication library for ZeroMQ applications
   - [x11-themes](https://packages.gentoo.org/categories/x11-themes)

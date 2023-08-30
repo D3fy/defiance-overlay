@@ -7,7 +7,7 @@ POSTGRES_USEDEP="server"
 
 PSRC="REL${PV//./_}"
 S="${WORKDIR}/${PN}-${PSRC}"
-inherit eutils postgres-multi
+inherit postgres-multi
 
 SLOT="0"
 

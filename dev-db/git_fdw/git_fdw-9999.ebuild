@@ -5,7 +5,7 @@ EAPI=7
 POSTGRES_COMPAT=( 12 13 14 )
 POSTGRES_USEDEP="server"
 
-inherit eutils git-r3 postgres-multi
+inherit git-r3 postgres-multi
 
 SLOT="0"
 

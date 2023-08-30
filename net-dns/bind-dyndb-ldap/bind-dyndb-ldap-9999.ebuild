@@ -2,7 +2,7 @@
 
 EAPI=7
 
-inherit autotools toolchain-funcs eutils
+inherit autotools toolchain-funcs
 
 DESCRIPTION="Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)"
 HOMEPAGE="https://pagure.io/bind-dyndb-ldap"

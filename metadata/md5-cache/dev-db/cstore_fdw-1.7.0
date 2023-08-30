@@ -4,7 +4,7 @@ DEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_t
 DESCRIPTION=Columnar store for analytics with Postgres
 EAPI=7
 HOMEPAGE=https://www.citusdata.com/
-INHERIT=eutils postgres-multi
+INHERIT=postgres-multi
 IUSE=static-libs postgres_targets_postgres13 postgres_targets_postgres12
 KEYWORDS=~amd64 ~x86
 LICENSE=AGPL-3
@@ -12,5 +12,5 @@ RDEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_
 REQUIRED_USE=|| ( postgres_targets_postgres13 postgres_targets_postgres12 )
 SLOT=0
 SRC_URI=https://github.com/citusdata/cstore_fdw/archive/v1.7.0.tar.gz -> cstore_fdw-1.7.0.tar.gz
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	8f942ebdcf04334697649d4a0bf65a32	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	postgres	f7e8262a0ea1d45b88075bf93d1a74bd	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c
-_md5_=efa326c7545cf07203d164a377e6ab6f
+_eclasses_=multibuild	30dbf3c5a31db09a19f31ad0a68f2405	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	postgres	f7e8262a0ea1d45b88075bf93d1a74bd	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
+_md5_=5fa127e4067f25969ed58c240302b57c

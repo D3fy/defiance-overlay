@@ -4,7 +4,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{9,10,11} )
 
-inherit distutils-r1 eutils flag-o-matic
+inherit distutils-r1 flag-o-matic
 
 DESCRIPTION="The PostgreSQL Workload Analyzer web frontend"
 HOMEPAGE="http://powa.readthedocs.io/en/latest/powa-web/index.html"
