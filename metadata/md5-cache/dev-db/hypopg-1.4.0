@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install prepare setup test
 DEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] )
-DESCRIPTION=Open-source vector similarity search for Postgres
+DESCRIPTION=Hypothetical Indexes for PostgreSQL
 EAPI=7
-HOMEPAGE=https://github.com/pgvector/pgvector
+HOMEPAGE=http://hypopg.github.io/hypopg/
 INHERIT=postgres-multi
 IUSE=static-libs postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14
-KEYWORDS=~amd64
-LICENSE=Postgres
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
 RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] )
 REQUIRED_USE=|| ( postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 )
 SLOT=0
-SRC_URI=https://github.com/pgvector/pgvector/archive/refs/tags/v0.5.0.tar.gz -> pgvector-0.5.0.tar.gz
+SRC_URI=https://github.com/hypopg/hypopg/archive/1.4.0.tar.gz -> hypopg-1.4.0.tar.gz
 _eclasses_=multibuild	30dbf3c5a31db09a19f31ad0a68f2405	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	postgres	f7e8262a0ea1d45b88075bf93d1a74bd	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
-_md5_=17fc5701dfceb8c14afaa1aa0b0c395e
+_md5_=83166b7a25566eecc451abbc3b603562

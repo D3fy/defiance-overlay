@@ -27,7 +27,7 @@ For Portage >= 2.3.8:
       Columnar store for analytics with Postgres
     - [git_fdw](https://github.com/franckverrot/git_fdw) -  [9999](/dev-db/git_fdw/git_fdw-9999.ebuild) -
       A PostgreSQL foreign data wrapper for git
-    - [hypopg](http://hypopg.github.io/hypopg/) -  [1.3.1](/dev-db/hypopg/hypopg-1.3.1.ebuild) -
+    - [hypopg](http://hypopg.github.io/hypopg/) -  [1.4.0](/dev-db/hypopg/hypopg-1.4.0.ebuild) -
       Hypothetical Indexes for PostgreSQL
     - [kafka_fdw](https://github.com/adjust/kafka_fdw) -  [9999](/dev-db/kafka_fdw/kafka_fdw-9999.ebuild) -
       kafka foreign database wrapper for postresql
@@ -35,7 +35,7 @@ For Portage >= 2.3.8:
       Postgres time and serial partitioner
     - [pg_partman](https://github.com/keithf4/pg_partman) -  -
       Postgres time and serial partitioner
-    - [pg_qualstats](https://github.com/powa-team/pg_qualstats) -  [2.0.4](/dev-db/pg_qualstats/pg_qualstats-2.0.4.ebuild) -
+    - [pg_qualstats](https://github.com/powa-team/pg_qualstats) -  [2.1.0](/dev-db/pg_qualstats/pg_qualstats-2.1.0.ebuild) -
       A Postgres extension for collecting statistics about predicate
     - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.2.1](/dev-db/pg_stat_kcache/pg_stat_kcache-2.2.1.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
@@ -43,11 +43,11 @@ For Portage >= 2.3.8:
       Open-source vector similarity search for Postgres 
     - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.17](/dev-db/postgresql-hll/postgresql-hll-2.17.ebuild) -
       PostgreSQL extension adding HyperLogLog data structures as a native data type
-    - [powa](http://powa-team.github.io/powa/) -  [4.1.4](/dev-db/powa/powa-4.1.4.ebuild) -
+    - [powa](http://powa-team.github.io/powa/) -  [4.2.0](/dev-db/powa/powa-4.2.0.ebuild) -
       PostgreSQL Workload Analyzer
     - [powa-collector](https://powa.readthedocs.io/) -  [1.2.0](/dev-db/powa-collector/powa-collector-1.2.0.ebuild) -
       A multi-threaded program that performs the snapshots for the remote servers configured in a powa repository.
-    - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [4.1.3](/dev-db/powa-web/powa-web-4.1.3.ebuild) -
+    - [powa-web](http://powa.readthedocs.io/en/latest/powa-web/index.html) -  [4.2.0](/dev-db/powa-web/powa-web-4.2.0.ebuild) -
       The PostgreSQL Workload Analyzer web frontend
     - [redis_fdw](https://github.com/pg-redis-fdw/redis_fdw) -  [9999](/dev-db/redis_fdw/redis_fdw-9999.ebuild) -
       A PostgreSQL foreign data wrapper for Redis

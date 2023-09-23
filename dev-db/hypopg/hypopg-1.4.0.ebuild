@@ -2,16 +2,16 @@
 
 EAPI=7
 
-POSTGRES_COMPAT=( 13 14 15 )
+POSTGRES_COMPAT=( 14 15 16 )
 POSTGRES_USEDEP="server"
 
 inherit postgres-multi
 
 SLOT="0"
 
-DESCRIPTION="A Postgres extension for collecting statistics about predicate"
-HOMEPAGE="https://github.com/powa-team/pg_qualstats"
-SRC_URI="https://github.com/powa-team/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="Hypothetical Indexes for PostgreSQL"
+HOMEPAGE="http://hypopg.github.io/hypopg/"
+SRC_URI="https://github.com/hypopg/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"

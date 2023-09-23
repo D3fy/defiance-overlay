@@ -9,5 +9,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1 GPL-2 GPL-3 )
 RDEPEND=dev-perl/Module-Build dev-perl/Guard dev-perl/Try-Tiny dev-perl/Plack dev-perl/Server-Starter dev-perl/Parallel-Prefork dev-perl/Devel-CheckCompiler dev-lang/perl:=
 SLOT=0
-_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	perl-module	dd4003d3308d7cad2b2d4e2b8298ffb2	toolchain-funcs	862d337d98edb576796827be2c6b11ca
+_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	perl-module	ae23357e7a745d6af2265a5a6bed3a5c	toolchain-funcs	862d337d98edb576796827be2c6b11ca
 _md5_=4b17efd99f5be5baefe31a2731fb2ba7
