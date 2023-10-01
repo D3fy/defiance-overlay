@@ -5,15 +5,13 @@ EAPI=7
 POSTGRES_COMPAT=( 14 15 16 )
 POSTGRES_USEDEP="server"
 
-PSRC="REL${PV//./_}"
-S="${WORKDIR}/${PN}-${PSRC}"
-inherit postgres-multi
+inherit git-r3 postgres-multi
 
 SLOT="0"
 
 DESCRIPTION="Gather statistics about disk access and CPU consumption done by backends"
 HOMEPAGE="https://github.com/powa-team/pg_stat_kcache"
-SRC_URI="https://github.com/powa-team/${PN}/archive/${PSRC}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="https://github.com/powa-team/${PN}"
 
 LICENSE="CC0-1.0"
 SLOT="0"
@@ -21,9 +19,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="static-libs"
 REQUIRED_USE="${POSTGRES_REQ_USE}"
 
-DEPEND="
-	${POSTGRES_DEP}
-"
+DEPEND="${POSTGRES_DEP}"
 RDEPEND="${DEPEND}"
 
 src_prepare() {

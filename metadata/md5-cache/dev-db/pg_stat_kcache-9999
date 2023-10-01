@@ -1,15 +1,16 @@
-DEFINED_PHASES=compile install prepare setup test
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install prepare setup test unpack
 DEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] )
 DESCRIPTION=Gather statistics about disk access and CPU consumption done by backends
 EAPI=7
 HOMEPAGE=https://github.com/powa-team/pg_stat_kcache
-INHERIT=postgres-multi
+INHERIT=git-r3 postgres-multi
 IUSE=static-libs postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14
 KEYWORDS=~amd64 ~x86
 LICENSE=CC0-1.0
+PROPERTIES=live
 RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] )
 REQUIRED_USE=|| ( postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 )
 SLOT=0
-SRC_URI=https://github.com/powa-team/pg_stat_kcache/archive/REL2_2_1.tar.gz -> pg_stat_kcache-2.2.1.tar.gz
-_eclasses_=multibuild	30dbf3c5a31db09a19f31ad0a68f2405	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	postgres	f7e8262a0ea1d45b88075bf93d1a74bd	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
-_md5_=f39915603fc7bc51d84d502e91132e59
+_eclasses_=git-r3	2358a7b20091609e24bd3a83b3ac5991	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	postgres	f7e8262a0ea1d45b88075bf93d1a74bd	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
+_md5_=3e9bc5b5b481a3336c4c4798e53e6e45

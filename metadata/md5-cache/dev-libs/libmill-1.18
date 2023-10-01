@@ -8,5 +8,5 @@ KEYWORDS=~arm ~amd64 ~x86
 LICENSE=GPL-3
 SLOT=0
 SRC_URI=https://github.com/sustrik/libmill/archive/1.18.tar.gz -> libmill-1.18.tar.gz
-_eclasses_=autotools	6ae9a4347149b19a112caa1182d03bde	eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	862d337d98edb576796827be2c6b11ca
+_eclasses_=autotools	6ae9a4347149b19a112caa1182d03bde	eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc
 _md5_=1e17d3134a730a8572c6daa0e91338b5
