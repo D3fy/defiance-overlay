@@ -9,5 +9,5 @@ KEYWORDS=~arm ~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-lang/perl:=
 SLOT=0
-_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	perl-module	aa997145fb9941f14e9be1c3ed7238b8	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc
+_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	perl-functions	c3fca037246e877693badea0df3b0ef8	perl-module	4e37e1004a0a27e41bb7025c0b974676	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084
 _md5_=873bb203b878427d990c791353809c6d

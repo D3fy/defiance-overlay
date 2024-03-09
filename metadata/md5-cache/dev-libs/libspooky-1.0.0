@@ -1,5 +1,5 @@
 DEFINED_PHASES=prepare
-DEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
 DESCRIPTION=Spooky hash lib
 EAPI=6
 HOMEPAGE=https://github.com/graytshirt/libspooky
@@ -8,5 +8,5 @@ KEYWORDS=arm amd64 x86
 LICENSE=GPL-3
 SLOT=0
 SRC_URI=https://github.com/graytshirt/libspooky/archive/v1.0.0.tar.gz -> libspooky-1.0.0.tar.gz
-_eclasses_=autotools	6ae9a4347149b19a112caa1182d03bde	eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	fbbbc99d10168de2926e06da7169b8dc
+_eclasses_=autotools	e4cf390b19033d5ca443765bc8537b81	eqawarn	c9847c43b3253a276ae2eabddedab3d7	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	libtool	9d3a9a889a6fa62ae794f817c156491b	multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084
 _md5_=b1d5ca4bab9e542d794faa1679cfe97c

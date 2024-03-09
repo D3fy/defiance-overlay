@@ -31,6 +31,8 @@ For Portage >= 2.3.8:
       Hypothetical Indexes for PostgreSQL
     - [kafka_fdw](https://github.com/adjust/kafka_fdw) -  [9999](/dev-db/kafka_fdw/kafka_fdw-9999.ebuild) -
       kafka foreign database wrapper for postresql
+    - [nats_c](https://github.com/nats-io/nats.c) -  [3.8.0](/dev-db/nats_c/nats_c-3.8.0.ebuild) -
+      
     - [pg_partman](https://github.com/keithf4/pg_partman) -  [4.7.2](/dev-db/pg_partman/pg_partman-4.7.2.ebuild) -
       Postgres time and serial partitioner
     - [pg_partman](https://github.com/keithf4/pg_partman) -  -

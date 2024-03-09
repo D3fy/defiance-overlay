@@ -1,16 +1,16 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install prepare setup test unpack
-DEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) dev-libs/hiredis
+DEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) dev-libs/hiredis
 DESCRIPTION=A PostgreSQL foreign data wrapper for Redis
 EAPI=7
 HOMEPAGE=https://github.com/pg-redis-fdw/redis_fdw
 INHERIT=git-r3 postgres-multi
-IUSE=static-libs postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12
+IUSE=static-libs postgres_targets_postgres16
 KEYWORDS=~amd64 ~x86
 LICENSE=AGPL-3
 PROPERTIES=live
-RDEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) dev-libs/hiredis
-REQUIRED_USE=|| ( postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 )
+RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) dev-libs/hiredis
+REQUIRED_USE=|| ( postgres_targets_postgres16 )
 SLOT=0
-_eclasses_=git-r3	2358a7b20091609e24bd3a83b3ac5991	multibuild	30dbf3c5a31db09a19f31ad0a68f2405	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	postgres	f7e8262a0ea1d45b88075bf93d1a74bd	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
-_md5_=47e0e38542b9357cf220b3b20a6a1bdc
+_eclasses_=git-r3	86fa1f157b70b9d2ff340c4633b1cf4b	multibuild	d67e78a235f541871c7dfe4cf7931489	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	postgres	3f864368af6c0e46196e03821025f1f5	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
+_md5_=3c4bf5dbda341507145aa4c05581d990
