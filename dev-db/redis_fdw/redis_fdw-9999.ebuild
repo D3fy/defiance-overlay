@@ -2,7 +2,7 @@
 
 EAPI=7
 
-POSTGRES_COMPAT=( 12 13 14 )
+POSTGRES_COMPAT=( 16 )
 POSTGRES_USEDEP="server"
 
 inherit git-r3 postgres-multi
@@ -12,7 +12,7 @@ SLOT="0"
 DESCRIPTION="A PostgreSQL foreign data wrapper for Redis"
 HOMEPAGE="https://github.com/pg-redis-fdw/redis_fdw"
 EGIT_REPO_URI="https://github.com/pg-redis-fdw/redis_fdw"
-EGIT_BRANCH="REL_13_STABLE"
+EGIT_BRANCH="REL_16_STABLE"
 
 LICENSE="AGPL-3"
 SLOT="0"
