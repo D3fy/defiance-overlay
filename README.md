@@ -45,7 +45,7 @@ For Portage >= 2.3.8:
       Open Source PostgreSQL Audit Logging
     - [pgvector](https://github.com/pgvector/pgvector) -  [0.5.0](/dev-db/pgvector/pgvector-0.5.0.ebuild) [0.7.2](/dev-db/pgvector/pgvector-0.7.2.ebuild) -
       Open-source vector similarity search for Postgres 
-    - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.17](/dev-db/postgresql-hll/postgresql-hll-2.17.ebuild) -
+    - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.18](/dev-db/postgresql-hll/postgresql-hll-2.18.ebuild) -
       PostgreSQL extension adding HyperLogLog data structures as a native data type
     - [powa](http://powa-team.github.io/powa/) -  [4.2.0](/dev-db/powa/powa-4.2.0.ebuild) -
       PostgreSQL Workload Analyzer

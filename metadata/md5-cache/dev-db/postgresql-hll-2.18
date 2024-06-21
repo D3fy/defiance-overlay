@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare setup test
+DEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] )
+DESCRIPTION=PostgreSQL extension adding HyperLogLog data structures as a native data type
+EAPI=7
+HOMEPAGE=https://github.com/citusdata/postgresql-hll
+INHERIT=postgres-multi
+IUSE=static-libs postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] )
+REQUIRED_USE=|| ( postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 )
+SLOT=0
+SRC_URI=https://github.com/citusdata/postgresql-hll/archive/v2.18.tar.gz -> postgresql-hll-2.18.tar.gz
+_eclasses_=multibuild	d67e78a235f541871c7dfe4cf7931489	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	postgres	3f864368af6c0e46196e03821025f1f5	postgres-multi	7140a1e9480de59ab4172274608bffce
+_md5_=027edb6aa36b72cec4a17554b7552137
