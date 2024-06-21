@@ -27,7 +27,7 @@ For Portage >= 2.3.8:
       Columnar store for analytics with Postgres
     - [git_fdw](https://github.com/franckverrot/git_fdw) -  [9999](/dev-db/git_fdw/git_fdw-9999.ebuild) -
       A PostgreSQL foreign data wrapper for git
-    - [hypopg](http://hypopg.github.io/hypopg/) -  [1.4.0](/dev-db/hypopg/hypopg-1.4.0.ebuild) -
+    - [hypopg](http://hypopg.github.io/hypopg/) -  [1.4.1](/dev-db/hypopg/hypopg-1.4.1.ebuild) -
       Hypothetical Indexes for PostgreSQL
     - [kafka_fdw](https://github.com/adjust/kafka_fdw) -  [9999](/dev-db/kafka_fdw/kafka_fdw-9999.ebuild) -
       kafka foreign database wrapper for postresql
@@ -43,7 +43,7 @@ For Portage >= 2.3.8:
       Gather statistics about disk access and CPU consumption done by backends
     - [pgaudit](http://pgaudit.org/) -  [16.0](/dev-db/pgaudit/pgaudit-16.0.ebuild) -
       Open Source PostgreSQL Audit Logging
-    - [pgvector](https://github.com/pgvector/pgvector) -  [0.5.0](/dev-db/pgvector/pgvector-0.5.0.ebuild) -
+    - [pgvector](https://github.com/pgvector/pgvector) -  [0.5.0](/dev-db/pgvector/pgvector-0.5.0.ebuild) [0.7.2](/dev-db/pgvector/pgvector-0.7.2.ebuild) -
       Open-source vector similarity search for Postgres 
     - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.17](/dev-db/postgresql-hll/postgresql-hll-2.17.ebuild) -
       PostgreSQL extension adding HyperLogLog data structures as a native data type
