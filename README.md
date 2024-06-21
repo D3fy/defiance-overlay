@@ -31,7 +31,7 @@ For Portage >= 2.3.8:
       Hypothetical Indexes for PostgreSQL
     - [kafka_fdw](https://github.com/adjust/kafka_fdw) -  [9999](/dev-db/kafka_fdw/kafka_fdw-9999.ebuild) -
       kafka foreign database wrapper for postresql
-    - [nats_c](https://github.com/nats-io/nats.c) -  [3.8.0](/dev-db/nats_c/nats_c-3.8.0.ebuild) -
+    - [nats_c](https://github.com/nats-io/nats.c) -  [3.8.2](/dev-db/nats_c/nats_c-3.8.2.ebuild) -
       
     - [pg_partman](https://github.com/keithf4/pg_partman) -  [4.7.2](/dev-db/pg_partman/pg_partman-4.7.2.ebuild) -
       Postgres time and serial partitioner
@@ -39,7 +39,7 @@ For Portage >= 2.3.8:
       Postgres time and serial partitioner
     - [pg_qualstats](https://github.com/powa-team/pg_qualstats) -  [2.1.0](/dev-db/pg_qualstats/pg_qualstats-2.1.0.ebuild) -
       A Postgres extension for collecting statistics about predicate
-    - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.2.1](/dev-db/pg_stat_kcache/pg_stat_kcache-2.2.1.ebuild) [9999](/dev-db/pg_stat_kcache/pg_stat_kcache-9999.ebuild) -
+    - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.2.3](/dev-db/pg_stat_kcache/pg_stat_kcache-2.2.3.ebuild) [9999](/dev-db/pg_stat_kcache/pg_stat_kcache-9999.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
     - [pgaudit](http://pgaudit.org/) -  [16.0](/dev-db/pgaudit/pgaudit-16.0.ebuild) -
       Open Source PostgreSQL Audit Logging
