@@ -6,11 +6,10 @@ EAPI=7
 HOMEPAGE=https://github.com/powa-team/pg_stat_kcache
 INHERIT=git-r3 postgres-multi
 IUSE=static-libs postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14
-KEYWORDS=~amd64 ~x86
 LICENSE=CC0-1.0
 PROPERTIES=live
 RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] )
 REQUIRED_USE=|| ( postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 )
 SLOT=0
 _eclasses_=git-r3	fbb2889c81f3a05910c1524db69425c1	multibuild	d67e78a235f541871c7dfe4cf7931489	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	postgres	3f864368af6c0e46196e03821025f1f5	postgres-multi	7140a1e9480de59ab4172274608bffce
-_md5_=3e9bc5b5b481a3336c4c4798e53e6e45
+_md5_=a547785ab087ec1909125e3320122562
