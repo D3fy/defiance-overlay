@@ -14,7 +14,11 @@ LICENSE=""
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+sodium"
-DEPEND=""
+DEPEND="
+	sodium? ( dev-libs/libsodium )
+	dev-libs/openssl
+	dev-libs/protobuf-c
+"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
