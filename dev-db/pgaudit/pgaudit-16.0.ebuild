@@ -5,7 +5,7 @@ EAPI=7
 POSTGRES_COMPAT=( 16 )
 POSTGRES_USEDEP="server"
 
-inherit postgres-multi
+inherit postgres-multi multilib
 
 SLOT="16"
 
