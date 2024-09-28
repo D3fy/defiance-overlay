@@ -7,14 +7,12 @@ POSTGRES_USEDEP="server"
 
 inherit postgres-multi multilib
 
-SLOT="16"
-
 DESCRIPTION="Open Source PostgreSQL Audit Logging"
 HOMEPAGE="http://pgaudit.org/"
 SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="CC0-1.0"
-SLOT="0"
+SLOT="16"
 KEYWORDS="~amd64 ~x86"
 IUSE="static-libs"
 REQUIRED_USE="${POSTGRES_REQ_USE}"
