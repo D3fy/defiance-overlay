@@ -41,7 +41,7 @@ For Portage >= 2.3.8:
       A Postgres extension for collecting statistics about predicate
     - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.2.3](/dev-db/pg_stat_kcache/pg_stat_kcache-2.2.3.ebuild) [9999](/dev-db/pg_stat_kcache/pg_stat_kcache-9999.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
-    - [pgaudit](http://pgaudit.org/) -  [16.0](/dev-db/pgaudit/pgaudit-16.0.ebuild) -
+    - [pgaudit](http://pgaudit.org/) -  [16.0](/dev-db/pgaudit/pgaudit-16.0.ebuild) [17.0](/dev-db/pgaudit/pgaudit-17.0.ebuild) -
       Open Source PostgreSQL Audit Logging
     - [pgvector](https://github.com/pgvector/pgvector) -  [0.5.0](/dev-db/pgvector/pgvector-0.5.0.ebuild) [0.7.2](/dev-db/pgvector/pgvector-0.7.2.ebuild) -
       Open-source vector similarity search for Postgres 

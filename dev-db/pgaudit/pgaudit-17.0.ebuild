@@ -2,12 +2,12 @@
 
 EAPI=7
 
-POSTGRES_COMPAT=( 16 )
+POSTGRES_COMPAT=( 17 )
 POSTGRES_USEDEP="server"
 
 inherit postgres-multi
 
-SLOT="16"
+SLOT="17"
 
 DESCRIPTION="Open Source PostgreSQL Audit Logging"
 HOMEPAGE="http://pgaudit.org/"
