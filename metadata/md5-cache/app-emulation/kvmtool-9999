@@ -10,5 +10,5 @@ LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
 SLOT=0
-_eclasses_=git-r3	fbb2889c81f3a05910c1524db69425c1	linux-info	e967b81f54be6f49f4219a57ce7db437	linux-mod	000f3723e8e062061ee523106e69f84a	multilib	c19072c3cd7ac5cb21de013f7e9832e0	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	linux-mod	000f3723e8e062061ee523106e69f84a	multilib	7e1347c006a76bb812f3a9f663b79991	multiprocessing	e644caa6eb7ce7e5ab0864383ac13ad9	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9
 _md5_=a8bc5d2a5527b9fbe1edb308d02f89af

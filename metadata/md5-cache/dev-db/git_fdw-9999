@@ -12,5 +12,5 @@ PROPERTIES=live
 RDEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) dev-libs/libgit2
 REQUIRED_USE=|| ( postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 )
 SLOT=0
-_eclasses_=git-r3	fbb2889c81f3a05910c1524db69425c1	multibuild	d67e78a235f541871c7dfe4cf7931489	out-of-source-utils	1a9007554652a6e627edbccb3c25a439	postgres	3f864368af6c0e46196e03821025f1f5	postgres-multi	7140a1e9480de59ab4172274608bffce
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	multibuild	45df57b1877333d70a9e894f6c8fdb3a	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	postgres	3f864368af6c0e46196e03821025f1f5	postgres-multi	7140a1e9480de59ab4172274608bffce
 _md5_=771f0b47baf45f22bd7999dfa754de7a
