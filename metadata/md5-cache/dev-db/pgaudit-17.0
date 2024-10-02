@@ -1,13 +1,15 @@
 DEFINED_PHASES=compile install prepare setup test
+DEPEND=postgres_targets_postgres17? ( dev-db/postgresql:17=[server] )
 DESCRIPTION=Open Source PostgreSQL Audit Logging
 EAPI=7
 HOMEPAGE=http://pgaudit.org/
 INHERIT=postgres-multi multilib
-IUSE=static-libs
+IUSE=static-libs postgres_targets_postgres17
 KEYWORDS=~amd64 ~x86
 LICENSE=CC0-1.0
-REQUIRED_USE=|| ( )
+RDEPEND=postgres_targets_postgres17? ( dev-db/postgresql:17=[server] )
+REQUIRED_USE=|| ( postgres_targets_postgres17 )
 SLOT=17
 SRC_URI=https://github.com/pgaudit/pgaudit/archive/refs/tags/17.0.tar.gz -> pgaudit-17.0.tar.gz
-_eclasses_=multibuild	45df57b1877333d70a9e894f6c8fdb3a	multilib	7e1347c006a76bb812f3a9f663b79991	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	postgres	3f864368af6c0e46196e03821025f1f5	postgres-multi	7140a1e9480de59ab4172274608bffce	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9
+_eclasses_=multibuild	45df57b1877333d70a9e894f6c8fdb3a	multilib	7e1347c006a76bb812f3a9f663b79991	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	postgres	9df4142e5ccc7da40ed631d5f22527ce	postgres-multi	7140a1e9480de59ab4172274608bffce	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9
 _md5_=1559f9a864046d54eb451c1c93b1bc61

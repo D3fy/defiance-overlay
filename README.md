@@ -43,7 +43,7 @@ For Portage >= 2.3.8:
       Gather statistics about disk access and CPU consumption done by backends
     - [pgaudit](http://pgaudit.org/) -  [16.0](/dev-db/pgaudit/pgaudit-16.0.ebuild) [17.0](/dev-db/pgaudit/pgaudit-17.0.ebuild) -
       Open Source PostgreSQL Audit Logging
-    - [pgvector](https://github.com/pgvector/pgvector) -  [0.5.0](/dev-db/pgvector/pgvector-0.5.0.ebuild) [0.7.2](/dev-db/pgvector/pgvector-0.7.2.ebuild) -
+    - [pgvector](https://github.com/pgvector/pgvector) -  [0.7.2](/dev-db/pgvector/pgvector-0.7.2.ebuild) [0.7.4](/dev-db/pgvector/pgvector-0.7.4.ebuild) -
       Open-source vector similarity search for Postgres 
     - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.18](/dev-db/postgresql-hll/postgresql-hll-2.18.ebuild) -
       PostgreSQL extension adding HyperLogLog data structures as a native data type

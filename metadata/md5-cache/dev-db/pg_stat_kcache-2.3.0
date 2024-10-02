@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install prepare setup test
-DEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] )
+DEPEND=postgres_targets_postgres17? ( dev-db/postgresql:17=[server] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] )
 DESCRIPTION=Gather statistics about disk access and CPU consumption done by backends
 EAPI=7
 HOMEPAGE=https://github.com/powa-team/pg_stat_kcache
 INHERIT=postgres-multi
-IUSE=static-libs postgres_targets_postgres16 postgres_targets_postgres15
+IUSE=static-libs postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15
 KEYWORDS=~amd64 ~x86
 LICENSE=CC0-1.0
-RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] )
-REQUIRED_USE=|| ( postgres_targets_postgres16 postgres_targets_postgres15 )
+RDEPEND=postgres_targets_postgres17? ( dev-db/postgresql:17=[server] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] )
+REQUIRED_USE=|| ( postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15 )
 SLOT=0
 SRC_URI=https://github.com/powa-team/pg_stat_kcache/archive/REL2_3_0.tar.gz -> pg_stat_kcache-2.3.0.tar.gz
-_eclasses_=multibuild	45df57b1877333d70a9e894f6c8fdb3a	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	postgres	3f864368af6c0e46196e03821025f1f5	postgres-multi	7140a1e9480de59ab4172274608bffce
+_eclasses_=multibuild	45df57b1877333d70a9e894f6c8fdb3a	out-of-source-utils	a0eb740debe3d472355e8bc52f62e0ac	postgres	9df4142e5ccc7da40ed631d5f22527ce	postgres-multi	7140a1e9480de59ab4172274608bffce
 _md5_=49fde8057ef1db790d8b0645d022860d
