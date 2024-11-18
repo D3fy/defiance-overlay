@@ -55,23 +55,13 @@ For Portage >= 2.3.8:
       The PostgreSQL Workload Analyzer web frontend
     - [redis_fdw](https://github.com/pg-redis-fdw/redis_fdw) -  [9999](/dev-db/redis_fdw/redis_fdw-9999.ebuild) -
       A PostgreSQL foreign data wrapper for Redis
-  - [dev-libs](https://packages.gentoo.org/categories/dev-libs)
-    - [ctap](https://github.com/jhunt/ctap/) -  [2.0.0](/dev-libs/ctap/ctap-2.0.0.ebuild) -
-      Test Anything Protocol (tap) for C
-    - [intel-ipsec-mb](https://github.com/intel/intel-ipsec-mb) -  [0.49](/dev-libs/intel-ipsec-mb/intel-ipsec-mb-0.49.ebuild) -
-      Multi-Buffer Crypto for IPsec Library
-    - [libmill](http://libmill.org/) -  [1.18](/dev-libs/libmill/libmill-1.18.ebuild) -
-      Go-style concurrency for C
-    - [libspooky](https://github.com/graytshirt/libspooky) -  [1.0.0](/dev-libs/libspooky/libspooky-1.0.0.ebuild) -
-      Spooky hash lib
+    - [valkey]() -  [8.0.1](/dev-db/valkey/valkey-8.0.1.ebuild) -
+      A persistent caching system, key-value, and data structures database
   - [dev-util](https://packages.gentoo.org/categories/dev-util)
     - [ostree](https://ostree.readthedocs.io/en/latest/) -  [2019.1](/dev-util/ostree/ostree-2019.1.ebuild) [2019.2](/dev-util/ostree/ostree-2019.2.ebuild) -
       Operating system and container binary deployment and upgrades
     - [packer](https://www.packer.io) -  [1.7.0](/dev-util/packer/packer-1.7.0.ebuild) -
       A tool to create identical machine images for multiple platforms
-  - [media-plugins](https://packages.gentoo.org/categories/media-plugins)
-    - [gst-plugins-vaapi](https://cgit.freedesktop.org/gstreamer/gstreamer-vaapi) -  [1.16.2](/media-plugins/gst-plugins-vaapi/gst-plugins-vaapi-1.16.2.ebuild) -
-      Hardware accelerated video decoding through VA-API plugin for GStreamer
   - [net-dns](https://packages.gentoo.org/categories/net-dns)
     - [bind-dyndb-ldap](https://pagure.io/bind-dyndb-ldap) -  [11.10](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-11.10.ebuild) [9999](/net-dns/bind-dyndb-ldap/bind-dyndb-ldap-9999.ebuild) -
       Bind DynDB LDAP backend (replacement for sdb-ldap and dlz)

@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RDEPEND=>=net-dns/bind-9.16.0[dlz] dev-libs/cyrus-sasl:= virtual/krb5
 SLOT=0
 SRC_URI=https://pagure.io/bind-dyndb-ldap/archive/v11.10/bind-dyndb-ldap-v11.10.tar.gz
-_eclasses_=autotools	88360f474e629ee45f99b739f02b7d2d	gnuconfig	f8b9cc21e72de8cbedde6ca5108d208b	libtool	f9e6905c12590c1cac06d85371a0819a	multilib	7e1347c006a76bb812f3a9f663b79991	toolchain-funcs	948855ec7ad9f11351edf9066708dfa9
+_eclasses_=autotools	7d91cc798a8afd8f4e0c6e9587296ebe	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	6b28392a775f807c8be5fc7ec9a605b9	multilib	b2a329026f2e404e9e371097dda47f96	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87
 _md5_=1716fdb942c54927abe15f64140d4c72
