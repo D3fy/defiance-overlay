@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare setup test
+DEPEND=postgres_targets_postgres17? ( dev-db/postgresql:17=[server] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[server] )
+DESCRIPTION=Open-source vector similarity search for Postgres
+EAPI=7
+HOMEPAGE=https://github.com/pgvector/pgvector
+INHERIT=postgres-multi
+IUSE=static-libs postgres_targets_postgres17 postgres_targets_postgres16
+KEYWORDS=~amd64
+LICENSE=Postgres
+RDEPEND=postgres_targets_postgres17? ( dev-db/postgresql:17=[server] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[server] )
+REQUIRED_USE=|| ( postgres_targets_postgres17 postgres_targets_postgres16 )
+SLOT=0
+SRC_URI=https://github.com/pgvector/pgvector/archive/refs/tags/v0.8.1.tar.gz -> pgvector-0.8.1.tar.gz
+_eclasses_=multibuild	4650a65187015567b4e041bb9bfdb364	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	postgres	aa74feb4d9c1e9af578d99aea36bbace	postgres-multi	ccad35d745ce66b41837db8a6ee94601
+_md5_=73ddff4f22044d98b658c5cd59d55a1c
