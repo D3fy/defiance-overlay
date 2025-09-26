@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare setup test
+DEPEND=postgres_targets_postgres17? ( dev-db/postgresql:17=[server] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[server] )
+DESCRIPTION=A Postgres extension for collecting statistics about predicate
+EAPI=7
+HOMEPAGE=https://github.com/powa-team/pg_qualstats
+INHERIT=postgres-multi
+IUSE=static-libs postgres_targets_postgres17 postgres_targets_postgres16
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=postgres_targets_postgres17? ( dev-db/postgresql:17=[server] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[server] )
+REQUIRED_USE=|| ( postgres_targets_postgres17 postgres_targets_postgres16 )
+SLOT=0
+SRC_URI=https://github.com/powa-team/pg_qualstats/archive/2.1.2.tar.gz -> pg_qualstats-2.1.2.tar.gz
+_eclasses_=multibuild	4650a65187015567b4e041bb9bfdb364	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	postgres	aa74feb4d9c1e9af578d99aea36bbace	postgres-multi	ccad35d745ce66b41837db8a6ee94601
+_md5_=923c37a27c77e005785ae6cf11ebfbca
