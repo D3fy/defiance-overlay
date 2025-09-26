@@ -33,6 +33,8 @@ For Portage >= 2.3.8:
       kafka foreign database wrapper for postresql
     - [nats_c](https://github.com/nats-io/nats.c) -  [3.8.2](/dev-db/nats_c/nats_c-3.8.2.ebuild) -
       
+    - [pgaudit](http://pgaudit.org/) -  [16.0](/dev-db/pgaudit/pgaudit-16.0.ebuild) [17.0](/dev-db/pgaudit/pgaudit-17.0.ebuild) [18.0](/dev-db/pgaudit/pgaudit-18.0.ebuild) -
+      Open Source PostgreSQL Audit Logging
     - [pg_partman](https://github.com/keithf4/pg_partman) -  [4.7.2](/dev-db/pg_partman/pg_partman-4.7.2.ebuild) -
       Postgres time and serial partitioner
     - [pg_partman](https://github.com/keithf4/pg_partman) -  -
@@ -41,8 +43,6 @@ For Portage >= 2.3.8:
       A Postgres extension for collecting statistics about predicate
     - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.2.3](/dev-db/pg_stat_kcache/pg_stat_kcache-2.2.3.ebuild) [2.3.0](/dev-db/pg_stat_kcache/pg_stat_kcache-2.3.0.ebuild) [9999](/dev-db/pg_stat_kcache/pg_stat_kcache-9999.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
-    - [pgaudit](http://pgaudit.org/) -  [16.0](/dev-db/pgaudit/pgaudit-16.0.ebuild) [17.0](/dev-db/pgaudit/pgaudit-17.0.ebuild) -
-      Open Source PostgreSQL Audit Logging
     - [pgvector](https://github.com/pgvector/pgvector) -  [0.7.2](/dev-db/pgvector/pgvector-0.7.2.ebuild) [0.7.4](/dev-db/pgvector/pgvector-0.7.4.ebuild) -
       Open-source vector similarity search for Postgres 
     - [postgresql-hll](https://github.com/citusdata/postgresql-hll) -  [2.18](/dev-db/postgresql-hll/postgresql-hll-2.18.ebuild) -
@@ -55,8 +55,6 @@ For Portage >= 2.3.8:
       The PostgreSQL Workload Analyzer web frontend
     - [redis_fdw](https://github.com/pg-redis-fdw/redis_fdw) -  [9999](/dev-db/redis_fdw/redis_fdw-9999.ebuild) -
       A PostgreSQL foreign data wrapper for Redis
-    - [valkey]() -  [8.0.1](/dev-db/valkey/valkey-8.0.1.ebuild) -
-      A persistent caching system, key-value, and data structures database
   - [dev-util](https://packages.gentoo.org/categories/dev-util)
     - [ostree](https://ostree.readthedocs.io/en/latest/) -  [2019.1](/dev-util/ostree/ostree-2019.1.ebuild) [2019.2](/dev-util/ostree/ostree-2019.2.ebuild) -
       Operating system and container binary deployment and upgrades

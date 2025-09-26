@@ -1,16 +1,16 @@
 BDEPEND=dev-libs/protobuf-c
 DEFINED_PHASES=compile install prepare setup test
-DEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] )
+DEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13=[server] )
 DESCRIPTION=Columnar store for analytics with Postgres
 EAPI=7
 HOMEPAGE=https://www.citusdata.com/
 INHERIT=postgres-multi
-IUSE=static-libs postgres_targets_postgres13 postgres_targets_postgres12
+IUSE=static-libs postgres_targets_postgres13
 KEYWORDS=~amd64 ~x86
 LICENSE=AGPL-3
-RDEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] )
-REQUIRED_USE=|| ( postgres_targets_postgres13 postgres_targets_postgres12 )
+RDEPEND=postgres_targets_postgres13? ( dev-db/postgresql:13=[server] )
+REQUIRED_USE=|| ( postgres_targets_postgres13 )
 SLOT=0
 SRC_URI=https://github.com/citusdata/cstore_fdw/archive/v1.7.0.tar.gz -> cstore_fdw-1.7.0.tar.gz
-_eclasses_=multibuild	4650a65187015567b4e041bb9bfdb364	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	postgres	2ad3e67607a9b24fe6973ddf464c5258	postgres-multi	ccad35d745ce66b41837db8a6ee94601
+_eclasses_=multibuild	4650a65187015567b4e041bb9bfdb364	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	postgres	aa74feb4d9c1e9af578d99aea36bbace	postgres-multi	ccad35d745ce66b41837db8a6ee94601
 _md5_=5fa127e4067f25969ed58c240302b57c

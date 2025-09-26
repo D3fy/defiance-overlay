@@ -1,15 +1,13 @@
 DEFINED_PHASES=compile install prepare setup test
-DEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] )
 DESCRIPTION=Open Source PostgreSQL Audit Logging
 EAPI=7
 HOMEPAGE=http://pgaudit.org/
 INHERIT=postgres-multi multilib
-IUSE=static-libs postgres_targets_postgres16
+IUSE=static-libs
 KEYWORDS=~amd64 ~x86
 LICENSE=CC0-1.0
-RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] )
-REQUIRED_USE=|| ( postgres_targets_postgres16 )
-SLOT=16
-SRC_URI=https://github.com/pgaudit/pgaudit/archive/refs/tags/16.0.tar.gz -> pgaudit-16.0.tar.gz
+REQUIRED_USE=|| ( )
+SLOT=18
+SRC_URI=https://github.com/pgaudit/pgaudit/archive/refs/tags/18.0.tar.gz -> pgaudit-18.0.tar.gz
 _eclasses_=multibuild	4650a65187015567b4e041bb9bfdb364	multilib	a199af442898963433d6f038a88cce9c	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	postgres	aa74feb4d9c1e9af578d99aea36bbace	postgres-multi	ccad35d745ce66b41837db8a6ee94601	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
-_md5_=3d299845e60b756b6cc02fdc599e603d
+_md5_=b124bc32406022e79c2c63a03accdffb

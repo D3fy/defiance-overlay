@@ -10,5 +10,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/Module-Build-Tiny virtual/perl-Digest-MD5 virtual/perl-Digest-SHA >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 SLOT=0
-_eclasses_=multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	toolchain-funcs	d3d42b22a610ce81c267b644bcec9b87
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	perl-module	41920449ca174fe9b9b303dfcbdb37a3	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
 _md5_=b4580651c5869ad76b1e18a25fed6de1
