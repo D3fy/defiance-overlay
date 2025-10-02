@@ -43,7 +43,7 @@ For Portage >= 2.3.8:
       Postgres time and serial partitioner
     - [pg_qualstats](https://github.com/powa-team/pg_qualstats) -  [2.1.0](/dev-db/pg_qualstats/pg_qualstats-2.1.0.ebuild) [2.1.1](/dev-db/pg_qualstats/pg_qualstats-2.1.1.ebuild) [2.1.2](/dev-db/pg_qualstats/pg_qualstats-2.1.2.ebuild) -
       A Postgres extension for collecting statistics about predicate
-    - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.2.3](/dev-db/pg_stat_kcache/pg_stat_kcache-2.2.3.ebuild) [2.3.0](/dev-db/pg_stat_kcache/pg_stat_kcache-2.3.0.ebuild) [9999](/dev-db/pg_stat_kcache/pg_stat_kcache-9999.ebuild) -
+    - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) -  [2.2.3](/dev-db/pg_stat_kcache/pg_stat_kcache-2.2.3.ebuild) [2.3.0](/dev-db/pg_stat_kcache/pg_stat_kcache-2.3.0.ebuild) [2.3.1](/dev-db/pg_stat_kcache/pg_stat_kcache-2.3.1.ebuild) [9999](/dev-db/pg_stat_kcache/pg_stat_kcache-9999.ebuild) -
       Gather statistics about disk access and CPU consumption done by backends
     - [pgvector](https://github.com/pgvector/pgvector) -  [0.7.2](/dev-db/pgvector/pgvector-0.7.2.ebuild) [0.7.4](/dev-db/pgvector/pgvector-0.7.4.ebuild) [0.8.1](/dev-db/pgvector/pgvector-0.8.1.ebuild) -
       Open-source vector similarity search for Postgres 

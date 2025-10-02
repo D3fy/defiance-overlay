@@ -12,5 +12,5 @@ PROPERTIES=live
 RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) dev-libs/hiredis
 REQUIRED_USE=|| ( postgres_targets_postgres16 )
 SLOT=0
-_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	multibuild	4650a65187015567b4e041bb9bfdb364	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	postgres	aa74feb4d9c1e9af578d99aea36bbace	postgres-multi	ccad35d745ce66b41837db8a6ee94601
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	multibuild	4650a65187015567b4e041bb9bfdb364	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	postgres	3671a84f95eadcaa836aefe3fd51b6a1	postgres-multi	ccad35d745ce66b41837db8a6ee94601
 _md5_=3c4bf5dbda341507145aa4c05581d990
