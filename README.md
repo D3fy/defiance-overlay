@@ -33,7 +33,7 @@ For Portage >= 2.3.8:
       kafka foreign database wrapper for postresql
     - [libvalkey](https://github.com/valkey-io/libvalkey) -  [0.2.1](/dev-db/libvalkey/libvalkey-0.2.1.ebuild) -
       Valkey client library in C
-    - [nats_c](https://github.com/nats-io/nats.c) -  [3.10.1](/dev-db/nats_c/nats_c-3.10.1.ebuild) [3.8.2](/dev-db/nats_c/nats_c-3.8.2.ebuild) -
+    - [nats_c](https://github.com/nats-io/nats.c) -  [3.10.1](/dev-db/nats_c/nats_c-3.10.1.ebuild) [3.11.0](/dev-db/nats_c/nats_c-3.11.0.ebuild) [3.8.2](/dev-db/nats_c/nats_c-3.8.2.ebuild) -
       
     - [pgaudit](http://pgaudit.org/) -  [16.0](/dev-db/pgaudit/pgaudit-16.0.ebuild) [17.0](/dev-db/pgaudit/pgaudit-17.0.ebuild) [18.0](/dev-db/pgaudit/pgaudit-18.0.ebuild) -
       Open Source PostgreSQL Audit Logging
